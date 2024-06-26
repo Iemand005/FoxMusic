@@ -31,6 +31,7 @@
 		0A2BFEEA2C2C44460009ADAD /* FoxMusicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2BFEE92C2C44460009ADAD /* FoxMusicTests.m */; };
 		0A2BFEF42C2C452A0009ADAD /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2BFEF32C2C452A0009ADAD /* MediaPlayer.framework */; };
 		0A502F582C2C560D00EA1CAE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A502F572C2C560D00EA1CAE /* AVFoundation.framework */; };
+		0A70976A2C2C8481003AF44A /* FMHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7097692C2C8481003AF44A /* FMHTTPServer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		0A2BFEE92C2C44460009ADAD /* FoxMusicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoxMusicTests.m; sourceTree = "<group>"; };
 		0A2BFEF32C2C452A0009ADAD /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		0A502F572C2C560D00EA1CAE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0A7097682C2C8481003AF44A /* FMHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMHTTPServer.h; sourceTree = "<group>"; };
+		0A7097692C2C8481003AF44A /* FMHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMHTTPServer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,8 @@
 				0A2BFED22C2C44460009ADAD /* second.png */,
 				0A2BFED42C2C44460009ADAD /* second@2x.png */,
 				0A2BFEB12C2C44450009ADAD /* Supporting Files */,
+				0A7097682C2C8481003AF44A /* FMHTTPServer.h */,
+				0A7097692C2C8481003AF44A /* FMHTTPServer.m */,
 			);
 			path = FoxMusic;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 				0A2BFEBB2C2C44450009ADAD /* FMAppDelegate.m in Sources */,
 				0A2BFECA2C2C44450009ADAD /* FMFirstViewController.m in Sources */,
 				0A2BFED12C2C44460009ADAD /* FMSecondViewController.m in Sources */,
+				0A70976A2C2C8481003AF44A /* FMHTTPServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,4 +10,9 @@
 
 @interface FMSecondViewController : UIViewController
 
+- (IBAction)logIn:(id)sender;
+
+@property IBOutlet UITextField *username;
+@property IBOutlet UITextField *password;
+
 @end
