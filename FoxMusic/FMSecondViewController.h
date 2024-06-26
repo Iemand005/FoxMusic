@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FMSecondViewController : UIViewController
+@interface FMSecondViewController : UIViewController <UIWebViewDelegate>
 
 - (IBAction)logIn:(id)sender;
 
 @property IBOutlet UITextField *username;
 @property IBOutlet UITextField *password;
+
+@property IBOutlet UIWebView *webView;
 
 @end

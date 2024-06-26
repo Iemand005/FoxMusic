@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FMFirstViewController : UIViewController
+@interface FMFirstViewController : UIViewController <UIDocumentInteractionControllerDelegate>
+
+- (IBAction)installCertificates:(id)sender;
+
+@property (strong, nonatomic) UIDocumentInteractionController *documentInteractionController;
 
 @end

@@ -30,6 +30,8 @@
 		0A2BFEE72C2C44460009ADAD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A2BFEE52C2C44460009ADAD /* InfoPlist.strings */; };
 		0A2BFEEA2C2C44460009ADAD /* FoxMusicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2BFEE92C2C44460009ADAD /* FoxMusicTests.m */; };
 		0A2BFEF42C2C452A0009ADAD /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2BFEF32C2C452A0009ADAD /* MediaPlayer.framework */; };
+		0A3ABD6F2C2CA7BF009BF936 /* DigiCert_Global_Root_G2.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0A3ABD6C2C2CA50D009BF936 /* DigiCert_Global_Root_G2.pem */; };
+		0A3ABD702C2CA7BF009BF936 /* DigiCert_Global_G2_TLS_RSA_SHA256_2020_CA1.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0A3ABD6A2C2CA503009BF936 /* DigiCert_Global_G2_TLS_RSA_SHA256_2020_CA1.pem */; };
 		0A502F582C2C560D00EA1CAE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A502F572C2C560D00EA1CAE /* AVFoundation.framework */; };
 		0A70976A2C2C8481003AF44A /* FMHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7097692C2C8481003AF44A /* FMHTTPServer.m */; };
 		0A70976E2C2C868E003AF44A /* FMURLQueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A70976D2C2C868E003AF44A /* FMURLQueryBuilder.m */; };
@@ -76,6 +78,8 @@
 		0A2BFEE82C2C44460009ADAD /* FoxMusicTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoxMusicTests.h; sourceTree = "<group>"; };
 		0A2BFEE92C2C44460009ADAD /* FoxMusicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoxMusicTests.m; sourceTree = "<group>"; };
 		0A2BFEF32C2C452A0009ADAD /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		0A3ABD6A2C2CA503009BF936 /* DigiCert_Global_G2_TLS_RSA_SHA256_2020_CA1.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DigiCert_Global_G2_TLS_RSA_SHA256_2020_CA1.pem; sourceTree = "<group>"; };
+		0A3ABD6C2C2CA50D009BF936 /* DigiCert_Global_Root_G2.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DigiCert_Global_Root_G2.pem; sourceTree = "<group>"; };
 		0A502F572C2C560D00EA1CAE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		0A7097682C2C8481003AF44A /* FMHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMHTTPServer.h; sourceTree = "<group>"; };
 		0A7097692C2C8481003AF44A /* FMHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMHTTPServer.m; sourceTree = "<group>"; };
@@ -112,7 +116,6 @@
 		0A2BFE9E2C2C44450009ADAD = {
 			isa = PBXGroup;
 			children = (
-				0A502F572C2C560D00EA1CAE /* AVFoundation.framework */,
 				0A2BFEB02C2C44450009ADAD /* FoxMusic */,
 				0A2BFEE22C2C44460009ADAD /* FoxMusicTests */,
 				0A2BFEA92C2C44450009ADAD /* Frameworks */,
@@ -132,6 +135,7 @@
 		0A2BFEA92C2C44450009ADAD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0A502F572C2C560D00EA1CAE /* AVFoundation.framework */,
 				0A2BFEF32C2C452A0009ADAD /* MediaPlayer.framework */,
 				0A2BFEAA2C2C44450009ADAD /* UIKit.framework */,
 				0A2BFEAC2C2C44450009ADAD /* Foundation.framework */,
@@ -165,6 +169,7 @@
 		0A2BFEB12C2C44450009ADAD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0A3ABD6E2C2CA51A009BF936 /* Certificates */,
 				0A2BFEB22C2C44450009ADAD /* FoxMusic-Info.plist */,
 				0A2BFEB32C2C44450009ADAD /* InfoPlist.strings */,
 				0A2BFEB62C2C44450009ADAD /* main.m */,
@@ -193,6 +198,15 @@
 				0A2BFEE52C2C44460009ADAD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0A3ABD6E2C2CA51A009BF936 /* Certificates */ = {
+			isa = PBXGroup;
+			children = (
+				0A3ABD6C2C2CA50D009BF936 /* DigiCert_Global_Root_G2.pem */,
+				0A3ABD6A2C2CA503009BF936 /* DigiCert_Global_G2_TLS_RSA_SHA256_2020_CA1.pem */,
+			);
+			name = Certificates;
 			sourceTree = "<group>";
 		};
 		0A70976B2C2C8656003AF44A /* FMNetLib */ = {
@@ -278,6 +292,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A3ABD6F2C2CA7BF009BF936 /* DigiCert_Global_Root_G2.pem in Resources */,
+				0A3ABD702C2CA7BF009BF936 /* DigiCert_Global_G2_TLS_RSA_SHA256_2020_CA1.pem in Resources */,
 				0A2BFEB52C2C44450009ADAD /* InfoPlist.strings in Resources */,
 				0A2BFEBD2C2C44450009ADAD /* Default.png in Resources */,
 				0A2BFEBF2C2C44450009ADAD /* Default@2x.png in Resources */,

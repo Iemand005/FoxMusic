@@ -72,7 +72,7 @@
     NSLog(@"dures: %i, %@", duration, error.localizedDescription);
 //    [MPMediaQuery ]
     
-    NSString *query = [FMURLQueryBuilder QueryFromDictionary:@{@"carfottel": @"scheit", @"mou&lijk?":@"kak=er"}];
+    NSString *query = [FMURLQueryBuilder queryFromDictionary:@{@"carfottel": @"scheit", @"mou&lijk?":@"kak=er"}];
     NSLog(@"teqst qyers+ : %@", query);
 }
 
@@ -80,6 +80,20 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)installCertificates:(id)sender
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"DigiCert_Global_Root_G2" ofType:@"pem"];
+    NSURL *url = [NSURL fileURLWithPath:path];
+    
+    self.documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:url];
+    
+    self.documentInteractionController.delegate = self;
+    
+    [self.documentInteractionController presentOptionsMenuFromRect:self.view.bounds inView:self.view animated:YES];
+    
+    
 }
 
 @end

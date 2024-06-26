@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FMURLQueryBuilder : NSObject
+@interface FMURLQueryBuilder : NSDictionary
 
-+ (NSString *)QueryFromDictionary:(NSDictionary *)dictionary;
-+ (NSString *)URLEncodeString:(NSString *)string;
++ (NSString *)queryFromDictionary:(NSDictionary *)dictionary;
++ (NSString *)urlEncodeString:(NSString *)string;
++ (NSString *)addQueryToURLString:(NSString *)string query:(NSDictionary *)query;
++ (NSString *)addQueryToURL:(NSURL *)url query:(NSDictionary *)query;
+
 
 @end
