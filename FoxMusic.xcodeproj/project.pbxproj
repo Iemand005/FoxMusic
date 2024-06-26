@@ -30,6 +30,7 @@
 		0A2BFEE72C2C44460009ADAD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A2BFEE52C2C44460009ADAD /* InfoPlist.strings */; };
 		0A2BFEEA2C2C44460009ADAD /* FoxMusicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2BFEE92C2C44460009ADAD /* FoxMusicTests.m */; };
 		0A2BFEF42C2C452A0009ADAD /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2BFEF32C2C452A0009ADAD /* MediaPlayer.framework */; };
+		0A502F582C2C560D00EA1CAE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A502F572C2C560D00EA1CAE /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		0A2BFEE82C2C44460009ADAD /* FoxMusicTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoxMusicTests.h; sourceTree = "<group>"; };
 		0A2BFEE92C2C44460009ADAD /* FoxMusicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoxMusicTests.m; sourceTree = "<group>"; };
 		0A2BFEF32C2C452A0009ADAD /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		0A502F572C2C560D00EA1CAE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A502F582C2C560D00EA1CAE /* AVFoundation.framework in Frameworks */,
 				0A2BFEF42C2C452A0009ADAD /* MediaPlayer.framework in Frameworks */,
 				0A2BFEAB2C2C44450009ADAD /* UIKit.framework in Frameworks */,
 				0A2BFEAD2C2C44450009ADAD /* Foundation.framework in Frameworks */,
@@ -103,6 +106,7 @@
 		0A2BFE9E2C2C44450009ADAD = {
 			isa = PBXGroup;
 			children = (
+				0A502F572C2C560D00EA1CAE /* AVFoundation.framework */,
 				0A2BFEB02C2C44450009ADAD /* FoxMusic */,
 				0A2BFEE22C2C44460009ADAD /* FoxMusicTests */,
 				0A2BFEA92C2C44450009ADAD /* Frameworks */,
@@ -425,12 +429,12 @@
 		0A2BFEEE2C2C44460009ADAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoxMusic/FoxMusic-Prefix.pch";
 				INFOPLIST_FILE = "FoxMusic/FoxMusic-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3CA1BF54-EBD8-463A-99D6-148E588A2032";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -438,12 +442,12 @@
 		0A2BFEEF2C2C44460009ADAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoxMusic/FoxMusic-Prefix.pch";
 				INFOPLIST_FILE = "FoxMusic/FoxMusic-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3CA1BF54-EBD8-463A-99D6-148E588A2032";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -501,6 +505,7 @@
 				0A2BFEEF2C2C44460009ADAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A2BFEF02C2C44460009ADAD /* Build configuration list for PBXNativeTarget "FoxMusicTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +514,7 @@
 				0A2BFEF22C2C44460009ADAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

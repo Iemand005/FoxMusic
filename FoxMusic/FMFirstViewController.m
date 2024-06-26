@@ -8,6 +8,7 @@
 
 #import "FMFirstViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface FMFirstViewController ()
 
@@ -39,9 +40,10 @@
     NSLog(@"song title: %@", [mediaItem valueForProperty:MPMediaItemPropertyTitle]);
     
     [musicPlayer setQueueWithQuery:albumsQuery];
+//    [musicplayer set]
     [musicPlayer setNowPlayingItem:mediaItem];
     
-    [musicPlayer play];
+    //[musicPlayer play];
     
     [musicPlayer setVolume:1];
     
@@ -51,6 +53,22 @@
     
     MPMediaLibrary *library = [MPMediaLibrary defaultMediaLibrary];
     
+    NSURL *testFile = [NSURL URLWithString:@"/System/Library/Audio/UISounds"];
+    
+    NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[testFile path] error:nil];
+    
+    NSString *fullPath = [testFile.path stringByAppendingPathComponent:files.lastObject];
+    NSLog(@"amount: %i, object: %@", files.count, fullPath);
+    
+    NSError *error;
+    
+    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:fullPath] error:&error];
+    [audioPlayer prepareToPlay];
+    [audioPlayer play];
+    
+    int duration = [audioPlayer duration];
+    
+    NSLog(@"dures: %i, %@", duration, error.localizedDescription);
 //    [MPMediaQuery ]
 }
 
