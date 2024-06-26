@@ -32,6 +32,9 @@
 		0A2BFEF42C2C452A0009ADAD /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2BFEF32C2C452A0009ADAD /* MediaPlayer.framework */; };
 		0A3ABD6F2C2CA7BF009BF936 /* DigiCert_Global_Root_G2.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0A3ABD6C2C2CA50D009BF936 /* DigiCert_Global_Root_G2.pem */; };
 		0A3ABD702C2CA7BF009BF936 /* DigiCert_Global_G2_TLS_RSA_SHA256_2020_CA1.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0A3ABD6A2C2CA503009BF936 /* DigiCert_Global_G2_TLS_RSA_SHA256_2020_CA1.pem */; };
+		0A3ABD732C2CC24E009BF936 /* FMSpotifyAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3ABD722C2CC24E009BF936 /* FMSpotifyAuthenticator.m */; };
+		0A3ABD772C2CC75B009BF936 /* FMSpotifyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3ABD762C2CC75B009BF936 /* FMSpotifyClient.m */; };
+		0A3ABD7A2C2CCB02009BF936 /* FMMutableURLQueryDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3ABD792C2CCB02009BF936 /* FMMutableURLQueryDictionary.m */; };
 		0A502F582C2C560D00EA1CAE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A502F572C2C560D00EA1CAE /* AVFoundation.framework */; };
 		0A70976A2C2C8481003AF44A /* FMHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7097692C2C8481003AF44A /* FMHTTPServer.m */; };
 		0A70976E2C2C868E003AF44A /* FMURLQueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A70976D2C2C868E003AF44A /* FMURLQueryBuilder.m */; };
@@ -80,6 +83,12 @@
 		0A2BFEF32C2C452A0009ADAD /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		0A3ABD6A2C2CA503009BF936 /* DigiCert_Global_G2_TLS_RSA_SHA256_2020_CA1.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DigiCert_Global_G2_TLS_RSA_SHA256_2020_CA1.pem; sourceTree = "<group>"; };
 		0A3ABD6C2C2CA50D009BF936 /* DigiCert_Global_Root_G2.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DigiCert_Global_Root_G2.pem; sourceTree = "<group>"; };
+		0A3ABD712C2CC24E009BF936 /* FMSpotifyAuthenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyAuthenticator.h; sourceTree = "<group>"; };
+		0A3ABD722C2CC24E009BF936 /* FMSpotifyAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyAuthenticator.m; sourceTree = "<group>"; };
+		0A3ABD752C2CC75B009BF936 /* FMSpotifyClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyClient.h; sourceTree = "<group>"; };
+		0A3ABD762C2CC75B009BF936 /* FMSpotifyClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyClient.m; sourceTree = "<group>"; };
+		0A3ABD782C2CCB02009BF936 /* FMMutableURLQueryDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMMutableURLQueryDictionary.h; sourceTree = "<group>"; };
+		0A3ABD792C2CCB02009BF936 /* FMMutableURLQueryDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMMutableURLQueryDictionary.m; sourceTree = "<group>"; };
 		0A502F572C2C560D00EA1CAE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		0A7097682C2C8481003AF44A /* FMHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMHTTPServer.h; sourceTree = "<group>"; };
 		0A7097692C2C8481003AF44A /* FMHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMHTTPServer.m; sourceTree = "<group>"; };
@@ -160,6 +169,7 @@
 				0A2BFED02C2C44460009ADAD /* FMSecondViewController.m */,
 				0A2BFED22C2C44460009ADAD /* second.png */,
 				0A2BFED42C2C44460009ADAD /* second@2x.png */,
+				0A3ABD742C2CC254009BF936 /* FMSpotifyLib */,
 				0A70976B2C2C8656003AF44A /* FMNetLib */,
 				0A2BFEB12C2C44450009ADAD /* Supporting Files */,
 			);
@@ -209,6 +219,17 @@
 			name = Certificates;
 			sourceTree = "<group>";
 		};
+		0A3ABD742C2CC254009BF936 /* FMSpotifyLib */ = {
+			isa = PBXGroup;
+			children = (
+				0A3ABD712C2CC24E009BF936 /* FMSpotifyAuthenticator.h */,
+				0A3ABD722C2CC24E009BF936 /* FMSpotifyAuthenticator.m */,
+				0A3ABD752C2CC75B009BF936 /* FMSpotifyClient.h */,
+				0A3ABD762C2CC75B009BF936 /* FMSpotifyClient.m */,
+			);
+			name = FMSpotifyLib;
+			sourceTree = "<group>";
+		};
 		0A70976B2C2C8656003AF44A /* FMNetLib */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +237,8 @@
 				0A7097692C2C8481003AF44A /* FMHTTPServer.m */,
 				0A70976C2C2C868E003AF44A /* FMURLQueryBuilder.h */,
 				0A70976D2C2C868E003AF44A /* FMURLQueryBuilder.m */,
+				0A3ABD782C2CCB02009BF936 /* FMMutableURLQueryDictionary.h */,
+				0A3ABD792C2CCB02009BF936 /* FMMutableURLQueryDictionary.m */,
 			);
 			name = FMNetLib;
 			sourceTree = "<group>";
@@ -344,6 +367,9 @@
 				0A2BFED12C2C44460009ADAD /* FMSecondViewController.m in Sources */,
 				0A70976A2C2C8481003AF44A /* FMHTTPServer.m in Sources */,
 				0A70976E2C2C868E003AF44A /* FMURLQueryBuilder.m in Sources */,
+				0A3ABD732C2CC24E009BF936 /* FMSpotifyAuthenticator.m in Sources */,
+				0A3ABD772C2CC75B009BF936 /* FMSpotifyClient.m in Sources */,
+				0A3ABD7A2C2CCB02009BF936 /* FMMutableURLQueryDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
