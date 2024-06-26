@@ -29,6 +29,7 @@
 		0A2BFEDF2C2C44460009ADAD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2BFEAC2C2C44450009ADAD /* Foundation.framework */; };
 		0A2BFEE72C2C44460009ADAD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A2BFEE52C2C44460009ADAD /* InfoPlist.strings */; };
 		0A2BFEEA2C2C44460009ADAD /* FoxMusicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2BFEE92C2C44460009ADAD /* FoxMusicTests.m */; };
+		0A2BFEF42C2C452A0009ADAD /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2BFEF32C2C452A0009ADAD /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		0A2BFEE62C2C44460009ADAD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0A2BFEE82C2C44460009ADAD /* FoxMusicTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoxMusicTests.h; sourceTree = "<group>"; };
 		0A2BFEE92C2C44460009ADAD /* FoxMusicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoxMusicTests.m; sourceTree = "<group>"; };
+		0A2BFEF32C2C452A0009ADAD /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A2BFEF42C2C452A0009ADAD /* MediaPlayer.framework in Frameworks */,
 				0A2BFEAB2C2C44450009ADAD /* UIKit.framework in Frameworks */,
 				0A2BFEAD2C2C44450009ADAD /* Foundation.framework in Frameworks */,
 				0A2BFEAF2C2C44450009ADAD /* CoreGraphics.framework in Frameworks */,
@@ -119,6 +122,7 @@
 		0A2BFEA92C2C44450009ADAD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0A2BFEF32C2C452A0009ADAD /* MediaPlayer.framework */,
 				0A2BFEAA2C2C44450009ADAD /* UIKit.framework */,
 				0A2BFEAC2C2C44450009ADAD /* Foundation.framework */,
 				0A2BFEAE2C2C44450009ADAD /* CoreGraphics.framework */,
@@ -369,6 +373,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -384,6 +389,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "95701117-BDA6-4F7C-83ED-4C88D97B0A12";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -401,6 +407,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -418,6 +425,8 @@
 		0A2BFEEE2C2C44460009ADAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoxMusic/FoxMusic-Prefix.pch";
 				INFOPLIST_FILE = "FoxMusic/FoxMusic-Info.plist";
@@ -429,6 +438,8 @@
 		0A2BFEEF2C2C44460009ADAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoxMusic/FoxMusic-Prefix.pch";
 				INFOPLIST_FILE = "FoxMusic/FoxMusic-Info.plist";

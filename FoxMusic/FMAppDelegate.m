@@ -7,6 +7,7 @@
 //
 
 #import "FMAppDelegate.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @implementation FMAppDelegate
 
