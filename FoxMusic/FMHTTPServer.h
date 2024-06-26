@@ -10,4 +10,10 @@
 
 @interface FMHTTPServer : NSObject
 
+- (void)start;
+
+@property int port;
+
++ httpServerWithPort:(int)port;
+
 @end

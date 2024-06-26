@@ -9,6 +9,7 @@
 #import "FMFirstViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
+#import "FMURLQueryBuilder.h"
 
 @interface FMFirstViewController ()
 
@@ -70,6 +71,9 @@
     
     NSLog(@"dures: %i, %@", duration, error.localizedDescription);
 //    [MPMediaQuery ]
+    
+    NSString *query = [FMURLQueryBuilder QueryFromDictionary:@{@"carfottel": @"scheit", @"mou&lijk?":@"kak=er"}];
+    NSLog(@"teqst qyers+ : %@", query);
 }
 
 - (void)didReceiveMemoryWarning
