@@ -10,6 +10,15 @@
 
 @implementation FMMutableURLQueryDictionary
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _dictionary = [[NSMutableDictionary alloc] init];
+    }
+    return self;
+}
+
 - (NSString *)urlString
 {
     NSMutableArray *keyValuePairs = [NSMutableArray arrayWithCapacity:_dictionary.count];
@@ -27,7 +36,7 @@
 
 - (NSString *)urlEncodeString:(NSString *)string
 {
-    return CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (__bridge CFStringRef)string, NULL, CFSTR("!*'\"();:@&=+$,/?%#[]%~_-., "), kCFStringEncodingUTF8));
+    return CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (__bridge CFStringRef)string, NULL, CFSTR("!*'\"();:@&=+$,/?%#[]%~-., "), kCFStringEncodingUTF8));
 }
 
 - (void)addEntriesFromDictionary:(NSDictionary *)dictionary

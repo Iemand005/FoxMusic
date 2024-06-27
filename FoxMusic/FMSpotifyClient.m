@@ -36,31 +36,39 @@
     if (self) {
         self.clientId = @"756a522d9f1648b89e76e80be654456a";
         
-        NSString *baseAddress = @"http://accounts.spotify.com";
+        NSString *baseAddress = @"https://accounts.spotify.com";
         NSString *authorizeDeviceEndpoint = @"oauth2/device/authorize";
         NSString *tokenEndpoint = @"api/token";
         
         self.baseAddress = [NSURL URLWithString:baseAddress];
-        self.authorizeDeviceEndpoint = [NSURL URLWithString:[baseAddress stringByAppendingPathComponent:authorizeDeviceEndpoint]];
-        self.tokenEndpoint = [NSURL URLWithString:[baseAddress stringByAppendingPathComponent:tokenEndpoint]];
-        
-//        [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"*.spotify.com"];
-//        [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"accounts.spotify.com"];
-//        [NSMutableURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"*.spotify.com"];
-//        [NSMutableURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"accounts.spotify.com"];
+        self.authorizeDeviceEndpoint = [self.baseAddress URLByAppendingPathComponent:authorizeDeviceEndpoint];
+        self.tokenEndpoint = [self.baseAddress URLByAppendingPathComponent:tokenEndpoint];
     }
     return self;
 }
 
 - (NSDictionary *)request:(NSURL *)url withBody:(NSDictionary *)requestBody
 {
-//    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"*.spotify.com"];
-//    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"accounts.spotify.com"];
-//    [NSMutableURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"*.spotify.com"];
-//    [NSMutableURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"accounts.spotify.com"];
-//    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"*.spotify.com"];
-//    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"accounts.spotify.com"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    NSString *limitedInputEndrdpoid = @"https://accounts.spotify.com/oauth2/device/authorize";
+    NSMutableURLRequest *requasft = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:limitedInputEndrdpoid]];
+    
+    [requasft setHTTPMethod:@"POST"];
+    [requasft setHTTPBody:[@"client_id=756a522d9f1648b89e76e80be654456a&scope=streaming" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [requasft addValue:@"42" forHTTPHeaderField:@"Content-Length"];
+    [requasft addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    NSError *errford;
+    NSURLResponse *respansee;
+    NSData *responsfible = [NSURLConnection sendSynchronousRequest:requasft returningResponse:&respansee error:&errford];
+    
+    NSString *responsibledatars = [[NSString alloc ] initWithData:responsfible encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"I ate your footbo nI cannot undertsadn thiese chitpansee ece: %@, %@", responsibledatars, errford.localizedDescription);
+    
+    NSLog(@"THE SHIT URL %@ and the good %@", url, [NSURL URLWithString:limitedInputEndrdpoid]);
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:limitedInputEndrdpoid]];
     
     [request setHTTPMethod:@"POST"];
     
@@ -69,9 +77,14 @@
     
     [body addEntriesFromDictionary:defaultBody];
     [body addEntriesFromDictionary:requestBody];
-    [request setHTTPBody:[body urlEncodedData]];
+    NSData *bodyData = [@"client_id=756a522d9f1648b89e76e80be654456a&scope=streaming" dataUsingEncoding:NSUTF8StringEncoding];
+//    [request setHTTPBody:[body urlEncodedData]];
+    [request setHTTPBody:bodyData];
     
-    [request addValue:@(request.HTTPBody.length).stringValue forHTTPHeaderField:@"Content-Length"];
+    NSLog(@"sending data: %@", [body urlString]);
+    
+//    [request addValue:@(request.HTTPBody.length).stringValue forHTTPHeaderField:@"Content-Length"];
+    [requasft addValue:@"42" forHTTPHeaderField:@"Content-Length"];
     [request addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     
     NSError *error;
@@ -89,22 +102,6 @@
         [self showError:error];
     }
     
-//    NSString *limitedInputEndrdpoid = @"https://accounts.spotify.com/oauth2/device/authorize";
-//    NSMutableURLRequest *requasft = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:limitedInputEndrdpoid]];
-//    
-//    [requasft setHTTPMethod:@"POST"];
-//    [requasft setHTTPBody:[@"client_id=756a522d9f1648b89e76e80be654456a&scope=streaming" dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    [requasft addValue:@"42" forHTTPHeaderField:@"Content-Length"];
-//    [requasft addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-//    
-//    NSError *errford;
-//    NSURLResponse *respansee;
-//    NSData *responsfible = [NSURLConnection sendSynchronousRequest:requasft returningResponse:&respansee error:&errford];
-//    
-//    NSString *responsibledatars = [[NSString alloc ] initWithData:responsfible encoding:NSUTF8StringEncoding];
-//    
-//    NSLog(@"I ate your footbo nI cannot undertsadn thiese chitpansee ece: %@, %@", responsibledatars, errford.localizedDescription);
     
     return [NSDictionary dictionary];
 }
