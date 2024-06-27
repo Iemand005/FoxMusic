@@ -8,9 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FMMutableURLQueryDictionary : NSMutableDictionary
+@interface FMMutableURLQueryDictionary : NSObject
+{
+    NSMutableDictionary *_dictionary;
+}
 
 - (NSString *)urlString;
 - (NSData *)urlEncodedData;
+
+- (id)initWithCapacity:(NSUInteger)numItems;
+
+- (void)addEntriesFromDictionary:(NSDictionary *)dictionary;
+
++ (FMMutableURLQueryDictionary *)urlQueryDictionary;
 
 @end

@@ -11,16 +11,15 @@
 #import "FMHTTPServer.h"
 #import "FMURLQueryBuilder.h"
 #import "FMSpotifyClient.h"
-#import "FMSpotifyAuthenticator.m"
 
 @interface FMSecondViewController ()
 
 @end
 
-@interface NSURLRequest (DummyInterface)
-+ (BOOL)allowsAnyHTTPSCertificateForHost:(NSString *)host;
-+ (void)setAllowsAnyHTTPSCertificate:(BOOL)allow forHost:(NSString *)host;
-@end
+//@interface NSURLRequest (DummyInterface)
+//+ (BOOL)allowsAnyHTTPSCertificateForHost:(NSString *)host;
+//+ (void)setAllowsAnyHTTPSCertificate:(BOOL)allow forHost:(NSString *)host;
+//@end
 
 @implementation FMSecondViewController
 
@@ -38,6 +37,25 @@
 
 - (void)logIn:(id)sender
 {
+    NSString *limitedInputEndrdpoid = @"https://accounts.spotify.com/oauth2/device/authorize";
+    NSMutableURLRequest *requasft = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:limitedInputEndrdpoid]];
+    
+    [requasft setHTTPMethod:@"POST"];
+    [requasft setHTTPBody:[@"client_id=756a522d9f1648b89e76e80be654456a&scope=streaming" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [requasft addValue:@"42" forHTTPHeaderField:@"Content-Length"];
+    [requasft addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    NSError *errford;
+    NSURLResponse *respansee;
+    NSData *responsfible = [NSURLConnection sendSynchronousRequest:requasft returningResponse:&respansee error:&errford];
+    
+    NSString *responsibledatars = [[NSString alloc ] initWithData:responsfible encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"I ate your footbo nece: %@, %@", responsibledatars, errford.localizedDescription);
+    
+    //    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"*.spotify.com"];
+    //    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"accounts.spotify.com"];
     
     FMSpotifyClient *spotifyClient = [FMSpotifyClient spotifyClient];
     
@@ -47,32 +65,33 @@
         NSLog(@"user code: %@", [deviceAuthorizationInfo userCode]);
     NSLog(@"url: %@", [deviceAuthorizationInfo verificationURL]);
     
-//    NSString *spotifyAccountsURL = @"https://accounts.spotify.com/login/password";
-//    NSString *spotifyAuthorizeEndpoint = @"https://accounts.spotify.com/authorize";
+    NSString *spotifyAccountsURL = @"https://accounts.spotify.com/login/password";
+    NSString *spotifyAuthorizeEndpoint = @"https://accounts.spotify.com/authorize";
 //    NSString *limitedInputEndrpoid = @"http://accounts.spotify.com/api/device/code";
-//    NSString *spotifyClientID = @"a7613f878e5a432ba2e0bd342b93085e";
-//    
+    NSString *limitedInputEndrpoid = @"https://accounts.spotify.com/oauth2/device/authorize";
+    NSString *spotifyClientID = @"a7613f878e5a432ba2e0bd342b93085e";
+    
 //    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"*.spotify.com"];
 //    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"accounts.spotify.com"];
-//    NSMutableURLRequest *requast = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:limitedInputEndrpoid]];
-//    
-//    [requast setHTTPMethod:@"POST"];
-////    [requast setHTTPBody:[[FMURLQueryBuilder queryFromDictionary:@{@"client_id": spotifyClientID}] dataUsingEncoding:NSUTF8StringEncoding]];
-//    [requast setHTTPBody:[@"client_id=a7613f878e5a432ba2e0bd342b93085e" dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    [requast addValue:@"42" forHTTPHeaderField:@"Content-Length"];
-//    [requast addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-//    
-//    NSError *errord;
-//    NSURLResponse *respanse;
-//    NSData *responsible = [NSURLConnection sendSynchronousRequest:requast returningResponse:&respanse error:&errord];
-//    
-//    NSString *responsibledata = [[NSString alloc ] initWithData:responsible encoding:NSUTF8StringEncoding];
-//    
-//    NSLog(@"I ate your foot: %@, %@", responsibledata, errord.localizedDescription);
-//    
-//    return;
-//    
+    NSMutableURLRequest *requast = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:limitedInputEndrpoid]];
+    
+    [requast setHTTPMethod:@"POST"];
+//    [requast setHTTPBody:[[FMURLQueryBuilder queryFromDictionary:@{@"client_id": spotifyClientID}] dataUsingEncoding:NSUTF8StringEncoding]];
+    [requast setHTTPBody:[@"client_id=756a522d9f1648b89e76e80be654456a&scope=streaming" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [requast addValue:@"42" forHTTPHeaderField:@"Content-Length"];
+    [requast addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    NSError *errord;
+    NSURLResponse *respanse;
+    NSData *responsible = [NSURLConnection sendSynchronousRequest:requast returningResponse:&respanse error:&errord];
+    
+    NSString *responsibledata = [[NSString alloc ] initWithData:responsible encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"I ate your foot: %@, %@", responsibledata, errord.localizedDescription);
+    
+    return;
+//
 //    
 //    NSString *redirectUri = @"https://localhost:35587";
 //    

@@ -12,9 +12,9 @@
 
 - (NSString *)urlString
 {
-    NSMutableArray *keyValuePairs = [NSMutableArray arrayWithCapacity:self.count];
-    for (id key in self) {
-        NSString *value = [self objectForKey:key];
+    NSMutableArray *keyValuePairs = [NSMutableArray arrayWithCapacity:_dictionary.count];
+    for (id key in _dictionary) {
+        NSString *value = [_dictionary objectForKey:key];
         [keyValuePairs addObject:[NSString stringWithFormat:@"%@=%@", [self urlEncodeString:key], [self urlEncodeString:value]]];
     }
     return [keyValuePairs componentsJoinedByString:@"&"];
@@ -28,6 +28,23 @@
 - (NSString *)urlEncodeString:(NSString *)string
 {
     return CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (__bridge CFStringRef)string, NULL, CFSTR("!*'\"();:@&=+$,/?%#[]%~_-., "), kCFStringEncodingUTF8));
+}
+
+- (void)addEntriesFromDictionary:(NSDictionary *)dictionary
+{
+    [_dictionary addEntriesFromDictionary:dictionary];
+}
+
+- (id)initWithCapacity:(NSUInteger)numItems
+{
+    self = [super init];
+    if (self) _dictionary = [[NSMutableDictionary alloc] initWithCapacity:numItems];
+    return self;
+}
+
++ (FMMutableURLQueryDictionary *)urlQueryDictionary
+{
+    return [[FMMutableURLQueryDictionary alloc] init];
 }
 
 @end

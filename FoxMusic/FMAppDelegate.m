@@ -9,11 +9,18 @@
 #import "FMAppDelegate.h"
 #import <MediaPlayer/MediaPlayer.h>
 
+@interface NSURLRequest (FoxesAreCool)
++ (BOOL)allowsAnyHTTPSCertificateForHost:(NSString *)host;
++ (void)setAllowsAnyHTTPSCertificate:(BOOL)allow forHost:(NSString *)host;
+@end
+
 @implementation FMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"*.spotify.com"];
+    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"accounts.spotify.com"];
     return YES;
 }
 							

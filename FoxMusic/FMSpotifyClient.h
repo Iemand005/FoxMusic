@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FMSpotifyAuthenticator.m"
+
+#import "FMDeviceAuthorizationInfo.h"
 
 @interface FMSpotifyClient : NSObject
-{
-    FMSpotifyAuthenticator *authenticator;
-}
-
 
 @property (assign) NSString *clientId;
+
+@property NSURL *baseAddress;
+@property NSURL *authorizeDeviceEndpoint;
+@property NSURL *tokenEndpoint;
 
 - (NSDictionary *)request:(NSURL *)url withBody:(NSDictionary *)requestBody;
 - (FMDeviceAuthorizationInfo *)deviceAuthorizationInfo;
