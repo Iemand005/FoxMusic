@@ -173,6 +173,11 @@
     return self.token = [FMSpotifyToken tokenWithDictionary:dictionary];
 }
 
+- (BOOL)isIsLoggedIn
+{
+    return self.token != nil;
+}
+
 + (FMSpotifyClient *)spotifyClient
 {
     return [[FMSpotifyClient alloc] init];

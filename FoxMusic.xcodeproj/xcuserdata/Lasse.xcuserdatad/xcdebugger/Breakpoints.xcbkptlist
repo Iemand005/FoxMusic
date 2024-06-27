@@ -112,11 +112,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "FoxMusic/FMSecondViewController.m"
-         timestampString = "741207571.272121"
+         timestampString = "741210505.902968"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "41"
-         endingLineNumber = "41"
+         startingLineNumber = "37"
+         endingLineNumber = "37"
          landmarkName = "-viewDidAppear:"
          landmarkType = "5">
       </FileBreakpoint>

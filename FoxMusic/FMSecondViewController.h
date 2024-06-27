@@ -17,6 +17,7 @@
 }
 
 
+- (IBAction)promptLogin:(id)sender;
 
 - (void)dismissLogin;
 

@@ -33,17 +33,17 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-    if (storyboard) {
-        if ((loginPrompted = !loginPrompted)) {
-            UIViewController *dest = [storyboard instantiateViewControllerWithIdentifier:@"accountPage"];
-            [self presentViewController:dest animated:YES completion:nil];
-        } else {
-//            [[self mainTabBarController] setSelectedIndex:0];
-//            UIViewController *dest = [storyboard instantiateViewControllerWithIdentifier:@"home"];
-//            [self.mainTabBarController setSelectedViewController:dest];
-        }
-    }
+    if (!loginPrompted) [self promptLogin:self];
+    loginPrompted = YES;
+}
+
+- (void)promptLogin:(id)sender
+{
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+//    if (storyboard) {
+//        UIViewController *dest = [storyboard instantiateViewControllerWithIdentifier:@"loginLoading"];
+//        [self presentViewController:dest animated:YES completion:nil];
+//    }
 }
 
 - (void)dismissLogin

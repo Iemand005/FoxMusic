@@ -25,6 +25,8 @@
 @property FMSpotifyDeviceAuthorizationInfo *deviceAuthorizationInfo;
 @property FMSpotifyToken *token;
 
+@property (readonly) BOOL isLoggedIn;
+
 - (NSDictionary *)request:(NSURL *)url withBody:(NSDictionary *)requestBody;
 - (NSDictionary *)request:(NSURL *)url withBody:(NSDictionary *)requestBody error:(NSError **)error;
 - (NSDictionary *)request:(NSURL *)url withBody:(NSDictionary *)requestBody addClientId:(BOOL)injectClientId;
