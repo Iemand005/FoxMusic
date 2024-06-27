@@ -7,7 +7,7 @@
         <!--First View Controller - First-->
         <scene sceneID="11">
             <objects>
-                <viewController title="First" id="2" customClass="FMFirstViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="home" title="First" id="2" customClass="FMFirstViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="16">
                         <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,6 +47,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9GV-cH-jhi" firstAttribute="top" secondItem="16" secondAttribute="top" constant="273" id="EM1-qh-toM"/>
                             <constraint firstItem="1kb-nr-Xmv" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="93" id="NYq-A3-lNY"/>
                             <constraint firstAttribute="trailing" secondItem="21" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="QBg-X6-fBV"/>
                             <constraint firstAttribute="trailing" secondItem="20" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Qxj-1L-2Yh"/>
@@ -56,7 +57,6 @@
                             <constraint firstItem="1kb-nr-Xmv" firstAttribute="top" secondItem="16" secondAttribute="top" constant="41" id="kT3-yz-Btl"/>
                             <constraint firstItem="9GV-cH-jhi" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="kn5-00-fqg"/>
                             <constraint firstItem="9GV-cH-jhi" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="kyK-Ie-ihb"/>
-                            <constraint firstItem="9GV-cH-jhi" firstAttribute="bottom" secondItem="16" secondAttribute="bottom" type="default" id="njD-Bx-7hD"/>
                             <constraint firstAttribute="centerY" secondItem="21" secondAttribute="centerY" type="user" id="yWk-L2-m9F"/>
                         </constraints>
                     </view>
@@ -64,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653" y="-138"/>
+            <point key="canvasLocation" x="897" y="-264"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="uMg-5O-ZXj">
@@ -93,7 +93,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ACw-cg-uJw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1043" y="-246"/>
+            <point key="canvasLocation" x="533" y="-686"/>
         </scene>
         <!--Second View Controller - Second-->
         <scene sceneID="13">
@@ -109,10 +109,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="INr-3q-gNO"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aYH-x1-YQ8" firstAttribute="centerX" secondItem="17" secondAttribute="centerX" type="default" id="7bZ-RF-Mcq"/>
+                            <constraint firstItem="aYH-x1-YQ8" firstAttribute="centerX" secondItem="INr-3q-gNO" secondAttribute="centerX" type="default" id="2Ck-KM-F6Q"/>
+                            <constraint firstItem="INr-3q-gNO" firstAttribute="centerX" secondItem="17" secondAttribute="centerX" type="default" id="DeM-52-dlK"/>
+                            <constraint firstItem="aYH-x1-YQ8" firstAttribute="bottom" secondItem="INr-3q-gNO" secondAttribute="bottom" type="default" id="HJ3-1g-cy7"/>
                             <constraint firstItem="aYH-x1-YQ8" firstAttribute="centerY" secondItem="17" secondAttribute="centerY" type="default" id="I5r-xx-An6"/>
                             <constraint firstItem="ycc-5S-X6u" firstAttribute="leading" secondItem="17" secondAttribute="leading" constant="50" id="MiO-Mn-X84"/>
                             <constraint firstItem="ycc-5S-X6u" firstAttribute="top" secondItem="17" secondAttribute="top" constant="4" id="UGN-P2-jtG"/>
@@ -128,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653" y="526"/>
+            <point key="canvasLocation" x="533" y="406"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -147,13 +150,13 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="180"/>
+            <point key="canvasLocation" x="156" y="-136"/>
         </scene>
-        <!--View Controller - Title-->
+        <!--Spotify Login View Controller - Title-->
         <scene sceneID="gu5-OV-Ofn">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5e-9T-vQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="accountPage" id="y40-aY-lUg" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="accountPage" id="y40-aY-lUg" customClass="FMSpotifyLoginViewController" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="DDl-5Q-dCE">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -186,6 +189,7 @@
                                 </state>
                                 <connections>
                                     <action selector="logIn:" destination="12" eventType="touchUpInside" id="seZ-YB-KfC"/>
+                                    <action selector="logIn:" destination="y40-aY-lUg" eventType="touchUpInside" id="ydh-Nk-kk3"/>
                                 </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" progress="0.99999999999999989" translatesAutoresizingMaskIntoConstraints="NO" id="o7p-c4-Iil"/>
@@ -194,18 +198,22 @@
                                 <items>
                                     <barButtonItem enabled="NO" systemItem="action" id="6qI-au-mwJ">
                                         <connections>
-                                            <action selector="shareCode:" destination="3" id="0NZ-o1-pvq"/>
+                                            <action selector="shareCode:" destination="y40-aY-lUg" id="Fc7-cT-47h"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem systemItem="refresh" id="feJ-DX-fHW">
                                         <connections>
-                                            <action selector="refreshCode:" destination="12" id="s4w-pF-mQg"/>
+                                            <action selector="refreshCode:" destination="y40-aY-lUg" id="mr9-yY-7l7"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="fY0-NW-0wI"/>
                                     <barButtonItem title="Log in" style="plain" id="nsb-SF-pLe"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="0Ty-q2-pEe"/>
-                                    <barButtonItem systemItem="cancel" id="gvt-xA-5Sq"/>
+                                    <barButtonItem systemItem="cancel" id="gvt-xA-5Sq">
+                                        <connections>
+                                            <action selector="cancelLogin:" destination="y40-aY-lUg" id="c5d-bv-hqq"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -233,9 +241,12 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="6R8-kD-pZq"/>
+                    <connections>
+                        <outlet property="shareButton" destination="6qI-au-mwJ" id="guN-tR-iBc"/>
+                    </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1087" y="526"/>
+            <point key="canvasLocation" x="987" y="406"/>
         </scene>
     </scenes>
     <resources>
@@ -251,16 +262,17 @@
         </class>
         <class className="FMSecondViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSecondViewController.h"/>
+        </class>
+        <class className="FMSpotifyLoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyLoginViewController.h"/>
             <relationships>
+                <relationship kind="action" name="cancelLogin:"/>
                 <relationship kind="action" name="logIn:"/>
                 <relationship kind="action" name="refreshCode:"/>
                 <relationship kind="action" name="shareCode:"/>
-                <relationship kind="outlet" name="accountView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="remainingTimeView" candidateClass="UIProgressView"/>
                 <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="userCodeField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">

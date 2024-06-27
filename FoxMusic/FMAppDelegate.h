@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FMTouch.h"
+
 @interface FMAppDelegate : UIResponder <UIApplicationDelegate>
+{
+    FMSpotifyClient *_spotifyClient;
+}
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (readonly) FMSpotifyClient *spotifyClient;
+
+@property IBOutlet UITabBarController *mainTabBarController;
 
 @end

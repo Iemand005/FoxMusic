@@ -7,31 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "FMAppDelegate.h"
 #import "FMTouch.h"
-#import "FMIndeterminableButton.h"
 
-@interface FMSecondViewController : UIViewController <UIWebViewDelegate>
+@interface FMSecondViewController : UIViewController
 {
-    NSTimer *activeTimer;
-    double expiresIn;
-    FMSpotifyClient *spotifyClient;
-    NSURL *shareURL;
+    FMAppDelegate *appDelegate;
+    BOOL loginPrompted;
 }
 
-- (IBAction)logIn:(id)sender;
-- (IBAction)refreshCode:(id)sender;
-- (IBAction)shareCode:(id)sender;
 
-@property IBOutlet UITextField *userCodeField;
-@property IBOutlet UIProgressView *remainingTimeView;
 
-@property IBOutlet UIWebView *webView;
-
-@property IBOutlet UIBarButtonItem *shareButton;
-
-@property IBOutlet UIActivityIndicatorView *activityIndicator;
-
-@property IBOutlet UIView *accountView;
+- (void)dismissLogin;
 
 @end

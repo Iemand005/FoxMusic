@@ -69,7 +69,6 @@
 		0A6038322C2D877600482179 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2BFEF32C2C452A0009ADAD /* MediaPlayer.framework */; };
 		0A6038332C2D879E00482179 /* FMSpotifyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6037FA2C2D82B600482179 /* FMSpotifyClient.m */; };
 		0A6038342C2D879E00482179 /* FMSpotifyDeviceAuthorizationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6037F82C2D82B600482179 /* FMSpotifyDeviceAuthorizationInfo.m */; };
-		0A6038372C2D90AB00482179 /* FMIndeterminableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6038362C2D90AB00482179 /* FMIndeterminableButton.m */; };
 		0A7FB3142C2DB46600F50618 /* FMSpotifyToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3132C2DB46600F50618 /* FMSpotifyToken.m */; };
 		0A7FB3172C2DCC8300F50618 /* FMSpotifyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3162C2DCC8300F50618 /* FMSpotifyLoginViewController.m */; };
 /* End PBXBuildFile section */
@@ -201,8 +200,6 @@
 		0A6038202C2D83F800482179 /* FMLibTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMLibTests.m; sourceTree = "<group>"; };
 		0A60382A2C2D859000482179 /* FMMutableURLQueryDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMMutableURLQueryDictionary.h; sourceTree = "<group>"; };
 		0A60382B2C2D859000482179 /* FMMutableURLQueryDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMMutableURLQueryDictionary.m; sourceTree = "<group>"; };
-		0A6038352C2D90AB00482179 /* FMIndeterminableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMIndeterminableButton.h; sourceTree = "<group>"; };
-		0A6038362C2D90AB00482179 /* FMIndeterminableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMIndeterminableButton.m; sourceTree = "<group>"; };
 		0A7FB3122C2DB46600F50618 /* FMSpotifyToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyToken.h; sourceTree = "<group>"; };
 		0A7FB3132C2DB46600F50618 /* FMSpotifyToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyToken.m; sourceTree = "<group>"; };
 		0A7FB3152C2DCC8300F50618 /* FMSpotifyLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMSpotifyLoginViewController.h; path = ../FMSpotifyLoginViewController.h; sourceTree = "<group>"; };
@@ -357,8 +354,6 @@
 				0A2BFED22C2C44460009ADAD /* second.png */,
 				0A2BFED42C2C44460009ADAD /* second@2x.png */,
 				0A2BFEB12C2C44450009ADAD /* Supporting Files */,
-				0A6038352C2D90AB00482179 /* FMIndeterminableButton.h */,
-				0A6038362C2D90AB00482179 /* FMIndeterminableButton.m */,
 			);
 			path = FoxMusic;
 			sourceTree = "<group>";
@@ -835,7 +830,6 @@
 				0A2BFEBB2C2C44450009ADAD /* FMAppDelegate.m in Sources */,
 				0A2BFECA2C2C44450009ADAD /* FMFirstViewController.m in Sources */,
 				0A2BFED12C2C44460009ADAD /* FMSecondViewController.m in Sources */,
-				0A6038372C2D90AB00482179 /* FMIndeterminableButton.m in Sources */,
 				0A7FB3142C2DB46600F50618 /* FMSpotifyToken.m in Sources */,
 				0A7FB3172C2DCC8300F50618 /* FMSpotifyLoginViewController.m in Sources */,
 			);
