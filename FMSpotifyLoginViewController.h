@@ -18,14 +18,17 @@
     FMAppDelegate *appDelegate;
 }
 
-- (IBAction)logIn:(id)sender;
+//- (IBAction)logIn:(id)sender;
 - (IBAction)refreshCode:(id)sender;
 - (IBAction)shareCode:(id)sender;
-- (IBAction)cancelLogin:(id)sender;
+//- (IBAction)cancelLogin:(id)sender;
 
 @property IBOutlet UITextField *userCodeField;
 @property IBOutlet UIProgressView *remainingTimeView;
 
 @property IBOutlet UIBarButtonItem *shareButton;
+
+@property IBOutlet UIPageViewController *loginPageViewController;
+@property IBOutlet UIViewController *accountViewController;
 
 @end

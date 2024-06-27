@@ -19,7 +19,7 @@
     appDelegate = [[UIApplication sharedApplication] delegate];
     
     
-    //[self getNewUserCode];
+    [self getNewUserCode];
 }
 
 - (void)didReceiveMemoryWarning
@@ -28,24 +28,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)logIn:(id)sender
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-    if (storyboard) {
-        UIViewController *dest = [storyboard instantiateViewControllerWithIdentifier:@"accountPage"];
-        //        [self.navigationController pushViewController:dest animated:YES];
-        [self presentViewController:dest animated:YES completion:nil];
-    }
-    return;
-    NSError *error;
-    @try {
-        if (![self.spotifyClient tryDeviceAuhorizationWithError:&error] || error) [self displayError:error];
-        NSLog(@"Logged in? %@", self.spotifyClient.token);
-    }
-    @catch (NSException *exception) {
-        [self displayException:exception];
-    }
-}
+//- (void)logIn:(id)sender
+//{
+////    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+////    if (storyboard) {
+////        UIViewController *dest = [storyboard instantiateViewControllerWithIdentifier:@"accountPage"];
+////        //        [self.navigationController pushViewController:dest animated:YES];
+////        [self presentViewController:dest animated:YES completion:nil];
+////    }
+//    return;
+//    NSError *error;
+//    @try {
+//        if (![self.spotifyClient tryDeviceAuhorizationWithError:&error] || error) [self displayError:error];
+//        else {
+//            NSLog(@"Logged in? %@", self.spotifyClient.token);
+//            
+//        }
+//    }
+//    @catch (NSException *exception) {
+//        [self displayException:exception];
+//    }
+//}
 
 - (FMSpotifyClient *)spotifyClient
 {
@@ -112,21 +115,21 @@
     if (self.remainingTimeView.progress <= 0) [self getNewUserCode];
 }
 
-- (void)cancelLogin:(id)sender
-{
-    [self dismissViewControllerAnimated:YES completion:^{
-//        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-    }];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-//    if (storyboard) {
-//        UIViewController *dest = [storyboard instantiateViewControllerWithIdentifier:@"home"];
-//        [self dismissViewControllerAnimated:YES completion:nil];
-////        if ([self.presentingViewController isKindOfClass:[FMSecondViewController class]]) {
-////            FMSecondViewController *viewController = (id)self.presentingViewController;
-////            [viewController dismissLogin];
-////            
-////        }
-//    }
-}
+//- (void)cancelLogin:(id)sender
+//{
+//    [self dismissViewControllerAnimated:YES completion:^{
+////        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+//    }];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+////    if (storyboard) {
+////        UIViewController *dest = [storyboard instantiateViewControllerWithIdentifier:@"home"];
+////        [self dismissViewControllerAnimated:YES completion:nil];
+//////        if ([self.presentingViewController isKindOfClass:[FMSecondViewController class]]) {
+//////            FMSecondViewController *viewController = (id)self.presentingViewController;
+//////            [viewController dismissLogin];
+//////            
+//////        }
+////    }
+//}
 
 @end

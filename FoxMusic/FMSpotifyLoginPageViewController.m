@@ -39,4 +39,45 @@
     [self setViewControllers:@[rat] direction:direction animated:YES completion:nil];
 }
 
+- (void)cancelLogin:(id)sender
+{
+    [self navigateToControllerWithIdentifier:@"loggedOff" forwards:NO];
+}
+
+- (void)promptLogin:(id)sender
+{
+    [self navigateToControllerWithIdentifier:@"login" forwards:YES];
+}
+
+- (void)logIn:(id)sender
+{
+    NSError *error;
+    @try {
+        if (![appDelegate.spotifyClient tryDeviceAuhorizationWithError:&error] || error) [self displayError:error];
+//        else {
+            NSLog(@"Logged in? %@", appDelegate.spotifyClient.token);
+            if (appDelegate.spotifyClient.isLoggedIn) [self navigateToControllerWithIdentifier:@"account" forwards:YES];
+        
+    }
+    @catch (NSException *exception) {
+        [self displayException:exception];
+    }
+}
+
+- (void)displayError:(NSError *)error
+{
+    [[[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@\n%@", error.localizedFailureReason, error.localizedDescription] delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil] show];
+}
+
+- (void)displayException:(NSException *)exception
+{
+    [[[UIAlertView alloc] initWithTitle:@"Whoops!" message:exception.description delegate:nil cancelButtonTitle:@"Sorry" otherButtonTitles:nil, nil] show];
+}
+
+- (void)navigateToControllerWithIdentifier:(NSString *)identifier forwards:(BOOL)forwards
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+    if (storyboard) [self setViewControllers:@[[storyboard instantiateViewControllerWithIdentifier:identifier]] direction:forwards ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse animated:YES completion:nil];
+}
+
 @end

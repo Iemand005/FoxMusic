@@ -173,9 +173,9 @@
     return self.token = [FMSpotifyToken tokenWithDictionary:dictionary];
 }
 
-- (BOOL)isIsLoggedIn
+- (BOOL)isLoggedIn
 {
-    return self.token != nil;
+    return self.token.accessToken != nil;
 }
 
 + (FMSpotifyClient *)spotifyClient

@@ -71,7 +71,6 @@
 		0A6038342C2D879E00482179 /* FMSpotifyDeviceAuthorizationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6037F82C2D82B600482179 /* FMSpotifyDeviceAuthorizationInfo.m */; };
 		0A7FB3142C2DB46600F50618 /* FMSpotifyToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3132C2DB46600F50618 /* FMSpotifyToken.m */; };
 		0A7FB3172C2DCC8300F50618 /* FMSpotifyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3162C2DCC8300F50618 /* FMSpotifyLoginViewController.m */; };
-		0A7FB31A2C2DF49D00F50618 /* FMSpotifyLoginLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3192C2DF49D00F50618 /* FMSpotifyLoginLoadingViewController.m */; };
 		0A7FB31E2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB31D2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -206,8 +205,6 @@
 		0A7FB3132C2DB46600F50618 /* FMSpotifyToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyToken.m; sourceTree = "<group>"; };
 		0A7FB3152C2DCC8300F50618 /* FMSpotifyLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMSpotifyLoginViewController.h; path = ../FMSpotifyLoginViewController.h; sourceTree = "<group>"; };
 		0A7FB3162C2DCC8300F50618 /* FMSpotifyLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMSpotifyLoginViewController.m; path = ../FMSpotifyLoginViewController.m; sourceTree = "<group>"; };
-		0A7FB3182C2DF49D00F50618 /* FMSpotifyLoginLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyLoginLoadingViewController.h; sourceTree = "<group>"; };
-		0A7FB3192C2DF49D00F50618 /* FMSpotifyLoginLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyLoginLoadingViewController.m; sourceTree = "<group>"; };
 		0A7FB31C2C2DFC0800F50618 /* FMSpotifyLoginPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyLoginPageViewController.h; sourceTree = "<group>"; };
 		0A7FB31D2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyLoginPageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -511,8 +508,6 @@
 				0A7FB31D2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m */,
 				0A7FB3152C2DCC8300F50618 /* FMSpotifyLoginViewController.h */,
 				0A7FB3162C2DCC8300F50618 /* FMSpotifyLoginViewController.m */,
-				0A7FB3182C2DF49D00F50618 /* FMSpotifyLoginLoadingViewController.h */,
-				0A7FB3192C2DF49D00F50618 /* FMSpotifyLoginLoadingViewController.m */,
 			);
 			name = SpotifyAccountViews;
 			sourceTree = "<group>";
@@ -850,7 +845,6 @@
 				0A2BFED12C2C44460009ADAD /* FMSecondViewController.m in Sources */,
 				0A7FB3142C2DB46600F50618 /* FMSpotifyToken.m in Sources */,
 				0A7FB3172C2DCC8300F50618 /* FMSpotifyLoginViewController.m in Sources */,
-				0A7FB31A2C2DF49D00F50618 /* FMSpotifyLoginLoadingViewController.m in Sources */,
 				0A7FB31E2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
