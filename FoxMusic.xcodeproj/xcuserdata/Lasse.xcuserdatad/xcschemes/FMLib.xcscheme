@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0A6038032C2D83F800482179"
-               BuildableName = "libFMLib.a"
+               BuildableName = "libFMLibTouch.a"
                BlueprintName = "FMLibTouch"
                ReferencedContainer = "container:FoxMusic.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0A6038112C2D83F800482179"
-               BuildableName = "FMLibTests.octest"
+               BuildableName = "FMLibTouchTests.octest"
                BlueprintName = "FMLibTouchTests"
                ReferencedContainer = "container:FoxMusic.xcodeproj">
             </BuildableReference>

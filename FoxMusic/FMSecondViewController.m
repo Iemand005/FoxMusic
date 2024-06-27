@@ -39,12 +39,23 @@
     [self getNewUserCode];
 }
 
+- (void)refreshCode:(id)sender
+{
+    [self getNewUserCode];
+}
+
+- (void)shareCode:(id)sender
+{
+    NSArray *activityItems = @[shareURL];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    [self presentViewController:activityViewController animated:YES completion:nil];
+}
+
 - (void)getNewUserCode
 {
     if (activeTimer) [activeTimer invalidate];
     
-    [self setProgressIndeterminate];
-    [self.checkButton setIndeterminate:YES];
+    [self setProgressIndeterminate:YES];
     
     FMSpotifyDeviceAuthorizationInfo *deviceAuthorizationInfo = [spotifyClient deviceAuthorizationInfo];
     
@@ -52,10 +63,10 @@
     NSLog(@"user code: %@", [deviceAuthorizationInfo userCode]);
     NSLog(@"url: %@", [deviceAuthorizationInfo verificationURL]);
     expiresIn = [[deviceAuthorizationInfo expiresIn] doubleValue] / 1000;
+    shareURL = deviceAuthorizationInfo.completeVerificationURL;
     
     [self.remainingTimeView setProgress:1];
-    [self setProgressDeterminate];
-    [self.checkButton setIndeterminate:NO];
+    [self setProgressIndeterminate:NO];
     [self.userCodeField setText:deviceAuthorizationInfo.userCode];
     
     NSLog(@"expires in %lf", expiresIn);
@@ -64,14 +75,15 @@
     [[NSRunLoop currentRunLoop] addTimer:activeTimer forMode:NSRunLoopCommonModes];
 }
 
-- (void)setProgressIndeterminate
+- (void)setProgressIndeterminate:(BOOL)indeterminate
 {
-    
-}
-
-- (void)setProgressDeterminate
-{
-    
+    if (indeterminate) {
+        [self.activityIndicator startAnimating];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    } else {
+        [self.activityIndicator startAnimating];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    }
 }
 
 - (void)updateRemainingTime

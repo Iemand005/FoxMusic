@@ -16,15 +16,18 @@
     NSTimer *activeTimer;
     double expiresIn;
     FMSpotifyClient *spotifyClient;
+    NSURL *shareURL;
 }
 
 - (IBAction)logIn:(id)sender;
+- (IBAction)refreshCode:(id)sender;
+- (IBAction)shareCode:(id)sender;
 
 @property IBOutlet UITextField *userCodeField;
 @property IBOutlet UIProgressView *remainingTimeView;
 
 @property IBOutlet UIWebView *webView;
 
-@property IBOutlet FMIndeterminableButton *checkButton;
+@property IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
