@@ -72,6 +72,7 @@
 		0A7FB3142C2DB46600F50618 /* FMSpotifyToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3132C2DB46600F50618 /* FMSpotifyToken.m */; };
 		0A7FB3172C2DCC8300F50618 /* FMSpotifyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3162C2DCC8300F50618 /* FMSpotifyLoginViewController.m */; };
 		0A7FB31A2C2DF49D00F50618 /* FMSpotifyLoginLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3192C2DF49D00F50618 /* FMSpotifyLoginLoadingViewController.m */; };
+		0A7FB31E2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB31D2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,6 +208,8 @@
 		0A7FB3162C2DCC8300F50618 /* FMSpotifyLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMSpotifyLoginViewController.m; path = ../FMSpotifyLoginViewController.m; sourceTree = "<group>"; };
 		0A7FB3182C2DF49D00F50618 /* FMSpotifyLoginLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyLoginLoadingViewController.h; sourceTree = "<group>"; };
 		0A7FB3192C2DF49D00F50618 /* FMSpotifyLoginLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyLoginLoadingViewController.m; sourceTree = "<group>"; };
+		0A7FB31C2C2DFC0800F50618 /* FMSpotifyLoginPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyLoginPageViewController.h; sourceTree = "<group>"; };
+		0A7FB31D2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyLoginPageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -504,6 +507,8 @@
 			children = (
 				0A2BFECF2C2C44450009ADAD /* FMSecondViewController.h */,
 				0A2BFED02C2C44460009ADAD /* FMSecondViewController.m */,
+				0A7FB31C2C2DFC0800F50618 /* FMSpotifyLoginPageViewController.h */,
+				0A7FB31D2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m */,
 				0A7FB3152C2DCC8300F50618 /* FMSpotifyLoginViewController.h */,
 				0A7FB3162C2DCC8300F50618 /* FMSpotifyLoginViewController.m */,
 				0A7FB3182C2DF49D00F50618 /* FMSpotifyLoginLoadingViewController.h */,
@@ -846,6 +851,7 @@
 				0A7FB3142C2DB46600F50618 /* FMSpotifyToken.m in Sources */,
 				0A7FB3172C2DCC8300F50618 /* FMSpotifyLoginViewController.m in Sources */,
 				0A7FB31A2C2DF49D00F50618 /* FMSpotifyLoginLoadingViewController.m in Sources */,
+				0A7FB31E2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

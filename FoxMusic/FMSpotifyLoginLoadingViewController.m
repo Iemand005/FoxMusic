@@ -18,19 +18,19 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"the loading view appeared!");
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-    NSString *viewControllerIdentifier;
-    if (appDelegate.spotifyClient.isLoggedIn){
-        viewControllerIdentifier = @"account";
-    } else if (storyboard && (hasShownLoginPage = !hasShownLoginPage)){
-        viewControllerIdentifier = @"login";
-    } else {
-        viewControllerIdentifier = @"loggedOff";
-    }
-    
-    [self presentViewController:[storyboard instantiateViewControllerWithIdentifier:viewControllerIdentifier] animated:YES completion:nil];
+//    NSLog(@"the loading view appeared!");
+//    
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+//    NSString *viewControllerIdentifier;
+//    if (appDelegate.spotifyClient.isLoggedIn){
+//        viewControllerIdentifier = @"account";
+//    } else if (storyboard && (hasShownLoginPage = !hasShownLoginPage)){
+//        viewControllerIdentifier = @"login";
+//    } else {
+//        viewControllerIdentifier = @"loggedOff";
+//    }
+//    
+//    [self presentViewController:[storyboard instantiateViewControllerWithIdentifier:viewControllerIdentifier] animated:YES completion:nil];
 }
 
 @end

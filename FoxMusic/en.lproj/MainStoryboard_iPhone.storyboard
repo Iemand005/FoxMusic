@@ -152,10 +152,10 @@
             </objects>
             <point key="canvasLocation" x="156" y="-136"/>
         </scene>
-        <!--Page View Controller-->
+        <!--Spotify Login Page View Controller-->
         <scene sceneID="b6s-KJ-Qp1">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="2iG-tK-aAX" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="2iG-tK-aAX" customClass="FMSpotifyLoginPageViewController" sceneMemberID="viewController">
                     <connections>
                         <segue destination="rwn-hs-Gw0" kind="modal" id="9pF-MI-foF"/>
                         <segue destination="9S2-f1-tva" kind="modal" id="SRI-2K-LDc"/>
@@ -401,6 +401,9 @@
         <class className="FMSpotifyLoginLoadingViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyLoginLoadingViewController.h"/>
         </class>
+        <class className="FMSpotifyLoginPageViewController" superclassName="UIPageViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyLoginPageViewController.h"/>
+        </class>
         <class className="FMSpotifyLoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyLoginViewController.h"/>
             <relationships>
@@ -423,9 +426,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="MVf-MI-t8L"/>
         <segue reference="SRI-2K-LDc"/>
         <segue reference="c0R-GW-bq8"/>
-        <segue reference="4cg-vM-SBp"/>
-        <segue reference="ncq-Uv-2Ea"/>
+        <segue reference="9pF-MI-foF"/>
     </inferredMetricsTieBreakers>
 </document>
