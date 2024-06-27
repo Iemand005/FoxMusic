@@ -37,99 +37,27 @@
 
 - (void)logIn:(id)sender
 {
-    NSString *limitedInputEndrdpoid = @"https://accounts.spotify.com/oauth2/device/authorize";
-    NSMutableURLRequest *requasft = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:limitedInputEndrdpoid]];
-    
-    [requasft setHTTPMethod:@"POST"];
-    [requasft setHTTPBody:[@"client_id=756a522d9f1648b89e76e80be654456a&scope=streaming" dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    [requasft addValue:@"42" forHTTPHeaderField:@"Content-Length"];
-    [requasft addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    
-    NSError *errford;
-    NSURLResponse *respansee;
-    NSData *responsfible = [NSURLConnection sendSynchronousRequest:requasft returningResponse:&respansee error:&errford];
-    
-    NSString *responsibledatars = [[NSString alloc ] initWithData:responsfible encoding:NSUTF8StringEncoding];
-    
-    NSLog(@"I ate your footbo nece: %@, %@", responsibledatars, errford.localizedDescription);
-    
-    //    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"*.spotify.com"];
-    //    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"accounts.spotify.com"];
-    
     FMSpotifyClient *spotifyClient = [FMSpotifyClient spotifyClient];
     
     FMDeviceAuthorizationInfo *deviceAuthorizationInfo = [spotifyClient deviceAuthorizationInfo];
     
     NSLog(@"device code: %@", [deviceAuthorizationInfo deviceCode]);
-        NSLog(@"user code: %@", [deviceAuthorizationInfo userCode]);
+    NSLog(@"user code: %@", [deviceAuthorizationInfo userCode]);
     NSLog(@"url: %@", [deviceAuthorizationInfo verificationURL]);
+    self.expiresIn = [[deviceAuthorizationInfo expiresIn] doubleValue];
     
-    NSString *spotifyAccountsURL = @"https://accounts.spotify.com/login/password";
-    NSString *spotifyAuthorizeEndpoint = @"https://accounts.spotify.com/authorize";
-//    NSString *limitedInputEndrpoid = @"http://accounts.spotify.com/api/device/code";
-    NSString *limitedInputEndrpoid = @"https://accounts.spotify.com/oauth2/device/authorize";
-    NSString *spotifyClientID = @"a7613f878e5a432ba2e0bd342b93085e";
+    [self.remainingTimeView setProgress:1];
+    [self.userCodeField setText:deviceAuthorizationInfo.userCode];
     
-//    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"*.spotify.com"];
-//    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"accounts.spotify.com"];
-    NSMutableURLRequest *requast = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:limitedInputEndrpoid]];
+    NSLog(@"expires in %lf", self.expiresIn);
+    NSTimer *timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(updateRemainingTime) userInfo:nil repeats:YES];
     
-    [requast setHTTPMethod:@"POST"];
-//    [requast setHTTPBody:[[FMURLQueryBuilder queryFromDictionary:@{@"client_id": spotifyClientID}] dataUsingEncoding:NSUTF8StringEncoding]];
-    [requast setHTTPBody:[@"client_id=756a522d9f1648b89e76e80be654456a&scope=streaming" dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    [requast addValue:@"42" forHTTPHeaderField:@"Content-Length"];
-    [requast addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    
-    NSError *errord;
-    NSURLResponse *respanse;
-    NSData *responsible = [NSURLConnection sendSynchronousRequest:requast returningResponse:&respanse error:&errord];
-    
-    NSString *responsibledata = [[NSString alloc ] initWithData:responsible encoding:NSUTF8StringEncoding];
-    
-    NSLog(@"I ate your foot: %@, %@", responsibledata, errord.localizedDescription);
-    
-    return;
-//
-//    
-//    NSString *redirectUri = @"https://localhost:35587";
-//    
-//    NSString *authURL = [FMURLQueryBuilder addQueryToURLString:spotifyAuthorizeEndpoint query:@{
-//                         @"client_id": spotifyClientID,
-//                         @"response_type": @"code",
-//                         @"redirect_uri": redirectUri,
-//                         @"scope": @"user-read-private user-read-email"
-//                         }];
-//    
-//    NSLog(@"Logging in...");
-//    
-//    UIWebView *webView = self.webView;
-//    webView.delegate = self;
-//    
-//    webView.translatesAutoresizingMaskIntoConstraints = NO;
-//    [self.view addSubview:webView];
-//    
-//    NSLog(@"auth url>: %@", authURL);
-//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:authURL]];
-//    
-//    [webView loadRequest:request];
-//    [[self username] setText:authURL];
-//    return;
-//    
-//    NSString *username = [[self username] text];
-//    NSString *password = [[self password] text];
-//    
-//    NSLog(@"Username: %@, Password: %@", username, password);
-//    
-//    NSURLRequest *reque3st = [NSURLRequest requestWithURL:[NSURL URLWithString:spotifyAccountsURL]];
-//    NSURLResponse *response;
-//    NSError *error;
-//    [NSURLConnection sendSynchronousRequest:reque3st returningResponse:&response error:&error];
-//    
-//    FMHTTPServer *httpServer = [FMHTTPServer httpServerWithPort:6969];
-//    
-//    [httpServer start];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+}
+
+- (void)updateRemainingTime
+{
+    [self.remainingTimeView setProgress:self.remainingTimeView.progress - (1 / self.expiresIn)];
 }
 
 @end

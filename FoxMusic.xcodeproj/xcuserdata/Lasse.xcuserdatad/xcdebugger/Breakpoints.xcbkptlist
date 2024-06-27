@@ -60,51 +60,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "FoxMusic/FMSpotifyClient.m"
-         timestampString = "741140524.593673"
+         timestampString = "741140912.496588"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "75"
-         endingLineNumber = "75"
+         startingLineNumber = "56"
+         endingLineNumber = "56"
          landmarkName = "-request:withBody:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "FoxMusic/FMSpotifyClient.m"
-         timestampString = "741140524.593673"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "86"
-         endingLineNumber = "86"
-         landmarkName = "-request:withBody:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "FoxMusic/FMSecondViewController.m"
-         timestampString = "741139219.42272"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "43"
-         endingLineNumber = "43"
-         landmarkName = "-logIn:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "FoxMusic/FMSecondViewController.m"
-         timestampString = "741139234.179767"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "47"
-         endingLineNumber = "47"
-         landmarkName = "-logIn:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

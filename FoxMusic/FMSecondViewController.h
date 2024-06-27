@@ -12,9 +12,11 @@
 
 - (IBAction)logIn:(id)sender;
 
-@property IBOutlet UITextField *username;
-@property IBOutlet UITextField *password;
+@property IBOutlet UITextField *userCodeField;
+@property IBOutlet UIProgressView *remainingTimeView;
 
 @property IBOutlet UIWebView *webView;
+
+@property double expiresIn;
 
 @end
