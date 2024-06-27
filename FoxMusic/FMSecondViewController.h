@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FMTouch.h"
+#import "FMIndeterminableButton.h"
+
 @interface FMSecondViewController : UIViewController <UIWebViewDelegate>
+{
+    NSTimer *activeTimer;
+    double expiresIn;
+    FMSpotifyClient *spotifyClient;
+}
 
 - (IBAction)logIn:(id)sender;
 
@@ -17,6 +25,6 @@
 
 @property IBOutlet UIWebView *webView;
 
-@property double expiresIn;
+@property IBOutlet FMIndeterminableButton *checkButton;
 
 @end

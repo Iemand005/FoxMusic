@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'FMLib' target in the 'FMLib' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

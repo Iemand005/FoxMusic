@@ -8,18 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "FMSecondViewController.h"
-#import "FMHTTPServer.h"
-#import "FMURLQueryBuilder.h"
-#import "FMSpotifyClient.h"
+
+#import "FMAppDelegate.h"
 
 @interface FMSecondViewController ()
 
 @end
-
-//@interface NSURLRequest (DummyInterface)
-//+ (BOOL)allowsAnyHTTPSCertificateForHost:(NSString *)host;
-//+ (void)setAllowsAnyHTTPSCertificate:(BOOL)allow forHost:(NSString *)host;
-//@end
 
 @implementation FMSecondViewController
 
@@ -27,6 +21,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+//    FMAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    spotifyClient = [FMSpotifyClient spotifyClient];
+    
+    //[self getNewUserCode];
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,27 +36,48 @@
 
 - (void)logIn:(id)sender
 {
-    FMSpotifyClient *spotifyClient = [FMSpotifyClient spotifyClient];
+    [self getNewUserCode];
+}
+
+- (void)getNewUserCode
+{
+    if (activeTimer) [activeTimer invalidate];
     
-    FMDeviceAuthorizationInfo *deviceAuthorizationInfo = [spotifyClient deviceAuthorizationInfo];
+    [self setProgressIndeterminate];
+    [self.checkButton setIndeterminate:YES];
+    
+    FMSpotifyDeviceAuthorizationInfo *deviceAuthorizationInfo = [spotifyClient deviceAuthorizationInfo];
     
     NSLog(@"device code: %@", [deviceAuthorizationInfo deviceCode]);
     NSLog(@"user code: %@", [deviceAuthorizationInfo userCode]);
     NSLog(@"url: %@", [deviceAuthorizationInfo verificationURL]);
-    self.expiresIn = [[deviceAuthorizationInfo expiresIn] doubleValue];
+    expiresIn = [[deviceAuthorizationInfo expiresIn] doubleValue] / 1000;
     
     [self.remainingTimeView setProgress:1];
+    [self setProgressDeterminate];
+    [self.checkButton setIndeterminate:NO];
     [self.userCodeField setText:deviceAuthorizationInfo.userCode];
     
-    NSLog(@"expires in %lf", self.expiresIn);
-    NSTimer *timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(updateRemainingTime) userInfo:nil repeats:YES];
+    NSLog(@"expires in %lf", expiresIn);
+    activeTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(updateRemainingTime) userInfo:nil repeats:YES];
     
-    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    [[NSRunLoop currentRunLoop] addTimer:activeTimer forMode:NSRunLoopCommonModes];
+}
+
+- (void)setProgressIndeterminate
+{
+    
+}
+
+- (void)setProgressDeterminate
+{
+    
 }
 
 - (void)updateRemainingTime
 {
-    [self.remainingTimeView setProgress:self.remainingTimeView.progress - (1 / self.expiresIn)];
+    [self.remainingTimeView setProgress:self.remainingTimeView.progress - (1 / expiresIn)];
+    if (self.remainingTimeView.progress <= 0) [self getNewUserCode];
 }
 
 @end

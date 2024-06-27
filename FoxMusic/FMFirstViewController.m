@@ -9,7 +9,6 @@
 #import "FMFirstViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
-#import "FMURLQueryBuilder.h"
 
 @interface FMFirstViewController ()
 
@@ -35,14 +34,14 @@
     NSLog(@"player: %@", [item valueForProperty:MPMediaItemPropertyTitle]);
     
     MPMediaQuery *mediaQuery = [MPMediaQuery songsQuery];
-    MPMediaItem *mediaItem = [[mediaQuery items] objectAtIndex:0];
+//    MPMediaItem *mediaItem = [[mediaQuery items] objectAtIndex:0];
     
     NSLog(@"song: %i", [mediaQuery items].count);
-    NSLog(@"song title: %@", [mediaItem valueForProperty:MPMediaItemPropertyTitle]);
+//    NSLog(@"song title: %@", [mediaItem valueForProperty:MPMediaItemPropertyTitle]);
     
     [musicPlayer setQueueWithQuery:albumsQuery];
 //    [musicplayer set]
-    [musicPlayer setNowPlayingItem:mediaItem];
+//    [musicPlayer setNowPlayingItem:mediaItem];
     
     //[musicPlayer play];
     
@@ -70,10 +69,6 @@
     int duration = [audioPlayer duration];
     
     NSLog(@"dures: %i, %@", duration, error.localizedDescription);
-//    [MPMediaQuery ]
-    
-    NSString *query = [FMURLQueryBuilder queryFromDictionary:@{@"carfottel": @"scheit", @"mou&lijk?":@"kak=er"}];
-    NSLog(@"teqst qyers+ : %@", query);
 }
 
 - (void)didReceiveMemoryWarning
