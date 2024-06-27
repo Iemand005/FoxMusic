@@ -25,6 +25,15 @@
     
     spotifyClient = [FMSpotifyClient spotifyClient];
     
+    [[self navigationController] setToolbarHidden:NO animated:YES];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+    if (storyboard) {
+        UIViewController *dest = [storyboard instantiateViewControllerWithIdentifier:@"accountPage"];
+        //        [self.navigationController pushViewController:dest animated:YES];
+        [self presentViewController:dest animated:YES completion:nil];
+    }
+    
     //[self getNewUserCode];
 }
 
@@ -36,7 +45,21 @@
 
 - (void)logIn:(id)sender
 {
-    [self getNewUserCode];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+    if (storyboard) {
+        UIViewController *dest = [storyboard instantiateViewControllerWithIdentifier:@"accountPage"];
+//        [self.navigationController pushViewController:dest animated:YES];
+        [self presentViewController:dest animated:YES completion:nil];
+    }
+    return;
+    NSError *error;
+    @try {
+        if (![spotifyClient tryDeviceAuhorizationWithError:&error] || error) [self displayError:error];
+        NSLog(@"Logged in? %@", spotifyClient.token);
+    }
+    @catch (NSException *exception) {
+        [self displayException:exception];
+    }
 }
 
 - (void)refreshCode:(id)sender
@@ -46,9 +69,18 @@
 
 - (void)shareCode:(id)sender
 {
-    NSArray *activityItems = @[shareURL];
-    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
-    [self presentViewController:activityViewController animated:YES completion:nil];
+    if (shareURL) [self presentViewController:[[UIActivityViewController alloc] initWithActivityItems:@[shareURL] applicationActivities:nil] animated:YES completion:nil];
+    else [[[UIAlertView alloc] initWithTitle:@"Error" message:@"The URL was not found." delegate:nil cancelButtonTitle:@"Shut up!" otherButtonTitles:nil, nil] show];
+}
+
+- (void)displayError:(NSError *)error
+{
+    [[[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@\n%@", error.localizedFailureReason, error.localizedDescription] delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil] show];
+}
+
+- (void)displayException:(NSException *)exception
+{
+    [[[UIAlertView alloc] initWithTitle:@"Whoops!" message:exception.description delegate:nil cancelButtonTitle:@"Sorry" otherButtonTitles:nil, nil] show];
 }
 
 - (void)getNewUserCode
@@ -57,14 +89,14 @@
     
     [self setProgressIndeterminate:YES];
     
-    FMSpotifyDeviceAuthorizationInfo *deviceAuthorizationInfo = [spotifyClient deviceAuthorizationInfo];
+    FMSpotifyDeviceAuthorizationInfo *deviceAuthorizationInfo = [spotifyClient refreshDeviceAuthorizationInfo];
     
     NSLog(@"device code: %@", [deviceAuthorizationInfo deviceCode]);
     NSLog(@"user code: %@", [deviceAuthorizationInfo userCode]);
     NSLog(@"url: %@", [deviceAuthorizationInfo verificationURL]);
-    expiresIn = [[deviceAuthorizationInfo expiresIn] doubleValue] / 1000;
+    expiresIn = [[deviceAuthorizationInfo expiresIn] doubleValue];
     shareURL = deviceAuthorizationInfo.completeVerificationURL;
-    
+    [self.shareButton setEnabled:shareURL != nil];
     [self.remainingTimeView setProgress:1];
     [self setProgressIndeterminate:NO];
     [self.userCodeField setText:deviceAuthorizationInfo.userCode];

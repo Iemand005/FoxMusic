@@ -28,6 +28,10 @@
 
 @property IBOutlet UIWebView *webView;
 
+@property IBOutlet UIBarButtonItem *shareButton;
+
 @property IBOutlet UIActivityIndicatorView *activityIndicator;
+
+@property IBOutlet UIView *accountView;
 
 @end

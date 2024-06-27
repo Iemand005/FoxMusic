@@ -103,94 +103,32 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Spotify Login" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="22">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" highlighted="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="XXXXXX" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9at-DA-Fgs">
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="spotify.com/pair" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIN-eR-Vic">
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ycc-5S-X6u"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Rebbel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYH-x1-YQ8">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZK-ra-JtQ">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Check">
-                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="logIn:" destination="3" eventType="touchUpInside" id="gt0-lP-T8p"/>
-                                    <action selector="logIn:" destination="12" eventType="touchUpInside" id="seZ-YB-KfC"/>
-                                </connections>
-                            </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" progress="0.99999999999999989" translatesAutoresizingMaskIntoConstraints="NO" id="o7p-c4-Iil"/>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="VbH-jf-WIy"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVo-et-bsP">
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="UkU-mQ-emm">
-                                <items>
-                                    <barButtonItem systemItem="action" id="6qI-au-mwJ">
-                                        <connections>
-                                            <action selector="shareCode:" destination="3" id="0NZ-o1-pvq"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="refresh" id="feJ-DX-fHW">
-                                        <connections>
-                                            <action selector="refreshCode:" destination="3" id="ESD-2D-kmg"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="22" firstAttribute="leading" secondItem="17" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="0q6-IA-e8m"/>
-                            <constraint firstAttribute="trailing" secondItem="o7p-c4-Iil" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="1ka-jP-0gu"/>
-                            <constraint firstItem="xZK-ra-JtQ" firstAttribute="leading" secondItem="17" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="20D-qt-Yvl"/>
-                            <constraint firstItem="UkU-mQ-emm" firstAttribute="top" secondItem="17" secondAttribute="top" type="default" id="7HM-ng-ocG"/>
-                            <constraint firstItem="9at-DA-Fgs" firstAttribute="centerX" secondItem="o7p-c4-Iil" secondAttribute="centerX" type="default" id="8ED-1j-DfM"/>
-                            <constraint firstItem="o7p-c4-Iil" firstAttribute="leading" secondItem="17" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Aaw-tr-dS3"/>
-                            <constraint firstItem="EVo-et-bsP" firstAttribute="top" secondItem="17" secondAttribute="top" constant="215" id="FO6-bz-gQc"/>
-                            <constraint firstItem="o7p-c4-Iil" firstAttribute="centerX" secondItem="HIN-eR-Vic" secondAttribute="centerX" type="default" id="H9J-pb-ojY"/>
-                            <constraint firstItem="UkU-mQ-emm" firstAttribute="leading" secondItem="17" secondAttribute="leading" type="default" id="HxT-Yn-VBg"/>
-                            <constraint firstItem="UkU-mQ-emm" firstAttribute="trailing" secondItem="17" secondAttribute="trailing" type="default" id="NMW-m8-BFP"/>
-                            <constraint firstItem="EVo-et-bsP" firstAttribute="leading" secondItem="9at-DA-Fgs" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Oub-Dk-sFM"/>
-                            <constraint firstItem="xZK-ra-JtQ" firstAttribute="top" secondItem="HIN-eR-Vic" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="S7L-ug-FGe"/>
-                            <constraint firstAttribute="trailing" secondItem="xZK-ra-JtQ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="UPx-rG-mIr"/>
-                            <constraint firstItem="VbH-jf-WIy" firstAttribute="centerY" secondItem="9at-DA-Fgs" secondAttribute="centerY" type="default" id="Vkb-ZK-4Fn"/>
-                            <constraint firstItem="HIN-eR-Vic" firstAttribute="top" secondItem="o7p-c4-Iil" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WPe-bI-2Kl"/>
-                            <constraint firstItem="22" firstAttribute="top" secondItem="17" secondAttribute="top" constant="161" id="ltI-fv-ulO"/>
-                            <constraint firstItem="9at-DA-Fgs" firstAttribute="leading" secondItem="VbH-jf-WIy" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="m3a-eE-7zS"/>
-                            <constraint firstItem="o7p-c4-Iil" firstAttribute="top" secondItem="9at-DA-Fgs" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="mup-pE-Rjr"/>
-                            <constraint firstAttribute="trailing" secondItem="22" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pc3-9Y-W42"/>
-                            <constraint firstItem="9at-DA-Fgs" firstAttribute="top" secondItem="22" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="yAl-L3-d3S"/>
+                            <constraint firstItem="aYH-x1-YQ8" firstAttribute="centerX" secondItem="17" secondAttribute="centerX" type="default" id="7bZ-RF-Mcq"/>
+                            <constraint firstItem="aYH-x1-YQ8" firstAttribute="centerY" secondItem="17" secondAttribute="centerY" type="default" id="I5r-xx-An6"/>
+                            <constraint firstItem="ycc-5S-X6u" firstAttribute="leading" secondItem="17" secondAttribute="leading" constant="50" id="MiO-Mn-X84"/>
+                            <constraint firstItem="ycc-5S-X6u" firstAttribute="top" secondItem="17" secondAttribute="top" constant="4" id="UGN-P2-jtG"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="6"/>
                     <connections>
                         <outlet property="remainingTimeView" destination="o7p-c4-Iil" id="Vji-i1-ecf"/>
+                        <outlet property="shareButton" destination="6qI-au-mwJ" id="FaI-xw-6Zu"/>
                         <outlet property="userCodeField" destination="9at-DA-Fgs" id="pWK-Lx-Ukl"/>
+                        <segue destination="y40-aY-lUg" kind="modal" modalTransitionStyle="crossDissolve" id="gYg-vj-Mm7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653" y="498"/>
+            <point key="canvasLocation" x="653" y="526"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -211,19 +149,93 @@
             </objects>
             <point key="canvasLocation" x="132" y="180"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - Title-->
         <scene sceneID="gu5-OV-Ofn">
             <objects>
-                <viewController id="y40-aY-lUg" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m5e-9T-vQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="accountPage" id="y40-aY-lUg" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="DDl-5Q-dCE">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Spotify Login" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="22">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" highlighted="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="XXXXXX" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9at-DA-Fgs">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="108" id="DMC-UY-OnQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="spotify.com/pair" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIN-eR-Vic">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZK-ra-JtQ">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logIn:" destination="12" eventType="touchUpInside" id="seZ-YB-KfC"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" progress="0.99999999999999989" translatesAutoresizingMaskIntoConstraints="NO" id="o7p-c4-Iil"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="VbH-jf-WIy"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="UkU-mQ-emm">
+                                <items>
+                                    <barButtonItem enabled="NO" systemItem="action" id="6qI-au-mwJ">
+                                        <connections>
+                                            <action selector="shareCode:" destination="3" id="0NZ-o1-pvq"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="refresh" id="feJ-DX-fHW">
+                                        <connections>
+                                            <action selector="refreshCode:" destination="12" id="s4w-pF-mQg"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fY0-NW-0wI"/>
+                                    <barButtonItem title="Log in" style="plain" id="nsb-SF-pLe"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0Ty-q2-pEe"/>
+                                    <barButtonItem systemItem="cancel" id="gvt-xA-5Sq"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9at-DA-Fgs" firstAttribute="centerX" secondItem="o7p-c4-Iil" secondAttribute="centerX" type="default" id="2KY-nq-s6c"/>
+                            <constraint firstItem="22" firstAttribute="top" secondItem="DDl-5Q-dCE" secondAttribute="top" constant="185" id="7GD-F3-3lY"/>
+                            <constraint firstItem="9at-DA-Fgs" firstAttribute="top" secondItem="HIN-eR-Vic" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8KN-RO-9XX"/>
+                            <constraint firstItem="UkU-mQ-emm" firstAttribute="trailing" secondItem="DDl-5Q-dCE" secondAttribute="trailing" type="default" id="C1o-8O-nCk"/>
+                            <constraint firstAttribute="trailing" secondItem="o7p-c4-Iil" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="CUi-0Y-rnC"/>
+                            <constraint firstAttribute="trailing" secondItem="xZK-ra-JtQ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="GOE-Fr-vdz"/>
+                            <constraint firstItem="22" firstAttribute="leading" secondItem="DDl-5Q-dCE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="OS2-QF-Zz1"/>
+                            <constraint firstItem="HIN-eR-Vic" firstAttribute="centerX" secondItem="9at-DA-Fgs" secondAttribute="centerX" type="default" id="PB9-hj-uQK"/>
+                            <constraint firstItem="UkU-mQ-emm" firstAttribute="leading" secondItem="DDl-5Q-dCE" secondAttribute="leading" type="default" id="TYz-PF-o5G"/>
+                            <constraint firstItem="UkU-mQ-emm" firstAttribute="top" secondItem="DDl-5Q-dCE" secondAttribute="top" type="default" id="Vji-WF-UtD"/>
+                            <constraint firstItem="xZK-ra-JtQ" firstAttribute="leading" secondItem="DDl-5Q-dCE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="YBR-lr-Tua"/>
+                            <constraint firstItem="o7p-c4-Iil" firstAttribute="top" secondItem="9at-DA-Fgs" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="asE-P8-BWP"/>
+                            <constraint firstItem="HIN-eR-Vic" firstAttribute="top" secondItem="22" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="d3b-ej-NbC"/>
+                            <constraint firstItem="xZK-ra-JtQ" firstAttribute="top" secondItem="o7p-c4-Iil" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="lGT-gr-Anz"/>
+                            <constraint firstItem="VbH-jf-WIy" firstAttribute="centerY" secondItem="9at-DA-Fgs" secondAttribute="centerY" type="default" id="sXc-cR-8Pj"/>
+                            <constraint firstItem="o7p-c4-Iil" firstAttribute="leading" secondItem="DDl-5Q-dCE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="yL5-8s-z4B"/>
+                            <constraint firstItem="9at-DA-Fgs" firstAttribute="leading" secondItem="VbH-jf-WIy" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="zM9-nn-UtZ"/>
+                            <constraint firstAttribute="trailing" secondItem="22" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="zeV-v8-JKn"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="6R8-kD-pZq"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="m5e-9T-vQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1087" y="526"/>
         </scene>
     </scenes>
     <resources>
@@ -243,8 +255,10 @@
                 <relationship kind="action" name="logIn:"/>
                 <relationship kind="action" name="refreshCode:"/>
                 <relationship kind="action" name="shareCode:"/>
+                <relationship kind="outlet" name="accountView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="remainingTimeView" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="userCodeField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
