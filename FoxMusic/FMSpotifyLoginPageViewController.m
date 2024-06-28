@@ -23,13 +23,13 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
     NSString *viewControllerIdentifier;
     BOOL forwards = YES;
-    if (appDelegate.spotifyClient.isLoggedIn){
+    if (appDelegate.spotifyClient.isLoggedIn) {
+        @try {
+        if ([[self viewControllers] count] > 0 && [[[[self viewControllers] objectAtIndex:0] identifier] isEqualToString:@"account"]) return;
+        } @catch (NSException *ex) {}
         viewControllerIdentifier = @"account";
-    } else if (storyboard && (hasShownLoginPage = !hasShownLoginPage)){
-        viewControllerIdentifier = @"login";
     } else {
-        viewControllerIdentifier = @"loggedOff";
-        forwards = NO;
+        viewControllerIdentifier = @"login";
     }
     
     UIViewController *rat = [storyboard instantiateViewControllerWithIdentifier:viewControllerIdentifier];
