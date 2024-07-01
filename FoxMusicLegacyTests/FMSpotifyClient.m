@@ -115,46 +115,37 @@
 - (NSDictionary *)request:(NSURL *)url error:(NSError **)error
 {
     NSError *requestError;
-    NSDictionary *result;
+    __block NSDictionary *result;
     dispatch_semaphore_t sem = dispatch_semaphore_create(0);
-    __block NSData *responseData;
-    [self request:url callback:^(NSData *data){
-        responseData = data;
-        NSLog(@"request got data to here!!! %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+    [self request:url callback:^(NSDictionary *response){
+        result = response;
+        NSLog(@"request got data to here!!! %@", response);
         dispatch_semaphore_signal(sem);
-    } error:&requestError];
+    }];
     dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
     
-    NSLog(@"WE GOT THIS DATA OUT!!! %@", [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
+    NSLog(@"WE GOT THIS DATA OUT!!! %@", result);
 
     return result;
 }
 
-- (NSDictionary *)request:(NSURL *)url callback:(void (^const)(NSData *))callback error:(NSError **)error
+- (void)request:(NSURL *)url callback:(void (^const)(NSDictionary *))callback
 {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    NSError *requestError;
-    NSURLResponse *response;
-    
-    [request addValue:[self.token bearer] forHTTPHeaderField:@"Authorization"];
-    
-    dispatch_async(<#dispatch_queue_t queue#>, <#^(void)block#>)
-    
-    FMURLConnectionController *urlConnectionController = [FMURLConnectionController urlConnectionControllerWithCallback:callback];
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:urlConnectionController];
-    [connection start];
-//    [connection ]
-//    [connection ]
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&requestError];
-    
-    if (error && requestError) {
-         *error = requestError;
-        return nil;
-    }
-    
-    NSDictionary *result = [self parseResponseData:responseData error:&requestError];
-    if (error && requestError) *error = requestError;
-    return result;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        
+        [request addValue:[self.token bearer] forHTTPHeaderField:@"Authorization"];
+        
+        FMURLConnectionController *urlConnectionController = [FMURLConnectionController urlConnectionControllerWithCallback:^(NSData *data){
+            NSError *requestError;
+            NSURLResponse *response;
+            NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&requestError];
+            
+            NSDictionary *result = [self parseResponseData:responseData error:&requestError];
+            callback(result);
+        }];
+        [[[NSURLConnection alloc] initWithRequest:request delegate:urlConnectionController] start];
+    });
 }
 
 - (NSDictionary *)requestWithString:(NSString *)url
