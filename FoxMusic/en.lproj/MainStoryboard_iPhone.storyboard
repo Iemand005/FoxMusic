@@ -137,7 +137,7 @@
                             <constraint firstItem="QUj-Yv-ZiQ" firstAttribute="leading" secondItem="17" secondAttribute="leading" type="default" id="cDp-vo-98M"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="6"/>
+                    <tabBarItem key="tabBarItem" title="Spotify" image="spotify.png" id="6"/>
                     <connections>
                         <outlet property="remainingTimeView" destination="o7p-c4-Iil" id="Vji-i1-ecf"/>
                         <outlet property="shareButton" destination="6qI-au-mwJ" id="FaI-xw-6Zu"/>
@@ -183,7 +183,6 @@
         <!--Spotify Login View Controller - Title-->
         <scene sceneID="gu5-OV-Ofn">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="m5e-9T-vQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="login" id="y40-aY-lUg" customClass="FMSpotifyLoginViewController" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="DDl-5Q-dCE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -267,6 +266,7 @@
                         <segue destination="mxP-R7-rYa" kind="modal" id="ncq-Uv-2Ea"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m5e-9T-vQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1995" y="416"/>
         </scene>
@@ -307,7 +307,7 @@
         <scene sceneID="zmN-Mu-OX1">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="9yj-gD-nPf" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="4ip-gW-vVx">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -359,6 +359,7 @@
     <resources>
         <image name="first" width="16" height="16"/>
         <image name="second" width="16" height="16"/>
+        <image name="spotify.png" width="30" height="30"/>
     </resources>
     <classes>
         <class className="FMFirstViewController" superclassName="UIViewController">

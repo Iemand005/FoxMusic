@@ -20,9 +20,15 @@
 {
     FMSpotifyClient *spotifyClient = appDelegate.spotifyClient;
     
-    NSError *error;
-    [spotifyClient getUserPlaylistsWithError:&error];
-    [appDelegate displayError:error];
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        @try {
+        NSError *error;
+        [spotifyClient getUserPlaylistsWithError:&error];
+        if (error) [appDelegate displayError:error];
+        } @catch (NSException *ex) {
+            
+        }
+//    });
 //    }
 //    @catch (NSException *exception) {
 //        [appDelegate displayException:exception];

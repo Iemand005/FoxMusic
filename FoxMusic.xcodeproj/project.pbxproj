@@ -74,6 +74,8 @@
 		0A7FB31E2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB31D2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m */; };
 		0A7FB3212C33244100F50618 /* FMSpotifyPlaylistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3202C33244000F50618 /* FMSpotifyPlaylistsViewController.m */; };
 		0A7FB3242C33345B00F50618 /* FMURLConnectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3232C33345B00F50618 /* FMURLConnectionController.m */; };
+		0ACB517F2C3366E5004CA3E6 /* spotify.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACB517D2C3366E4004CA3E6 /* spotify.png */; };
+		0ACB51802C3366E5004CA3E6 /* spotify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACB517E2C3366E4004CA3E6 /* spotify@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +215,8 @@
 		0A7FB3202C33244000F50618 /* FMSpotifyPlaylistsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyPlaylistsViewController.m; sourceTree = "<group>"; };
 		0A7FB3222C33345B00F50618 /* FMURLConnectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMURLConnectionController.h; sourceTree = "<group>"; };
 		0A7FB3232C33345B00F50618 /* FMURLConnectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMURLConnectionController.m; sourceTree = "<group>"; };
+		0ACB517D2C3366E4004CA3E6 /* spotify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotify.png; sourceTree = "<group>"; };
+		0ACB517E2C3366E4004CA3E6 /* spotify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotify@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,6 +363,8 @@
 				0A2BFECD2C2C44450009ADAD /* first@2x.png */,
 				0A2BFED22C2C44460009ADAD /* second.png */,
 				0A2BFED42C2C44460009ADAD /* second@2x.png */,
+				0ACB517D2C3366E4004CA3E6 /* spotify.png */,
+				0ACB517E2C3366E4004CA3E6 /* spotify@2x.png */,
 				0A2BFEB12C2C44450009ADAD /* Supporting Files */,
 			);
 			path = FoxMusic;
@@ -735,6 +741,8 @@
 				0A2BFECE2C2C44450009ADAD /* first@2x.png in Resources */,
 				0A2BFED32C2C44460009ADAD /* second.png in Resources */,
 				0A2BFED52C2C44460009ADAD /* second@2x.png in Resources */,
+				0ACB517F2C3366E5004CA3E6 /* spotify.png in Resources */,
+				0ACB51802C3366E5004CA3E6 /* spotify@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
