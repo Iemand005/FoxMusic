@@ -60,6 +60,16 @@
     return self;
 }
 
+- (NSURL *)addToURL:(NSURL *)url
+{
+    return [NSURL URLWithString:[self addToURLAndGetString:url]];
+}
+
+- (NSString *)addToURLAndGetString:(NSURL *)url
+{
+    return [[url absoluteString] stringByAppendingFormat:@"?%@", [self urlString]];
+}
+
 + (FMMutableURLQueryDictionary *)urlQueryDictionary
 {
     return [[FMMutableURLQueryDictionary alloc] init];

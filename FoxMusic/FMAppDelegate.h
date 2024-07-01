@@ -21,4 +21,7 @@
 
 @property IBOutlet UITabBarController *mainTabBarController;
 
+- (void)displayError:(NSError *)error;
+- (void)displayException:(NSException *)exception;
+
 @end

@@ -53,26 +53,26 @@
 {
     NSError *error;
     @try {
-        if (![appDelegate.spotifyClient tryDeviceAuhorizationWithError:&error] || error) [self displayError:error];
+        if (![appDelegate.spotifyClient tryDeviceAuhorizationWithError:&error] || error) [appDelegate displayError:error];
 //        else {
             NSLog(@"Logged in? %@", appDelegate.spotifyClient.token);
             if (appDelegate.spotifyClient.isLoggedIn) [self navigateToControllerWithIdentifier:@"playlists" forwards:YES];
         
     }
     @catch (NSException *exception) {
-        [self displayException:exception];
+        [appDelegate displayException:exception];
     }
 }
 
-- (void)displayError:(NSError *)error
-{
-    [[[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@\n%@", error.localizedFailureReason, error.localizedDescription] delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil] show];
-}
-
-- (void)displayException:(NSException *)exception
-{
-    [[[UIAlertView alloc] initWithTitle:@"Whoops!" message:exception.description delegate:nil cancelButtonTitle:@"Sorry" otherButtonTitles:nil, nil] show];
-}
+//- (void)displayError:(NSError *)error
+//{
+//    [[[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@\n%@", error.localizedFailureReason, error.localizedDescription] delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil] show];
+//}
+//
+//- (void)displayException:(NSException *)exception
+//{
+//    [[[UIAlertView alloc] initWithTitle:@"Whoops!" message:exception.description delegate:nil cancelButtonTitle:@"Sorry" otherButtonTitles:nil, nil] show];
+//}
 
 - (void)navigateToControllerWithIdentifier:(NSString *)identifier forwards:(BOOL)forwards
 {

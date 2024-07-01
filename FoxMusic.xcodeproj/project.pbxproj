@@ -73,6 +73,7 @@
 		0A7FB3172C2DCC8300F50618 /* FMSpotifyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3162C2DCC8300F50618 /* FMSpotifyLoginViewController.m */; };
 		0A7FB31E2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB31D2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m */; };
 		0A7FB3212C33244100F50618 /* FMSpotifyPlaylistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3202C33244000F50618 /* FMSpotifyPlaylistsViewController.m */; };
+		0A7FB3242C33345B00F50618 /* FMURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3232C33345B00F50618 /* FMURLRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,6 +211,8 @@
 		0A7FB31D2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyLoginPageViewController.m; sourceTree = "<group>"; };
 		0A7FB31F2C33244000F50618 /* FMSpotifyPlaylistsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyPlaylistsViewController.h; sourceTree = "<group>"; };
 		0A7FB3202C33244000F50618 /* FMSpotifyPlaylistsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyPlaylistsViewController.m; sourceTree = "<group>"; };
+		0A7FB3222C33345B00F50618 /* FMURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMURLRequest.h; sourceTree = "<group>"; };
+		0A7FB3232C33345B00F50618 /* FMURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMURLRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -470,6 +473,8 @@
 				0A60382A2C2D859000482179 /* FMMutableURLQueryDictionary.h */,
 				0A60382B2C2D859000482179 /* FMMutableURLQueryDictionary.m */,
 				0A6038072C2D83F800482179 /* Supporting Files */,
+				0A7FB3222C33345B00F50618 /* FMURLRequest.h */,
+				0A7FB3232C33345B00F50618 /* FMURLRequest.m */,
 			);
 			name = FMTouch;
 			path = FMLib;
@@ -852,6 +857,7 @@
 				0A7FB3172C2DCC8300F50618 /* FMSpotifyLoginViewController.m in Sources */,
 				0A7FB31E2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m in Sources */,
 				0A7FB3212C33244100F50618 /* FMSpotifyPlaylistsViewController.m in Sources */,
+				0A7FB3242C33345B00F50618 /* FMURLRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

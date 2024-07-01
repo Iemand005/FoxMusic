@@ -8,6 +8,7 @@
 
 #import "FMSpotifyClient.h"
 #import "FMMutableURLQueryDictionary.h"
+#import "FMURLRequest.h"
 
 @interface FMSpotifyClient ()
 
@@ -80,6 +81,8 @@
     
     NSError *requestError;
     NSURLResponse *response;
+    [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"api.spotify.com"];
+    
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&requestError];
     
     NSDictionary *result = [self parseResponseData:responseData error:&requestError];
@@ -106,14 +109,31 @@
 
 - (NSDictionary *)request:(NSURL *)url
 {
+    return [self request:url error:nil];
+}
+
+- (NSDictionary *)request:(NSURL *)url error:(NSError **)error
+{
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     NSError *requestError;
     NSURLResponse *response;
     
     [request addValue:[self.token bearer] forHTTPHeaderField:@"Authorization"];
+    
+    FMURLRequest *urlRequest = [[FMURLRequest alloc] init];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:urlRequest];
+//    [connection ]
+//    [connection ]
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&requestError];
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&requestError];
-    return result ? result : @{};
+    
+    if (error && requestError) {
+         *error = requestError;
+        return nil;
+    }
+    
+    NSDictionary *result = [self parseResponseData:responseData error:&requestError];
+    if (error && requestError) *error = requestError;
+    return result;
 }
 
 - (NSDictionary *)requestWithString:(NSString *)url
@@ -121,13 +141,25 @@
     return [self request:[NSURL URLWithString:url]];
 }
 
-- (NSDictionary *)request:(NSURL *)url queryParameters:(NSDictionary *)parameters
+- (NSDictionary *)request:(NSURL *)url queryParameters:(NSDictionary *)parameters error:(NSError **)error
 {
-    NSString *urlWithQuery = [[url path] stringByAppendingFormat:@"?%@", [[FMMutableURLQueryDictionary urlQueryDictionaryWithDictionary:parameters] urlString]];
+    NSError *requestError;
+    NSURL *urlWithQuery = [[FMMutableURLQueryDictionary urlQueryDictionaryWithDictionary:parameters] addToURL:url];
     NSLog(@"the new url: %@", urlWithQuery);
-    return [self requestWithString:urlWithQuery];
+    NSDictionary *response = [self request:urlWithQuery error:&requestError];
+    
+    if (error && requestError) *error = requestError;
+    
+    return response;
     
 }
+
+- (NSDictionary *)request:(NSURL *)url queryParameters:(NSDictionary *)parameters
+{
+    return [self request:url queryParameters:parameters error:nil];
+}
+
+//- (NSURL *)addQueryParameters:(NSDictionary *)parameters toURL:(NSURL *)url
 
 - (BOOL)checkResult:(NSDictionary *)result forError:(NSError **)error
 {
@@ -219,11 +251,38 @@
 
 - (NSArray *)getUserPlaylists
 {
+    [self getUserPlaylistsWithError:nil];
+}
+
+- (NSArray *)getUserPlaylistsWithError:(NSError **)error
+{
     NSURL *playlistsEndpoint = [self.apiBaseAddress URLByAppendingPathComponent:@"me/playlists"];
     
     NSMutableArray *playlists = [NSMutableArray array];
     
-    return [self request:playlistsEndpoint queryParameters:@{@"offset":@10, @"limit":@5}];
+    NSError *requestError;
+    NSDictionary *result = [self request:playlistsEndpoint queryParameters:@{@"offset":@10, @"limit":@5} error:&requestError];
+    if (error && requestError) *error = requestError;
+    
+    return result;
+}
+
+- (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
+        NSLog(@"Ignoring SUCKSL");
+        SecTrustRef trust = challenge.protectionSpace.serverTrust;
+        NSURLCredential *cred;
+        cred = [NSURLCredential credentialForTrust:trust];
+        [challenge.sender useCredential:cred forAuthenticationChallenge:challenge];
+    }
+}
+
+//- conn
+
+- (NSException *)exceptionWithError:(NSError *)error
+{
+    return [NSException exceptionWithName:error.domain reason:error.localizedFailureReason userInfo:@{}];
 }
 
 + (FMSpotifyClient *)spotifyClient

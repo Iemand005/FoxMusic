@@ -15,6 +15,7 @@
 
 - (NSString *)urlString;
 - (NSData *)urlEncodedData;
+- (NSURL *)addToURL:(NSURL *)url;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

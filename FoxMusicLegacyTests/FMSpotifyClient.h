@@ -11,7 +11,7 @@
 #import "FMSpotifyDeviceAuthorizationInfo.h"
 #import "FMSpotifyToken.h"
 
-@interface FMSpotifyClient : NSObject
+@interface FMSpotifyClient : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 
 @property (assign) NSString *clientId;
 
@@ -40,6 +40,7 @@
 - (BOOL)tryDeviceAuhorizationWithError:(NSError **)error;
 
 - (NSArray *)getUserPlaylists;
+- (NSArray *)getUserPlaylistsWithError:(NSError **)error;
 
 + (FMSpotifyClient *)spotifyClient;
 

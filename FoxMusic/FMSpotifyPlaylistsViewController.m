@@ -20,7 +20,13 @@
 {
     FMSpotifyClient *spotifyClient = appDelegate.spotifyClient;
     
-    [spotifyClient getUserPlaylists];
+    NSError *error;
+    [spotifyClient getUserPlaylistsWithError:&error];
+    [appDelegate displayError:error];
+//    }
+//    @catch (NSException *exception) {
+//        [appDelegate displayException:exception];
+//    }
 }
 
 @end
