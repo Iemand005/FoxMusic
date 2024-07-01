@@ -39,6 +39,8 @@
 - (BOOL)tryDeviceAuhorization;
 - (BOOL)tryDeviceAuhorizationWithError:(NSError **)error;
 
+- (NSArray *)getUserPlaylists;
+
 + (FMSpotifyClient *)spotifyClient;
 
 @end

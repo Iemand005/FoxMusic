@@ -25,9 +25,9 @@
     BOOL forwards = YES;
     if (appDelegate.spotifyClient.isLoggedIn) {
         @try {
-        if ([[self viewControllers] count] > 0 && [[[[self viewControllers] objectAtIndex:0] identifier] isEqualToString:@"account"]) return;
+        if ([[self viewControllers] count] > 0 && [[[[self viewControllers] objectAtIndex:0] identifier] isEqualToString:@"playlists"]) return;
         } @catch (NSException *ex) {}
-        viewControllerIdentifier = @"account";
+        viewControllerIdentifier = @"playlists";
     } else {
         viewControllerIdentifier = @"login";
     }
@@ -56,7 +56,7 @@
         if (![appDelegate.spotifyClient tryDeviceAuhorizationWithError:&error] || error) [self displayError:error];
 //        else {
             NSLog(@"Logged in? %@", appDelegate.spotifyClient.token);
-            if (appDelegate.spotifyClient.isLoggedIn) [self navigateToControllerWithIdentifier:@"account" forwards:YES];
+            if (appDelegate.spotifyClient.isLoggedIn) [self navigateToControllerWithIdentifier:@"playlists" forwards:YES];
         
     }
     @catch (NSException *exception) {

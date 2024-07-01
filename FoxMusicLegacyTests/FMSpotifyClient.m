@@ -31,8 +31,6 @@
         NSString *authorizeDeviceEndpoint = @"oauth2/device/authorize";
         NSString *tokenEndpoint = @"api/token";
         
-
-        
         self.accountsBaseAddress = [NSURL URLWithString:accountsBaseAddress];
         self.authorizeDeviceEndpoint = [self.accountsBaseAddress URLByAppendingPathComponent:authorizeDeviceEndpoint];
         self.tokenEndpoint = [self.accountsBaseAddress URLByAppendingPathComponent:tokenEndpoint];
@@ -42,6 +40,8 @@
         NSString *searchEndpoint = @"search";
         self.apiBaseAddress = [NSURL URLWithString:apiBaseAddress];
         self.searchEndpoint = [self.apiBaseAddress URLByAppendingPathComponent:searchEndpoint];
+        
+        self.token = [FMSpotifyToken savedToken];
     }
     return self;
 }
@@ -82,14 +82,51 @@
     NSURLResponse *response;
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&requestError];
     
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&requestError];
-    
+    NSDictionary *result = [self parseResponseData:responseData error:&requestError];
     
     [self checkResult:result forError:&requestError];
     
     if (error) *error = requestError;
     
+    return result;
+}
+
+- (id)parseResponseData:(NSData *)data error:(NSError **)error
+{
+    id response;
+    NSError *serializationError;
+    @try {
+        response = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
+    } @catch (NSException *ex) {
+        serializationError = [NSError errorWithDomain:@"parsingResponse" code:1009 userInfo:@{NSLocalizedDescriptionKey: ex.description, NSLocalizedFailureReasonErrorKey: ex.reason}];
+    }
+    if (error) *error = serializationError;
+    return response;
+}
+
+- (NSDictionary *)request:(NSURL *)url
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    NSError *requestError;
+    NSURLResponse *response;
+    
+    [request addValue:[self.token bearer] forHTTPHeaderField:@"Authorization"];
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&requestError];
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&requestError];
     return result ? result : @{};
+}
+
+- (NSDictionary *)requestWithString:(NSString *)url
+{
+    return [self request:[NSURL URLWithString:url]];
+}
+
+- (NSDictionary *)request:(NSURL *)url queryParameters:(NSDictionary *)parameters
+{
+    NSString *urlWithQuery = [[url path] stringByAppendingFormat:@"?%@", [[FMMutableURLQueryDictionary urlQueryDictionaryWithDictionary:parameters] urlString]];
+    NSLog(@"the new url: %@", urlWithQuery);
+    return [self requestWithString:urlWithQuery];
+    
 }
 
 - (BOOL)checkResult:(NSDictionary *)result forError:(NSError **)error
@@ -144,7 +181,9 @@
     self.token = [FMSpotifyToken tokenWithDictionary:response];
     
     if (error) *error = requestError;
-    return self.token.accessToken != nil;
+    
+    [self.token save];
+    return [self isLoggedIn];
 }
 
 - (BOOL)refreshToken
@@ -175,7 +214,16 @@
 
 - (BOOL)isLoggedIn
 {
-    return self.token.accessToken != nil;
+    return self.token.isValid;
+}
+
+- (NSArray *)getUserPlaylists
+{
+    NSURL *playlistsEndpoint = [self.apiBaseAddress URLByAppendingPathComponent:@"me/playlists"];
+    
+    NSMutableArray *playlists = [NSMutableArray array];
+    
+    return [self request:playlistsEndpoint queryParameters:@{@"offset":@10, @"limit":@5}];
 }
 
 + (FMSpotifyClient *)spotifyClient

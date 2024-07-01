@@ -19,12 +19,21 @@
     return self;
 }
 
+- (id)initWithDictionary:(NSDictionary *)dictionary
+{
+    self = [super init];
+    if (self) {
+        _dictionary = [NSMutableDictionary dictionaryWithDictionary:dictionary];
+    }
+    return self;
+}
+
 - (NSString *)urlString
 {
     NSMutableArray *keyValuePairs = [NSMutableArray arrayWithCapacity:_dictionary.count];
     for (id key in _dictionary) {
         NSString *value = [_dictionary objectForKey:key];
-        [keyValuePairs addObject:[NSString stringWithFormat:@"%@=%@", [self urlEncodeString:key], [self urlEncodeString:value]]];
+        [keyValuePairs addObject:[NSString stringWithFormat:@"%@=%@", [self urlEncodeString:key], [self urlEncodeString:value.description]]];
     }
     return [keyValuePairs componentsJoinedByString:@"&"];
 }
@@ -54,6 +63,11 @@
 + (FMMutableURLQueryDictionary *)urlQueryDictionary
 {
     return [[FMMutableURLQueryDictionary alloc] init];
+}
+
++ (FMMutableURLQueryDictionary *)urlQueryDictionaryWithDictionary:(NSDictionary *)dictionary
+{
+    return [[FMMutableURLQueryDictionary alloc] initWithDictionary:dictionary];
 }
 
 @end

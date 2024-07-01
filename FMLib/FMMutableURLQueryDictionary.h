@@ -16,10 +16,11 @@
 - (NSString *)urlString;
 - (NSData *)urlEncodedData;
 
-- (id)initWithCapacity:(NSUInteger)numItems;
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 - (void)addEntriesFromDictionary:(NSDictionary *)dictionary;
 
 + (FMMutableURLQueryDictionary *)urlQueryDictionary;
++ (FMMutableURLQueryDictionary *)urlQueryDictionaryWithDictionary:(NSDictionary *)dictionary;
 
 @end

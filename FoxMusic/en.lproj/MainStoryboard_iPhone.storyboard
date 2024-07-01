@@ -170,7 +170,7 @@
         <!--Spotify Login Page View Controller-->
         <scene sceneID="b6s-KJ-Qp1">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="2iG-tK-aAX" customClass="FMSpotifyLoginPageViewController" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="max" doubleSided="YES" id="2iG-tK-aAX" customClass="FMSpotifyLoginPageViewController" sceneMemberID="viewController">
                     <connections>
                         <segue destination="mxP-R7-rYa" kind="modal" id="MVf-MI-t8L"/>
                         <segue destination="y40-aY-lUg" kind="modal" id="N3o-Zk-kde"/>
@@ -322,10 +322,10 @@
             </objects>
             <point key="canvasLocation" x="1902" y="-582"/>
         </scene>
-        <!--View Controller-->
+        <!--Spotify Playlists View Controller-->
         <scene sceneID="WM7-wL-XwB">
             <objects>
-                <viewController storyboardIdentifier="account" id="mxP-R7-rYa" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="playlists" id="mxP-R7-rYa" customClass="FMSpotifyPlaylistsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="udi-ZL-dJe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -360,49 +360,12 @@
         <image name="first" width="16" height="16"/>
         <image name="second" width="16" height="16"/>
     </resources>
-    <classes>
-        <class className="FMFirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMFirstViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="installCertificates:"/>
-            </relationships>
-        </class>
-        <class className="FMSecondViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSecondViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="promptLogin:"/>
-            </relationships>
-        </class>
-        <class className="FMSpotifyLoginPageViewController" superclassName="UIPageViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyLoginPageViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelLogin:"/>
-                <relationship kind="action" name="logIn:"/>
-                <relationship kind="action" name="promptLogin:"/>
-            </relationships>
-        </class>
-        <class className="FMSpotifyLoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyLoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="refreshCode:"/>
-                <relationship kind="action" name="shareCode:"/>
-                <relationship kind="outlet" name="accountViewController" candidateClass="UIViewController"/>
-                <relationship kind="outlet" name="loginPageViewController" candidateClass="UIPageViewController"/>
-                <relationship kind="outlet" name="remainingTimeView" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="userCodeField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ncq-Uv-2Ea"/>
+        <segue reference="MVf-MI-t8L"/>
     </inferredMetricsTieBreakers>
 </document>
