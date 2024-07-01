@@ -23,6 +23,8 @@
     
 //    MPM
     
+    
+    
     MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
     
     MPMediaQuery *albumsQuery = [MPMediaQuery albumsQuery];

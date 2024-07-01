@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "FoxMusic/FMFirstViewController.m"
-         timestampString = "741181437.805284"
+         timestampString = "741300408.697432"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "36"
-         endingLineNumber = "36"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "FoxMusic/FMFirstViewController.m"
-         timestampString = "741181437.805284"
+         timestampString = "741300408.697432"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "35"
-         endingLineNumber = "35"
+         startingLineNumber = "37"
+         endingLineNumber = "37"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "FoxMusic/FMFirstViewController.m"
-         timestampString = "741181437.805284"
+         timestampString = "741300408.697432"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "41"
-         endingLineNumber = "41"
+         startingLineNumber = "43"
+         endingLineNumber = "43"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -169,7 +169,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "178"
          endingLineNumber = "178"
-         landmarkName = "-isIsLoggedIn"
+         landmarkName = "-isLoggedIn"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
