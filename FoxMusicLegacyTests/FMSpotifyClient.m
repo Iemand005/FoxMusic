@@ -8,7 +8,7 @@
 
 #import "FMSpotifyClient.h"
 #import "FMMutableURLQueryDictionary.h"
-#import "FMURLRequest.h"
+#import "FMURLConnectionController.h"
 
 @interface FMSpotifyClient ()
 
@@ -114,14 +114,35 @@
 
 - (NSDictionary *)request:(NSURL *)url error:(NSError **)error
 {
+    NSError *requestError;
+    NSDictionary *result;
+    dispatch_semaphore_t sem = dispatch_semaphore_create(0);
+    __block NSData *responseData;
+    [self request:url callback:^(NSData *data){
+        responseData = data;
+        NSLog(@"request got data to here!!! %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+        dispatch_semaphore_signal(sem);
+    } error:&requestError];
+    dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+    
+    NSLog(@"WE GOT THIS DATA OUT!!! %@", [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
+
+    return result;
+}
+
+- (NSDictionary *)request:(NSURL *)url callback:(void (^const)(NSData *))callback error:(NSError **)error
+{
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     NSError *requestError;
     NSURLResponse *response;
     
     [request addValue:[self.token bearer] forHTTPHeaderField:@"Authorization"];
     
-    FMURLRequest *urlRequest = [[FMURLRequest alloc] init];
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:urlRequest];
+    dispatch_async(<#dispatch_queue_t queue#>, <#^(void)block#>)
+    
+    FMURLConnectionController *urlConnectionController = [FMURLConnectionController urlConnectionControllerWithCallback:callback];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:urlConnectionController];
+    [connection start];
 //    [connection ]
 //    [connection ]
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&requestError];
@@ -182,6 +203,17 @@
     NSDictionary *userInfo;
     if ([error.domain isEqualToString:@"authorization_pending"]) userInfo = @{NSLocalizedFailureReasonErrorKey: @"Authorization pending", NSLocalizedDescriptionKey: @"The code has not yet been used"};
     return [NSError errorWithDomain:error.domain code:error.code userInfo:userInfo];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    NSLog(@"Recieved data!!: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+    
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSLog(@"Connection finished!");
 }
 
 - (FMSpotifyDeviceAuthorizationInfo *)refreshDeviceAuthorizationInfo

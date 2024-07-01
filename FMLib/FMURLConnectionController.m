@@ -6,9 +6,18 @@
 //  Copyright (c) 2024 Lasse Lauwerys. All rights reserved.
 //
 
-#import "FMURLRequest.h"
+#import "FMURLConnectionController.h"
 
-@implementation FMURLRequest
+@implementation FMURLConnectionController
+
+- (id)initWithCallback:(void (^const)(NSData *))callback
+{
+    self = [super init];
+    if (self) {
+        _callback = callback;
+    }
+    return self;
+}
 
 - (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
@@ -24,12 +33,29 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     NSLog(@"Recieved data!!: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-    
+    _data = data;
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSLog(@"Connection finished!");
+    _callback(_data);
+}
+
+- (void)connectionDidFinishDownloading:(NSURLConnection *)connection destinationURL:(NSURL *)destinationURL
+{
+    NSLog(@"download finished!");
+    _callback(_data);
+}
+
++ (FMURLConnectionController *)urlConnectionController
+{
+    return [[FMURLConnectionController alloc] init];
+}
+
++ (FMURLConnectionController *)urlConnectionControllerWithCallback:(void(^const)(NSData *))callback
+{
+    return [[FMURLConnectionController alloc] initWithCallback:callback];
 }
 
 @end
