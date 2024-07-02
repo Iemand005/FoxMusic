@@ -23,8 +23,11 @@
 
 @property (readonly, nonatomic) BOOL hasNext;
 @property (readonly, nonatomic) BOOL hasPrevious;
+@property (readonly, nonatomic) NSUInteger count;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
+
+- (FMSpotifyPlaylist *)itemAtIndex:(NSUInteger)index;
 
 + (FMSpotifyPlaylistArray *)playlistArrayWithDictionary:(NSDictionary *)dictionary;
 

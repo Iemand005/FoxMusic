@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FMSpotifyPlaylistController : NSObject <UITableViewDataSource, UITableViewDelegate>
+#import "FMAppDelegate.h"
+#import "FMTouch.h"
+
+@interface FMSpotifyPlaylistTableViewController : UITableViewController
+{
+    FMAppDelegate *_appDelegate;
+    FMSpotifyPlaylistArray *_playlists;
+}
 
 @end

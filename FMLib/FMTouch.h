@@ -9,4 +9,4 @@
 #import <Foundation/Foundation.h>
 #import "FMSpotifyClient.h"
 #import "FMMutableURLQueryDictionary.h"
-//#import "FMSpotifyPlaylistArray.h"
+#import "FMSpotifyPlaylistArray.h"

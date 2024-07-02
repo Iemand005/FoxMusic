@@ -174,6 +174,7 @@
                     <connections>
                         <segue destination="mxP-R7-rYa" kind="modal" id="MVf-MI-t8L"/>
                         <segue destination="y40-aY-lUg" kind="modal" id="N3o-Zk-kde"/>
+                        <segue destination="Ey3-a5-Szr" kind="modal" id="iyu-mF-t58"/>
                     </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4TK-Vi-QjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -264,6 +265,7 @@
                         <outlet property="shareButton" destination="6qI-au-mwJ" id="guN-tR-iBc"/>
                         <outlet property="userCodeField" destination="9at-DA-Fgs" id="9d8-9B-Oh5"/>
                         <segue destination="mxP-R7-rYa" kind="modal" id="ncq-Uv-2Ea"/>
+                        <segue destination="Ey3-a5-Szr" kind="modal" id="16X-yl-k2f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5e-9T-vQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -322,10 +324,10 @@
             </objects>
             <point key="canvasLocation" x="1902" y="-582"/>
         </scene>
-        <!--Spotify Playlists View Controller-->
+        <!--Spotify Playlist Table View-->
         <scene sceneID="WM7-wL-XwB">
             <objects>
-                <viewController storyboardIdentifier="playlists" id="mxP-R7-rYa" customClass="FMSpotifyPlaylistsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="playlistsi" id="mxP-R7-rYa" customClass="FMSpotifyPlaylistTableView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="udi-ZL-dJe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -352,25 +354,37 @@
                     <navigationItem key="navigationItem" id="xYo-0g-G0z"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QNy-VE-3Ai" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="bda-YZ-axM" customClass="FMSpotifyPlaylistController"/>
+                <customObject id="bda-YZ-axM" customClass="FMSpotifyPlaylistTableViewController"/>
             </objects>
-            <point key="canvasLocation" x="2321" y="1167"/>
+            <point key="canvasLocation" x="1881" y="1431"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Spotify Playlist Table View Controller-->
         <scene sceneID="4z8-rM-4aS">
             <objects>
-                <tableViewController id="Ey3-a5-Szr" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="playlists" id="Ey3-a5-Szr" customClass="FMSpotifyPlaylistTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jzk-B3-ZTx">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ld4-Gn-ee3">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="playlist" textLabel="DcN-vy-6QW" detailTextLabel="uo7-uB-J3i" style="IBUITableViewCellStyleSubtitle" id="ld4-Gn-ee3">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcN-vy-6QW">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uo7-uB-J3i">
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
@@ -383,7 +397,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XUw-bV-gj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2660" y="1073"/>
+            <point key="canvasLocation" x="2366" y="1043"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="z6Z-by-CDg">
@@ -438,11 +452,11 @@
                 <relationship kind="outlet" name="userCodeField" candidateClass="UITextField"/>
             </relationships>
         </class>
-        <class className="FMSpotifyPlaylistController" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyPlaylistController.h"/>
+        <class className="FMSpotifyPlaylistTableView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyPlaylistTableView.h"/>
         </class>
-        <class className="FMSpotifyPlaylistsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyPlaylistsViewController.h"/>
+        <class className="FMSpotifyPlaylistTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyPlaylistTableViewController.h"/>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -455,5 +469,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="MVf-MI-t8L"/>
+        <segue reference="iyu-mF-t58"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,9 +11,10 @@
 #import "FMAppDelegate.h"
 #import "FMTouch.h"
 
-@interface FMSpotifyPlaylistsViewController : UIViewController
+@interface FMSpotifyPlaylistTableView : UIViewController
 {
     FMAppDelegate *appDelegate;
 }
 
 @end
+ 

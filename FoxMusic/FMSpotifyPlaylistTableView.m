@@ -6,10 +6,10 @@
 //  Copyright (c) 2024 Lasse Lauwerys. All rights reserved.
 //
 
-#import "FMSpotifyPlaylistsViewController.h"
+#import "FMSpotifyPlaylistTableView.h"
 #import "FMSpotifyPlaylistArray.h"
 
-@implementation FMSpotifyPlaylistsViewController
+@implementation FMSpotifyPlaylistTableView
 
 - (void)viewDidLoad
 {

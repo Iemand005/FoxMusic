@@ -37,6 +37,26 @@
     return [[self items] countByEnumeratingWithState:state objects:buffer count:len];
 }
 
+- (BOOL)hasNext
+{
+    return self.next != nil;
+}
+
+- (BOOL)hasPrevious
+{
+    return self.previous != nil;
+}
+
+- (NSUInteger)count
+{
+    return self.items.count;
+}
+
+- (FMSpotifyPlaylist *)itemAtIndex:(NSUInteger)index
+{
+    return [self.items objectAtIndex:index];
+}
+
 + (FMSpotifyPlaylistArray *)playlistArrayWithDictionary:(NSDictionary *)dictionary
 {
     return [[FMSpotifyPlaylistArray alloc] initWithDictionary:dictionary];
