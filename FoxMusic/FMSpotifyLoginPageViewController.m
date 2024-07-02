@@ -23,6 +23,16 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
     NSString *viewControllerIdentifier;
     BOOL forwards = YES;
+    
+    [[[appDelegate spotifyClient] token] load];
+    NSError *error;
+    if (!appDelegate.spotifyClient.isLoggedIn) NSLog(@"SHIT TOEKN EXPIRED");
+    [[appDelegate spotifyClient] refreshTokenWithError:&error];
+    if (appDelegate.spotifyClient.isLoggedIn) NSLog(@"TOKEN VALID AGAIN?");
+    if (error) {
+        [appDelegate displayError:error];
+    }
+    
     if (appDelegate.spotifyClient.isLoggedIn) {
         @try {
         if ([[self viewControllers] count] > 0 && [[[[self viewControllers] objectAtIndex:0] identifier] isEqualToString:@"spotify"]) return;

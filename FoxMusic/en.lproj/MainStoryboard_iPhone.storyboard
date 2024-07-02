@@ -314,7 +314,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="HVT-OU-Kn3" kind="push" id="4S3-Eu-Qwj"/>
+                                    <segue destination="HVT-OU-Kn3" kind="push" identifier="openTrackSegue" id="4S3-Eu-Qwj"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -329,10 +329,10 @@
             </objects>
             <point key="canvasLocation" x="2722" y="779"/>
         </scene>
-        <!--View Controller - Song mane-->
+        <!--Spotify Track View Controller - Song mane-->
         <scene sceneID="NRA-Hp-rJS">
             <objects>
-                <viewController id="HVT-OU-Kn3" sceneMemberID="viewController">
+                <viewController id="HVT-OU-Kn3" customClass="FMSpotifyTrackViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RM0-Z9-wpU">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -340,36 +340,29 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="bottom" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="CgS-Fl-Weo">
                                 <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                 <items>
-                                    <barButtonItem title="Item" id="SS4-DM-cVD"/>
-                                    <barButtonItem title="Item" id="qcw-5m-fsl"/>
-                                    <barButtonItem style="plain" id="utS-xv-Gzh">
-                                        <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="TRc-IL-Bo3">
-                                            <rect key="frame" x="116" y="11" width="118" height="23"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </slider>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="nYk-8W-qAF"/>
+                                    <barButtonItem systemItem="rewind" id="SS4-DM-cVD"/>
+                                    <barButtonItem systemItem="play" id="qcw-5m-fsl">
+                                        <connections>
+                                            <action selector="play:" destination="xSU-8Q-xOm" id="1Ot-E4-zYy"/>
+                                        </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" id="t3t-36-s3m">
-                                        <view key="customView" contentMode="scaleToFill" id="l6H-jn-Fly">
-                                            <rect key="frame" x="244" y="2" width="61" height="41"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        </view>
-                                    </barButtonItem>
+                                    <barButtonItem systemItem="fastForward" id="02I-9e-k3q"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="FdI-bq-iu2"/>
+                                    <barButtonItem systemItem="refresh" id="d8z-mY-wIT"/>
                                 </items>
                             </toolbar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUm-JH-jgu">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oiM-v1-DaR"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CgS-Fl-Weo" firstAttribute="bottom" secondItem="RM0-Z9-wpU" secondAttribute="bottom" type="default" id="Hge-OR-Xlj"/>
                             <constraint firstItem="CgS-Fl-Weo" firstAttribute="leading" secondItem="RM0-Z9-wpU" secondAttribute="leading" type="default" id="I7E-Or-dR1"/>
-                            <constraint firstAttribute="bottom" secondItem="aUm-JH-jgu" secondAttribute="bottom" constant="65" id="JpD-2r-neq"/>
-                            <constraint firstAttribute="trailing" secondItem="aUm-JH-jgu" secondAttribute="trailing" constant="53" id="U3S-Vi-Bpu"/>
-                            <constraint firstItem="aUm-JH-jgu" firstAttribute="leading" secondItem="RM0-Z9-wpU" secondAttribute="leading" constant="25" id="gdS-4w-1do"/>
-                            <constraint firstItem="aUm-JH-jgu" firstAttribute="top" secondItem="RM0-Z9-wpU" secondAttribute="top" constant="300" id="jex-4x-lyh"/>
+                            <constraint firstItem="oiM-v1-DaR" firstAttribute="top" secondItem="RM0-Z9-wpU" secondAttribute="top" type="default" id="XGa-yd-5VT"/>
+                            <constraint firstItem="oiM-v1-DaR" firstAttribute="trailing" secondItem="RM0-Z9-wpU" secondAttribute="trailing" type="default" id="eB4-TK-BhU"/>
+                            <constraint firstItem="oiM-v1-DaR" firstAttribute="bottom" secondItem="CgS-Fl-Weo" secondAttribute="top" type="default" id="gFs-sr-MEg"/>
                             <constraint firstItem="CgS-Fl-Weo" firstAttribute="trailing" secondItem="RM0-Z9-wpU" secondAttribute="trailing" type="default" id="jvZ-rW-wiQ"/>
+                            <constraint firstItem="oiM-v1-DaR" firstAttribute="leading" secondItem="RM0-Z9-wpU" secondAttribute="leading" type="default" id="kwZ-0B-nta"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Song mane" id="ohm-AN-Pzs"/>
@@ -422,6 +415,13 @@
         </class>
         <class className="FMSpotifyTrackTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyTrackTableViewController.h"/>
+        </class>
+        <class className="FMSpotifyTrackViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyTrackViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="pause:"/>
+                <relationship kind="action" name="play:"/>
+            </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>

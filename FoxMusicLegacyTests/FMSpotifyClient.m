@@ -290,7 +290,14 @@
     
     if (!self.token) @throw[NSException exceptionWithName:@"Failed to refresh token" reason:@"Cannot refresh a token that does not exist." userInfo:@{}];
     
-    NSDictionary *response = [self request:self.tokenEndpoint withBody:self.token.dictionary error:&requestError];
+    NSDictionary *body = @{
+                           @"grant_type": @"refresh_token",
+                           @"refresh_token": self.token.refreshToken
+                           };
+//    NSMutableDictionary *newBod = [NSMutableDictionary dictionaryWithDictionary:body];
+//    [newBod addEntriesFromDictionary:self.token.dictionary];
+    
+    NSDictionary *response = [self request:self.tokenEndpoint withBody:body error:&requestError];
     
     NSLog(@"got a token? %@, %@", response, self.deviceAuthorizationInfo.deviceCode);
     
@@ -329,6 +336,14 @@
     } onError:callbackError];
 }
 
+- (void)downloadTrack:(FMSpotifyTrack *)track
+{
+    NSString *metaURL = @"https://spclient.wg.spotify.com/metadata/4/track/";
+    NSString *fullMetaURL = [metaURL stringByAppendingString:@"75aa6e3e6c454cedaca41d842e12a4e6"];
+    [self request:[NSURL URLWithString:fullMetaURL] callback:^(NSDictionary *response, NSError *error){
+        NSLog(@"I GOT RESPONZABLE: %@", response);
+    }];
+}
 
 //- (void)getMorePlaylists:(FMSpotifyTrackArray *)tracks withOnSuccess:(void(^)(NSDictionary *))callbackSuccess onError:(void(^)(NSError *))callbackError
 //{

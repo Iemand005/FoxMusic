@@ -22,6 +22,7 @@
 @property IBOutlet UITabBarController *mainTabBarController;
 
 @property FMSpotifyPlaylist *selectedPlaylist;
+@property FMSpotifyTrack *selectedTrack;
 
 - (void)displayError:(NSError *)error;
 - (void)displayException:(NSException *)exception;

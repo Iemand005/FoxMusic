@@ -17,7 +17,7 @@
 @property NSString *tokenType;
 @property NSDate *createdOn;
 
-@property (readonly) NSDictionary *dictionary;
+@property (readonly, nonatomic) NSDictionary *dictionary;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 - (NSString *)bearer;

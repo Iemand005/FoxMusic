@@ -112,11 +112,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "FoxMusic/FMSpotifyLoginPageViewController.m"
-         timestampString = "741619466.499783"
+         timestampString = "741631116.35765"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "44"
-         endingLineNumber = "44"
+         startingLineNumber = "54"
+         endingLineNumber = "54"
          landmarkName = "-logIn:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -125,11 +125,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "FoxMusicLegacyTests/FMSpotifyClient.m"
-         timestampString = "741570533.846522"
+         timestampString = "741632119.268916"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "310"
-         endingLineNumber = "310"
+         startingLineNumber = "317"
+         endingLineNumber = "317"
          landmarkName = "-isLoggedIn"
          landmarkType = "5">
       </FileBreakpoint>
@@ -175,11 +175,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "FoxMusicLegacyTests/FMSpotifyClient.m"
-         timestampString = "741618044.2353311"
+         timestampString = "741632119.268916"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "344"
-         endingLineNumber = "344"
+         startingLineNumber = "359"
+         endingLineNumber = "359"
          landmarkName = "@implementation FMSpotifyClient"
          landmarkType = "3">
       </FileBreakpoint>
@@ -188,11 +188,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "FoxMusicLegacyTests/FMSpotifyClient.m"
-         timestampString = "741618044.2353311"
+         timestampString = "741632119.268916"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "345"
-         endingLineNumber = "345"
+         startingLineNumber = "360"
+         endingLineNumber = "360"
          landmarkName = "-getUserPlaylistsWithError:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -513,11 +513,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "FoxMusicLegacyTests/FMSpotifyClient.m"
-         timestampString = "741618044.2353311"
+         timestampString = "741632119.268916"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "327"
-         endingLineNumber = "327"
+         startingLineNumber = "334"
+         endingLineNumber = "334"
          landmarkName = "-continueArray:withOnSuccess:onError:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -526,11 +526,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "FoxMusicLegacyTests/FMSpotifyClient.m"
-         timestampString = "741618144.184733"
+         timestampString = "741632119.268916"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "328"
-         endingLineNumber = "328"
+         startingLineNumber = "335"
+         endingLineNumber = "335"
          landmarkName = "-continueArray:withOnSuccess:onError:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -643,12 +643,103 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "FoxMusic/FMSpotifyTrackTableViewController.m"
-         timestampString = "741626580.686411"
+         timestampString = "741627807.171159"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "34"
-         endingLineNumber = "34"
+         startingLineNumber = "35"
+         endingLineNumber = "35"
          landmarkName = "-viewDidAppear:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "FoxMusicLegacyTests/FMSpotifyClient.m"
+         timestampString = "741632119.268916"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "344"
+         endingLineNumber = "344"
+         landmarkName = "-downloadTrack:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "FMLib/FMSpotifyToken.m"
+         timestampString = "741631006.952644"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "82"
+         endingLineNumber = "82"
+         landmarkName = "-isValid"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "FoxMusic/FMSpotifyLoginPageViewController.m"
+         timestampString = "741631116.35765"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "30"
+         endingLineNumber = "30"
+         landmarkName = "-viewDidAppear:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "FoxMusic/FMSpotifyLoginPageViewController.m"
+         timestampString = "741631116.35765"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "33"
+         endingLineNumber = "33"
+         landmarkName = "-viewDidAppear:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "FMLib/FMSpotifyToken.m"
+         timestampString = "741631361.774502"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "46"
+         endingLineNumber = "46"
+         landmarkName = "-dictionary"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "FoxMusicLegacyTests/FMSpotifyClient.m"
+         timestampString = "741632119.268916"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "300"
+         endingLineNumber = "300"
+         landmarkName = "-refreshTokenWithError:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "FoxMusicLegacyTests/FMSpotifyClient.m"
+         timestampString = "741631498.130037"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "293"
+         endingLineNumber = "293"
+         landmarkName = "-refreshTokenWithError:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
