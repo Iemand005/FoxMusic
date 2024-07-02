@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FMURLConnectionController : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate, NSURLConnectionDownloadDelegate>
+@interface FMURLConnectionController : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 {
     @private
     NSData *_data;

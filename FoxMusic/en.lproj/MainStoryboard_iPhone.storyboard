@@ -170,7 +170,7 @@
         <!--Spotify Login Page View Controller-->
         <scene sceneID="b6s-KJ-Qp1">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="max" id="2iG-tK-aAX" customClass="FMSpotifyLoginPageViewController" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" modalTransitionStyle="partialCurl" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="2iG-tK-aAX" customClass="FMSpotifyLoginPageViewController" sceneMemberID="viewController">
                     <connections>
                         <segue destination="mxP-R7-rYa" kind="modal" id="MVf-MI-t8L"/>
                         <segue destination="y40-aY-lUg" kind="modal" id="N3o-Zk-kde"/>

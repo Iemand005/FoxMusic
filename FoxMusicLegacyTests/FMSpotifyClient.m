@@ -9,6 +9,7 @@
 #import "FMSpotifyClient.h"
 #import "FMMutableURLQueryDictionary.h"
 #import "FMURLConnectionController.h"
+#import "FMSpotifyPlaylistArray.h"
 
 @interface FMSpotifyClient ()
 
@@ -43,6 +44,8 @@
         self.searchEndpoint = [self.apiBaseAddress URLByAppendingPathComponent:searchEndpoint];
         
         self.token = [FMSpotifyToken savedToken];
+        
+//        apiParser = [FMSpotifyAPIParser apiParser];
     }
     return self;
 }
@@ -162,17 +165,25 @@
     
     FMURLConnectionController *urlConnectionController = [FMURLConnectionController urlConnectionControllerWithCallback:^(NSData *data){
         NSError *error;
-//        NSURLResponse *response;
-        
-//        FMURLConnectionController
-//        NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&requestError];
-        
         NSDictionary *result = [self parseResponseData:data error:&error];
         callback(result, error);
     }];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [[[NSURLConnection alloc] initWithRequest:request delegate:urlConnectionController] start];
-    });
+    [[[NSURLConnection alloc] initWithRequest:request delegate:urlConnectionController] start];
+}
+
+- (void)getUserPlaylistsAndWhenSuccess:(void (^)(FMSpotifyPlaylistArray *))callbackSuccess whenError:(void (^)(NSError *))callbackError
+{
+    NSURL *playlistsEndpoint = [self.apiBaseAddress URLByAppendingPathComponent:@"me/playlists"];
+    
+    [self request:playlistsEndpoint callback:^(NSDictionary *result, NSError *error){
+        if (!error) {
+//            NSMutableArray *playlists = [NSMutableArray array];
+            
+//            NSArray *playlistItems = [result objectForKey:@"items"];
+            
+            callbackSuccess([FMSpotifyPlaylistArray playlistArrayWithDictionary:result]);
+        } else callbackError(error);
+    }];
 }
 
 - (NSDictionary *)requestWithString:(NSString *)url

@@ -42,12 +42,6 @@
     _callback(_data);
 }
 
-- (void)connectionDidFinishDownloading:(NSURLConnection *)connection destinationURL:(NSURL *)destinationURL
-{
-    NSLog(@"download finished!");
-    _callback(_data);
-}
-
 + (FMURLConnectionController *)urlConnectionController
 {
     return [[FMURLConnectionController alloc] init];

@@ -7,6 +7,7 @@
 //
 
 #import "FMSpotifyPlaylistsViewController.h"
+#import "FMSpotifyPlaylistArray.h"
 
 @implementation FMSpotifyPlaylistsViewController
 
@@ -23,7 +24,13 @@
 //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         @try {
         NSError *error;
-        [spotifyClient getUserPlaylistsWithError:&error];
+            [spotifyClient getUserPlaylistsAndWhenSuccess:^(FMSpotifyPlaylistArray *playlists){
+                for (FMSpotifyPlaylist *playlist in playlists) {
+                    NSLog(@"title: %@, description: %@", playlist.name, playlist.description);
+                }
+            } whenError:^(NSError *error){
+                [appDelegate displayError:error];
+            }];
         if (error) [appDelegate displayError:error];
         } @catch (NSException *ex) {
             

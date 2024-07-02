@@ -60,11 +60,11 @@
 		0A6038132C2D83F800482179 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2BFEDC2C2C44460009ADAD /* SenTestingKit.framework */; };
 		0A6038142C2D83F800482179 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2BFEAA2C2C44450009ADAD /* UIKit.framework */; };
 		0A6038152C2D83F800482179 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2BFEAC2C2C44450009ADAD /* Foundation.framework */; };
-		0A6038182C2D83F800482179 /* libFMLibTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6038042C2D83F800482179 /* libFMLibTouch.a */; };
+		0A6038182C2D83F800482179 /* libFMTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6038042C2D83F800482179 /* libFMTouch.a */; };
 		0A60381E2C2D83F800482179 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A60381C2C2D83F800482179 /* InfoPlist.strings */; };
 		0A6038212C2D83F800482179 /* FMLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6038202C2D83F800482179 /* FMLibTests.m */; };
 		0A60382C2C2D859000482179 /* FMMutableURLQueryDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A60382B2C2D859000482179 /* FMMutableURLQueryDictionary.m */; };
-		0A60382E2C2D868300482179 /* libFMLibTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6038042C2D83F800482179 /* libFMLibTouch.a */; };
+		0A60382E2C2D868300482179 /* libFMTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6038042C2D83F800482179 /* libFMTouch.a */; };
 		0A6038312C2D877600482179 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A502F572C2C560D00EA1CAE /* AVFoundation.framework */; };
 		0A6038322C2D877600482179 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2BFEF32C2C452A0009ADAD /* MediaPlayer.framework */; };
 		0A6038332C2D879E00482179 /* FMSpotifyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6037FA2C2D82B600482179 /* FMSpotifyClient.m */; };
@@ -76,6 +76,9 @@
 		0A7FB3242C33345B00F50618 /* FMURLConnectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3232C33345B00F50618 /* FMURLConnectionController.m */; };
 		0ACB517F2C3366E5004CA3E6 /* spotify.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACB517D2C3366E4004CA3E6 /* spotify.png */; };
 		0ACB51802C3366E5004CA3E6 /* spotify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACB517E2C3366E4004CA3E6 /* spotify@2x.png */; };
+		0ACB51832C3372A5004CA3E6 /* FMSpotifyAPIParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB51822C3372A5004CA3E6 /* FMSpotifyAPIParser.m */; };
+		0ACB51862C3373DF004CA3E6 /* FMSpotifyPlaylistArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB51852C3373DF004CA3E6 /* FMSpotifyPlaylistArray.m */; };
+		0ACB518A2C337607004CA3E6 /* FMSpotifyPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB51892C337607004CA3E6 /* FMSpotifyPlaylist.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,7 +198,7 @@
 		0A6037F82C2D82B600482179 /* FMSpotifyDeviceAuthorizationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMSpotifyDeviceAuthorizationInfo.m; path = ../FoxMusicLegacyTests/FMSpotifyDeviceAuthorizationInfo.m; sourceTree = "<group>"; };
 		0A6037F92C2D82B600482179 /* FMSpotifyClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMSpotifyClient.h; path = ../FoxMusicLegacyTests/FMSpotifyClient.h; sourceTree = "<group>"; };
 		0A6037FA2C2D82B600482179 /* FMSpotifyClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMSpotifyClient.m; path = ../FoxMusicLegacyTests/FMSpotifyClient.m; sourceTree = "<group>"; };
-		0A6038042C2D83F800482179 /* libFMLibTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFMLibTouch.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A6038042C2D83F800482179 /* libFMTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFMTouch.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A6038082C2D83F800482179 /* FMLib-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FMLib-Prefix.pch"; sourceTree = "<group>"; };
 		0A6038092C2D83F800482179 /* FMTouch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMTouch.h; sourceTree = "<group>"; };
 		0A6038122C2D83F800482179 /* FMLibTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = FMLibTests.octest; path = FMLibTouchTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,6 +220,12 @@
 		0A7FB3232C33345B00F50618 /* FMURLConnectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMURLConnectionController.m; sourceTree = "<group>"; };
 		0ACB517D2C3366E4004CA3E6 /* spotify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotify.png; sourceTree = "<group>"; };
 		0ACB517E2C3366E4004CA3E6 /* spotify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotify@2x.png"; sourceTree = "<group>"; };
+		0ACB51812C3372A5004CA3E6 /* FMSpotifyAPIParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyAPIParser.h; sourceTree = "<group>"; };
+		0ACB51822C3372A5004CA3E6 /* FMSpotifyAPIParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyAPIParser.m; sourceTree = "<group>"; };
+		0ACB51842C3373DF004CA3E6 /* FMSpotifyPlaylistArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyPlaylistArray.h; sourceTree = "<group>"; };
+		0ACB51852C3373DF004CA3E6 /* FMSpotifyPlaylistArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyPlaylistArray.m; sourceTree = "<group>"; };
+		0ACB51882C337607004CA3E6 /* FMSpotifyPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyPlaylist.h; sourceTree = "<group>"; };
+		0ACB51892C337607004CA3E6 /* FMSpotifyPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyPlaylist.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,7 +233,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A60382E2C2D868300482179 /* libFMLibTouch.a in Frameworks */,
+				0A60382E2C2D868300482179 /* libFMTouch.a in Frameworks */,
 				0A502F582C2C560D00EA1CAE /* AVFoundation.framework in Frameworks */,
 				0A2BFEF42C2C452A0009ADAD /* MediaPlayer.framework in Frameworks */,
 				0A2BFEAB2C2C44450009ADAD /* UIKit.framework in Frameworks */,
@@ -298,7 +307,7 @@
 				0A6038132C2D83F800482179 /* SenTestingKit.framework in Frameworks */,
 				0A6038142C2D83F800482179 /* UIKit.framework in Frameworks */,
 				0A6038152C2D83F800482179 /* Foundation.framework in Frameworks */,
-				0A6038182C2D83F800482179 /* libFMLibTouch.a in Frameworks */,
+				0A6038182C2D83F800482179 /* libFMTouch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +337,7 @@
 				0A6037B22C2D804A00482179 /* FoxMusicLegacyTests.octest */,
 				0A6037CC2C2D81DC00482179 /* FMKit.framework */,
 				0A6037E22C2D81DC00482179 /* FMKitTests.octest */,
-				0A6038042C2D83F800482179 /* libFMLibTouch.a */,
+				0A6038042C2D83F800482179 /* libFMTouch.a */,
 				0A6038122C2D83F800482179 /* FMLibTests.octest */,
 			);
 			name = Products;
@@ -474,13 +483,19 @@
 				0A6037FA2C2D82B600482179 /* FMSpotifyClient.m */,
 				0A7FB3122C2DB46600F50618 /* FMSpotifyToken.h */,
 				0A7FB3132C2DB46600F50618 /* FMSpotifyToken.m */,
+				0ACB51812C3372A5004CA3E6 /* FMSpotifyAPIParser.h */,
+				0ACB51822C3372A5004CA3E6 /* FMSpotifyAPIParser.m */,
+				0ACB51882C337607004CA3E6 /* FMSpotifyPlaylist.h */,
+				0ACB51892C337607004CA3E6 /* FMSpotifyPlaylist.m */,
+				0ACB51842C3373DF004CA3E6 /* FMSpotifyPlaylistArray.h */,
+				0ACB51852C3373DF004CA3E6 /* FMSpotifyPlaylistArray.m */,
 				0A6037F72C2D82B600482179 /* FMSpotifyDeviceAuthorizationInfo.h */,
 				0A6037F82C2D82B600482179 /* FMSpotifyDeviceAuthorizationInfo.m */,
 				0A60382A2C2D859000482179 /* FMMutableURLQueryDictionary.h */,
 				0A60382B2C2D859000482179 /* FMMutableURLQueryDictionary.m */,
-				0A6038072C2D83F800482179 /* Supporting Files */,
 				0A7FB3222C33345B00F50618 /* FMURLConnectionController.h */,
 				0A7FB3232C33345B00F50618 /* FMURLConnectionController.m */,
+				0A6038072C2D83F800482179 /* Supporting Files */,
 			);
 			name = FMTouch;
 			path = FMLib;
@@ -654,9 +669,9 @@
 			productReference = 0A6037E22C2D81DC00482179 /* FMKitTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
-		0A6038032C2D83F800482179 /* FMLibTouch */ = {
+		0A6038032C2D83F800482179 /* FMTouch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A6038222C2D83F800482179 /* Build configuration list for PBXNativeTarget "FMLibTouch" */;
+			buildConfigurationList = 0A6038222C2D83F800482179 /* Build configuration list for PBXNativeTarget "FMTouch" */;
 			buildPhases = (
 				0A6038002C2D83F800482179 /* Sources */,
 				0A6038012C2D83F800482179 /* Frameworks */,
@@ -666,14 +681,14 @@
 			);
 			dependencies = (
 			);
-			name = FMLibTouch;
+			name = FMTouch;
 			productName = FMLib;
-			productReference = 0A6038042C2D83F800482179 /* libFMLibTouch.a */;
+			productReference = 0A6038042C2D83F800482179 /* libFMTouch.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		0A6038112C2D83F800482179 /* FMLibTouchTests */ = {
+		0A6038112C2D83F800482179 /* FMTouchTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A6038252C2D83F800482179 /* Build configuration list for PBXNativeTarget "FMLibTouchTests" */;
+			buildConfigurationList = 0A6038252C2D83F800482179 /* Build configuration list for PBXNativeTarget "FMTouchTests" */;
 			buildPhases = (
 				0A60380D2C2D83F800482179 /* Sources */,
 				0A60380E2C2D83F800482179 /* Frameworks */,
@@ -685,7 +700,7 @@
 			dependencies = (
 				0A6038172C2D83F800482179 /* PBXTargetDependency */,
 			);
-			name = FMLibTouchTests;
+			name = FMTouchTests;
 			productName = FMLibTests;
 			productReference = 0A6038122C2D83F800482179 /* FMLibTests.octest */;
 			productType = "com.apple.product-type.bundle";
@@ -718,8 +733,8 @@
 				0A6037B12C2D804A00482179 /* FoxMusicLegacyTests */,
 				0A6037CB2C2D81DC00482179 /* FMKit */,
 				0A6037E12C2D81DC00482179 /* FMKitTests */,
-				0A6038032C2D83F800482179 /* FMLibTouch */,
-				0A6038112C2D83F800482179 /* FMLibTouchTests */,
+				0A6038032C2D83F800482179 /* FMTouch */,
+				0A6038112C2D83F800482179 /* FMTouchTests */,
 			);
 		};
 /* End PBXProject section */
@@ -866,6 +881,9 @@
 				0A7FB31E2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m in Sources */,
 				0A7FB3212C33244100F50618 /* FMSpotifyPlaylistsViewController.m in Sources */,
 				0A7FB3242C33345B00F50618 /* FMURLConnectionController.m in Sources */,
+				0ACB51832C3372A5004CA3E6 /* FMSpotifyAPIParser.m in Sources */,
+				0ACB51862C3373DF004CA3E6 /* FMSpotifyPlaylistArray.m in Sources */,
+				0ACB518A2C337607004CA3E6 /* FMSpotifyPlaylist.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -948,17 +966,17 @@
 		};
 		0A6038172C2D83F800482179 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0A6038032C2D83F800482179 /* FMLibTouch */;
+			target = 0A6038032C2D83F800482179 /* FMTouch */;
 			targetProxy = 0A6038162C2D83F800482179 /* PBXContainerItemProxy */;
 		};
 		0A6038292C2D848A00482179 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0A6038032C2D83F800482179 /* FMLibTouch */;
+			target = 0A6038032C2D83F800482179 /* FMTouch */;
 			targetProxy = 0A6038282C2D848A00482179 /* PBXContainerItemProxy */;
 		};
 		0A6038302C2D86C300482179 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0A6038032C2D83F800482179 /* FMLibTouch */;
+			target = 0A6038032C2D83F800482179 /* FMTouch */;
 			targetProxy = 0A60382F2C2D86C300482179 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1440,7 +1458,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A6038222C2D83F800482179 /* Build configuration list for PBXNativeTarget "FMLibTouch" */ = {
+		0A6038222C2D83F800482179 /* Build configuration list for PBXNativeTarget "FMTouch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A6038232C2D83F800482179 /* Debug */,
@@ -1449,7 +1467,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A6038252C2D83F800482179 /* Build configuration list for PBXNativeTarget "FMLibTouchTests" */ = {
+		0A6038252C2D83F800482179 /* Build configuration list for PBXNativeTarget "FMTouchTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A6038262C2D83F800482179 /* Debug */,

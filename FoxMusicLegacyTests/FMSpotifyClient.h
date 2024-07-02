@@ -10,8 +10,13 @@
 
 #import "FMSpotifyDeviceAuthorizationInfo.h"
 #import "FMSpotifyToken.h"
+//#import "FMSpotifyAPIParser.h"
+#import "FMSpotifyPlaylistArray.h"
 
-@interface FMSpotifyClient : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
+@interface FMSpotifyClient : NSObject
+{
+//    FMSpotifyAPIParser *apiParser;
+}
 
 @property (assign) NSString *clientId;
 
@@ -41,6 +46,7 @@
 
 - (NSArray *)getUserPlaylists;
 - (NSArray *)getUserPlaylistsWithError:(NSError **)error;
+- (void)getUserPlaylistsAndWhenSuccess:(void(^)(FMSpotifyPlaylistArray *playlists))callbackSuccess whenError:(void(^)(NSError *))callbackError;
 
 + (FMSpotifyClient *)spotifyClient;
 
