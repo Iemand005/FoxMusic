@@ -19,10 +19,11 @@
     }
     return self;
 }
-
-- (void)addItemsFromDictionary:(NSDictionary *)dictionary
+// extend with dictionary
+- (FMSpotifyContinuableArray *)addItemsFromDictionary:(NSDictionary *)dictionary
 {
     [self.items addObjectsFromArray:[dictionary objectForKey:@"items"]];
+    return self;
 }
 
 - (NSUInteger)count

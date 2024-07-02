@@ -27,6 +27,8 @@
 
 - (id)itemAtIndex:(NSUInteger)index;
 
+- (FMSpotifyContinuableArray *)addItemsFromDictionary:(NSDictionary *)dictionary;
+
 + (FMSpotifyContinuableArray *)continuableFromDictionary:(NSDictionary *)dictionary;
 
 @end

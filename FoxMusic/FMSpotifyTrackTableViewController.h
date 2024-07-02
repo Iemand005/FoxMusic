@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FMSpotifyPlaylistTableViewController.h"
+
 @interface FMSpotifyTrackTableViewController : UITableViewController
+{
+    FMAppDelegate *_appDelegate;
+//    FMSP *_playlists;
+}
+
+@property IBOutlet FMSpotifyPlaylistTableViewController *playlistTableViewController;
 
 @end

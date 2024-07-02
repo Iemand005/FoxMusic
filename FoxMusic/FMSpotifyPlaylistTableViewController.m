@@ -18,6 +18,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     FMSpotifyClient *spotifyClient = _appDelegate.spotifyClient;
     
@@ -27,7 +28,7 @@
             for (FMSpotifyPlaylist *playlist in playlists) {
                 NSLog(@"title: %@, description: %@", playlist.name, playlist.description);
             }
-            _playlists = playlists;
+            self.playlists = playlists;
             [[self tableView] reloadData];
         } whenError:^(NSError *error){
             [_appDelegate displayError:error];
@@ -41,21 +42,23 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _playlists ? _playlists.items.count : 0;
+    return self.playlists ? self.playlists.items.count : 0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"The user wants to see row at index %i", indexPath.row);
     
-    FMSpotifyPlaylist *playlist = [_playlists itemAtIndex:indexPath.row];
+    FMSpotifyPlaylist *playlist = [self.playlists itemAtIndex:indexPath.row];
     NSLog(@"Now need fetch: %@", playlist.tracks.href);
+    self.selectedPlaylist = playlist;
+    [self performSegueWithIdentifier:@"openPlaylistSegue" sender:self];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"playlist" forIndexPath:indexPath];
-    FMSpotifyPlaylist *playlist = [_playlists itemAtIndex:indexPath.row];
+    FMSpotifyPlaylist *playlist = [self.playlists itemAtIndex:indexPath.row];
     [cell.textLabel setText:playlist.name];
     [cell.detailTextLabel setText:playlist.description];
     

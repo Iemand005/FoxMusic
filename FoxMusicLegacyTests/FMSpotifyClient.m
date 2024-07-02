@@ -318,13 +318,24 @@
     }];
 }
 
-- (void)continueArray:(FMSpotifyContinuableArray *)continuableArray withOnSuccess:(void(^)(NSDictionary *))callbackSuccess onError:(void(^)(NSError *))callbackError
+- (void)continueArray:(FMSpotifyContinuableArray *)continuableArray withOnSuccess:(void(^)(FMSpotifyContinuableArray *))callbackSuccess onError:(void(^)(NSError *))callbackError
 {
     NSURL *url = [continuableArray hasNext] ? [continuableArray next] : [continuableArray href];
     NSLog(@"I will get the continuation data for: %@ sir yes sir rikesyikes u riekt", url);
     
-    [self request:url withOnSuccess:callbackSuccess onError:callbackError];
+    [self request:url withOnSuccess:^(NSDictionary *response){
+//        NSArray *items = [response objectForKey:@"items"];
+        callbackSuccess([continuableArray addItemsFromDictionary:response]);
+    } onError:callbackError];
 }
+
+
+//- (void)getMorePlaylists:(FMSpotifyTrackArray *)tracks withOnSuccess:(void(^)(NSDictionary *))callbackSuccess onError:(void(^)(NSError *))callbackError
+//{
+//    [self continueArray:tracks withOnSuccess:^(NSDictionary *receivedTracks){
+//        
+//    } onError:callbackError];
+//}
 
 - (NSArray *)getUserPlaylists
 {

@@ -173,8 +173,8 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" modalTransitionStyle="partialCurl" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="2iG-tK-aAX" customClass="FMSpotifyLoginPageViewController" sceneMemberID="viewController">
                     <connections>
                         <segue destination="mxP-R7-rYa" kind="modal" id="MVf-MI-t8L"/>
-                        <segue destination="y40-aY-lUg" kind="modal" id="N3o-Zk-kde"/>
-                        <segue destination="Ey3-a5-Szr" kind="modal" id="iyu-mF-t58"/>
+                        <segue destination="y40-aY-lUg" kind="modal" identifier="loginSegue" id="N3o-Zk-kde"/>
+                        <segue destination="9ks-yI-BhX" kind="modal" modalTransitionStyle="crossDissolve" id="FLB-34-eEF"/>
                     </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4TK-Vi-QjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -265,7 +265,6 @@
                         <outlet property="shareButton" destination="6qI-au-mwJ" id="guN-tR-iBc"/>
                         <outlet property="userCodeField" destination="9at-DA-Fgs" id="9d8-9B-Oh5"/>
                         <segue destination="mxP-R7-rYa" kind="modal" id="ncq-Uv-2Ea"/>
-                        <segue destination="Ey3-a5-Szr" kind="modal" id="16X-yl-k2f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5e-9T-vQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -363,7 +362,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="playlists" id="Ey3-a5-Szr" customClass="FMSpotifyPlaylistTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jzk-B3-ZTx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -394,29 +393,57 @@
                             <outlet property="delegate" destination="Ey3-a5-Szr" id="lMa-RE-fPQ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="6CW-a8-h90"/>
                     <connections>
-                        <segue destination="VIE-2n-Vri" kind="modal" id="jT8-yy-Dk1"/>
+                        <segue destination="VIE-2n-Vri" kind="push" identifier="openPlaylistSegue" id="jT8-yy-Dk1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XUw-bV-gj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2384" y="1083"/>
+            <point key="canvasLocation" x="2940" y="1063"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xoh-bj-wFI">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="9ks-yI-BhX" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LZ1-9c-PvR">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Ey3-a5-Szr" kind="relationship" relationship="rootViewController" id="bqE-c2-kwt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vjH-LD-Pyw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2474" y="1047"/>
         </scene>
         <!--Spotify Track Table View Controller-->
         <scene sceneID="Lnv-PX-mUl">
             <objects>
-                <tableViewController id="VIE-2n-Vri" customClass="FMSpotifyTrackTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="" id="VIE-2n-Vri" customClass="FMSpotifyTrackTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="K5u-fs-6mu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="gIq-Zk-Te5">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="track" textLabel="VcT-5S-Gfu" detailTextLabel="1Ac-ry-2xI" style="IBUITableViewCellStyleValue1" id="gIq-Zk-Te5">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcT-5S-Gfu">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ac-ry-2xI">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
@@ -426,10 +453,11 @@
                             <outlet property="delegate" destination="VIE-2n-Vri" id="70O-cB-9BU"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="m6I-5e-Xpm"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UwJ-4v-opd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2860" y="1083"/>
+            <point key="canvasLocation" x="3388" y="1071"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="z6Z-by-CDg">
@@ -451,52 +479,6 @@
         <image name="second" width="16" height="16"/>
         <image name="spotify.png" width="30" height="30"/>
     </resources>
-    <classes>
-        <class className="FMFirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMFirstViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="installCertificates:"/>
-            </relationships>
-        </class>
-        <class className="FMSecondViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSecondViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="promptLogin:"/>
-            </relationships>
-        </class>
-        <class className="FMSpotifyLoginPageViewController" superclassName="UIPageViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyLoginPageViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelLogin:"/>
-                <relationship kind="action" name="logIn:"/>
-                <relationship kind="action" name="promptLogin:"/>
-            </relationships>
-        </class>
-        <class className="FMSpotifyLoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyLoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="refreshCode:"/>
-                <relationship kind="action" name="shareCode:"/>
-                <relationship kind="outlet" name="accountViewController" candidateClass="UIViewController"/>
-                <relationship kind="outlet" name="loginPageViewController" candidateClass="UIPageViewController"/>
-                <relationship kind="outlet" name="remainingTimeView" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="userCodeField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="FMSpotifyPlaylistTableView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyPlaylistTableView.h"/>
-        </class>
-        <class className="FMSpotifyPlaylistTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyPlaylistTableViewController.h"/>
-        </class>
-        <class className="FMSpotifyTrackTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyTrackTableViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -504,6 +486,5 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="MVf-MI-t8L"/>
-        <segue reference="iyu-mF-t58"/>
     </inferredMetricsTieBreakers>
 </document>

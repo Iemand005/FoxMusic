@@ -14,7 +14,10 @@
 @interface FMSpotifyPlaylistTableViewController : UITableViewController
 {
     FMAppDelegate *_appDelegate;
-    FMSpotifyPlaylistArray *_playlists;
 }
+
+@property FMSpotifyPlaylistArray *playlists;
+
+@property FMSpotifyPlaylist *selectedPlaylist;
 
 @end
