@@ -394,10 +394,42 @@
                             <outlet property="delegate" destination="Ey3-a5-Szr" id="lMa-RE-fPQ"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="VIE-2n-Vri" kind="modal" id="jT8-yy-Dk1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XUw-bV-gj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2366" y="1043"/>
+            <point key="canvasLocation" x="2384" y="1083"/>
+        </scene>
+        <!--Spotify Track Table View Controller-->
+        <scene sceneID="Lnv-PX-mUl">
+            <objects>
+                <tableViewController id="VIE-2n-Vri" customClass="FMSpotifyTrackTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="K5u-fs-6mu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="gIq-Zk-Te5">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="VIE-2n-Vri" id="1l7-Ht-ZZd"/>
+                            <outlet property="delegate" destination="VIE-2n-Vri" id="70O-cB-9BU"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UwJ-4v-opd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2860" y="1083"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="z6Z-by-CDg">
@@ -457,6 +489,9 @@
         </class>
         <class className="FMSpotifyPlaylistTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyPlaylistTableViewController.h"/>
+        </class>
+        <class className="FMSpotifyTrackTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyTrackTableViewController.h"/>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>

@@ -18,6 +18,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     FMSpotifyClient *spotifyClient = _appDelegate.spotifyClient;
     
     @try {
@@ -35,6 +36,7 @@
     } @catch (NSException *ex) {
         
     }
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -44,7 +46,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"The user wants to see row at index %@", indexPath);
+    NSLog(@"The user wants to see row at index %i", indexPath.row);
+    
+    FMSpotifyPlaylist *playlist = [_playlists itemAtIndex:indexPath.row];
+    NSLog(@"Now need fetch: %@", playlist.tracks.href);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

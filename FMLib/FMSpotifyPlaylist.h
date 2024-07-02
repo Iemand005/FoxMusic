@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+#import "FMSpotifyTrackArray.h"
+
 @interface FMSpotifyPlaylist : NSObject
 
 @property NSString *description;
 @property NSString *href;
 @property NSString *identifier;
 @property NSString *name;
+@property FMSpotifyTrackArray *tracks;
 @property NSString *color;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;

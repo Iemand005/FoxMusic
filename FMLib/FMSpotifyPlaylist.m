@@ -16,8 +16,14 @@
     if (self) {
         self.description = [dictionary objectForKey:@"description"];
         self.name = [dictionary objectForKey:@"name"];
+        self.tracks = [FMSpotifyTrackArray trackArrayWithDictionary:[dictionary objectForKey:@"tracks"]];
     }
     return self;
+}
+
+- (void)extendTracksWithDictionary:(NSDictionary *)dictionary
+{
+    self.tracks = [FMSpotifyTrackArray trackArrayWithDictionary:[dictionary objectForKey:@"tracks"]];
 }
 
 + (FMSpotifyPlaylist *)playlistFromDictionary:(NSDictionary *const)dictionary
