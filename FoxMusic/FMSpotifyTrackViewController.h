@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 #import "FMAppDelegate.h"
 
@@ -16,6 +17,8 @@
 }
 
 @property FMSpotifyTrack *track;
+
+@property IBOutlet UIImageView *albumCoverImageView;
 
 - (IBAction)play:(id)sender;
 - (IBAction)pause:(id)sender;

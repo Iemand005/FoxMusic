@@ -15,7 +15,9 @@
     self = [super init];
     if (self) {
         [self setName:[dictionary objectForKey:@"name"]];
+        [self setIdentifier:[dictionary objectForKey:@"id"]];
         [self setDuration:[(NSNumber *)[dictionary objectForKey:@"duration_ms"] doubleValue] / 1000];
+        [self setAlbum:[FMSpotifyAlbum albumFromDictionary:[dictionary objectForKey:@"album"]]];
     }
     return self;
 }

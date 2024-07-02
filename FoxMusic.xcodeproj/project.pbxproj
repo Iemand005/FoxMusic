@@ -47,9 +47,7 @@
 		0A6037B52C2D804A00482179 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2BFEAC2C2C44450009ADAD /* Foundation.framework */; };
 		0A6037BD2C2D804A00482179 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A6037BB2C2D804A00482179 /* InfoPlist.strings */; };
 		0A6037C02C2D804A00482179 /* FoxMusicLegacyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6037BF2C2D804A00482179 /* FoxMusicLegacyTests.m */; };
-		0A6037CE2C2D81DC00482179 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6037CD2C2D81DC00482179 /* Cocoa.framework */; };
 		0A6037E32C2D81DC00482179 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2BFEDC2C2C44460009ADAD /* SenTestingKit.framework */; };
-		0A6037E42C2D81DC00482179 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6037CD2C2D81DC00482179 /* Cocoa.framework */; };
 		0A6037E72C2D81DC00482179 /* FMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6037CC2C2D81DC00482179 /* FMKit.framework */; };
 		0A6037FB2C2D82B600482179 /* FMSpotifyDeviceAuthorizationInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A6037F72C2D82B600482179 /* FMSpotifyDeviceAuthorizationInfo.h */; };
 		0A6037FC2C2D82B600482179 /* FMSpotifyDeviceAuthorizationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6037F82C2D82B600482179 /* FMSpotifyDeviceAuthorizationInfo.m */; };
@@ -198,7 +196,6 @@
 		0A6037BE2C2D804A00482179 /* FoxMusicLegacyTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoxMusicLegacyTests.h; sourceTree = "<group>"; };
 		0A6037BF2C2D804A00482179 /* FoxMusicLegacyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoxMusicLegacyTests.m; sourceTree = "<group>"; };
 		0A6037CC2C2D81DC00482179 /* FMKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FMKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A6037CD2C2D81DC00482179 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		0A6037D02C2D81DC00482179 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		0A6037D12C2D81DC00482179 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0A6037D22C2D81DC00482179 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -301,7 +298,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A6037CE2C2D81DC00482179 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +306,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A6037E32C2D81DC00482179 /* SenTestingKit.framework in Frameworks */,
-				0A6037E42C2D81DC00482179 /* Cocoa.framework in Frameworks */,
 				0A6037E72C2D81DC00482179 /* FMKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,7 +372,6 @@
 				0A2BFEAC2C2C44450009ADAD /* Foundation.framework */,
 				0A2BFEAE2C2C44450009ADAD /* CoreGraphics.framework */,
 				0A2BFEDC2C2C44460009ADAD /* SenTestingKit.framework */,
-				0A6037CD2C2D81DC00482179 /* Cocoa.framework */,
 				0A6037CF2C2D81DC00482179 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -1158,6 +1152,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoxMusic/FoxMusic-Prefix.pch";
 				INFOPLIST_FILE = "FoxMusic/FoxMusic-Info.plist";
@@ -1171,6 +1169,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoxMusic/FoxMusic-Prefix.pch";
 				INFOPLIST_FILE = "FoxMusic/FoxMusic-Info.plist";

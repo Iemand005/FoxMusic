@@ -26,9 +26,9 @@
     
     [[[appDelegate spotifyClient] token] load];
     NSError *error;
-    if (!appDelegate.spotifyClient.isLoggedIn) NSLog(@"SHIT TOEKN EXPIRED");
-    [[appDelegate spotifyClient] refreshTokenWithError:&error];
-    if (appDelegate.spotifyClient.isLoggedIn) NSLog(@"TOKEN VALID AGAIN?");
+//    if (!appDelegate.spotifyClient.isLoggedIn) NSLog(@"SHIT TOEKN EXPIRED");
+//    [[appDelegate spotifyClient] refreshTokenWithError:&error];
+//    if (appDelegate.spotifyClient.isLoggedIn) NSLog(@"TOKEN VALID AGAIN?");
     if (error) {
         [appDelegate displayError:error];
     }

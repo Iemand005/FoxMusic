@@ -10,6 +10,8 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 
+//#import <ShakaPlayerEmbedded/ShakaPlayerEmbedded.h>
+
 @interface FMFirstViewController ()
 
 @end
@@ -23,7 +25,8 @@
     
 //    MPM
     
-    
+//    ShakaPlayer *shakaplayer;
+//    ShakaPlayer.
     
     MPMusicPlayerController *musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
     

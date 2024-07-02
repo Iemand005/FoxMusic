@@ -50,7 +50,7 @@
 
 - (void)continueArray:(FMSpotifyContinuableArray *)continuableArray withOnSuccess:(void(^)(FMSpotifyContinuableArray *))callbackSuccess onError:(void(^)(NSError *))callbackError;
 
-- (void)downloadTrack:(FMSpotifyTrack *)track;
+- (NSData *)downloadTrack:(FMSpotifyTrack *)track;
 
 + (FMSpotifyClient *)spotifyClient;
 

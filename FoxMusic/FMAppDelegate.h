@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 #import "FMTouch.h"
 
@@ -23,6 +24,8 @@
 
 @property FMSpotifyPlaylist *selectedPlaylist;
 @property FMSpotifyTrack *selectedTrack;
+
+@property AVAudioPlayer *audioPlayer;
 
 - (void)displayError:(NSError *)error;
 - (void)displayException:(NSException *)exception;

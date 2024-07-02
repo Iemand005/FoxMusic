@@ -14,7 +14,7 @@
 @property NSString *type;
 @property NSNumber *totalTracks;
 @property NSURL *href;
-@property UIImage *image;
+@property NSURL *imageURL;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

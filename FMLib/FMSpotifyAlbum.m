@@ -16,7 +16,7 @@
     if (self) {
         [self setName:[dictionary objectForKey:@"name"]];
         [self setHref:[NSURL URLWithString:[dictionary objectForKey:@"href"]]];
-        [self setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[[dictionary objectForKey:@"images"] firstObject] objectForKey:@"url"]]]]];
+        [self setImageURL:[NSURL URLWithString:[[[dictionary objectForKey:@"images"] firstObject] objectForKey:@"url"]]];
     }
     return self;
 }

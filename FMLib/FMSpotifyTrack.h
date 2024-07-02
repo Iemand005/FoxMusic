@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FMSpotifyAlbum.h"
 
 @interface FMSpotifyTrack : NSObject
 
 @property NSString *name;
 @property NSTimeInterval duration;
+@property NSString *identifier;
+@property FMSpotifyAlbum *album;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
