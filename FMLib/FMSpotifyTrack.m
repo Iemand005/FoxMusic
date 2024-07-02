@@ -19,6 +19,8 @@
     return self;
 }
 
+
+
 + (FMSpotifyTrack *)trackFromDictionary:(NSDictionary *const)dictionary
 {
     return [[FMSpotifyTrack alloc] initWithDictionary:dictionary];

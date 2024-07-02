@@ -7,23 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#import "FMSpotifyContinuableArray.h"
 #import "FMSpotifyPlaylist.h"
 
-@interface FMSpotifyPlaylistArray : NSObject <NSFastEnumeration>
+@interface FMSpotifyPlaylistArray : FMSpotifyContinuableArray <NSFastEnumeration>
 
-@property NSArray *items;
 
-@property NSNumber *total;
-@property NSNumber *offset;
-@property NSNumber *limit;
-
-@property NSURL *current;
-@property NSURL *next;
-@property NSURL *previous;
-
-@property (readonly, nonatomic) BOOL hasNext;
-@property (readonly, nonatomic) BOOL hasPrevious;
-@property (readonly, nonatomic) NSUInteger count;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

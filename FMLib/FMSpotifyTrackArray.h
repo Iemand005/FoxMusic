@@ -8,15 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+#import "FMSpotifyContinuableArray.h"
 #import "FMSpotifyTrack.h"
 
-@interface FMSpotifyTrackArray : NSObject
-
-@property NSURL *href;
-
-@property NSArray *items;
-
-@property (readonly, nonatomic) NSUInteger count;
+@interface FMSpotifyTrackArray : FMSpotifyContinuableArray
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 //- (id)initWithURL:(NSURL *)url;

@@ -310,6 +310,22 @@
     return self.token.isValid;
 }
 
+- (void)request:(NSURL *)url withOnSuccess:(void(^)(NSDictionary *))callbackSuccess onError:(void(^)(NSError *))callbackError
+{
+    [self request:url callback:^(NSDictionary *dictionary, NSError *error){
+        if (!error) callbackSuccess(dictionary);
+        else callbackError(error);
+    }];
+}
+
+- (void)continueArray:(FMSpotifyContinuableArray *)continuableArray withOnSuccess:(void(^)(NSDictionary *))callbackSuccess onError:(void(^)(NSError *))callbackError
+{
+    NSURL *url = [continuableArray hasNext] ? [continuableArray next] : [continuableArray href];
+    NSLog(@"I will get the continuation data for: %@ sir yes sir rikesyikes u riekt", url);
+    
+    [self request:url withOnSuccess:callbackSuccess onError:callbackError];
+}
+
 - (NSArray *)getUserPlaylists
 {
     [self getUserPlaylistsWithError:nil];

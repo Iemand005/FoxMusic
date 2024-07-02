@@ -15,7 +15,7 @@
 {
     self = [super init];
     if (self) {
-        self.current = [dictionary objectForKey:@"href"];
+        self.href = [dictionary objectForKey:@"href"];
         self.limit = [dictionary objectForKey:@"limit"];
         self.next = [dictionary objectForKey:@"next"];
         self.previous = [dictionary objectForKey:@"previous"];
@@ -37,24 +37,12 @@
     return [[self items] countByEnumeratingWithState:state objects:buffer count:len];
 }
 
-- (BOOL)hasNext
-{
-    return self.next != nil;
-}
 
-- (BOOL)hasPrevious
-{
-    return self.previous != nil;
-}
 
-- (NSUInteger)count
-{
-    return self.items.count;
-}
 
 - (FMSpotifyPlaylist *)itemAtIndex:(NSUInteger)index
 {
-    return [self.items objectAtIndex:index];
+    return [super itemAtIndex:index];
 }
 
 + (FMSpotifyPlaylistArray *)playlistArrayWithDictionary:(NSDictionary *)dictionary

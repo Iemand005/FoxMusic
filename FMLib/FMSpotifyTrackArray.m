@@ -21,6 +21,8 @@
         
         for (NSDictionary *item in items)
             [tracks addObject:[FMSpotifyTrack trackFromDictionary:item]];
+        
+//        [self setItems:]?
     }
     return self;
 }
@@ -32,9 +34,19 @@
     return self;
 }
 
+- (void)addItemsFromDictionary:(NSDictionary *)dictionary
+{
+    self.href = [NSURL URLWithString:[dictionary objectForKey:@"href"]];
+    NSArray *items = [dictionary objectForKey:@"items"];
+    NSMutableArray *tracks = [NSMutableArray arrayWithCapacity:[items count]];
+    
+    for (NSDictionary *item in items)
+        [tracks addObject:[FMSpotifyTrack trackFromDictionary:item]];
+}
+
 - (FMSpotifyTrack *)itemAtIndex:(NSUInteger)index
 {
-    return [[self items] objectAtIndex:index];
+    return [super itemAtIndex:index];
 }
 
 - (NSUInteger)count

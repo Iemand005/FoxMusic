@@ -14,6 +14,9 @@
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
+- (NSUInteger)hash;
+- (BOOL)isEqual:(id)object;
+
 + (FMSpotifyTrack *)trackFromDictionary:(NSDictionary *const)dictionary;
 
 @end
