@@ -42,17 +42,28 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.playlists ? self.playlists.items.count : 0;
+    return self.playlists ? self.playlists.count : 0;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    NSLog(@"The user wants to see row at index %i", indexPath.row);
+//    
+//    FMSpotifyPlaylist *playlist = [self.playlists itemAtIndex:indexPath.row];
+//    NSLog(@"Now need fetch: %@", playlist.tracks.href);
+//    self.selectedPlaylist = playlist;
+////    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+////    [cell ]
+//    [self performSegueWithIdentifier:@"openPlaylistSegue" sender:self];
+//}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"The user wants to see row at index %i", indexPath.row);
+    NSLog(@"oh bruh this one");
     
-    FMSpotifyPlaylist *playlist = [self.playlists itemAtIndex:indexPath.row];
-    NSLog(@"Now need fetch: %@", playlist.tracks.href);
-    self.selectedPlaylist = playlist;
-    [self performSegueWithIdentifier:@"openPlaylistSegue" sender:self];
+    NSUInteger selectedRowIndex = [[self tableView] indexPathForSelectedRow].row;
+    FMSpotifyPlaylist *playlist = [[self playlists] itemAtIndex:selectedRowIndex];
+    [_appDelegate setSelectedPlaylist:playlist];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -64,7 +75,5 @@
     
     return cell;
 }
-
-//- table
 
 @end

@@ -25,9 +25,9 @@
     BOOL forwards = YES;
     if (appDelegate.spotifyClient.isLoggedIn) {
         @try {
-        if ([[self viewControllers] count] > 0 && [[[[self viewControllers] objectAtIndex:0] identifier] isEqualToString:@"playlists"]) return;
+        if ([[self viewControllers] count] > 0 && [[[[self viewControllers] objectAtIndex:0] identifier] isEqualToString:@"spotify"]) return;
         } @catch (NSException *ex) {}
-        viewControllerIdentifier = @"playlists";
+        viewControllerIdentifier = @"spotify";
     } else {
         viewControllerIdentifier = @"login";
     }
@@ -39,41 +39,19 @@
     [self setViewControllers:@[rat] direction:direction animated:YES completion:nil];
 }
 
-- (void)cancelLogin:(id)sender
-{
-    [self navigateToControllerWithIdentifier:@"loggedOff" forwards:NO];
-}
-
-- (void)promptLogin:(id)sender
-{
-    [self navigateToControllerWithIdentifier:@"login" forwards:YES];
-}
-
 - (void)logIn:(id)sender
 {
     NSError *error;
     @try {
         if (![appDelegate.spotifyClient tryDeviceAuhorizationWithError:&error] || error) [appDelegate displayError:error];
-//        else {
-            NSLog(@"Logged in? %@", appDelegate.spotifyClient.token);
-            if (appDelegate.spotifyClient.isLoggedIn) [self navigateToControllerWithIdentifier:@"playlists" forwards:YES];
+        NSLog(@"Logged in? %@", appDelegate.spotifyClient.token);
+        if (appDelegate.spotifyClient.isLoggedIn) [self navigateToControllerWithIdentifier:@"spotify" forwards:YES];
         
     }
     @catch (NSException *exception) {
         [appDelegate displayException:exception];
     }
 }
-
-//- (void)displayError:(NSError *)error
-//{
-//    [[[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@\n%@", error.localizedFailureReason, error.localizedDescription] delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil] show];
-//}
-//
-//- (void)displayException:(NSException *)exception
-//{
-//    [[[UIAlertView alloc] initWithTitle:@"Whoops!" message:exception.description delegate:nil cancelButtonTitle:@"Sorry" otherButtonTitles:nil, nil] show];
-//}
-
 - (void)navigateToControllerWithIdentifier:(NSString *)identifier forwards:(BOOL)forwards
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];

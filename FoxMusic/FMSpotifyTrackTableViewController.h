@@ -16,6 +16,6 @@
 //    FMSP *_playlists;
 }
 
-@property IBOutlet FMSpotifyPlaylistTableViewController *playlistTableViewController;
+@property FMSpotifyPlaylist *playlist;
 
 @end

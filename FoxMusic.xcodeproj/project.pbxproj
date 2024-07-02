@@ -69,13 +69,15 @@
 		0A6038322C2D877600482179 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2BFEF32C2C452A0009ADAD /* MediaPlayer.framework */; };
 		0A6038332C2D879E00482179 /* FMSpotifyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6037FA2C2D82B600482179 /* FMSpotifyClient.m */; };
 		0A6038342C2D879E00482179 /* FMSpotifyDeviceAuthorizationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6037F82C2D82B600482179 /* FMSpotifyDeviceAuthorizationInfo.m */; };
+		0A77DDF62C344814002D9FC3 /* spotify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A77DDF42C344814002D9FC3 /* spotify@2x.png */; };
+		0A77DDF72C344814002D9FC3 /* spotify.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A77DDF52C344814002D9FC3 /* spotify.png */; };
 		0A7FB3142C2DB46600F50618 /* FMSpotifyToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3132C2DB46600F50618 /* FMSpotifyToken.m */; };
 		0A7FB3172C2DCC8300F50618 /* FMSpotifyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3162C2DCC8300F50618 /* FMSpotifyLoginViewController.m */; };
 		0A7FB31E2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB31D2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m */; };
-		0A7FB3212C33244100F50618 /* FMSpotifyPlaylistTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3202C33244000F50618 /* FMSpotifyPlaylistTableView.m */; };
+		0A7FB3212C33244100F50618 /* FMSpotifyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3202C33244000F50618 /* FMSpotifyNavigationController.m */; };
 		0A7FB3242C33345B00F50618 /* FMURLConnectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3232C33345B00F50618 /* FMURLConnectionController.m */; };
-		0ACB517F2C3366E5004CA3E6 /* spotify.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACB517D2C3366E4004CA3E6 /* spotify.png */; };
-		0ACB51802C3366E5004CA3E6 /* spotify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACB517E2C3366E4004CA3E6 /* spotify@2x.png */; };
+		0ACB517F2C3366E5004CA3E6 /* spotifyold.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACB517D2C3366E4004CA3E6 /* spotifyold.png */; };
+		0ACB51802C3366E5004CA3E6 /* spotifyold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACB517E2C3366E4004CA3E6 /* spotifyold@2x.png */; };
 		0ACB51832C3372A5004CA3E6 /* FMSpotifyAPIParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB51822C3372A5004CA3E6 /* FMSpotifyAPIParser.m */; };
 		0ACB51862C3373DF004CA3E6 /* FMSpotifyPlaylistArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB51852C3373DF004CA3E6 /* FMSpotifyPlaylistArray.m */; };
 		0ACB518A2C337607004CA3E6 /* FMSpotifyPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB51892C337607004CA3E6 /* FMSpotifyPlaylist.m */; };
@@ -206,25 +208,27 @@
 		0A6038042C2D83F800482179 /* libFMTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFMTouch.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A6038082C2D83F800482179 /* FMLib-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FMLib-Prefix.pch"; sourceTree = "<group>"; };
 		0A6038092C2D83F800482179 /* FMTouch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMTouch.h; sourceTree = "<group>"; };
-		0A6038122C2D83F800482179 /* FMLibTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = FMLibTests.octest; path = FMLibTouchTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A6038122C2D83F800482179 /* FMLibTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = FMLibTests.octest; path = FMTouchTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A60381B2C2D83F800482179 /* FMLibTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FMLibTests-Info.plist"; sourceTree = "<group>"; };
 		0A60381D2C2D83F800482179 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0A60381F2C2D83F800482179 /* FMLibTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMLibTests.h; sourceTree = "<group>"; };
 		0A6038202C2D83F800482179 /* FMLibTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMLibTests.m; sourceTree = "<group>"; };
 		0A60382A2C2D859000482179 /* FMMutableURLQueryDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMMutableURLQueryDictionary.h; sourceTree = "<group>"; };
 		0A60382B2C2D859000482179 /* FMMutableURLQueryDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMMutableURLQueryDictionary.m; sourceTree = "<group>"; };
+		0A77DDF42C344814002D9FC3 /* spotify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotify@2x.png"; sourceTree = "<group>"; };
+		0A77DDF52C344814002D9FC3 /* spotify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotify.png; sourceTree = "<group>"; };
 		0A7FB3122C2DB46600F50618 /* FMSpotifyToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyToken.h; sourceTree = "<group>"; };
 		0A7FB3132C2DB46600F50618 /* FMSpotifyToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyToken.m; sourceTree = "<group>"; };
 		0A7FB3152C2DCC8300F50618 /* FMSpotifyLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMSpotifyLoginViewController.h; path = ../FMSpotifyLoginViewController.h; sourceTree = "<group>"; };
 		0A7FB3162C2DCC8300F50618 /* FMSpotifyLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMSpotifyLoginViewController.m; path = ../FMSpotifyLoginViewController.m; sourceTree = "<group>"; };
 		0A7FB31C2C2DFC0800F50618 /* FMSpotifyLoginPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyLoginPageViewController.h; sourceTree = "<group>"; };
 		0A7FB31D2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyLoginPageViewController.m; sourceTree = "<group>"; };
-		0A7FB31F2C33244000F50618 /* FMSpotifyPlaylistTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyPlaylistTableView.h; sourceTree = "<group>"; };
-		0A7FB3202C33244000F50618 /* FMSpotifyPlaylistTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyPlaylistTableView.m; sourceTree = "<group>"; };
+		0A7FB31F2C33244000F50618 /* FMSpotifyNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyNavigationController.h; sourceTree = "<group>"; };
+		0A7FB3202C33244000F50618 /* FMSpotifyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyNavigationController.m; sourceTree = "<group>"; };
 		0A7FB3222C33345B00F50618 /* FMURLConnectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMURLConnectionController.h; sourceTree = "<group>"; };
 		0A7FB3232C33345B00F50618 /* FMURLConnectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMURLConnectionController.m; sourceTree = "<group>"; };
-		0ACB517D2C3366E4004CA3E6 /* spotify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotify.png; sourceTree = "<group>"; };
-		0ACB517E2C3366E4004CA3E6 /* spotify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotify@2x.png"; sourceTree = "<group>"; };
+		0ACB517D2C3366E4004CA3E6 /* spotifyold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotifyold.png; sourceTree = "<group>"; };
+		0ACB517E2C3366E4004CA3E6 /* spotifyold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotifyold@2x.png"; sourceTree = "<group>"; };
 		0ACB51812C3372A5004CA3E6 /* FMSpotifyAPIParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyAPIParser.h; sourceTree = "<group>"; };
 		0ACB51822C3372A5004CA3E6 /* FMSpotifyAPIParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyAPIParser.m; sourceTree = "<group>"; };
 		0ACB51842C3373DF004CA3E6 /* FMSpotifyPlaylistArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyPlaylistArray.h; sourceTree = "<group>"; };
@@ -387,8 +391,10 @@
 				0A2BFECD2C2C44450009ADAD /* first@2x.png */,
 				0A2BFED22C2C44460009ADAD /* second.png */,
 				0A2BFED42C2C44460009ADAD /* second@2x.png */,
-				0ACB517D2C3366E4004CA3E6 /* spotify.png */,
-				0ACB517E2C3366E4004CA3E6 /* spotify@2x.png */,
+				0A77DDF52C344814002D9FC3 /* spotify.png */,
+				0A77DDF42C344814002D9FC3 /* spotify@2x.png */,
+				0ACB517D2C3366E4004CA3E6 /* spotifyold.png */,
+				0ACB517E2C3366E4004CA3E6 /* spotifyold@2x.png */,
 				0A2BFEB12C2C44450009ADAD /* Supporting Files */,
 			);
 			path = FoxMusic;
@@ -558,8 +564,8 @@
 				0A7FB31D2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m */,
 				0A7FB3152C2DCC8300F50618 /* FMSpotifyLoginViewController.h */,
 				0A7FB3162C2DCC8300F50618 /* FMSpotifyLoginViewController.m */,
-				0A7FB31F2C33244000F50618 /* FMSpotifyPlaylistTableView.h */,
-				0A7FB3202C33244000F50618 /* FMSpotifyPlaylistTableView.m */,
+				0A7FB31F2C33244000F50618 /* FMSpotifyNavigationController.h */,
+				0A7FB3202C33244000F50618 /* FMSpotifyNavigationController.m */,
 				0ACB518B2C337D1D004CA3E6 /* FMSpotifyPlaylistTableViewController.h */,
 				0ACB518C2C337D1D004CA3E6 /* FMSpotifyPlaylistTableViewController.m */,
 				0ACB518E2C338B07004CA3E6 /* FMSpotifyTrackTableViewController.h */,
@@ -781,8 +787,10 @@
 				0A2BFECE2C2C44450009ADAD /* first@2x.png in Resources */,
 				0A2BFED32C2C44460009ADAD /* second.png in Resources */,
 				0A2BFED52C2C44460009ADAD /* second@2x.png in Resources */,
-				0ACB517F2C3366E5004CA3E6 /* spotify.png in Resources */,
-				0ACB51802C3366E5004CA3E6 /* spotify@2x.png in Resources */,
+				0ACB517F2C3366E5004CA3E6 /* spotifyold.png in Resources */,
+				0ACB51802C3366E5004CA3E6 /* spotifyold@2x.png in Resources */,
+				0A77DDF62C344814002D9FC3 /* spotify@2x.png in Resources */,
+				0A77DDF72C344814002D9FC3 /* spotify.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -904,7 +912,7 @@
 				0A7FB3142C2DB46600F50618 /* FMSpotifyToken.m in Sources */,
 				0A7FB3172C2DCC8300F50618 /* FMSpotifyLoginViewController.m in Sources */,
 				0A7FB31E2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m in Sources */,
-				0A7FB3212C33244100F50618 /* FMSpotifyPlaylistTableView.m in Sources */,
+				0A7FB3212C33244100F50618 /* FMSpotifyNavigationController.m in Sources */,
 				0A7FB3242C33345B00F50618 /* FMURLConnectionController.m in Sources */,
 				0ACB51832C3372A5004CA3E6 /* FMSpotifyAPIParser.m in Sources */,
 				0ACB51862C3373DF004CA3E6 /* FMSpotifyPlaylistArray.m in Sources */,

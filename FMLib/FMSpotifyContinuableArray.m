@@ -16,6 +16,7 @@
     if (self) {
         self.href = [NSURL URLWithString:[dictionary objectForKey:@"href"]];
         self.total = [dictionary objectForKey:@"total"];
+        self.items = [NSMutableSet set];
     }
     return self;
 }

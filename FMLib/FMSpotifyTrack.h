@@ -11,6 +11,7 @@
 @interface FMSpotifyTrack : NSObject
 
 @property NSString *name;
+@property NSTimeInterval duration;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

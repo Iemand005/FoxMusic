@@ -28,28 +28,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (void)logIn:(id)sender
-//{
-////    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-////    if (storyboard) {
-////        UIViewController *dest = [storyboard instantiateViewControllerWithIdentifier:@"accountPage"];
-////        //        [self.navigationController pushViewController:dest animated:YES];
-////        [self presentViewController:dest animated:YES completion:nil];
-////    }
-//    return;
-//    NSError *error;
-//    @try {
-//        if (![self.spotifyClient tryDeviceAuhorizationWithError:&error] || error) [self displayError:error];
-//        else {
-//            NSLog(@"Logged in? %@", self.spotifyClient.token);
-//            
-//        }
-//    }
-//    @catch (NSException *exception) {
-//        [self displayException:exception];
-//    }
-//}
-
 - (FMSpotifyClient *)spotifyClient
 {
     return appDelegate.spotifyClient;
@@ -64,16 +42,6 @@
 {
     if (shareURL) [self presentViewController:[[UIActivityViewController alloc] initWithActivityItems:@[shareURL] applicationActivities:nil] animated:YES completion:nil];
     else [[[UIAlertView alloc] initWithTitle:@"Error" message:@"The URL was not found." delegate:nil cancelButtonTitle:@"Shut up!" otherButtonTitles:nil, nil] show];
-}
-
-- (void)displayError:(NSError *)error
-{
-    [[[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@\n%@", error.localizedFailureReason, error.localizedDescription] delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil] show];
-}
-
-- (void)displayException:(NSException *)exception
-{
-    [[[UIAlertView alloc] initWithTitle:@"Whoops!" message:exception.description delegate:nil cancelButtonTitle:@"Sorry" otherButtonTitles:nil, nil] show];
 }
 
 - (void)getNewUserCode
@@ -114,22 +82,5 @@
     [self.remainingTimeView setProgress:self.remainingTimeView.progress - (1 / expiresIn)];
     if (self.remainingTimeView.progress <= 0) [self getNewUserCode];
 }
-
-//- (void)cancelLogin:(id)sender
-//{
-//    [self dismissViewControllerAnimated:YES completion:^{
-////        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-//    }];
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-////    if (storyboard) {
-////        UIViewController *dest = [storyboard instantiateViewControllerWithIdentifier:@"home"];
-////        [self dismissViewControllerAnimated:YES completion:nil];
-//////        if ([self.presentingViewController isKindOfClass:[FMSecondViewController class]]) {
-//////            FMSecondViewController *viewController = (id)self.presentingViewController;
-//////            [viewController dismissLogin];
-//////            
-//////        }
-////    }
-//}
 
 @end

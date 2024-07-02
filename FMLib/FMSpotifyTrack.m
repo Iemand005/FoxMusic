@@ -15,6 +15,7 @@
     self = [super init];
     if (self) {
         [self setName:[dictionary objectForKey:@"name"]];
+        [self setDuration:[(NSNumber *)[dictionary objectForKey:@"duration_ms"] doubleValue] / 1000];
     }
     return self;
 }

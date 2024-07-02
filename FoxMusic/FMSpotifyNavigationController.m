@@ -6,40 +6,33 @@
 //  Copyright (c) 2024 Lasse Lauwerys. All rights reserved.
 //
 
-#import "FMSpotifyPlaylistTableView.h"
+#import "FMSpotifyNavigationController.h"
 #import "FMSpotifyPlaylistArray.h"
 
-@implementation FMSpotifyPlaylistTableView
+@implementation FMSpotifyNavigationController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    appDelegate = [[UIApplication sharedApplication] delegate];
+    self.appDelegate = [[UIApplication sharedApplication] delegate];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    FMSpotifyClient *spotifyClient = appDelegate.spotifyClient;
-    
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        @try {
+    FMSpotifyClient *spotifyClient = self.appDelegate.spotifyClient;
+    @try {
         NSError *error;
             [spotifyClient getUserPlaylistsAndWhenSuccess:^(FMSpotifyPlaylistArray *playlists){
                 for (FMSpotifyPlaylist *playlist in playlists) {
                     NSLog(@"title: %@, description: %@", playlist.name, playlist.description);
                 }
             } whenError:^(NSError *error){
-                [appDelegate displayError:error];
+                [self.appDelegate displayError:error];
             }];
-        if (error) [appDelegate displayError:error];
+        if (error) [self.appDelegate displayError:error];
         } @catch (NSException *ex) {
             
         }
-//    });
-//    }
-//    @catch (NSException *exception) {
-//        [appDelegate displayException:exception];
-//    }
 }
 
 @end

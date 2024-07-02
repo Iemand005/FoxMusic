@@ -13,7 +13,7 @@
 
 - (id)initWithDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
+    self = [super initWithDictionary:dictionary];
     if (self) {
         self.href = [NSURL URLWithString:[dictionary objectForKey:@"href"]];
         NSArray *items = [dictionary objectForKey:@"items"];
@@ -22,6 +22,7 @@
         for (NSDictionary *item in items)
             [tracks addObject:[FMSpotifyTrack trackFromDictionary:item]];
         
+        [[self items] addObjectsFromArray:tracks];
 //        [self setItems:]?
     }
     return self;
@@ -34,14 +35,18 @@
     return self;
 }
 
-- (void)addItemsFromDictionary:(NSDictionary *)dictionary
+- (FMSpotifyContinuableArray *)addItemsFromDictionary:(NSDictionary *)dictionary
 {
     self.href = [NSURL URLWithString:[dictionary objectForKey:@"href"]];
     NSArray *items = [dictionary objectForKey:@"items"];
     NSMutableArray *tracks = [NSMutableArray arrayWithCapacity:[items count]];
     
     for (NSDictionary *item in items)
-        [tracks addObject:[FMSpotifyTrack trackFromDictionary:item]];
+        [tracks addObject:[FMSpotifyTrack trackFromDictionary:[item objectForKey:@"track"]]];
+    
+//    self.items = [NSArray arrayWithArray:tracks];
+    [[self items] addObjectsFromArray:tracks];
+    return self;
 }
 
 - (FMSpotifyTrack *)itemAtIndex:(NSUInteger)index

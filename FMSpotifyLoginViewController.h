@@ -28,7 +28,4 @@
 
 @property IBOutlet UIBarButtonItem *shareButton;
 
-@property IBOutlet UIPageViewController *loginPageViewController;
-@property IBOutlet UIViewController *accountViewController;
-
 @end
