@@ -48,6 +48,8 @@
 - (NSArray *)getUserPlaylistsWithError:(NSError **)error;
 - (void)getUserPlaylistsAndWhenSuccess:(void(^)(FMSpotifyPlaylistArray *playlists))callbackSuccess whenError:(void(^)(NSError *))callbackError;
 
+- (void)getDataFromURL:(NSURL *)url withCallback:(void(^)(NSData *data))callback;
+
 - (void)continueArray:(FMSpotifyContinuableArray *)continuableArray withOnSuccess:(void(^)(FMSpotifyContinuableArray *))callbackSuccess onError:(void(^)(NSError *))callbackError;
 
 - (NSData *)downloadTrack:(FMSpotifyTrack *)track;

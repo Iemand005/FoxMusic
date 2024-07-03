@@ -16,8 +16,6 @@
     BOOL hasShownLoginPage;
 }
 
-- (IBAction)cancelLogin:(id)sender;
-- (IBAction)promptLogin:(id)sender;
 - (IBAction)logIn:(id)sender;
 
 @end

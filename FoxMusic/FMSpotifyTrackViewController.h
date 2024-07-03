@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 #import "FMAppDelegate.h"
 
@@ -19,6 +20,9 @@
 @property FMSpotifyTrack *track;
 
 @property IBOutlet UIImageView *albumCoverImageView;
+
+@property IBOutlet UIBarButtonItem *playButtonItem;
+@property UIImage *albumCoverImage;
 
 - (IBAction)play:(id)sender;
 - (IBAction)pause:(id)sender;

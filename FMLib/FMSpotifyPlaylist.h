@@ -21,8 +21,8 @@
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
-- (NSUInteger)hash;
-- (BOOL)isEqual:(id)object;
+//- (NSUInteger)hash;
+//- (BOOL)isEqual:(id)object;
 
 + (FMSpotifyPlaylist *)playlistFromDictionary:(NSDictionary *const)dictionary;
 

@@ -54,13 +54,16 @@ NSString *const FMSpotifyTokenCreatedOnKey = @"created_on";
 
 - (BOOL)save
 {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:self.accessToken forKey:FMSpotifyTokenAccessTokenKey];
-    [userDefaults setObject:self.expiresIn forKey:FMSpotifyTokenExpiresInKey];
-    [userDefaults setObject:self.refreshToken forKey:FMSpotifyTokenRefreshTokenKey];
-    [userDefaults setObject:self.scope forKey:FMSpotifyTokenScopeKey];
-    [userDefaults setObject:self.tokenType forKey:FMSpotifyTokenTokenTypeKey];
-    [userDefaults setObject:self.createdOn forKey:FMSpotifyTokenCreatedOnKey];
+    if (self.isValid) {
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:self.accessToken forKey:FMSpotifyTokenAccessTokenKey];
+        [userDefaults setObject:self.expiresIn forKey:FMSpotifyTokenExpiresInKey];
+        [userDefaults setObject:self.refreshToken forKey:FMSpotifyTokenRefreshTokenKey];
+        [userDefaults setObject:self.scope forKey:FMSpotifyTokenScopeKey];
+        [userDefaults setObject:self.tokenType forKey:FMSpotifyTokenTokenTypeKey];
+        [userDefaults setObject:self.createdOn forKey:FMSpotifyTokenCreatedOnKey];
+        [userDefaults synchronize];
+    }
     return [self isValid];
 }
 

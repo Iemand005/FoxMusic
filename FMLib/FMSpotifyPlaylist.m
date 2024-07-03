@@ -16,9 +16,24 @@
     if (self) {
         self.description = [dictionary objectForKey:@"description"];
         self.name = [dictionary objectForKey:@"name"];
+
+        self.identifier = [dictionary objectForKey:@"id"];
         self.tracks = [FMSpotifyTrackArray trackArrayWithDictionary:[dictionary objectForKey:@"tracks"]];
+        
+        if (![self.name isKindOfClass:[NSString class]]) self.name = nil;
+        if (![self.description isKindOfClass:[NSString class]]) self.description = nil;
     }
     return self;
+}
+
+- (NSUInteger)hash
+{
+    return [[self identifier] hash];
+}
+
+- (BOOL)isEqual:(id)object
+{
+    return [object isKindOfClass:[FMSpotifyPlaylist class]] && [[self identifier] isEqualToString:[object identifier]];
 }
 
 - (void)extendTracksWithDictionary:(NSDictionary *)dictionary

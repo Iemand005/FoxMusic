@@ -13,21 +13,21 @@
 
 - (id)initWithDictionary:(NSDictionary *)dictionary
 {
-    self = [super init];
+    self = [super initWithDictionary:dictionary];
     if (self) {
         self.href = [dictionary objectForKey:@"href"];
-        self.limit = [dictionary objectForKey:@"limit"];
-        self.next = [dictionary objectForKey:@"next"];
-        self.previous = [dictionary objectForKey:@"previous"];
-        self.total = [dictionary objectForKey:@"total"];
-        self.offset = [dictionary objectForKey:@"offset"];
+//        self.limit = [dictionary objectForKey:@"limit"];
+//        self.next = [dictionary objectForKey:@"next"];
+//        self.previous = [dictionary objectForKey:@"previous"];
+//        self.total = [dictionary objectForKey:@"total"];
+//        self.offset = [dictionary objectForKey:@"offset"];
         
         NSArray *items = [dictionary objectForKey:@"items"];
         NSMutableArray *playlists = [NSMutableArray arrayWithCapacity:items.count];
         for (NSDictionary *item in items) {
             [playlists addObject:[FMSpotifyPlaylist playlistFromDictionary:item]];
         }
-        self.items = [NSArray arrayWithArray:playlists];
+        [self.items addObjectsFromArray:playlists];
     }
     return self;
 }
@@ -36,9 +36,6 @@
 {
     return [[self items] countByEnumeratingWithState:state objects:buffer count:len];
 }
-
-
-
 
 - (FMSpotifyPlaylist *)itemAtIndex:(NSUInteger)index
 {

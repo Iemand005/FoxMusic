@@ -22,7 +22,15 @@
     return self;
 }
 
+- (NSUInteger)hash
+{
+    return [[self identifier] hash];
+}
 
+- (BOOL)isEqual:(id)object
+{
+    return [object isKindOfClass:[FMSpotifyTrack class]] && [[self identifier] isEqualToString:[object identifier]];
+}
 
 + (FMSpotifyTrack *)trackFromDictionary:(NSDictionary *const)dictionary
 {
