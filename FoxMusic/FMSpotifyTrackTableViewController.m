@@ -18,18 +18,14 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    //id presentingViewController = self.presentingViewController;
-//    if ([presentingViewController isKindOfClass:[FMSpotifyPlaylistTableViewController class]]) {
-    
-//        FMSpotifyPlaylistTableViewController *controller = presentingViewController;
-        FMSpotifyTrackArray *tracks = _appDelegate .selectedPlaylist.tracks;
-    
-    self.playlist = [_appDelegate selectedPlaylist];
-    
-    [self setTitle:self.playlist.name];
-//    [self set]
+    @try {
+        [super viewDidAppear:animated];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            FMSpotifyTrackArray *tracks = _appDelegate .selectedPlaylist.tracks;
+        
+        self.playlist = [_appDelegate selectedPlaylist];
+        
+        [self setTitle:self.playlist.name];
     
         [[_appDelegate spotifyClient] continueArray:tracks withOnSuccess:^(FMSpotifyContinuableArray *newTracks){
             NSArray *items = newTracks.items.allObjects;
@@ -41,11 +37,13 @@
         } onError:^(NSError *error){
             [_appDelegate displayError:error];
         }];
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-//    }
-//    if ([presentingViewController isMemberOfClass:[UINavigationController class]]) {
-//        NSLog(@"YES");
-//    }
+    }
+    @catch (NSException *exception) {
+        [_appDelegate displayException:exception];
+    }
+    @finally {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    }
 }
 
 
@@ -58,17 +56,25 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"trackCell" forIndexPath:indexPath];
     FMSpotifyTrack *playlist = [self.playlist.tracks itemAtIndex:indexPath.row];
-    [cell.textLabel setText:playlist.name];
-    [cell.detailTextLabel setText:@(playlist.duration).stringValue];
+    @try {
+        [cell.textLabel setText:playlist.name];
+        [cell.detailTextLabel setText:@(playlist.duration).stringValue];
+    } @catch (NSException *exception) {
+        [_appDelegate displayException:exception];
+    }
     
     return cell;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [super prepareForSegue:segue sender:sender];
-    if ([segue.identifier isEqualToString:@"openTrackSegue"]) {
-        [_appDelegate setSelectedTrack:[[self.playlist tracks] itemAtIndex:[[self tableView] indexPathForSelectedRow].row]];
+    @try {
+        [super prepareForSegue:segue sender:sender];
+        if ([segue.identifier isEqualToString:@"openTrackSegue"]) {
+            [_appDelegate setSelectedTrack:[[self.playlist tracks] itemAtIndex:[[self tableView] indexPathForSelectedRow].row]];
+        }
+    } @catch (NSException *exception) {
+        [_appDelegate displayException:exception];
     }
 }
 

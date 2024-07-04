@@ -19,7 +19,7 @@
 
 - (FMSpotifyPlaylist *)itemAtIndex:(NSUInteger)index;
 
-- (void)extendTracksWithDictionary:(NSDictionary *)dictionary;
+//- (void)extendTracksWithDictionary:(NSDictionary *)dictionary;
 
 + (FMSpotifyPlaylistArray *)playlistArrayWithDictionary:(NSDictionary *)dictionary;
 

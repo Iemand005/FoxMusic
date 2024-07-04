@@ -51,6 +51,68 @@
             </objects>
             <point key="canvasLocation" x="673" y="-436"/>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="hqb-TQ-Y4U">
+            <objects>
+                <viewController id="7HR-5M-sXm" customClass="FMSearchViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rBr-Cc-98z">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fv7-0Y-hpi">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="spotifySearchResult" id="Qgf-Pw-ZJK">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="7HR-5M-sXm" id="92x-wE-Qq6"/>
+                                    <outlet property="delegate" destination="7HR-5M-sXm" id="oLD-uR-PJI"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="8fn-W4-zfe">
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="7HR-5M-sXm" id="pIS-CI-ix1"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fv7-0Y-hpi" firstAttribute="bottom" secondItem="rBr-Cc-98z" secondAttribute="bottom" type="default" id="BFC-Qw-nuW"/>
+                            <constraint firstItem="8fn-W4-zfe" firstAttribute="top" secondItem="rBr-Cc-98z" secondAttribute="top" type="default" id="ciY-sI-cLu"/>
+                            <constraint firstItem="8fn-W4-zfe" firstAttribute="trailing" secondItem="rBr-Cc-98z" secondAttribute="trailing" type="default" id="jmX-Fq-ceQ"/>
+                            <constraint firstItem="8fn-W4-zfe" firstAttribute="leading" secondItem="rBr-Cc-98z" secondAttribute="leading" type="default" id="ki4-Xv-Cdp"/>
+                            <constraint firstItem="fv7-0Y-hpi" firstAttribute="trailing" secondItem="rBr-Cc-98z" secondAttribute="trailing" type="default" id="pJH-6U-YPY"/>
+                            <constraint firstItem="8fn-W4-zfe" firstAttribute="bottom" secondItem="fv7-0Y-hpi" secondAttribute="top" type="default" id="t9Q-pg-PBW"/>
+                            <constraint firstItem="fv7-0Y-hpi" firstAttribute="leading" secondItem="rBr-Cc-98z" secondAttribute="leading" type="default" id="wR8-JS-HDJ"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="c9w-SY-b7C"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="aSH-mb-WKb" id="ja1-Sv-Obf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cFf-VW-zwq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="aSH-mb-WKb">
+                    <connections>
+                        <outlet property="delegate" destination="7HR-5M-sXm" id="zfc-Bz-zDi"/>
+                        <outlet property="searchContentsController" destination="7HR-5M-sXm" id="cKt-sN-tFL"/>
+                        <outlet property="searchResultsDataSource" destination="7HR-5M-sXm" id="lcr-lx-DE4"/>
+                        <outlet property="searchResultsDelegate" destination="7HR-5M-sXm" id="qHU-jI-6Mz"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="673" y="1124"/>
+        </scene>
         <!--Second View Controller - Second-->
         <scene sceneID="13">
             <objects>
@@ -101,6 +163,7 @@
                     <connections>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="26"/>
                         <segue destination="3" kind="relationship" relationship="viewControllers" id="27"/>
+                        <segue destination="7HR-5M-sXm" kind="relationship" relationship="viewControllers" id="1GC-K1-ThU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
@@ -359,6 +422,20 @@
             </objects>
             <point key="canvasLocation" x="3155" y="787"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="lIs-eD-T4K">
+            <objects>
+                <viewController id="aU3-nh-esr" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="s07-Tl-qOg">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fdo-PL-ppy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="spotify.png" width="30" height="30"/>
@@ -366,8 +443,11 @@
     <classes>
         <class className="FMFirstViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMFirstViewController.h"/>
+        </class>
+        <class className="FMSearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSearchViewController.h"/>
             <relationships>
-                <relationship kind="action" name="installCertificates:"/>
+                <relationship kind="outlet" name="searchResultTableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="FMSecondViewController" superclassName="UIViewController">
@@ -379,9 +459,7 @@
         <class className="FMSpotifyLoginPageViewController" superclassName="UIPageViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyLoginPageViewController.h"/>
             <relationships>
-                <relationship kind="action" name="cancelLogin:"/>
                 <relationship kind="action" name="logIn:"/>
-                <relationship kind="action" name="promptLogin:"/>
             </relationships>
         </class>
         <class className="FMSpotifyLoginViewController" superclassName="UIViewController">

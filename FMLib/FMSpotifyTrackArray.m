@@ -37,9 +37,7 @@
 
 - (FMSpotifyContinuableArray *)addItemsFromDictionary:(NSDictionary *)dictionary
 {
-    self.href = [NSURL URLWithString:[dictionary objectForKey:@"href"]];
-    self.next = [NSURL URLWithString:[dictionary objectForKey:@"next"]];
-    if (![self.next isKindOfClass:[NSURL class]]) self.next = nil;
+    [super setURLsFromDictionary:dictionary]; // set next and href more safely to avoid exception
     NSArray *items = [dictionary objectForKey:@"items"];
     NSMutableArray *tracks = [NSMutableArray arrayWithCapacity:[items count]];
     

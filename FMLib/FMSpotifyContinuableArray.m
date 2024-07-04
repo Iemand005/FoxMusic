@@ -29,19 +29,20 @@
 // extend with dictionary
 - (FMSpotifyContinuableArray *)addItemsFromDictionary:(NSDictionary *)dictionary
 {
-//    self.href = [NSURL URLWithString:[dictionary objectForKey:@"href"]];
-//    self.next = [NSURL URLWithString:[dictionary objectForKey:@"next"]];
-//    if (![self.next isKindOfClass:[NSURL class]]) self.next = nil;
+    [self setURLsFromDictionary:dictionary];
     
+    NSArray *items = [dictionary objectForKey:@"items"];
+    if ([items isKindOfClass:[NSArray class]]) [self.items addObjectsFromArray:items];
+    return self;
+}
+
+- (void)setURLsFromDictionary:(NSDictionary *)dictionary
+{
     NSString *href = [dictionary objectForKey:@"href"];
     if (href) self.href = [NSURL URLWithString:href];
     NSString *next = [dictionary objectForKey:@"next"];
     if ([next isKindOfClass:[NSString class]] && [next length]) self.next = [NSURL URLWithString:next];
     else self.next = nil;
-    
-    NSArray *items = [dictionary objectForKey:@"items"];
-    if ([items isKindOfClass:[NSArray class]]) [self.items addObjectsFromArray:items];
-    return self;
 }
 
 - (NSUInteger)count
@@ -57,6 +58,11 @@
 - (BOOL)hasNext
 {
     return [self next] != nil && [[self next] isKindOfClass:[NSURL class]];
+}
+
+- (BOOL)isComplete
+{
+    return [[self total] unsignedIntegerValue] == [self count];
 }
 
 - (BOOL)hasPrevious

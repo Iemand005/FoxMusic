@@ -102,7 +102,7 @@
     id response;
     NSError *serializationError;
     @try {
-        response = [NSJSONSerialization JSONObjectWithData:data options:0 error:&serializationError];
+        response = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&serializationError];
     } @catch (NSException *ex) {
         serializationError = [NSError errorWithDomain:@"parsingResponse" code:1009 userInfo:@{NSLocalizedDescriptionKey: ex.description, NSLocalizedFailureReasonErrorKey: ex.reason}];
     }
@@ -117,17 +117,12 @@
 
 - (void)request:(NSURL *)url callback:(void (^const)(NSDictionary *, NSError *))callback
 {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    
-    [request addValue:[self.token bearer] forHTTPHeaderField:@"Authorization"];
-    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    
-    FMURLConnectionController *urlConnectionController = [FMURLConnectionController urlConnectionControllerWithCallback:^(NSData *data){
+    [self getDataFromURL:url withCallback:^(NSData *data){
         NSError *error;
         NSDictionary *result = [self parseResponseData:data error:&error];
+        if (![result isKindOfClass:[NSDictionary class]]) result = @{};
         callback(result, error);
-    }];
-    [[[NSURLConnection alloc] initWithRequest:request delegate:urlConnectionController] start];
+    } andHeaders:@{@"Authorization": [[self token] bearer], @"Accept": @"application/json"}];
 }
 
 - (void)getDataFromURL:(NSURL *)url withCallback:(void(^)(NSData *data))callback
@@ -135,6 +130,13 @@
     [[[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:url] delegate:[FMURLConnectionController urlConnectionControllerWithCallback:^(NSData *data){
         callback(data);
     }]] start];
+}
+
+- (void)getDataFromURL:(NSURL *)url withCallback:(void (^)(NSData *))callback andHeaders:(NSDictionary *)headers
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    for (NSString *headerField in headers) [request addValue:[headers objectForKey:headerField] forHTTPHeaderField:headerField];
+    [[[NSURLConnection alloc] initWithRequest:request delegate:[FMURLConnectionController urlConnectionControllerWithCallback:callback]] start];
 }
 
 - (void)getUserPlaylistsAndWhenSuccess:(void (^)(FMSpotifyPlaylistArray *))callbackSuccess whenError:(void (^)(NSError *))callbackError
@@ -151,31 +153,6 @@
         } else callbackError(error);
     }];
 }
-
-//- (NSDictionary *)requestWithString:(NSString *)url
-//{
-//    return [self request:[NSURL URLWithString:url]];
-//}
-//
-//- (NSDictionary *)request:(NSURL *)url queryParameters:(NSDictionary *)parameters error:(NSError **)error
-//{
-//    NSError *requestError;
-//    NSURL *urlWithQuery = [[FMMutableURLQueryDictionary urlQueryDictionaryWithDictionary:parameters] addToURL:url];
-//    NSLog(@"the new url: %@", urlWithQuery);
-//    NSDictionary *response = [self request:urlWithQuery error:&requestError];
-//    
-//    if (error && requestError) *error = requestError;
-//    
-//    return response;
-//    
-//}
-
-//- (NSDictionary *)request:(NSURL *)url queryParameters:(NSDictionary *)parameters
-//{
-//    return [self request:url queryParameters:parameters error:nil];
-//}
-
-//- (NSURL *)addQueryParameters:(NSDictionary *)parameters toURL:(NSURL *)url
 
 - (BOOL)checkResult:(NSDictionary *)result forError:(NSError **)error
 {
@@ -308,14 +285,19 @@
 
 - (void)continueArray:(FMSpotifyContinuableArray *)continuableArray withOnSuccess:(void(^)(FMSpotifyContinuableArray *))callbackSuccess onError:(void(^)(NSError *))callbackError
 {
-    NSURL *url = [continuableArray hasNext] ? [continuableArray next] : [continuableArray href];
-    NSLog(@"I will get the continuation data for: %@ sir yes sir rikesyikes u riekt", url);
-    if ([url isKindOfClass:[NSString class]]) url = [NSURL URLWithString:(NSString *)url];
-    if ([url isKindOfClass:[NSURL class]]) [self request:url withOnSuccess:^(NSDictionary *response){
-//        NSArray *items = [response objectForKey:@"items"];
-        callbackSuccess([continuableArray addItemsFromDictionary:response]);
-    } onError:callbackError];
-    else callbackError([NSError errorWithDomain:@"nil_parameter" code:9000 userInfo:@{NSLocalizedDescriptionKey: @"Attempted to request null", NSLocalizedFailureReasonErrorKey: @"The client tried to fetch more data but there is no more data to be fetched. (this is a bug)"}]);
+    @try {
+        NSURL *url = [continuableArray hasNext] ? [continuableArray next] : [continuableArray href];
+        NSLog(@"I will get the continuation data for: %@ sir yes sir rikesyikes u riekt", url);
+        if ([url isKindOfClass:[NSString class]]) url = [NSURL URLWithString:(NSString *)url];
+        if ([url isKindOfClass:[NSURL class]]) [self request:url withOnSuccess:^(NSDictionary *response){
+    //        NSArray *items = [response objectForKey:@"items"];
+            callbackSuccess([continuableArray addItemsFromDictionary:response]);
+        } onError:callbackError];
+        else callbackError([NSError errorWithDomain:@"nil_parameter" code:9000 userInfo:@{NSLocalizedDescriptionKey: @"Attempted to request null", NSLocalizedFailureReasonErrorKey: @"The client tried to fetch more data but there is no more data to be fetched. (this is a bug)"}]);
+    }
+    @catch (NSException *exception) {
+        callbackError([self errorWithException:exception]);
+    }
 }
 
 - (NSData *)downloadTrack:(FMSpotifyTrack *)track
@@ -386,29 +368,14 @@
 //    }];
 }
 
-//- (void)getMorePlaylists:(FMSpotifyTrackArray *)tracks withOnSuccess:(void(^)(NSDictionary *))callbackSuccess onError:(void(^)(NSError *))callbackError
-//{
-//    [self continueArray:tracks withOnSuccess:^(NSDictionary *receivedTracks){
-//        
-//    } onError:callbackError];
-//}
-
-- (NSArray *)getUserPlaylists
+- (void)search:(NSString *)query
 {
-    [self getUserPlaylistsWithError:nil];
+    
 }
 
-//- (NSArray *)getUserPlaylistsWithError:(NSError **)error
+//- (NSArray *)getUserPlaylists
 //{
-//    NSURL *playlistsEndpoint = [self.apiBaseAddress URLByAppendingPathComponent:@"me/playlists"];
-//    
-//    NSMutableArray *playlists = [NSMutableArray array];
-//    
-//    NSError *requestError;
-//    NSDictionary *result = [self request:playlistsEndpoint queryParameters:@{@"offset":@10, @"limit":@5} error:&requestError];
-//    if (error && requestError) *error = requestError;
-//    
-//    return result;
+//    [self getUserPlaylistsWithError:nil];
 //}
 
 - (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
@@ -427,6 +394,11 @@
 - (NSException *)exceptionWithError:(NSError *)error
 {
     return [NSException exceptionWithName:error.domain reason:error.localizedFailureReason userInfo:@{}];
+}
+
+- (NSError *)errorWithException:(NSException *)exception
+{
+    return [NSError errorWithDomain:[exception name] code:1000 userInfo:@{NSLocalizedFailureReasonErrorKey: [exception reason], NSLocalizedDescriptionKey: [exception description]}];
 }
 
 + (FMSpotifyClient *)spotifyClient

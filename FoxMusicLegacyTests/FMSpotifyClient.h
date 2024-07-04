@@ -44,8 +44,7 @@
 - (BOOL)tryDeviceAuhorization;
 - (BOOL)tryDeviceAuhorizationWithError:(NSError **)error;
 
-- (NSArray *)getUserPlaylists;
-- (NSArray *)getUserPlaylistsWithError:(NSError **)error;
+//- (NSArray *)getUserPlaylists;
 - (void)getUserPlaylistsAndWhenSuccess:(void(^)(FMSpotifyPlaylistArray *playlists))callbackSuccess whenError:(void(^)(NSError *))callbackError;
 
 - (void)getDataFromURL:(NSURL *)url withCallback:(void(^)(NSData *data))callback;

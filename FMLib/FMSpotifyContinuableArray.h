@@ -21,6 +21,7 @@
 
 @property (readonly, nonatomic) NSUInteger count;
 @property (readonly, nonatomic) BOOL hasNext;
+@property (readonly, nonatomic) BOOL isComplete;
 @property (readonly, nonatomic) BOOL hasPrevious;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
@@ -28,7 +29,8 @@
 - (id)itemAtIndex:(NSUInteger)index;
 
 - (FMSpotifyContinuableArray *)addItemsFromDictionary:(NSDictionary *)dictionary;
+- (void)setURLsFromDictionary:(NSDictionary *)dictionary;
 
-+ (FMSpotifyContinuableArray *)continuableFromDictionary:(NSDictionary *)dictionary;
+//+ (FMSpotifyContinuableArray *)continuableFromDictionary:(NSDictionary *)dictionary;
 
 @end

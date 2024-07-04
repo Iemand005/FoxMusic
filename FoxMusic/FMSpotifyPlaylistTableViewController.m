@@ -30,18 +30,14 @@
     
     @try {
         NSError *error;
-//        __block UITableView *tableView = [self tableView];
         [spotifyClient getUserPlaylistsAndWhenSuccess:^(FMSpotifyPlaylistArray *playlists){
-            for (FMSpotifyPlaylist *playlist in playlists) {
-                NSLog(@"title: %@, description: %@", playlist.name, playlist.description);
-            }
             self.playlists = playlists;
             [[self tableView] reloadData];
             [self loadMorePlaylists];
 
             
         } whenError:^(NSError *error){
-            if(error.code != 3840)[_appDelegate displayError:error];
+            [_appDelegate displayError:error];
         }];
         if (error) [_appDelegate displayError:error];
     } @catch (NSException *ex) {
@@ -52,11 +48,12 @@
 
 - (void)loadMorePlaylists
 {
-    if ([[self playlists] hasNext]) [[_appDelegate spotifyClient] continueArray:[self playlists] withOnSuccess:^(FMSpotifyContinuableArray *playlists){
+    if (![[self playlists] isComplete] && [[self playlists] hasNext]) [[_appDelegate spotifyClient] continueArray:[self playlists] withOnSuccess:^(FMSpotifyContinuableArray *playlists){
         [[self tableView] reloadData];
          [self loadMorePlaylists];
     } onError:^(NSError *error){
-        [_appDelegate displayError:error];
+        if(error.code != 3840)
+            [_appDelegate displayError:error];
     }];
 }
 
@@ -64,18 +61,6 @@
 {
     return self.playlists ? self.playlists.count : 0;
 }
-
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    NSLog(@"The user wants to see row at index %i", indexPath.row);
-//    
-//    FMSpotifyPlaylist *playlist = [self.playlists itemAtIndex:indexPath.row];
-//    NSLog(@"Now need fetch: %@", playlist.tracks.href);
-//    self.selectedPlaylist = playlist;
-////    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-////    [cell ]
-//    [self performSegueWithIdentifier:@"openPlaylistSegue" sender:self];
-//}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -90,9 +75,9 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"playlist" forIndexPath:indexPath];
     FMSpotifyPlaylist *playlist = [self.playlists itemAtIndex:indexPath.row];
-@try {
-    [cell.textLabel setText:playlist.name];
-    [cell.detailTextLabel setText:playlist.description];
+    @try {
+        [cell.textLabel setText:playlist.name];
+        [cell.detailTextLabel setText:playlist.description];
     }
     @catch (NSException *ex) {
         [cell.textLabel setText:@""];
