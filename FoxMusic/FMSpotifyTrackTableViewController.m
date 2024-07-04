@@ -55,10 +55,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"trackCell" forIndexPath:indexPath];
-    FMSpotifyTrack *playlist = [self.playlist.tracks itemAtIndex:indexPath.row];
+    FMSpotifyTrack *track = [self.playlist.tracks itemAtIndex:indexPath.row];
     @try {
-        [cell.textLabel setText:playlist.name];
-        [cell.detailTextLabel setText:@(playlist.duration).stringValue];
+        [cell.textLabel setText:[track name]];
+        [cell.detailTextLabel setText:[@([track duration]) stringValue]];
     } @catch (NSException *exception) {
         [_appDelegate displayException:exception];
     }

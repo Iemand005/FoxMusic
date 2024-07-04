@@ -15,14 +15,15 @@
 {
     self = [super initWithDictionary:dictionary];
     if (self) {
-        self.href = [NSURL URLWithString:[dictionary objectForKey:@"href"]];
-        NSArray *items = [dictionary objectForKey:@"items"];
-        NSMutableArray *tracks = [NSMutableArray arrayWithCapacity:[items count]];
-        
-        for (NSDictionary *item in items)
-            [tracks addObject:[FMSpotifyTrack trackFromDictionary:item]];
-        
-        [[self items] addObjectsFromArray:tracks];
+        [self addItemsFromDictionary:dictionary];
+//        self.href = [NSURL URLWithString:[dictionary objectForKey:@"href"]];
+//        NSArray *items = [dictionary objectForKey:@"items"];
+//        NSMutableArray *tracks = [NSMutableArray arrayWithCapacity:[items count]];
+//        
+//        for (NSDictionary *item in items)
+//            [tracks addObject:[FMSpotifyTrack trackFromDictionary:item]];
+//        
+//        [[self items] addObjectsFromArray:tracks];
 //        [self setItems:]?
     }
     return self;
@@ -38,11 +39,18 @@
 - (FMSpotifyContinuableArray *)addItemsFromDictionary:(NSDictionary *)dictionary
 {
     [super setURLsFromDictionary:dictionary]; // set next and href more safely to avoid exception
+    
+    NSDictionary *tracksDictinary = [dictionary objectForKey:@"tracks"];
+    if (tracksDictinary) dictionary = tracksDictinary;
+    
     NSArray *items = [dictionary objectForKey:@"items"];
     NSMutableArray *tracks = [NSMutableArray arrayWithCapacity:[items count]];
     
-    for (NSDictionary *item in items)
-        [tracks addObject:[FMSpotifyTrack trackFromDictionary:[item objectForKey:@"track"]]];
+    for (NSDictionary *item in items) {
+        NSDictionary *trackDictionary = [item objectForKey:@"track"];
+        if (!trackDictionary) trackDictionary = item;
+        [tracks addObject:[FMSpotifyTrack trackFromDictionary:trackDictionary]];
+    }
     
 //    self.items = [NSArray arrayWithArray:tracks];
     [[self items] addObjectsFromArray:tracks];

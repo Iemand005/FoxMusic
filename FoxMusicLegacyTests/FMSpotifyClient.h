@@ -53,6 +53,8 @@
 
 - (NSData *)downloadTrack:(FMSpotifyTrack *)track;
 
+- (void)search:(NSString *)query withOnSuccess:(void(^)(FMSpotifyTrackArray *tracks))callbackSuccess onError:(void(^)(NSError *error))callbackError;
+
 + (FMSpotifyClient *)spotifyClient;
 
 @end

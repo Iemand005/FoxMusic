@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FMAppDelegate.h"
+
 @interface FMSearchViewController : UIViewController <UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
+{
+    FMAppDelegate *_appDelegate;
+}
 
 @property IBOutlet UITableView *searchResultTableView;
+@property IBOutlet UISearchBar *searchBar;
+
+@property FMSpotifyTrackArray *tracks;
+
+//- (IBAction)cancelSearch:(id)sender;
 
 @end

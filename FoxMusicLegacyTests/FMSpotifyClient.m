@@ -368,15 +368,23 @@
 //    }];
 }
 
-- (void)search:(NSString *)query
+- (void)search:(NSString *)query withOnSuccess:(void(^)(FMSpotifyTrackArray *tracks))callbackSuccess onError:(void(^)(NSError *error))callbackError
 {
+    NSURL *searchEndpoint = [self.apiBaseAddress URLByAppendingPathComponent:@"search"];
     
-}
+//    NSArray *types = @[@"album", @"artist", @"playlist", @"track", @"show", @"episode", @"audiobook"];
+    FMMutableURLQueryDictionary *queryDictionary = [FMMutableURLQueryDictionary urlQueryDictionaryWithDictionary:@{@"q":query, @"type": @"track"}];
+    
+    NSURL *searchURL = [queryDictionary addToURL:searchEndpoint];
+    NSLog(@"Searching query: %@", searchURL);
+    
+    [self request:searchURL callback:^(NSDictionary *result, NSError *error){
+        if (!error) {
+            callbackSuccess([FMSpotifyTrackArray trackArrayWithDictionary:result]);
+        } else callbackError(error);
+    }];
 
-//- (NSArray *)getUserPlaylists
-//{
-//    [self getUserPlaylistsWithError:nil];
-//}
+}
 
 - (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
@@ -388,8 +396,6 @@
         [challenge.sender useCredential:cred forAuthenticationChallenge:challenge];
     }
 }
-
-//- conn
 
 - (NSException *)exceptionWithError:(NSError *)error
 {

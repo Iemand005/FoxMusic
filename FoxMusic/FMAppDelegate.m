@@ -51,6 +51,21 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event
+{
+//    NSLog(@"Dinges: %@", UIEventSubtypeRemoteControlPause);
+    switch (event.subtype) {
+        case UIEventSubtypeRemoteControlPlay:
+            [[self audioPlayer] play];
+            break;
+            
+        case UIEventSubtypeRemoteControlPause:
+            [[self audioPlayer] pause];
+            break;
+    }
+    [super remoteControlReceivedWithEvent:event];
+}
+
 - (void)displayError:(NSError *)error
 {
     [[[UIAlertView alloc] initWithTitle:[error localizedFailureReason] message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil] show];
