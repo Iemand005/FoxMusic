@@ -106,7 +106,7 @@
                             <constraint firstItem="JiT-Ji-7fI" firstAttribute="bottom" secondItem="sdp-gr-rL4" secondAttribute="bottom" type="default" id="gNb-Ne-rgA"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" systemItem="history" id="TYU-L5-gsE"/>
+                    <tabBarItem key="tabBarItem" enabled="NO" title="" systemItem="history" id="TYU-L5-gsE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kST-o8-myH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -265,8 +265,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="3" kind="relationship" relationship="viewControllers" id="27"/>
-                        <segue destination="2" kind="relationship" relationship="viewControllers" id="26"/>
                         <segue destination="15x-nr-Mz0" kind="relationship" relationship="viewControllers" id="2Tj-cM-UNG"/>
+                        <segue destination="2" kind="relationship" relationship="viewControllers" id="26"/>
                         <segue destination="qv1-OS-5Uc" kind="relationship" relationship="viewControllers" id="4Aj-Xu-nG3"/>
                     </connections>
                 </tabBarController>
