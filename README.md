@@ -7,3 +7,5 @@ Now with iPad support!
 - Album art
 - Search
 - Lock screen and control center
+
+App icons made by u/AmadeoOOFDeReddit
