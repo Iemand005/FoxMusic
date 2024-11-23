@@ -68,3 +68,7 @@ fastlane/test_output
 iOSInjectionProject/
 
 .DS_Store
+<<<<<<< HEAD
+=======
+**/.DS_Store
+>>>>>>> main

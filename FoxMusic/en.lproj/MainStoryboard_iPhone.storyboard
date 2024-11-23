@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+>>>>>>> main
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -51,6 +55,7 @@
             </objects>
             <point key="canvasLocation" x="673" y="-436"/>
         </scene>
+<<<<<<< HEAD
         <!--View Controller - YouTube-->
         <scene sceneID="c7l-pd-bpX">
             <objects>
@@ -127,6 +132,8 @@
             </objects>
             <point key="canvasLocation" x="1213" y="-1740"/>
         </scene>
+=======
+>>>>>>> main
         <!--Navigation Controller-->
         <scene sceneID="oKW-D2-GA4">
             <objects>
@@ -344,8 +351,11 @@
                         <segue destination="15x-nr-Mz0" kind="relationship" relationship="viewControllers" id="2Tj-cM-UNG"/>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="26"/>
                         <segue destination="qv1-OS-5Uc" kind="relationship" relationship="viewControllers" id="4Aj-Xu-nG3"/>
+<<<<<<< HEAD
                         <segue destination="zd2-1J-YDj" kind="relationship" relationship="viewControllers" id="NV9-rq-fO1"/>
                         <segue destination="GmL-CT-zt1" kind="relationship" relationship="viewControllers" id="pvK-rt-NH1"/>
+=======
+>>>>>>> main
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
