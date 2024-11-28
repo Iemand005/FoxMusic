@@ -9,8 +9,12 @@
 #import <Foundation/Foundation.h>
 
 #import "FMURLConnection.h"
+#import "FMLucidaParser.h"
 
 @interface FMLucidaClient : NSObject
+{
+    FMLucidaParser *_parser;
+}
 
 @property NSURL *baseAddress;
 

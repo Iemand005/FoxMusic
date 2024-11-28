@@ -37,7 +37,9 @@
     if (headers)
         for (NSString *headerField in headers)
             [request addValue:[headers objectForKey:headerField] forHTTPHeaderField:headerField];
-    [[[NSURLConnection alloc] initWithRequest:request delegate:[FMURLConnectionDelegate urlConnectionControllerWithCallback:callback]] start];
+    FMURLConnectionDelegate *delegate = [FMURLConnectionDelegate urlConnectionControllerWithCallback:callback];
+    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:request delegate:delegate];
+    [urlConnection start];
 }
 
 + (FMURLConnection *)urlConnection

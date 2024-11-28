@@ -87,6 +87,8 @@
 		0A9798A22CF49AEE00C38E1B /* FMAlertDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9798A12CF49AEE00C38E1B /* FMAlertDelegate.m */; };
 		0A9798C42CF859E700C38E1B /* FMLucidaClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9798C32CF859E700C38E1B /* FMLucidaClient.m */; };
 		0A9798C72CF85FB900C38E1B /* FMURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9798C62CF85FB900C38E1B /* FMURLConnection.m */; };
+		0A9798CA2CF8765500C38E1B /* FMLucidaParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9798C92CF8765500C38E1B /* FMLucidaParser.m */; };
+		0A9798CD2CF88EC400C38E1B /* FMLucidaParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9798CC2CF88EC400C38E1B /* FMLucidaParserDelegate.m */; };
 		0A9C39F52C75278400663324 /* foxmusic.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9C39F12C75278400663324 /* foxmusic.png */; };
 		0A9C39F62C75278400663324 /* foxmusic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9C39F22C75278400663324 /* foxmusic@2x.png */; };
 		0A9C39F72C75278400663324 /* foxmusicipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9C39F32C75278400663324 /* foxmusicipad.png */; };
@@ -254,6 +256,10 @@
 		0A9798C32CF859E700C38E1B /* FMLucidaClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMLucidaClient.m; sourceTree = "<group>"; };
 		0A9798C52CF85FB900C38E1B /* FMURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMURLConnection.h; sourceTree = "<group>"; };
 		0A9798C62CF85FB900C38E1B /* FMURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMURLConnection.m; sourceTree = "<group>"; };
+		0A9798C82CF8765500C38E1B /* FMLucidaParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMLucidaParser.h; sourceTree = "<group>"; };
+		0A9798C92CF8765500C38E1B /* FMLucidaParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMLucidaParser.m; sourceTree = "<group>"; };
+		0A9798CB2CF88EC400C38E1B /* FMLucidaParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMLucidaParserDelegate.h; sourceTree = "<group>"; };
+		0A9798CC2CF88EC400C38E1B /* FMLucidaParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMLucidaParserDelegate.m; sourceTree = "<group>"; };
 		0A9C39F12C75278400663324 /* foxmusic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foxmusic.png; sourceTree = "<group>"; };
 		0A9C39F22C75278400663324 /* foxmusic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "foxmusic@2x.png"; sourceTree = "<group>"; };
 		0A9C39F32C75278400663324 /* foxmusicipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foxmusicipad.png; sourceTree = "<group>"; };
@@ -549,6 +555,10 @@
 				0A6038072C2D83F800482179 /* Supporting Files */,
 				0A9798C22CF859E600C38E1B /* FMLucidaClient.h */,
 				0A9798C32CF859E700C38E1B /* FMLucidaClient.m */,
+				0A9798C82CF8765500C38E1B /* FMLucidaParser.h */,
+				0A9798C92CF8765500C38E1B /* FMLucidaParser.m */,
+				0A9798CB2CF88EC400C38E1B /* FMLucidaParserDelegate.h */,
+				0A9798CC2CF88EC400C38E1B /* FMLucidaParserDelegate.m */,
 			);
 			name = FMTouch;
 			path = FMLib;
@@ -964,6 +974,8 @@
 				0A9798A22CF49AEE00C38E1B /* FMAlertDelegate.m in Sources */,
 				0A9798C42CF859E700C38E1B /* FMLucidaClient.m in Sources */,
 				0A9798C72CF85FB900C38E1B /* FMURLConnection.m in Sources */,
+				0A9798CA2CF8765500C38E1B /* FMLucidaParser.m in Sources */,
+				0A9798CD2CF88EC400C38E1B /* FMLucidaParserDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

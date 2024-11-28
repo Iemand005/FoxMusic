@@ -20,6 +20,7 @@
         [self setStreamURL:[NSURL URLWithString:@"/api/fetch/stream/v2"]];
         
         [self setUrlConnection:[FMURLConnection urlConnection]];
+        _parser = [FMLucidaParser lucidaParser];
         
         [self get:@"https://play.qobuz.com/track/263421753"];
     }
@@ -30,6 +31,7 @@
 {
     [self requestEndpoint:[self baseAddress] withPath:url andCallback:^(NSData *response){
         NSLog(@"%@", response);
+        [_parser par]
     }];
 }
 
@@ -43,7 +45,7 @@
     
 }
 
-- (NSObject *)requestEndpoint:(NSURL *)endpoint withPath:(NSString *)path andCallback:(void (^)(NSData *))callback
+- (void)requestEndpoint:(NSURL *)endpoint withPath:(NSString *)path andCallback:(void (^)(NSData *))callback
 {
     [[self urlConnection] getDataFromURL:[self baseAddress] withCallback:callback andQuery:@{@"url": path}];
 }
