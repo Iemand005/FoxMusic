@@ -21,6 +21,9 @@
     // Override point for customization after application launch.
     [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"*.spotify.com"];
     [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"accounts.spotify.com"];
+    
+    [self lucidaClient];
+    
     return YES;
 }
 							
@@ -62,23 +65,36 @@
         case UIEventSubtypeRemoteControlPause:
             [[self audioPlayer] pause];
             break;
+        default:
+            break;
     }
     [super remoteControlReceivedWithEvent:event];
 }
 
 - (void)displayError:(NSError *)error
 {
-    [[[UIAlertView alloc] initWithTitle:[error localizedFailureReason] message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil] show];
+    [self displayError:error withCompletionHandler:nil];
+}
+
+- (void)displayError:(NSError *)error withCompletionHandler:(void(^)())completionHandler
+{
+    if (completionHandler) [[self alertDelegate] setCompletionHandler:completionHandler];
+    [[[UIAlertView alloc] initWithTitle:[error localizedFailureReason] message:[error localizedDescription] delegate:[self alertDelegate] cancelButtonTitle:@"Close" otherButtonTitles:nil, nil] show];
 }
 
 - (void)displayException:(NSException *)exception
 {
-    [[[UIAlertView alloc] initWithTitle:@"Whoops!" message:exception.description delegate:nil cancelButtonTitle:@"Sorry" otherButtonTitles:nil, nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"Whoops!" message:exception.description delegate:[self alertDelegate] cancelButtonTitle:@"Sorry" otherButtonTitles:nil, nil] show];
 }
 
 - (FMSpotifyClient *)spotifyClient
 {
     return _spotifyClient ? _spotifyClient : (_spotifyClient = [FMSpotifyClient spotifyClient]);
+}
+
+- (FMLucidaClient *)lucidaClient
+{
+    return _lucidaClient ? _lucidaClient : (_lucidaClient = [FMLucidaClient lucidaClient]);
 }
 
 @end

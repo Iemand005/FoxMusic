@@ -28,7 +28,7 @@
     NSError *error;
     if (!appDelegate.spotifyClient.isLoggedIn) NSLog(@"SHIT TOEKN EXPIRED");
     [[appDelegate spotifyClient] refreshTokenWithError:&error];
-//    if (appDelegate.spotifyClient.isLoggedIn) NSLog(@"TOKEN VALID AGAIN?");
+	
     if (error) {
         [appDelegate displayError:error];
     }
@@ -42,11 +42,11 @@
         viewControllerIdentifier = @"login";
     }
     
-    UIViewController *rat = [storyboard instantiateViewControllerWithIdentifier:viewControllerIdentifier];
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:viewControllerIdentifier];
     
     UIPageViewControllerNavigationDirection direction = forwards ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse;
     
-    [self setViewControllers:@[rat] direction:direction animated:YES completion:nil];
+    [self setViewControllers:@[viewController] direction:direction animated:YES completion:nil];
 }
 
 - (void)logIn:(id)sender

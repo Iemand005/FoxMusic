@@ -8,7 +8,7 @@
 
 #import "FMSpotifyClient.h"
 #import "FMMutableURLQueryDictionary.h"
-#import "FMURLConnectionController.h"
+#import "FMURLConnectionDelegate.h"
 #import "FMSpotifyPlaylistArray.h"
 
 @interface FMSpotifyClient ()
@@ -88,9 +88,11 @@
     
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&requestError];
     
-    NSDictionary *result = [self parseResponseData:responseData error:&requestError];
-    
-    [self checkResult:result forError:&requestError];
+    NSDictionary *result;
+	if (!requestError) {
+        result = [self parseResponseData:responseData error:&requestError];
+        [self checkResult:result forError:&requestError];
+	}
     
     if (error) *error = requestError;
     
@@ -127,7 +129,7 @@
 
 - (void)getDataFromURL:(NSURL *)url withCallback:(void(^)(NSData *data))callback
 {
-    [[[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:url] delegate:[FMURLConnectionController urlConnectionControllerWithCallback:^(NSData *data){
+    [[[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:url] delegate:[FMURLConnectionDelegate urlConnectionControllerWithCallback:^(NSData *data){
         callback(data);
     }]] start];
 }
@@ -136,7 +138,7 @@
 {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     for (NSString *headerField in headers) [request addValue:[headers objectForKey:headerField] forHTTPHeaderField:headerField];
-    [[[NSURLConnection alloc] initWithRequest:request delegate:[FMURLConnectionController urlConnectionControllerWithCallback:callback]] start];
+    [[[NSURLConnection alloc] initWithRequest:request delegate:[FMURLConnectionDelegate urlConnectionControllerWithCallback:callback]] start];
 }
 
 - (void)getUserPlaylistsAndWhenSuccess:(void (^)(FMSpotifyPlaylistArray *))callbackSuccess whenError:(void (^)(NSError *))callbackError
@@ -165,7 +167,7 @@
 //                                   NSLocalizedFailureReasonErrorKey:errorReason
 //                                   };
         NSError *newError = [self localizeError:[NSError errorWithDomain:errorReason ? errorReason : @"" code:6942 userInfo:@{
-                                               NSLocalizedDescriptionKey:errorDescription,
+                                               NSLocalizedDescriptionKey:errorDescription ? errorDescription : @"Unknown description",
                                         NSLocalizedFailureReasonErrorKey:errorReason
                                                  }]];
 //        [newError setus:errorReason forKey:NSLocalizedFailureReasonErrorKey]
@@ -196,9 +198,11 @@
     NSLog(@"Connection finished!");
 }
 
-- (FMSpotifyDeviceAuthorizationInfo *)refreshDeviceAuthorizationInfo
+- (FMSpotifyDeviceAuthorizationInfo *)refreshDeviceAuthorizationInfoWithError:(NSError **)error
 {
-    NSDictionary *response = [self request:self.authorizeDeviceEndpoint withBody:@{@"scope": @"streaming user-read-private user-read-email"}];
+	NSError *requestError;
+    NSDictionary *response = [self request:self.authorizeDeviceEndpoint withBody:@{@"scope": @"streaming user-read-private user-read-email"} error:&requestError];
+	if (requestError) *error = requestError;
     return self.deviceAuthorizationInfo = [FMSpotifyDeviceAuthorizationInfo deviceAuthorizationInfoFromDictionary:response];
 }
 

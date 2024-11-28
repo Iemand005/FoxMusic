@@ -29,6 +29,7 @@
 //    NSData *imageData = [NSData dataWithContentsOfURL:[[track album] imageURL]];
     
     [[_appDelegate spotifyClient] getDataFromURL:[[track album] imageURL] withCallback:^(NSData *data){
+        NSString *blob = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         UIImage *image = [UIImage imageWithData:data];
         [self setAlbumCoverImage:image];
         [[self albumCoverImageView] setImage:image];

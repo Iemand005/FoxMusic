@@ -8,5 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "FMSpotifyClient.h"
+#import "FMLucidaClient.h"
 #import "FMMutableURLQueryDictionary.h"
 #import "FMSpotifyPlaylistArray.h"

@@ -30,6 +30,7 @@
 
 - (NSString *)urlString
 {
+    // TODO: Add error case if dictionary is nil
     NSMutableArray *keyValuePairs = [NSMutableArray arrayWithCapacity:_dictionary.count];
     for (id key in _dictionary) {
         NSString *value = [_dictionary objectForKey:key];

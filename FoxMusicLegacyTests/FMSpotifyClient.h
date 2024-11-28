@@ -36,7 +36,7 @@
 - (NSDictionary *)request:(NSURL *)url withBody:(NSDictionary *)requestBody error:(NSError **)error;
 - (NSDictionary *)request:(NSURL *)url withBody:(NSDictionary *)requestBody addClientId:(BOOL)injectClientId;
 - (NSDictionary *)request:(NSURL *)url withBody:(NSDictionary *)requestBody addClientId:(BOOL)injectClientId error:(NSError **)error;
-- (FMSpotifyDeviceAuthorizationInfo *)refreshDeviceAuthorizationInfo;
+- (FMSpotifyDeviceAuthorizationInfo *)refreshDeviceAuthorizationInfoWithError:(NSError **)error;
 
 - (BOOL)refreshToken;
 - (BOOL)refreshTokenWithError:(NSError **)error;

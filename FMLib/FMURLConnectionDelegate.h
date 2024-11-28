@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FMURLConnectionController : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
+@interface FMURLConnectionDelegate : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 {
     @private
     NSData *_data;
@@ -17,7 +17,7 @@
 
 - (id)initWithCallback:(void(^const)(NSData *))callback;
 
-+ (FMURLConnectionController *)urlConnectionController;
-+ (FMURLConnectionController *)urlConnectionControllerWithCallback:(void(^const)(NSData *))callback;
++ (FMURLConnectionDelegate *)urlConnectionDelegate;
++ (FMURLConnectionDelegate *)urlConnectionControllerWithCallback:(void(^const)(NSData *))callback;
 
 @end
