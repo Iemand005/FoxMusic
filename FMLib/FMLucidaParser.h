@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FMLucidaParser : NSObject <NSXMLParserDelegate>
+#import "FMLucidaParserDelegate.h"
+
+@interface FMLucidaParser : NSObject
 {
      void(^_callback)(NSObject *);
+    FMLucidaParserDelegate *_delegate;
+    
 }
 
 - (void)parseData:(NSData *)data withCallback:(void (^)(NSObject *))callback;

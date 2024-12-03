@@ -21,6 +21,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSURL *url = [NSURL URLWithString:@"http://www.businessfactors.de/bfcms/images/stories/videos/defaultscreenvideos.mp4"];
+    MPMoviePlayerController *player =[[MPMoviePlayerController alloc] initWithContentURL: url];
+    [[player view] setFrame: [self.view bounds]];  // frame must match parent view
+    [self.view addSubview: [player view]];
+    [player play];
 	// Do any additional setup after loading the view, typically from a nib.
     
 //    MPM

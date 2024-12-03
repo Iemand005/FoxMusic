@@ -93,6 +93,7 @@
 		0A9C39F62C75278400663324 /* foxmusic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9C39F22C75278400663324 /* foxmusic@2x.png */; };
 		0A9C39F72C75278400663324 /* foxmusicipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9C39F32C75278400663324 /* foxmusicipad.png */; };
 		0A9C39F82C75278400663324 /* foxmusicipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9C39F42C75278400663324 /* foxmusicipad@2x.png */; };
+		0AC415D32CFF35AB007FA453 /* FMBase62Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC415D22CFF35AB007FA453 /* FMBase62Decoder.m */; };
 		0ACB51862C3373DF004CA3E6 /* FMSpotifyPlaylistArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB51852C3373DF004CA3E6 /* FMSpotifyPlaylistArray.m */; };
 		0ACB518A2C337607004CA3E6 /* FMSpotifyPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB51892C337607004CA3E6 /* FMSpotifyPlaylist.m */; };
 		0ACB518D2C337D1D004CA3E6 /* FMSpotifyPlaylistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB518C2C337D1D004CA3E6 /* FMSpotifyPlaylistTableViewController.m */; };
@@ -264,6 +265,8 @@
 		0A9C39F22C75278400663324 /* foxmusic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "foxmusic@2x.png"; sourceTree = "<group>"; };
 		0A9C39F32C75278400663324 /* foxmusicipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foxmusicipad.png; sourceTree = "<group>"; };
 		0A9C39F42C75278400663324 /* foxmusicipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "foxmusicipad@2x.png"; sourceTree = "<group>"; };
+		0AC415D12CFF35AB007FA453 /* FMBase62Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMBase62Decoder.h; sourceTree = "<group>"; };
+		0AC415D22CFF35AB007FA453 /* FMBase62Decoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMBase62Decoder.m; sourceTree = "<group>"; };
 		0ACB51842C3373DF004CA3E6 /* FMSpotifyPlaylistArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyPlaylistArray.h; sourceTree = "<group>"; };
 		0ACB51852C3373DF004CA3E6 /* FMSpotifyPlaylistArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyPlaylistArray.m; sourceTree = "<group>"; };
 		0ACB51882C337607004CA3E6 /* FMSpotifyPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyPlaylist.h; sourceTree = "<group>"; };
@@ -559,6 +562,8 @@
 				0A9798C92CF8765500C38E1B /* FMLucidaParser.m */,
 				0A9798CB2CF88EC400C38E1B /* FMLucidaParserDelegate.h */,
 				0A9798CC2CF88EC400C38E1B /* FMLucidaParserDelegate.m */,
+				0AC415D12CFF35AB007FA453 /* FMBase62Decoder.h */,
+				0AC415D22CFF35AB007FA453 /* FMBase62Decoder.m */,
 			);
 			name = FMTouch;
 			path = FMLib;
@@ -976,6 +981,7 @@
 				0A9798C72CF85FB900C38E1B /* FMURLConnection.m in Sources */,
 				0A9798CA2CF8765500C38E1B /* FMLucidaParser.m in Sources */,
 				0A9798CD2CF88EC400C38E1B /* FMLucidaParserDelegate.m in Sources */,
+				0AC415D32CFF35AB007FA453 /* FMBase62Decoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

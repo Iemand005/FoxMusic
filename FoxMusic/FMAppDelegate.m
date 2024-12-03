@@ -22,7 +22,12 @@
     [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"*.spotify.com"];
     [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"accounts.spotify.com"];
     
-    [self lucidaClient];
+//    [self lucidaClient];
+    FMBase62Decoder *decoder = [FMBase62Decoder decoderWithString:@"GitHub"];
+    NSString *hex = [decoder toHex];
+    NSString *shouldbeHex = [[FMBase62Decoder decoderWithString:@"0nMn7LRJk9nYT0rNb5ZwAD"] toHex];
+    
+    NSLog(@"%@", shouldbeHex);
     
     return YES;
 }

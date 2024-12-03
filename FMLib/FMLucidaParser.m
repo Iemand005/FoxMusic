@@ -10,27 +10,23 @@
 
 @implementation FMLucidaParser
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _delegate = [FMLucidaParserDelegate delegate];
+    }
+    return self;
+}
+
 - (void)parseData:(NSData *)data withCallback:(void (^)(NSObject *))callback
 {
-    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:response];
-    [xmlParser setDelegate:_parser];
+    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:data];
+    [xmlParser setDelegate:_delegate];
     [xmlParser parse];
 }
 
-- (void)parserDidStartDocument:(NSXMLParser *)parser
-{
-    NSLog(@"Parsing Initiated.");
-}
 
-- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
-{
-    
-}
-
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
-{
-    NSLog(@"found chqrqctes %@", string);
-}
 
 + (FMLucidaParser *)lucidaParser
 {

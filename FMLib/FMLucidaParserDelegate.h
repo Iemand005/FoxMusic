@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FMLucidaParserDelegate : NSObject
+@interface FMLucidaParserDelegate : NSObject <NSXMLParserDelegate>
+
++ (FMLucidaParserDelegate *)delegate;
 
 @end

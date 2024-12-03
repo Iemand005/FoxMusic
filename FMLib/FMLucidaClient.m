@@ -31,7 +31,12 @@
 {
     [self requestEndpoint:[self baseAddress] withPath:url andCallback:^(NSData *response){
         NSLog(@"%@", response);
-        [_parser par]
+//        [_parser parseData:response withCallback:^(NSObject *response){
+//            
+//        }];
+//        NSString *serialisedResponse = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+//        NSStr *pattern = @"<#string#>";
+//        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:<#(NSString *)#> options:<#(NSRegularExpressionOptions)#> error:<#(NSError *__autoreleasing *)#>]
     }];
 }
 
