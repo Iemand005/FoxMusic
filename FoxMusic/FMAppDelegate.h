@@ -15,12 +15,15 @@
 @interface FMAppDelegate : UIResponder <UIApplicationDelegate>
 {
     FMSpotifyClient *_spotifyClient;
+    FMYouTubeClient *_youtubeClient;
     FMLucidaClient *_lucidaClient;
+    
 }
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (readonly) FMSpotifyClient *spotifyClient;
+@property (readonly) FMYouTubeClient *youtubeClient;
 @property (readonly) FMLucidaClient *lucidaClient;
 @property FMAlertDelegate *alertDelegate;
 

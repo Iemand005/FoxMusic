@@ -94,6 +94,16 @@
 		0A9C39F72C75278400663324 /* foxmusicipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9C39F32C75278400663324 /* foxmusicipad.png */; };
 		0A9C39F82C75278400663324 /* foxmusicipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9C39F42C75278400663324 /* foxmusicipad@2x.png */; };
 		0AC415D32CFF35AB007FA453 /* FMBase62Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC415D22CFF35AB007FA453 /* FMBase62Decoder.m */; };
+		0AC415D82D00A3E0007FA453 /* FMYouTubeClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC415D72D00A3E0007FA453 /* FMYouTubeClient.m */; };
+		0AC415DB2D00AC4C007FA453 /* FMYouTubeAPIParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC415DA2D00AC4C007FA453 /* FMYouTubeAPIParser.m */; };
+		0AC415E82D00AC90007FA453 /* FMYouTubeVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC415DD2D00AC8F007FA453 /* FMYouTubeVideo.m */; };
+		0AC415E92D00AC90007FA453 /* FMYouTubeChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC415DF2D00AC90007FA453 /* FMYouTubeChannel.m */; };
+		0AC415EA2D00AC90007FA453 /* FMYouTubeProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC415E12D00AC90007FA453 /* FMYouTubeProfile.m */; };
+		0AC415EB2D00AC90007FA453 /* FMYouTubeVideoFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC415E32D00AC90007FA453 /* FMYouTubeVideoFormat.m */; };
+		0AC415EC2D00AC90007FA453 /* FMYouTubePlaybackTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC415E52D00AC90007FA453 /* FMYouTubePlaybackTracker.m */; };
+		0AC415ED2D00AC90007FA453 /* FMYouTubeContinuation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC415E72D00AC90007FA453 /* FMYouTubeContinuation.m */; };
+		0AC415EE2D00B888007FA453 /* FMYouTubeClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC415D72D00A3E0007FA453 /* FMYouTubeClient.m */; };
+		0AC415EF2D00B888007FA453 /* FMYouTubeAPIParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC415DA2D00AC4C007FA453 /* FMYouTubeAPIParser.m */; };
 		0ACB51862C3373DF004CA3E6 /* FMSpotifyPlaylistArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB51852C3373DF004CA3E6 /* FMSpotifyPlaylistArray.m */; };
 		0ACB518A2C337607004CA3E6 /* FMSpotifyPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB51892C337607004CA3E6 /* FMSpotifyPlaylist.m */; };
 		0ACB518D2C337D1D004CA3E6 /* FMSpotifyPlaylistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB518C2C337D1D004CA3E6 /* FMSpotifyPlaylistTableViewController.m */; };
@@ -267,6 +277,22 @@
 		0A9C39F42C75278400663324 /* foxmusicipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "foxmusicipad@2x.png"; sourceTree = "<group>"; };
 		0AC415D12CFF35AB007FA453 /* FMBase62Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMBase62Decoder.h; sourceTree = "<group>"; };
 		0AC415D22CFF35AB007FA453 /* FMBase62Decoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMBase62Decoder.m; sourceTree = "<group>"; };
+		0AC415D62D00A3E0007FA453 /* FMYouTubeClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMYouTubeClient.h; sourceTree = "<group>"; };
+		0AC415D72D00A3E0007FA453 /* FMYouTubeClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMYouTubeClient.m; sourceTree = "<group>"; };
+		0AC415D92D00AC4C007FA453 /* FMYouTubeAPIParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMYouTubeAPIParser.h; sourceTree = "<group>"; };
+		0AC415DA2D00AC4C007FA453 /* FMYouTubeAPIParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMYouTubeAPIParser.m; sourceTree = "<group>"; };
+		0AC415DC2D00AC8F007FA453 /* FMYouTubeVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMYouTubeVideo.h; sourceTree = "<group>"; };
+		0AC415DD2D00AC8F007FA453 /* FMYouTubeVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMYouTubeVideo.m; sourceTree = "<group>"; };
+		0AC415DE2D00AC8F007FA453 /* FMYouTubeChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMYouTubeChannel.h; sourceTree = "<group>"; };
+		0AC415DF2D00AC90007FA453 /* FMYouTubeChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMYouTubeChannel.m; sourceTree = "<group>"; };
+		0AC415E02D00AC90007FA453 /* FMYouTubeProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMYouTubeProfile.h; sourceTree = "<group>"; };
+		0AC415E12D00AC90007FA453 /* FMYouTubeProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMYouTubeProfile.m; sourceTree = "<group>"; };
+		0AC415E22D00AC90007FA453 /* FMYouTubeVideoFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMYouTubeVideoFormat.h; sourceTree = "<group>"; };
+		0AC415E32D00AC90007FA453 /* FMYouTubeVideoFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMYouTubeVideoFormat.m; sourceTree = "<group>"; };
+		0AC415E42D00AC90007FA453 /* FMYouTubePlaybackTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMYouTubePlaybackTracker.h; sourceTree = "<group>"; };
+		0AC415E52D00AC90007FA453 /* FMYouTubePlaybackTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMYouTubePlaybackTracker.m; sourceTree = "<group>"; };
+		0AC415E62D00AC90007FA453 /* FMYouTubeContinuation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMYouTubeContinuation.h; sourceTree = "<group>"; };
+		0AC415E72D00AC90007FA453 /* FMYouTubeContinuation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMYouTubeContinuation.m; sourceTree = "<group>"; };
 		0ACB51842C3373DF004CA3E6 /* FMSpotifyPlaylistArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyPlaylistArray.h; sourceTree = "<group>"; };
 		0ACB51852C3373DF004CA3E6 /* FMSpotifyPlaylistArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyPlaylistArray.m; sourceTree = "<group>"; };
 		0ACB51882C337607004CA3E6 /* FMSpotifyPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyPlaylist.h; sourceTree = "<group>"; };
@@ -531,24 +557,8 @@
 			isa = PBXGroup;
 			children = (
 				0A6038092C2D83F800482179 /* FMTouch.h */,
-				0A6037F92C2D82B600482179 /* FMSpotifyClient.h */,
-				0A6037FA2C2D82B600482179 /* FMSpotifyClient.m */,
-				0A7FB3122C2DB46600F50618 /* FMSpotifyToken.h */,
-				0A7FB3132C2DB46600F50618 /* FMSpotifyToken.m */,
-				0ACB51972C3392CA004CA3E6 /* FMSpotifyContinuableArray.h */,
-				0ACB51982C3392CB004CA3E6 /* FMSpotifyContinuableArray.m */,
-				0ACB51912C338B7B004CA3E6 /* FMSpotifyTrack.h */,
-				0ACB51922C338B7B004CA3E6 /* FMSpotifyTrack.m */,
-				0ACB51942C338C8A004CA3E6 /* FMSpotifyTrackArray.h */,
-				0ACB51952C338C8B004CA3E6 /* FMSpotifyTrackArray.m */,
-				0ACB51882C337607004CA3E6 /* FMSpotifyPlaylist.h */,
-				0ACB51892C337607004CA3E6 /* FMSpotifyPlaylist.m */,
-				0ACB51842C3373DF004CA3E6 /* FMSpotifyPlaylistArray.h */,
-				0ACB51852C3373DF004CA3E6 /* FMSpotifyPlaylistArray.m */,
-				0A77DDFB2C345ADF002D9FC3 /* FMSpotifyAlbum.h */,
-				0A77DDFC2C345ADF002D9FC3 /* FMSpotifyAlbum.m */,
-				0A6037F72C2D82B600482179 /* FMSpotifyDeviceAuthorizationInfo.h */,
-				0A6037F82C2D82B600482179 /* FMSpotifyDeviceAuthorizationInfo.m */,
+				0AC415D52D00A3C2007FA453 /* FMYouTube */,
+				0AC415D42D00A3AE007FA453 /* FMSpotify */,
 				0A60382A2C2D859000482179 /* FMMutableURLQueryDictionary.h */,
 				0A60382B2C2D859000482179 /* FMMutableURLQueryDictionary.m */,
 				0A9798C52CF85FB900C38E1B /* FMURLConnection.h */,
@@ -619,6 +629,54 @@
 				0A06CC632C372F7400976D2D /* FMHistoryViewController.m */,
 			);
 			name = SpotifyAccountViews;
+			sourceTree = "<group>";
+		};
+		0AC415D42D00A3AE007FA453 /* FMSpotify */ = {
+			isa = PBXGroup;
+			children = (
+				0A6037F92C2D82B600482179 /* FMSpotifyClient.h */,
+				0A6037FA2C2D82B600482179 /* FMSpotifyClient.m */,
+				0A7FB3122C2DB46600F50618 /* FMSpotifyToken.h */,
+				0A7FB3132C2DB46600F50618 /* FMSpotifyToken.m */,
+				0ACB51972C3392CA004CA3E6 /* FMSpotifyContinuableArray.h */,
+				0ACB51982C3392CB004CA3E6 /* FMSpotifyContinuableArray.m */,
+				0ACB51912C338B7B004CA3E6 /* FMSpotifyTrack.h */,
+				0ACB51922C338B7B004CA3E6 /* FMSpotifyTrack.m */,
+				0ACB51942C338C8A004CA3E6 /* FMSpotifyTrackArray.h */,
+				0ACB51952C338C8B004CA3E6 /* FMSpotifyTrackArray.m */,
+				0ACB51882C337607004CA3E6 /* FMSpotifyPlaylist.h */,
+				0ACB51892C337607004CA3E6 /* FMSpotifyPlaylist.m */,
+				0ACB51842C3373DF004CA3E6 /* FMSpotifyPlaylistArray.h */,
+				0ACB51852C3373DF004CA3E6 /* FMSpotifyPlaylistArray.m */,
+				0A77DDFB2C345ADF002D9FC3 /* FMSpotifyAlbum.h */,
+				0A77DDFC2C345ADF002D9FC3 /* FMSpotifyAlbum.m */,
+				0A6037F72C2D82B600482179 /* FMSpotifyDeviceAuthorizationInfo.h */,
+				0A6037F82C2D82B600482179 /* FMSpotifyDeviceAuthorizationInfo.m */,
+			);
+			name = FMSpotify;
+			sourceTree = "<group>";
+		};
+		0AC415D52D00A3C2007FA453 /* FMYouTube */ = {
+			isa = PBXGroup;
+			children = (
+				0AC415D62D00A3E0007FA453 /* FMYouTubeClient.h */,
+				0AC415D72D00A3E0007FA453 /* FMYouTubeClient.m */,
+				0AC415DC2D00AC8F007FA453 /* FMYouTubeVideo.h */,
+				0AC415DD2D00AC8F007FA453 /* FMYouTubeVideo.m */,
+				0AC415DE2D00AC8F007FA453 /* FMYouTubeChannel.h */,
+				0AC415DF2D00AC90007FA453 /* FMYouTubeChannel.m */,
+				0AC415E02D00AC90007FA453 /* FMYouTubeProfile.h */,
+				0AC415E12D00AC90007FA453 /* FMYouTubeProfile.m */,
+				0AC415E22D00AC90007FA453 /* FMYouTubeVideoFormat.h */,
+				0AC415E32D00AC90007FA453 /* FMYouTubeVideoFormat.m */,
+				0AC415E42D00AC90007FA453 /* FMYouTubePlaybackTracker.h */,
+				0AC415E52D00AC90007FA453 /* FMYouTubePlaybackTracker.m */,
+				0AC415E62D00AC90007FA453 /* FMYouTubeContinuation.h */,
+				0AC415E72D00AC90007FA453 /* FMYouTubeContinuation.m */,
+				0AC415D92D00AC4C007FA453 /* FMYouTubeAPIParser.h */,
+				0AC415DA2D00AC4C007FA453 /* FMYouTubeAPIParser.m */,
+			);
+			name = FMYouTube;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -982,6 +1040,7 @@
 				0A9798CA2CF8765500C38E1B /* FMLucidaParser.m in Sources */,
 				0A9798CD2CF88EC400C38E1B /* FMLucidaParserDelegate.m in Sources */,
 				0AC415D32CFF35AB007FA453 /* FMBase62Decoder.m in Sources */,
+				0AC415D82D00A3E0007FA453 /* FMYouTubeClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -991,6 +1050,7 @@
 			files = (
 				0A2BFEEA2C2C44460009ADAD /* FoxMusicTests.m in Sources */,
 				0A296CA32CED082D0022FEB9 /* FMViewController.m in Sources */,
+				0AC415DB2D00AC4C007FA453 /* FMYouTubeAPIParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1034,9 +1094,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AC415EE2D00B888007FA453 /* FMYouTubeClient.m in Sources */,
+				0AC415EF2D00B888007FA453 /* FMYouTubeAPIParser.m in Sources */,
 				0A6038332C2D879E00482179 /* FMSpotifyClient.m in Sources */,
 				0A6038342C2D879E00482179 /* FMSpotifyDeviceAuthorizationInfo.m in Sources */,
 				0A60382C2C2D859000482179 /* FMMutableURLQueryDictionary.m in Sources */,
+				0AC415E82D00AC90007FA453 /* FMYouTubeVideo.m in Sources */,
+				0AC415E92D00AC90007FA453 /* FMYouTubeChannel.m in Sources */,
+				0AC415EA2D00AC90007FA453 /* FMYouTubeProfile.m in Sources */,
+				0AC415EB2D00AC90007FA453 /* FMYouTubeVideoFormat.m in Sources */,
+				0AC415EC2D00AC90007FA453 /* FMYouTubePlaybackTracker.m in Sources */,
+				0AC415ED2D00AC90007FA453 /* FMYouTubeContinuation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

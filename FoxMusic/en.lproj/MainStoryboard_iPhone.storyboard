@@ -4,6 +4,54 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
+        <!--View Controller - YouTube-->
+        <scene sceneID="JKx-qe-eU4">
+            <objects>
+                <viewController id="eh6-gU-Z1P" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CxT-84-03e">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="YouTube" id="ZrZ-Un-PDI"/>
+                    <navigationItem key="navigationItem" id="I3s-7i-0OY"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="cvz-Lr-XCF" kind="push" id="roM-kt-Nz5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k4I-PW-2wK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="689" y="-1109"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="WbS-f6-MdB">
+            <objects>
+                <viewController id="cvz-Lr-XCF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y3Y-HC-Ues">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1SZ-cC-MTc">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="QTf-hZ-lSB"/>
+                                    <constraint firstAttribute="height" constant="499" id="koY-ue-iFr"/>
+                                </constraints>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1SZ-cC-MTc" firstAttribute="leading" secondItem="y3Y-HC-Ues" secondAttribute="leading" constant="8" id="e1i-2Q-Yd5"/>
+                            <constraint firstItem="1SZ-cC-MTc" firstAttribute="top" secondItem="y3Y-HC-Ues" secondAttribute="top" constant="8" id="izf-6b-xfN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="LJp-zx-xkc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VqO-KI-O78" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1182" y="-1109"/>
+        </scene>
         <!--First View Controller - First-->
         <scene sceneID="11">
             <objects>
@@ -268,6 +316,7 @@
                         <segue destination="15x-nr-Mz0" kind="relationship" relationship="viewControllers" id="2Tj-cM-UNG"/>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="26"/>
                         <segue destination="qv1-OS-5Uc" kind="relationship" relationship="viewControllers" id="4Aj-Xu-nG3"/>
+                        <segue destination="eh6-gU-Z1P" kind="relationship" relationship="viewControllers" id="vnZ-WH-yOs"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
@@ -535,63 +584,6 @@
     <resources>
         <image name="spotify.png" width="30" height="30"/>
     </resources>
-    <classes>
-        <class className="FMFirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMFirstViewController.h"/>
-        </class>
-        <class className="FMSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSearchViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-                <relationship kind="outlet" name="searchResultTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="FMSecondViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSecondViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="promptLogin:"/>
-            </relationships>
-        </class>
-        <class className="FMSpotifyLoginPageViewController" superclassName="UIPageViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyLoginPageViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logIn:"/>
-            </relationships>
-        </class>
-        <class className="FMSpotifyLoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyLoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="refreshCode:"/>
-                <relationship kind="action" name="shareCode:"/>
-                <relationship kind="outlet" name="remainingTimeView" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="userCodeField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="FMSpotifyNavigationController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyNavigationController.h"/>
-        </class>
-        <class className="FMSpotifyPlaylistTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyPlaylistTableViewController.h"/>
-        </class>
-        <class className="FMSpotifyTrackTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyTrackTableViewController.h"/>
-        </class>
-        <class className="FMSpotifyTrackViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyTrackViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="pause:"/>
-                <relationship kind="action" name="play:"/>
-                <relationship kind="action" name="rewind:"/>
-                <relationship kind="outlet" name="albumCoverImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playButtonItem" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

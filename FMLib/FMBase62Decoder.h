@@ -16,7 +16,7 @@
 
 - (NSString *)toHex;
 
-- (UInt64)decodeBase62StringToHexString:(NSString *)base62String;
+- (UInt64)decodeBase62String:(NSString *)base62String;
 
 + (FMBase62Decoder *)decoder;
 + (FMBase62Decoder *)decoderWithString:(NSString *)string;

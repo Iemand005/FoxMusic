@@ -24,10 +24,12 @@
     
 //    [self lucidaClient];
     FMBase62Decoder *decoder = [FMBase62Decoder decoderWithString:@"GitHub"];
-    NSString *hex = [decoder toHex];
+//    NSString *hex = [decoder toHex];
     NSString *shouldbeHex = [[FMBase62Decoder decoderWithString:@"0nMn7LRJk9nYT0rNb5ZwAD"] toHex];
     
     NSLog(@"%@", shouldbeHex);
+    
+    NSDictionary *response = [[self youtubeClient] getBrowseEndpoint];
     
     return YES;
 }
@@ -95,6 +97,11 @@
 - (FMSpotifyClient *)spotifyClient
 {
     return _spotifyClient ? _spotifyClient : (_spotifyClient = [FMSpotifyClient spotifyClient]);
+}
+
+- (FMYouTubeClient *)youtubeClient
+{
+    return _youtubeClient ? _youtubeClient : (_youtubeClient = [FMYouTubeClient youtubeClient]);
 }
 
 - (FMLucidaClient *)lucidaClient

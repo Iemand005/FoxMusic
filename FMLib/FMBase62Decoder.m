@@ -21,49 +21,28 @@
 
 - (NSString *)toHex
 {
-    return [self decodeBase62StringToHexString:[self string]];
+    UInt64 num = [self decodeBase62String:[self string]];
+    NSString *hexString = [NSString stringWithFormat:@"%llX", num];
+    NSMutableString *paddedHexString = [NSMutableString string];
+    NSUInteger remainder = 32 - [hexString length]; // this doesn't work  yet dang it
+    while ([paddedHexString length] < remainder) {
+        paddedHexString = [NSMutableString stringWithString:[paddedHexString stringByAppendingString:@"0"]];
+    }
+    [paddedHexString appendString:hexString];
+    return hexString;
 }
 
-- (UInt64)decodeBase62StringToHexString:(NSString *)base62String
+- (UInt64)decodeBase62String:(NSString *)base62String
 {
-//    const char *charset = [[self charset] UTF8String];
-//    NSArray *charset = [[self charset] componentsSeparatedByString:@""];
-    
-//    NSArray *base62Strings = [base62String componentsSeparatedByString:@""];
-    
-    UInt64 num = 0;
-    
-//    [base62String enumerateSubstringsInRange:NSMakeRange(0, [base62String length]) options:NSStringEnumerationReverse | NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *character, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
-//        NSInteger index = substringRange.location;
-//        NSRange range = [[self charset] rangeOfString:[base62String substringWithRange:NSMakeRange(index, 1)]];
-//        num = num * 62 + range.location;
-//    }];
-    
-//    [base62Strings enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSString *character, NSUInteger index, BOOL *stop) {
-//        NSRange range = [[self charset] rangeOfString:[base62String substringWithRange:NSMakeRange(index, 1)]];
-//        num = num * 62 + range.location;
-//    }];
-    
-//    NSLog(@"%i", num);
-    
-//    for (NSString *characterString in [base62Strings reverseObjectEnumerator]) {
-//        NSRange range = [[self charset] rangeOfString:[base62String substringWithRange:NSMakeRange(i,1)]];
-//        num = num * 62 + range.location;
-//    }
-//    
-    for (UInt64 i = 0, len = [base62String length]; i < len; i++)
+    UInt64 num = 0, len = [base62String length];
+
+    for (int i = 0; i < len; i++)
     {
         NSRange range = [[self charset] rangeOfString:[base62String substringWithRange:NSMakeRange(len - i - 1, 1)]];
-        long long a = range.location * pow(62, i);
-        num += a;
+        num += range.location * pow(62, i);
     }
-    
-//    NSLog(@"%i", num);
-    
-//    for (NSInteger i = [[self charset] length]; i >= 0; --i) {
-//        std::reverse
-//    }
-    return num;//@"ok";
+
+    return num;
 }
 
 + (FMBase62Decoder *)decoder
