@@ -22,12 +22,24 @@
         
         NSURL *baseAddress;
         
+        self.name = @"MWEB"; // YTMusic uses WEB_REMIX
+        self.version = @"2.20220918";
+        self.browser = @"Firefox";
+        self.browserVersion = @"10000";
+        self.player = @"";
+        //        self.version = @"5";
+        self.operatingSystem = @"Mac OS X";
+        self.operatingSystemVersion = @"10.7";
+        self.platform = @"MacOS";
+        
         switch (baseAddressType) {
             case FMYouTubeBaseAddressDefault:
                 baseAddress = [NSURL URLWithString:@"https://www.youtube.com/youtubei/v1"];
                 break;
             case FMYouTubeBaseAddressMusic:
                 baseAddress = [NSURL URLWithString:@"https://music.youtube.com/youtubei/v1"];
+                self.name = @"WEB_REMIX";
+                self.version = @"1.20241127.01.00";
                 break;
             case FMYouTubeBaseAddressAlternative:
                 baseAddress = [NSURL URLWithString:@"https://youtubei.googleapis.com/youtubei/v1"];
@@ -38,17 +50,7 @@
         
         [self setPrettyPrint:NO];
         
-        self.credentialFile = @"auth.plist";
-        
-        self.name = @"MWEB"; // YTMusic uses WEB_REMIX
-        self.version = @"2.20220918";
-        self.browser = @"Firefox";
-        self.browserVersion = @"10000";
-        self.player = @"";
-        //        self.version = @"5";
-        self.operatingSystem = @"Mac OS X";
-        self.operatingSystemVersion = @"10.7";
-        self.platform = @"MacOS";
+        [self setCredentialFile:@"auth.plist"];
         
         [self setKey:@"AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8"]; // Everyone has the same key, the key isn't even required. I'm just gonna leave this here lol.
         
@@ -101,6 +103,11 @@
 {
     return [self initWithBaseAddressType:FMYouTubeBaseAddressDefault];
 }
+
+//- (BOOL)setClientName:(FMYouTubeClientName)clientName
+//{
+//    [self cli:<#(FMYouTubeClientName)#>]
+//}
 
 - (NSString *)hostLanguage
 {

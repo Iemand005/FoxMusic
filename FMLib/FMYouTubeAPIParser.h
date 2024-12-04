@@ -22,6 +22,7 @@
 @property BOOL isLoggedIn;
 
 - (NSArray *)parseVideosOnHomePage:(NSDictionary *)body;
+- (NSArray *)parseBrowseEndpoint:(NSDictionary *)body;
 - (FMYouTubeVideo *)parseVideo:(NSDictionary *)videoData;
 - (void)addVideoData:(NSDictionary *)videoInfo toVideo:(FMYouTubeVideo *)video;
 - (FMYouTubeProfile *)parseProfile:(NSDictionary *)body;

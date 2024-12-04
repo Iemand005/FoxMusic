@@ -31,6 +31,8 @@
     
     NSDictionary *response = [[self youtubeClient] getBrowseEndpoint];
     
+    NSArray *musicVideos = [[[self youtubeClient] parser] parseBrowseEndpoint:response];
+    
     return YES;
 }
 							
@@ -101,7 +103,7 @@
 
 - (FMYouTubeClient *)youtubeClient
 {
-    return _youtubeClient ? _youtubeClient : (_youtubeClient = [FMYouTubeClient youtubeClient]);
+    return _youtubeClient ? _youtubeClient : (_youtubeClient = [FMYouTubeClient youtubeMusicClient]);
 }
 
 - (FMLucidaClient *)lucidaClient

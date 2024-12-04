@@ -11,13 +11,16 @@
 #import "FMYouTubeVideo.h"
 #import "FMYouTubeAPIParser.h"
 
-enum FMYouTubeBaseAddressType {
+typedef enum FMYouTubeBaseAddressType {
     FMYouTubeBaseAddressDefault,
     FMYouTubeBaseAddressMusic,
     FMYouTubeBaseAddressAlternative
-}
+} FMYouTubeBaseAddressType;
 
-typedef FMYouTubeBaseAddressType;// FMYouTubeBaseAddressType;
+typedef enum FMYouTubeClientName {
+    FMYouTubeClientNameMobileWeb,
+    FMYouTubeClientNameWebRemix
+} FMYouTubeClientName;// FMYouTubeBaseAddressType;
 
 @interface FMYouTubeClient : NSObject
 
@@ -99,6 +102,8 @@ typedef FMYouTubeBaseAddressType;// FMYouTubeBaseAddressType;
 - (NSDictionary *)getBrowseEndpoint;
 - (NSDictionary *)getBrowseEndpointWithBrowseId:(NSString *)browseId;
 - (NSDictionary *)getBrowseEndpointWithContinuation:(FMYouTubeContinuation *)continuation;
+
+//- (BOOL)setClientName:(FMYouTubeClientName)clientName;
 
 - (NSArray *)getHome;
 - (NSArray *)getHomeWithContinuation:(FMYouTubeContinuation *)continuation;

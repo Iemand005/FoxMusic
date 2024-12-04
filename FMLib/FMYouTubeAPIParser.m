@@ -168,7 +168,8 @@
 
 - (NSString *)runText:(NSDictionary *)body
 {
-    return [[[body objectForKey:@"runs"] firstObject] objectForKey:@"text"];
+    NSDictionary *text = [body objectForKey:@"text"];
+    return [[[text ? text : body objectForKey:@"runs"] firstObject] objectForKey:@"text"];
 }
 
 - (NSString *)accessibilityText:(NSDictionary *)body
@@ -353,6 +354,44 @@
             [video setTitle:videoTitle];
         }
     }
+}
+
+- (NSArray *)parseBrowseEndpoint:(NSDictionary *)body
+{
+    NSMutableArray *videos = [NSMutableArray array];
+    NSDictionary *contents = [body objectForKey:@"contents"];
+    NSArray *tabs = [[contents objectForKey:@"singleColumnBrowseResultsRenderer"] objectForKey:@"tabs"];
+    for (NSDictionary *tab in tabs) { // tabs like FEmusic_home
+        NSDictionary *tabRenderer = [tab objectForKey:@"tabRenderer"];
+        
+        // This sectionlistrenderer thing has continuation, needs to be handelled later
+        NSArray *musicRenderers = [[[tabRenderer objectForKey:@"content"] objectForKey:@"sectionListRenderer"] objectForKey:@"contents"];
+        for (NSDictionary *musicRenderer in musicRenderers) {
+            
+            NSDictionary *musicShelfRenderer = [musicRenderer objectForKey:@"musicCarouselShelfRenderer"];
+            if (!musicShelfRenderer) musicShelfRenderer = [musicRenderer objectForKey:@"musicTastebuilderShelfRenderer"];
+            
+            // These shelves have a title, they can be categorised in the app later
+            NSArray *musicRendererContents = [musicShelfRenderer objectForKey:@"contents"];
+            
+            for (NSDictionary *musicRendererContent in musicRendererContents) {
+                NSDictionary *videoRenderer = [musicRendererContent objectForKey:@"musicResponsiveListItemRenderer"];
+                
+                NSString *videoId = [[videoRenderer objectForKey:@"playlistItemData"] objectForKey:@"videoId"];
+                
+                NSString *videoTitle = [self runText:[[[videoRenderer objectForKey:@"flexColumns"] firstObject] objectForKey:@"musicResponsiveListItemFlexColumnRenderer"]];
+                
+                NSString *thumbnailImageLink = [[[[videoRenderer objectForKey:@"thumbnail"] objectForKey:@"thumbnails"] firstObject] objectForKey:@"url"];
+                
+                FMYouTubeVideo *video = [FMYouTubeVideo videoWithId:videoId];
+                [video setThumbnailURL:[NSURL URLWithString:thumbnailImageLink]];
+                [video setTitle:videoTitle];
+
+                [videos addObject:video];
+            }
+        }
+    }
+    return videos;
 }
 
 - (id)firstKeyOf:(id)object times:(NSInteger)times
