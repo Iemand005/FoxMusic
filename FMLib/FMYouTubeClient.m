@@ -109,6 +109,39 @@
 //    [self cli:<#(FMYouTubeClientName)#>]
 //}
 
+//- (NSURL *)getBaseAddressForClientName:(FMYouTubeClientName)clientName
+//{
+//    NSURL *baseAddress;
+//    switch (clientName) {
+//        case FMYouTubeBaseAddressDefault:
+//            baseAddress = [NSURL URLWithString:@"https://www.youtube.com/youtubei/v1"];
+//            break;
+//        case FMYouTubeBaseAddressMusic:
+//            baseAddress = [NSURL URLWithString:@"https://music.youtube.com/youtubei/v1"];
+//            self.name = @"WEB_REMIX";
+//            self.version = @"1.20241127.01.00";
+//            break;
+//        case FMYouTubeBaseAddressAlternative:
+//            baseAddress = [NSURL URLWithString:@"https://youtubei.googleapis.com/youtubei/v1"];
+//            break;
+//    }
+//    return baseAddress;
+//}
+
+// The file formats provided by the API depend heavily on the client name and version!! £Also discovery differs.
+- (NSDictionary *)contextForClientName:(FMYouTubeClientName)clientNameStruct
+{
+    switch (clientNameStruct) {
+        default:
+        case FMYouTubeClientNameMobileWeb:
+            return @{@"client": @{@"clientName": @"MWEB", @"clientVersion": @"2.20220918", @"hl": self.hostLanguage, @"gl": self.gLanguage}, @"user":@{}};
+            break;
+        case FMYouTubeBaseAddressMusic:
+            return @{@"client": @{@"clientName": @"WEB_REMIX", @"clientVersion": @"1.20241127.01.00", @"hl": self.hostLanguage, @"gl": self.gLanguage}, @"user":@{}};
+            break;
+    }
+}
+
 - (NSString *)hostLanguage
 {
     return [self languageCodeFromLocaleIdentifier:self.locale.localeIdentifier];
@@ -137,6 +170,11 @@
     NSString *countryCode = [[self componentsOfLocaleIdentifier:localeIdentifier] lastObject];
     return ![countryCode isEqualToString:@""] ? countryCode : @"US";
 }
+
+//- (NSDictionary *)POSTRequestWithClientName:(FMYouTubeClientName)clientName endpoint:(NSString *)endpoint body:(NSDictionary *)body error:(NSError **)error
+//{
+//    [self POSTRequest:[NSURL URLWithString:endpoint relativeToURL:<#(NSURL *)#>] withBody:<#(NSDictionary *)#> error:<#(NSError *__autoreleasing *)#>]
+//}
 
 - (NSDictionary *)POSTRequest:(NSURL *)url withBody:(NSDictionary *)body error:(NSError **)error
 {
@@ -228,6 +266,35 @@
     [self.parser addVideoData:videoDetailsDict toVideo:video];
     
     return video;
+}
+
+- (FMYouTubeVideo *)getVideoWithId:(NSString *)videoId clientName:(FMYouTubeClientName)clientName
+{
+    FMYouTubeVideo *video = [FMYouTubeVideo videoWithId:videoId];
+    
+    NSDictionary *context = [self contextForClientName:FMYouTubeClientNameMobileWeb]; // this one gives MP3 stuff, the other one gives encrypted MP4 crap or something.
+    NSDictionary *body = @{@"context": context, @"videoId": videoId, @"contentCheckOk": @"true", @"racyCheckOk": @"true"};
+    
+    NSError *error;
+    NSDictionary *videoInfo = [self POSTRequest:self.nextEndpoint withBody:body error:&error];
+    [self.parser addVideoData:videoInfo toVideo:video];
+    NSDictionary *videoDetailsDict = [self POSTRequest:self.playerEndpoint withBody:body error:&error];
+    if (error) {
+        NSLog(@"%@", error.localizedDescription);
+    }
+    [self.parser addVideoData:videoDetailsDict toVideo:video];
+    
+    return video;
+}
+
+- (FMYouTubeVideo *)getVideo:(FMYouTubeVideo *)video clientName:(FMYouTubeClientName)clientName
+{
+    [self getVideoWithId:[video videoId] clientName:clientName];
+}
+
+- (FMYouTubeVideo *)getVideo:(FMYouTubeVideo *)video
+{
+    return [self getVideoWithId:[video videoId]];
 }
 
 - (NSDictionary *)getBrowseEndpoint

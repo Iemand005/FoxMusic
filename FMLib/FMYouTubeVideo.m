@@ -66,6 +66,22 @@
 //    return [self getMovieWithFormatIndex:0];
 //}
 
+- (NSData *)getVideoDataWithFormat:(FMYouTubeVideoFormat *)format
+{
+    NSURL *formatURL = [format URL];
+    return [NSData dataWithContentsOfURL:formatURL];
+}
+
+- (NSData *)getDataWithFormatIndex:(NSUInteger)index
+{
+    return [self getVideoDataWithFormat:[self.formats objectAtIndex:index]];
+}
+
+- (NSData *)getDefaultData
+{
+    return [self getDataWithFormatIndex:0];
+}
+
 - (void)like
 {
     [self sendActionForEndpoint:self.client.likeLikeEndpoint];

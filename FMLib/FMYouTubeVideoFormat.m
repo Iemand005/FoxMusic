@@ -14,13 +14,13 @@
 {
     self = [super init];
     if (self) {
-        self.url = [dict objectForKey:@"url"];
+        self.URL = [NSURL URLWithString:[dict objectForKey:@"url"]];
         self.fps = [dict objectForKey:@"fps"];
         self.width = [dict objectForKey:@"width"];
         self.height = [dict objectForKey:@"height"];
         self.mimeType = [dict objectForKey:@"mimeType"];
         self.qualityLabel = [dict objectForKey:@"qualityLabel"];
-        NSLog([dict objectForKey:@"qualityLabel"]);
+        NSLog(@"%@", [dict objectForKey:@"qualityLabel"]);
     }
     return self;
 }

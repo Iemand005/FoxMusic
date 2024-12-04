@@ -11,7 +11,7 @@
 @interface FMYouTubeVideoFormat : NSObject
 
 @property NSNumber *itag;
-@property NSString *url;
+@property NSURL *URL;
 @property NSString *mimeType;
 @property int bitrate;
 @property NSNumber *width;

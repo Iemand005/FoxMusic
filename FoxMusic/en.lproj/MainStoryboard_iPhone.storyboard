@@ -117,10 +117,13 @@
                             <outlet property="delegate" destination="snU-oe-noo" id="wc7-y4-52E"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <segue destination="hXI-g9-dRy" kind="push" id="A8E-MA-VoM"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hwN-Hy-G6x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1173" y="-1080"/>
+            <point key="canvasLocation" x="2837" y="-1024"/>
         </scene>
         <!--First View Controller - First-->
         <scene sceneID="11">
@@ -664,10 +667,145 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mwJ-NN-YUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Audio Player View Controller - Track-->
+        <scene sceneID="g9r-XH-tqy">
+            <objects>
+                <viewController id="hXI-g9-dRy" customClass="FMAudioPlayerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gqc-ro-2bQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="bottom" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="50C-RK-45y">
+                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="1Qy-FL-pBc"/>
+                                    <barButtonItem systemItem="rewind" id="n23-p3-Veo">
+                                        <connections>
+                                            <action selector="rewind:" destination="hXI-g9-dRy" id="KtT-xI-1VM"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="play" id="7xA-di-npL">
+                                        <connections>
+                                            <action selector="play:" destination="hXI-g9-dRy" id="VdG-ho-pQC"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="fastForward" id="Dt2-yK-CWR"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="V3f-NU-zka"/>
+                                    <barButtonItem enabled="NO" systemItem="refresh" id="sfs-bV-aH5"/>
+                                </items>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKH-D0-H8q"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eKH-D0-H8q" firstAttribute="top" secondItem="gqc-ro-2bQ" secondAttribute="top" type="default" id="1Al-Av-P4W"/>
+                            <constraint firstItem="eKH-D0-H8q" firstAttribute="trailing" secondItem="gqc-ro-2bQ" secondAttribute="trailing" type="default" id="5Mj-rM-gQc"/>
+                            <constraint firstItem="eKH-D0-H8q" firstAttribute="leading" secondItem="gqc-ro-2bQ" secondAttribute="leading" type="default" id="88P-60-ou2"/>
+                            <constraint firstItem="eKH-D0-H8q" firstAttribute="bottom" secondItem="50C-RK-45y" secondAttribute="top" type="default" id="FW4-Nf-YwA"/>
+                            <constraint firstItem="50C-RK-45y" firstAttribute="leading" secondItem="gqc-ro-2bQ" secondAttribute="leading" type="default" id="WDD-44-zJ4"/>
+                            <constraint firstItem="50C-RK-45y" firstAttribute="trailing" secondItem="gqc-ro-2bQ" secondAttribute="trailing" type="default" id="j2k-m7-OZc"/>
+                            <constraint firstItem="50C-RK-45y" firstAttribute="bottom" secondItem="gqc-ro-2bQ" secondAttribute="bottom" type="default" id="shb-zB-EyK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Track" id="YQT-Za-u8U"/>
+                    <connections>
+                        <outlet property="albumCoverImageView" destination="eKH-D0-H8q" id="ety-FB-mgo"/>
+                        <outlet property="toolbar" destination="50C-RK-45y" id="IgY-ge-xdE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bX1-Kw-8Ma" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3495" y="-829"/>
+        </scene>
     </scenes>
     <resources>
         <image name="spotify.png" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="FMAudioPlayerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMAudioPlayerViewController.h"/>
+        </class>
+        <class className="FMFirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMFirstViewController.h"/>
+        </class>
+        <class className="FMSearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSearchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="searchResultTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="FMSecondViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSecondViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="promptLogin:"/>
+            </relationships>
+        </class>
+        <class className="FMSpotifyLoginPageViewController" superclassName="UIPageViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyLoginPageViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logIn:"/>
+            </relationships>
+        </class>
+        <class className="FMSpotifyLoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyLoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refreshCode:"/>
+                <relationship kind="action" name="shareCode:"/>
+                <relationship kind="outlet" name="remainingTimeView" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="userCodeField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="FMSpotifyNavigationController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyNavigationController.h"/>
+        </class>
+        <class className="FMSpotifyPlaylistTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyPlaylistTableViewController.h"/>
+        </class>
+        <class className="FMSpotifyTrackTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyTrackTableViewController.h"/>
+        </class>
+        <class className="FMSpotifyTrackViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyTrackViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="pause:"/>
+                <relationship kind="action" name="play:"/>
+                <relationship kind="action" name="rewind:"/>
+                <relationship kind="outlet" name="albumCoverImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="playButtonItem" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="FMYouTubeMusicCollectionViewCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMYouTubeMusicCollectionViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="thumbnail" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="FMYouTubeMusicCollectionViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMYouTubeMusicCollectionViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

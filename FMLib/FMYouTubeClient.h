@@ -96,7 +96,12 @@ typedef enum FMYouTubeClientName {
 - (id)initWithBaseAddressType:(FMYouTubeBaseAddressType)baseAddressType;
 
 - (NSDictionary *)POSTRequest:(NSURL *)url withBody:(NSDictionary *)body error:(NSError **)error;
+
 - (FMYouTubeVideo *)getVideoWithId:(NSString *)videoId;
+- (FMYouTubeVideo *)getVideo:(FMYouTubeVideo *)video;
+- (FMYouTubeVideo *)getVideoWithId:(NSString *)videoId clientName:(FMYouTubeClientName)clientName;
+- (FMYouTubeVideo *)getVideo:(FMYouTubeVideo *)video clientName:(FMYouTubeClientName)clientName;
+
 - (id)requestContinuation:(FMYouTubeContinuation *)continuation;
 
 - (NSDictionary *)getBrowseEndpoint;

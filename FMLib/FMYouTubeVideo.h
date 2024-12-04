@@ -47,6 +47,9 @@
 - (void)updateTracker;
 //- (QTMovie *)getDefaultMovie;
 //- (QTMovie *)getMovieWithFormat:(FMYouTubeVideoFormat *)format;
+- (NSData *)getVideoDataWithFormat:(FMYouTubeVideoFormat *)format;
+- (NSData *)getDataWithFormatIndex:(NSUInteger)index;
+- (NSData *)getDefaultData;
 
 - (void)play;
 - (void)pause;

@@ -38,4 +38,6 @@
 - (void)displayError:(NSError *)error withCompletionHandler:(void(^)())completionHandler;
 - (void)displayException:(NSException *)exception;
 
+- (void)loadAudioFromData:(NSData *)audioData;
+
 @end

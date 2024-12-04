@@ -96,6 +96,21 @@
     [[[UIAlertView alloc] initWithTitle:@"Whoops!" message:exception.description delegate:[self alertDelegate] cancelButtonTitle:@"Sorry" otherButtonTitles:nil, nil] show];
 }
 
+- (void)loadAudioFromData:(NSData *)audioData
+{
+    NSError *error;
+    [self setAudioPlayer:[[AVAudioPlayer alloc] initWithData:audioData error:&error]];
+    if (error) {
+        [self displayError:error];
+    }
+}
+
+- (void)play
+{
+    [[self audioPlayer] prepareToPlay];
+    [[self audioPlayer] play];
+}
+
 - (FMSpotifyClient *)spotifyClient
 {
     return _spotifyClient ? _spotifyClient : (_spotifyClient = [FMSpotifyClient spotifyClient]);
