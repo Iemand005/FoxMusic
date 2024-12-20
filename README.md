@@ -1,6 +1,8 @@
 ## Heads up!
-The development of this app has been restarted. New features include
--Youtube Fallback if Spotify doesn't work
+The development of this app has been restarted. New features include<br>
+
+-Youtube Fallback if Spotify doesn't work<br>
+
 (more coming soon)
 
 # FoxMusic
