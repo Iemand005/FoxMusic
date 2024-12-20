@@ -1,11 +1,19 @@
+## Heads up!
+The development of this app has been completely restarted. There is one new feature:
+- YouTube Fallback if Spotify doesn't work
+If Spotify doesn't work, you can still listen to music instead of getting an error.
+That's all!
+
 # FoxMusic
 Music client for Legacy iOS
 
-Now with iPad support!
+>[!NOTE]
+>Now with iPad support!
 
-- Spotify playback
+### Features:
+- Spotify Music playback
 - Album art
 - Search
-- Lock screen and control center
+- Currently playing shows on lock screen and control center
 
-App icons made by u/AmadeoOOFDeReddit
+App icons were kindly made by u/AmadeoOOFDeReddit on Reddit.
