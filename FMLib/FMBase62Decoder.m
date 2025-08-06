@@ -25,9 +25,9 @@
     NSString *hexString = [NSString stringWithFormat:@"%llX", num];
     NSMutableString *paddedHexString = [NSMutableString string];
     NSUInteger remainder = 32 - [hexString length]; // this doesn't work  yet dang it
-    while ([paddedHexString length] < remainder)
+    while ([paddedHexString length] < remainder) {
         paddedHexString = [NSMutableString stringWithString:[paddedHexString stringByAppendingString:@"0"]];
-
+    }
     [paddedHexString appendString:hexString];
     return hexString;
 }

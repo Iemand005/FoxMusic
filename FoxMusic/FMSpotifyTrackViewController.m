@@ -22,6 +22,7 @@
     
 //    NSData *imageData = [NSData dataWithContentsOfURL:[[track album] imageURL]];
     
+<<<<<<< HEAD
     @try {
         NSURL *imageURL = [[track album] imageURL];
         [[[self appDelegate] spotifyClient] getDataFromURL:imageURL withCallback:^(NSData *data){
@@ -34,6 +35,15 @@
     @catch (NSException *exception) {
         [[self appDelegate] displayException:exception];
     }
+=======
+    [[_appDelegate spotifyClient] getDataFromURL:[[track album] imageURL] withCallback:^(NSData *data){
+        NSString *blob = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        UIImage *image = [UIImage imageWithData:data];
+        [self setAlbumCoverImage:image];
+        [[self albumCoverImageView] setImage:image];
+    }];
+
+>>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
 }
 
 - (void)viewWillAppear:(BOOL)animated

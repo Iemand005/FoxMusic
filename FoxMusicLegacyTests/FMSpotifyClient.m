@@ -191,6 +191,7 @@
     } andHeaders:@{@"Authorization": [[self token] bearer], @"Accept": @"application/json"}];
 }
 
+<<<<<<< HEAD
 //- (void)getDataFromURL:(NSURL *)url withCallback:(void(^)(NSData *data))callback
 //{
 //    [[[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:url] delegate:[FMURLConnectionDelegate urlConnectionControllerWithCallback:callback]] start];
@@ -202,10 +203,24 @@
 //    for (NSString *headerField in headers) [request addValue:[headers objectForKey:headerField] forHTTPHeaderField:headerField];
 //    [[[NSURLConnection alloc] initWithRequest:request delegate:[FMURLConnectionDelegate urlConnectionControllerWithCallback:callback]] start];
 //}
+=======
+- (void)getDataFromURL:(NSURL *)url withCallback:(void(^)(NSData *data))callback
+{
+    [[[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:url] delegate:[FMURLConnectionDelegate urlConnectionControllerWithCallback:^(NSData *data){
+        callback(data);
+    }]] start];
+}
+>>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
 
 - (NSURL *)makeEndpointURL:(NSString *)endpoint
 {
+<<<<<<< HEAD
     return [self.apiBaseAddress URLByAppendingPathComponent:endpoint];
+=======
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    for (NSString *headerField in headers) [request addValue:[headers objectForKey:headerField] forHTTPHeaderField:headerField];
+    [[[NSURLConnection alloc] initWithRequest:request delegate:[FMURLConnectionDelegate urlConnectionControllerWithCallback:callback]] start];
+>>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
 }
 
 - (void)getUserPlaylistsAndWhenSuccess:(void (^)(FMSpotifyPlaylistArray *))callbackSuccess whenError:(void (^)(NSError *))callbackError

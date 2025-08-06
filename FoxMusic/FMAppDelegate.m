@@ -26,6 +26,7 @@
     [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"accounts.spotify.com"];
     
 //    [self lucidaClient];
+<<<<<<< HEAD
 //    FMBase62Decoder *decoder = [FMBase62Decoder decoderWithString:@"GitHub"];
 ////    NSString *hex = [decoder toHex];
 //    NSString *shouldbeHex = [[FMBase62Decoder decoderWithString:@"0nMn7LRJk9nYT0rNb5ZwAD"] toHex];
@@ -41,6 +42,17 @@
 //    [socket open];
 ////    [socket sendPing:nil];
 //    if ([socket readyState]) [socket send:@"hi"];
+=======
+    FMBase62Decoder *decoder = [FMBase62Decoder decoderWithString:@"GitHub"];
+//    NSString *hex = [decoder toHex];
+    NSString *shouldbeHex = [[FMBase62Decoder decoderWithString:@"0nMn7LRJk9nYT0rNb5ZwAD"] toHex];
+    
+    NSLog(@"%@", shouldbeHex);
+    
+    NSDictionary *response = [[self youtubeClient] getBrowseEndpoint];
+    
+    NSArray *musicVideos = [[[self youtubeClient] parser] parseBrowseEndpoint:response];
+>>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
     
     return YES;
 }
@@ -102,6 +114,7 @@
 
 - (void)displayError:(NSError *)error withCompletionHandler:(void(^)())completionHandler
 {
+<<<<<<< HEAD
     bool debug = true;
     NSString *debugDescription = [[error userInfo] objectForKey:@"NSDebugDescription"];
     NSString *description = debugDescription ? [NSString stringWithFormat:@"%@\n%@", [error localizedDescription], debugDescription] : [error localizedDescription];
@@ -118,6 +131,10 @@
         }];
     } else [[self alertDelegate] setCompletionHandler:completionHandler];
     [[[UIAlertView alloc] initWithTitle:[error localizedFailureReason] message:description delegate:[self alertDelegate] cancelButtonTitle:@"Close" otherButtonTitles:debugButtonTitle, nil] show];
+=======
+    if (completionHandler) [[self alertDelegate] setCompletionHandler:completionHandler];
+    [[[UIAlertView alloc] initWithTitle:[error localizedFailureReason] message:[error localizedDescription] delegate:[self alertDelegate] cancelButtonTitle:@"Close" otherButtonTitles:nil, nil] show];
+>>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
 }
 
 - (void)displayException:(NSException *)exception

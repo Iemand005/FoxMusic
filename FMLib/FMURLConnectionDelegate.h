@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+<<<<<<< HEAD
 //@interface FMURLConnectionDelegate : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 @interface FMURLConnectionDelegate : NSObject <NSURLConnectionDelegate>
+=======
+@interface FMURLConnectionDelegate : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
+>>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
 {
     @private
     NSMutableData *_data;

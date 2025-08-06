@@ -275,11 +275,16 @@
     NSDictionary *context = [self contextForClientName:FMYouTubeClientNameMobileWeb]; // this one gives MP3 stuff, the other one gives encrypted MP4 crap or something.
     NSDictionary *body = @{@"context": context, @"videoId": videoId, @"contentCheckOk": @"true", @"racyCheckOk": @"true"};
     
+<<<<<<< HEAD
     NSURL *baseAddress = [NSURL URLWithString:@"https://www.youtube.com/youtubei/v1"];
     NSURL *endpoint = [baseAddress URLByAppendingPathComponent:@"next"];
     
     NSError *error;
     NSDictionary *videoInfo = [self POSTRequest:endpoint withBody:body error:&error];
+=======
+    NSError *error;
+    NSDictionary *videoInfo = [self POSTRequest:self.nextEndpoint withBody:body error:&error];
+>>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
     [self.parser addVideoData:videoInfo toVideo:video];
     NSDictionary *videoDetailsDict = [self POSTRequest:self.playerEndpoint withBody:body error:&error];
     if (error) {

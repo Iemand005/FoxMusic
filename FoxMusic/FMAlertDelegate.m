@@ -12,7 +12,11 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
+<<<<<<< HEAD
     if ([self completionHandler]) [self completionHandler](buttonIndex);
+=======
+    [self completionHandler]();
+>>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
 }
 
 @end
