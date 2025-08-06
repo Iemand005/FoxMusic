@@ -8,12 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "FMAppDelegate.h"
+#import "FMViewController.h"
 
-@interface FMSearchViewController : UIViewController <UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
-{
-    FMAppDelegate *_appDelegate;
-}
+@interface FMSearchViewController : FMViewController <UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property IBOutlet UITableView *searchResultTableView;
 @property IBOutlet UISearchBar *searchBar;

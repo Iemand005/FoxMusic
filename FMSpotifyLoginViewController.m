@@ -14,10 +14,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    
-    appDelegate = [[UIApplication sharedApplication] delegate];
-    
     
     [self getNewUserCode];
 }
@@ -30,7 +26,7 @@
 
 - (FMSpotifyClient *)spotifyClient
 {
-    return appDelegate.spotifyClient;
+    return self.appDelegate.spotifyClient;
 }
 
 - (void)refreshCode:(id)sender
@@ -49,23 +45,35 @@
     if (activeTimer) [activeTimer invalidate];
     
     [self setProgressIndeterminate:YES];
+	
+	NSError *error;
     
-    FMSpotifyDeviceAuthorizationInfo *deviceAuthorizationInfo = [appDelegate.spotifyClient refreshDeviceAuthorizationInfo];
-    
-    NSLog(@"device code: %@", [deviceAuthorizationInfo deviceCode]);
-    NSLog(@"user code: %@", [deviceAuthorizationInfo userCode]);
-    NSLog(@"url: %@", [deviceAuthorizationInfo verificationURL]);
-    expiresIn = [[deviceAuthorizationInfo expiresIn] doubleValue];
-    shareURL = deviceAuthorizationInfo.completeVerificationURL;
-    [self.shareButton setEnabled:shareURL != nil];
-    [self.remainingTimeView setProgress:1];
-    [self setProgressIndeterminate:NO];
-    [self.userCodeField setText:deviceAuthorizationInfo.userCode];
-    
-    NSLog(@"expires in %lf", expiresIn);
-    activeTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(updateRemainingTime) userInfo:nil repeats:YES];
-    
-    [[NSRunLoop currentRunLoop] addTimer:activeTimer forMode:NSRunLoopCommonModes];
+    FMSpotifyDeviceAuthorizationInfo *deviceAuthorizationInfo = [self.appDelegate.spotifyClient refreshDeviceAuthorizationInfoWithError:&error];
+    NSLog(@"Erorrs");
+    if (error) {
+//		[appDelegate displayError:error withCompletionHandler:^(){
+//            NSLog(@"Erorrs");
+//            activeTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(updateRemainingTime) userInfo:nil repeats:YES];
+//            
+//            [[NSRunLoop currentRunLoop] addTimer:activeTimer forMode:NSRunLoopCommonModes];
+//        }];
+	} else {
+        expiresIn = [[deviceAuthorizationInfo expiresIn] doubleValue];
+        shareURL = deviceAuthorizationInfo.completeVerificationURL;
+        [self.shareButton setEnabled:shareURL != nil];
+        [self.remainingTimeView setProgress:1];
+        [self setProgressIndeterminate:NO];
+        [self.userCodeField setText:deviceAuthorizationInfo.userCode];
+        
+        NSLog(@"device code: %@", [deviceAuthorizationInfo deviceCode]);
+        NSLog(@"user code: %@", [deviceAuthorizationInfo userCode]);
+        NSLog(@"url: %@", [deviceAuthorizationInfo verificationURL]);
+        NSLog(@"expires in %lf", expiresIn);
+        
+        activeTimer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(updateRemainingTime) userInfo:nil repeats:YES];
+        
+        [[NSRunLoop currentRunLoop] addTimer:activeTimer forMode:NSRunLoopCommonModes];
+    }
 }
 
 - (void)setProgressIndeterminate:(BOOL)indeterminate

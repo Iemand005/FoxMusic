@@ -7,15 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FMAppDelegate.h"
+#import "FMViewController.h"
 #import "FMTouch.h"
 
-@interface FMSpotifyLoginViewController : UIViewController
+@interface FMSpotifyLoginViewController : FMViewController
 {
     NSTimer *activeTimer;
     double expiresIn;
     NSURL *shareURL;
-    FMAppDelegate *appDelegate;
 }
 
 //- (IBAction)logIn:(id)sender;

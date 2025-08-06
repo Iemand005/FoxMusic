@@ -8,13 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-#import "FMAppDelegate.h"
+#import "FMTableViewController.h"
 #import "FMTouch.h"
 
-@interface FMSpotifyPlaylistTableViewController : UITableViewController
-{
-    FMAppDelegate *_appDelegate;
-}
+@interface FMSpotifyPlaylistTableViewController : FMTableViewController
 
 @property FMSpotifyPlaylistArray *playlists;
 

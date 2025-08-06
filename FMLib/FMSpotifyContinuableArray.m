@@ -14,15 +14,15 @@
 {
     self = [super init];
     if (self) {
-        NSString *href = [dictionary objectForKey:@"href"];
-        if (href) self.href = [NSURL URLWithString:href];
-        NSString *next = [dictionary objectForKey:@"next"];
-        if ([next isKindOfClass:[NSString class]] && [next length]) self.next = [NSURL URLWithString:next];
+        //[self setURLsFromDictionary:dictionary];
+        
         NSString *previous = [dictionary objectForKey:@"previous"];
         if ([previous isKindOfClass:[NSString class]] && [previous length]) self.previous = [NSURL URLWithString:previous];
         self.total = [dictionary objectForKey:@"total"];
         self.offset = [dictionary objectForKey:@"offset"];
         self.items = [NSMutableSet set];
+        
+        [self addItemsFromDictionary:dictionary];
     }
     return self;
 }
@@ -33,6 +33,17 @@
     
     NSArray *items = [dictionary objectForKey:@"items"];
     if ([items isKindOfClass:[NSArray class]]) [self.items addObjectsFromArray:items];
+    return self;
+}
+
+- (FMSpotifyContinuableArray *)addItems:(FMSpotifyContinuableArray *)continuableArray
+{
+//    [self setURLsFromDictionary:dictionary];
+    
+//    NSArray *items = [dictionary objectForKey:@"items"];
+//    if ([items isKindOfClass:[NSArray class]])
+    NSArray *items = [[continuableArray items] allObjects];
+    [self.items addObjectsFromArray:items];
     return self;
 }
 

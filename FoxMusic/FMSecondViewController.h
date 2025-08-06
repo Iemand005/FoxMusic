@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FMAppDelegate.h"
+#import "FMViewController.h"
 #import "FMTouch.h"
 
-@interface FMSecondViewController : UIViewController
+@interface FMSecondViewController : FMViewController
 {
-    FMAppDelegate *appDelegate;
     BOOL loginPrompted;
 }
 

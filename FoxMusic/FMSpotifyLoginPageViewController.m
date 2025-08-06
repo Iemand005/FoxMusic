@@ -12,7 +12,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    appDelegate = [[UIApplication sharedApplication] delegate];
     hasShownLoginPage = NO;
 }
 
@@ -24,42 +23,50 @@
     NSString *viewControllerIdentifier;
     BOOL forwards = YES;
     
-    [[[appDelegate spotifyClient] token] load];
-    NSError *error;
-    if (!appDelegate.spotifyClient.isLoggedIn) NSLog(@"SHIT TOEKN EXPIRED");
-    [[appDelegate spotifyClient] refreshTokenWithError:&error];
-//    if (appDelegate.spotifyClient.isLoggedIn) NSLog(@"TOKEN VALID AGAIN?");
-    if (error) {
-        [appDelegate displayError:error];
+    @try {
+    
+        [[[self.appDelegate spotifyClient] token] load];
+        NSError *error;
+        if (!self.appDelegate.spotifyClient.isLoggedIn) NSLog(@"SHIT TOEKN EXPIRED");
+        bool isLoggedIn = [[self.appDelegate spotifyClient] refreshTokenWithError:&error];
+        
+        
+        
+        if (!error && isLoggedIn) {
+            @try {
+            if ([[self viewControllers] count] > 0 && [[[[self viewControllers] objectAtIndex:0] identifier] isEqualToString:@"spotify"]) return;
+            } @catch (NSException *ex) {}
+            viewControllerIdentifier = @"spotify";
+        } else {
+            if (error) {
+                [self.appDelegate displayError:error];
+            }
+            viewControllerIdentifier = @"login";
+        }
+        
+        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:viewControllerIdentifier];
+        
+        UIPageViewControllerNavigationDirection direction = forwards ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse;
+        
+        [self setViewControllers:@[viewController] direction:direction animated:YES completion:nil];
+            
     }
-    
-    if (appDelegate.spotifyClient.isLoggedIn) {
-        @try {
-        if ([[self viewControllers] count] > 0 && [[[[self viewControllers] objectAtIndex:0] identifier] isEqualToString:@"spotify"]) return;
-        } @catch (NSException *ex) {}
-        viewControllerIdentifier = @"spotify";
-    } else {
-        viewControllerIdentifier = @"login";
+    @catch (NSException *exception) {
+        [self.appDelegate displayException:exception];
     }
-    
-    UIViewController *rat = [storyboard instantiateViewControllerWithIdentifier:viewControllerIdentifier];
-    
-    UIPageViewControllerNavigationDirection direction = forwards ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse;
-    
-    [self setViewControllers:@[rat] direction:direction animated:YES completion:nil];
 }
 
 - (void)logIn:(id)sender
 {
     NSError *error;
     @try {
-        if (![appDelegate.spotifyClient tryDeviceAuhorizationWithError:&error] || error) [appDelegate displayError:error];
-        NSLog(@"Logged in? %@", appDelegate.spotifyClient.token);
-        if (appDelegate.spotifyClient.isLoggedIn) [self navigateToControllerWithIdentifier:@"spotify" forwards:YES];
+        if (![self.appDelegate.spotifyClient tryDeviceAuhorizationWithError:&error] || error) [self.appDelegate displayError:error];
+        NSLog(@"Logged in? %@", self.appDelegate.spotifyClient.token);
+        if (self.appDelegate.spotifyClient.isLoggedIn) [self navigateToControllerWithIdentifier:@"spotify" forwards:YES];
         
     }
     @catch (NSException *exception) {
-        [appDelegate displayException:exception];
+        [self.appDelegate displayException:exception];
     }
 }
 - (void)navigateToControllerWithIdentifier:(NSString *)identifier forwards:(BOOL)forwards

@@ -14,7 +14,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.appDelegate = [[UIApplication sharedApplication] delegate];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -30,9 +29,9 @@
                 [self.appDelegate displayError:error];
             }];
         if (error) [self.appDelegate displayError:error];
-        } @catch (NSException *ex) {
-            
-        }
+    } @catch (NSException *ex) {
+        
+    }
 }
 
 @end

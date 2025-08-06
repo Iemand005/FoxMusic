@@ -6,15 +6,16 @@
 //  Copyright (c) 2024 Lasse Lauwerys. All rights reserved.
 //
 
-#import "FMURLConnectionController.h"
+#import "FMURLConnectionDelegate.h"
 
-@implementation FMURLConnectionController
+@implementation FMURLConnectionDelegate
 
 - (id)initWithCallback:(void (^const)(NSData *))callback
 {
     self = [super init];
     if (self) {
         _callback = callback;
+        _data = [NSMutableData data];
     }
     return self;
 }
@@ -30,10 +31,20 @@
     }
 }
 
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
+//    [httpResponse allHeaderFields];
+    if ([response respondsToSelector:@selector(allHeaderFields)]) {
+        NSDictionary *dictionary = [httpResponse allHeaderFields];
+        NSLog(@"%@",[dictionary description]);
+    }
+}
+
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     NSLog(@"Recieved data!!: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-    _data = data;
+    [_data appendBytes:data.bytes length:data.length];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
@@ -42,14 +53,14 @@
     _callback(_data);
 }
 
-+ (FMURLConnectionController *)urlConnectionController
++ (FMURLConnectionDelegate *)urlConnectionDelegate
 {
-    return [[FMURLConnectionController alloc] init];
+    return [[FMURLConnectionDelegate alloc] init];
 }
 
-+ (FMURLConnectionController *)urlConnectionControllerWithCallback:(void(^const)(NSData *))callback
++ (FMURLConnectionDelegate *)urlConnectionControllerWithCallback:(void(^const)(NSData *))callback
 {
-    return [[FMURLConnectionController alloc] initWithCallback:callback];
+    return [[FMURLConnectionDelegate alloc] initWithCallback:callback];
 }
 
 @end

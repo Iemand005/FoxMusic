@@ -10,12 +10,9 @@
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 
-#import "FMAppDelegate.h"
+#import "FMViewController.h"
 
-@interface FMSpotifyTrackViewController : UIViewController
-{
-    FMAppDelegate *_appDelegate;
-}
+@interface FMSpotifyTrackViewController : FMViewController
 
 @property FMSpotifyTrack *track;
 

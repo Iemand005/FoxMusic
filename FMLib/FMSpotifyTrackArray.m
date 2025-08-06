@@ -62,11 +62,6 @@
     return [super itemAtIndex:index];
 }
 
-- (NSUInteger)count
-{
-    return [[self items] count];
-}
-
 + (FMSpotifyTrackArray *)trackArrayWithDictionary:(NSDictionary *)dictionary
 {
     return [[FMSpotifyTrackArray alloc] initWithDictionary:dictionary];

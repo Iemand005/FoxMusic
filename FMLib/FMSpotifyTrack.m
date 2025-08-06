@@ -18,6 +18,15 @@
         [self setIdentifier:[dictionary objectForKey:@"id"]];
         [self setDuration:[(NSNumber *)[dictionary objectForKey:@"duration_ms"] doubleValue] / 1000];
         [self setAlbum:[FMSpotifyAlbum albumFromDictionary:[dictionary objectForKey:@"album"]]];
+        
+        @try {
+            NSString *previewURL = [dictionary objectForKey:@"preview_url"];
+            [self setPreviewURL:[NSURL URLWithString:previewURL]];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"Failed to load preview URL");
+        }
+        
     }
     return self;
 }

@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+<<<<<<< HEAD
+@class FMViewController;
+
+=======
+>>>>>>> main
 @interface FMAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
+<<<<<<< HEAD
+@property (strong, nonatomic) FMViewController *viewController;
+
+=======
+>>>>>>> main
 @end

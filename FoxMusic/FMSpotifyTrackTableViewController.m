@@ -10,12 +10,6 @@
 
 @implementation FMSpotifyTrackTableViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    _appDelegate = [[UIApplication sharedApplication] delegate];
-}
-
 - (void)viewDidAppear:(BOOL)animated
 {
     @try {
@@ -23,11 +17,11 @@
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
             FMSpotifyTrackArray *tracks = _appDelegate .selectedPlaylist.tracks;
         
-        self.playlist = [_appDelegate selectedPlaylist];
+        self.playlist = [[self appDelegate] selectedPlaylist];
         
         [self setTitle:self.playlist.name];
     
-        [[_appDelegate spotifyClient] continueArray:tracks withOnSuccess:^(FMSpotifyContinuableArray *newTracks){
+        [[[self appDelegate] spotifyClient] continueArray:tracks withOnSuccess:^(FMSpotifyContinuableArray *newTracks){
             NSArray *items = newTracks.items.allObjects;
             for (FMSpotifyTrack *track in items) {
                 NSLog(@"I GOT A TRACK BRO: %@", track.name);
@@ -35,11 +29,11 @@
             
             [[self tableView] reloadData];
         } onError:^(NSError *error){
-            [_appDelegate displayError:error];
+            [[self appDelegate] displayError:error];
         }];
     }
     @catch (NSException *exception) {
-        [_appDelegate displayException:exception];
+        [[self appDelegate] displayException:exception];
     }
     @finally {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];

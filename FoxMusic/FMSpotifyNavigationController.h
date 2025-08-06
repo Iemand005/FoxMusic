@@ -8,12 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-#import "FMAppDelegate.h"
+#import "FMNavigationController.h"
 #import "FMTouch.h"
 
-@interface FMSpotifyNavigationController : UINavigationController
-
-@property FMAppDelegate *appDelegate;
+@interface FMSpotifyNavigationController : FMNavigationController
 
 @end
  

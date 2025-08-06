@@ -8,17 +8,27 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 #import "FMTouch.h"
+#import "FMAlertDelegate.h"
 
-@interface FMAppDelegate : UIResponder <UIApplicationDelegate>
+#import "SRWebSocket.h"
+
+@interface FMAppDelegate : UIResponder <UIApplicationDelegate, SRWebSocketDelegate>
 {
     FMSpotifyClient *_spotifyClient;
+    FMYouTubeClient *_youtubeClient;
+    FMLucidaClient *_lucidaClient;
+    
 }
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (readonly) FMSpotifyClient *spotifyClient;
+@property (readonly) FMYouTubeClient *youtubeClient;
+@property (readonly) FMLucidaClient *lucidaClient;
+@property FMAlertDelegate *alertDelegate;
 
 @property IBOutlet UITabBarController *mainTabBarController;
 
@@ -28,6 +38,9 @@
 @property AVAudioPlayer *audioPlayer;
 
 - (void)displayError:(NSError *)error;
+- (void)displayError:(NSError *)error withCompletionHandler:(void(^)())completionHandler;
 - (void)displayException:(NSException *)exception;
+
+- (void)loadAudioFromData:(NSData *)audioData;
 
 @end

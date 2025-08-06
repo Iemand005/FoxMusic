@@ -10,12 +10,12 @@
 
 @interface FMSpotifyDeviceAuthorizationInfo : NSObject
 
-@property NSString *deviceCode;
-@property NSString *userCode;
-@property NSURL *verificationURL;
-@property NSURL *completeVerificationURL;
-@property NSNumber *expiresIn;
-@property NSNumber *interval;
+@property (retain) NSString *deviceCode;
+@property (retain) NSString *userCode;
+@property (retain) NSURL *verificationURL;
+@property (retain) NSURL *completeVerificationURL;
+@property (retain) NSNumber *expiresIn;
+@property (retain) NSNumber *interval;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

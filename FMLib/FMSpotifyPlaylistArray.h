@@ -15,7 +15,7 @@
 
 
 
-- (id)initWithDictionary:(NSDictionary *)dictionary;
+//- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 - (FMSpotifyPlaylist *)itemAtIndex:(NSUInteger)index;
 

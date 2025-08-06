@@ -8,8 +8,9 @@
 
 #import "FMSpotifyClient.h"
 #import "FMMutableURLQueryDictionary.h"
-#import "FMURLConnectionController.h"
+#import "FMURLConnectionDelegate.h"
 #import "FMSpotifyPlaylistArray.h"
+#import "FMBase62Decoder.h"
 
 @interface FMSpotifyClient ()
 
@@ -32,14 +33,13 @@
         NSString *accountsBaseAddress = @"https://accounts.spotify.com";
         NSString *authorizeDeviceEndpoint = @"oauth2/device/authorize";
         NSString *tokenEndpoint = @"api/token";
+        NSString *apiBaseAddress = @"https://api.spotify.com/v1";
+        NSString *searchEndpoint = @"search";
         
         self.accountsBaseAddress = [NSURL URLWithString:accountsBaseAddress];
         self.authorizeDeviceEndpoint = [self.accountsBaseAddress URLByAppendingPathComponent:authorizeDeviceEndpoint];
         self.tokenEndpoint = [self.accountsBaseAddress URLByAppendingPathComponent:tokenEndpoint];
         
-        
-        NSString *apiBaseAddress = @"https://api.spotify.com/v1";
-        NSString *searchEndpoint = @"search";
         self.apiBaseAddress = [NSURL URLWithString:apiBaseAddress];
         self.searchEndpoint = [self.apiBaseAddress URLByAppendingPathComponent:searchEndpoint];
         
@@ -88,25 +88,87 @@
     
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&requestError];
     
-    NSDictionary *result = [self parseResponseData:responseData error:&requestError];
-    
-    [self checkResult:result forError:&requestError];
+    NSDictionary *result;
+	if (!requestError) {
+        result = [self parseResponseData:responseData error:&requestError];
+        [self checkResult:result forError:&requestError];
+	}
     
     if (error) *error = requestError;
     
     return result;
 }
 
+//- (NSData *)repairJSON:(NSData *)jsonData
+//{
+//    NSMutableString *jsonString = [[NSMutableString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+//    
+//    for (NSUInteger i = jsonString.length - 1; i > 0; --i) {
+//        @autoreleasepool {
+//            NSString *substring = [jsonString substringToIndex:i];
+//            NSData *testData = [substring dataUsingEncoding:NSUTF8StringEncoding];
+//            
+//            NSError *testError;
+//            [NSJSONSerialization JSONObjectWithData:testData options:0 error:&testError];
+//            
+//            if (!testError) {
+//                if (i == jsonString.length - 1) break;
+//                
+//                NSLog(@"JSON threw an error at position %i", i);
+//                NSLog(@"Problematic data: %@", [jsonString substringFromIndex:i]);
+//                NSString *invalidCharacter = [jsonString substringWithRange:NSMakeRange(i, 1)];
+//                
+//                [jsonString replaceOccurrencesOfString:invalidCharacter withString:@" " options:0 range:NSMakeRange(i, jsonString.length)];
+//                
+//                i = jsonString.length - 1;
+//            }
+//        }
+//    }
+//    
+//    return [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+//}
+
+//- (NSString *)stringByWhitelistingCharacters:(NSString *)string withAllowedCharacters:(NSString *)allowedCharacters
+//{
+//    NSCharacterSet *allowedCharacterSet = NSCharacterSet
+//}
+
 - (id)parseResponseData:(NSData *)data error:(NSError **)error
 {
     id response;
     NSError *serializationError;
+    
+    @try {
+        NSString *allowedCharacters = @"[^a-zA-Z0-9_=/\\s.,!?@'\"()\\-\\[\\]{}:;]";
+        
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:allowedCharacters options:0 error:&serializationError];
+        
+        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        
+        NSRange range = NSMakeRange(0, string.length); //NSRangeFromString(<#NSString *aString#>)
+        NSString *cleanString = [regex stringByReplacingMatchesInString:string options:0 range:range withTemplate:@"$"];
+        
+        data = [cleanString dataUsingEncoding:NSUTF8StringEncoding];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@", [exception reason]);
+    }
+    
     @try {
         response = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&serializationError];
+        
+        if (serializationError) {
+//            data = [self repairJSON:data];
+//            response = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&serializationError];
+        }
     } @catch (NSException *ex) {
         serializationError = [NSError errorWithDomain:@"parsingResponse" code:1009 userInfo:@{NSLocalizedDescriptionKey: ex.description, NSLocalizedFailureReasonErrorKey: ex.reason}];
+        
     }
-    if (error) *error = serializationError;
+    
+    if (error) {
+        *error = serializationError;
+    }
     return response;
 }
 
@@ -117,6 +179,10 @@
 
 - (void)request:(NSURL *)url callback:(void (^const)(NSDictionary *, NSError *))callback
 {
+    if (!url) {
+        NSLog(@"Unable to make request. No URL provided");
+        return;
+    }
     [self getDataFromURL:url withCallback:^(NSData *data){
         NSError *error;
         NSDictionary *result = [self parseResponseData:data error:&error];
@@ -125,29 +191,29 @@
     } andHeaders:@{@"Authorization": [[self token] bearer], @"Accept": @"application/json"}];
 }
 
-- (void)getDataFromURL:(NSURL *)url withCallback:(void(^)(NSData *data))callback
-{
-    [[[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:url] delegate:[FMURLConnectionController urlConnectionControllerWithCallback:^(NSData *data){
-        callback(data);
-    }]] start];
-}
+//- (void)getDataFromURL:(NSURL *)url withCallback:(void(^)(NSData *data))callback
+//{
+//    [[[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:url] delegate:[FMURLConnectionDelegate urlConnectionControllerWithCallback:callback]] start];
+//}
+//
+//- (void)getDataFromURL:(NSURL *)url withCallback:(void (^)(NSData *))callback andHeaders:(NSDictionary *)headers
+//{
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+//    for (NSString *headerField in headers) [request addValue:[headers objectForKey:headerField] forHTTPHeaderField:headerField];
+//    [[[NSURLConnection alloc] initWithRequest:request delegate:[FMURLConnectionDelegate urlConnectionControllerWithCallback:callback]] start];
+//}
 
-- (void)getDataFromURL:(NSURL *)url withCallback:(void (^)(NSData *))callback andHeaders:(NSDictionary *)headers
+- (NSURL *)makeEndpointURL:(NSString *)endpoint
 {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    for (NSString *headerField in headers) [request addValue:[headers objectForKey:headerField] forHTTPHeaderField:headerField];
-    [[[NSURLConnection alloc] initWithRequest:request delegate:[FMURLConnectionController urlConnectionControllerWithCallback:callback]] start];
+    return [self.apiBaseAddress URLByAppendingPathComponent:endpoint];
 }
 
 - (void)getUserPlaylistsAndWhenSuccess:(void (^)(FMSpotifyPlaylistArray *))callbackSuccess whenError:(void (^)(NSError *))callbackError
 {
-    NSURL *playlistsEndpoint = [self.apiBaseAddress URLByAppendingPathComponent:@"me/playlists"];
+    NSURL *playlistsEndpoint = [self makeEndpointURL:@"me/playlists"];
     
     [self request:playlistsEndpoint callback:^(NSDictionary *result, NSError *error){
         if (!error) {
-//            NSMutableArray *playlists = [NSMutableArray array];
-            
-//            NSArray *playlistItems = [result objectForKey:@"items"];
             
             callbackSuccess([FMSpotifyPlaylistArray playlistArrayWithDictionary:result]);
         } else callbackError(error);
@@ -165,7 +231,7 @@
 //                                   NSLocalizedFailureReasonErrorKey:errorReason
 //                                   };
         NSError *newError = [self localizeError:[NSError errorWithDomain:errorReason ? errorReason : @"" code:6942 userInfo:@{
-                                               NSLocalizedDescriptionKey:errorDescription,
+                                               NSLocalizedDescriptionKey:errorDescription ? errorDescription : @"Unknown description",
                                         NSLocalizedFailureReasonErrorKey:errorReason
                                                  }]];
 //        [newError setus:errorReason forKey:NSLocalizedFailureReasonErrorKey]
@@ -196,9 +262,11 @@
     NSLog(@"Connection finished!");
 }
 
-- (FMSpotifyDeviceAuthorizationInfo *)refreshDeviceAuthorizationInfo
+- (FMSpotifyDeviceAuthorizationInfo *)refreshDeviceAuthorizationInfoWithError:(NSError **)error
 {
-    NSDictionary *response = [self request:self.authorizeDeviceEndpoint withBody:@{@"scope": @"streaming user-read-private user-read-email"}];
+	NSError *requestError;
+    NSDictionary *response = [self request:self.authorizeDeviceEndpoint withBody:@{@"scope": @"streaming user-read-private user-read-email"} error:&requestError];
+	if (requestError) *error = requestError;
     return self.deviceAuthorizationInfo = [FMSpotifyDeviceAuthorizationInfo deviceAuthorizationInfoFromDictionary:response];
 }
 
@@ -213,9 +281,11 @@
     
     if (!self.deviceAuthorizationInfo) @throw[NSException exceptionWithName:@"Authorization Failed" reason:@"Device authorization info missing." userInfo:@{}];
     
+    NSString *deviceCode = self.deviceAuthorizationInfo.deviceCode;
+    
     NSDictionary *body = @{
                            @"grant_type": @"urn:ietf:params:oauth:grant-type:device_code",
-                           @"device_code": self.deviceAuthorizationInfo.deviceCode
+                           @"device_code": deviceCode
                            };
     
     NSDictionary *response = [self request:self.tokenEndpoint withBody:body error:&requestError];
@@ -259,7 +329,7 @@
         
         if (error) *error = requestError;
     }
-    return self.token.isValid;
+    return [self isLoggedIn];
 }
 
 - (FMSpotifyToken *)setTokenFromDictionary:(NSDictionary *)dictionary
@@ -304,68 +374,184 @@
 {
     
 //    NSString *url = @"https://api.spotifydown.com/metadata/track/";
-    NSString *url = @"https://api.spotifydown.com/download/";
-    NSString *fullUrl = [url stringByAppendingString:track.identifier];
-    NSURL *urlurl = [NSURL URLWithString:fullUrl];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:urlurl];
-    
-    [request addValue:@"https://spotifydown.com" forHTTPHeaderField:@"Origin"];
-    [request addValue:@"https://spotifydown.com" forHTTPHeaderField:@"Referer"];
-    
-    NSError *error;
-    NSURLResponse *response;
-    NSData *result = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
-    NSString *resultString = [[NSString alloc]initWithData:result encoding:NSUTF8StringEncoding];
-    
-    NSLog(@"rebber rubber %@", resultString);
-    
-    NSDictionary *responseBody = [NSJSONSerialization JSONObjectWithData:result options:0 error:&error];
-    
-    NSString *downloadLink = [responseBody objectForKey:@"link"];
-    
-    NSURL *downloadURL = [NSURL URLWithString:downloadLink];
-    
-//    NSURLRequest *downloadRequest = [NSURLRequest requestWithURL:downloadURL];
-//    NSURLSession *urlSession = [[NSURLSession alloc] init];
-//    NSData *downloadedData = [NSURLConnection sendSynchronousRequest:downloadRequest returningResponse:&response error:&error];
-    
-    NSData *downloadedData = [NSData dataWithContentsOfURL:downloadURL];
-    return downloadedData;
+//    NSString *url = @"https://api.spotifydown.com/download/";
+//    NSString *fullUrl = [url stringByAppendingString:track.identifier];
+//    NSURL *urlurl = [NSURL URLWithString:fullUrl];
+//    
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:urlurl];
+//    
+//    [request addValue:@"https://spotifydown.com" forHTTPHeaderField:@"Origin"];
+//    [request addValue:@"https://spotifydown.com" forHTTPHeaderField:@"Referer"];
+//    
+//    NSError *error;
+//    NSURLResponse *response;
+//    NSData *result = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+//    
+//    NSString *resultString = [[NSString alloc]initWithData:result encoding:NSUTF8StringEncoding];
+//    
+//    NSLog(@"rebber rubber %@", resultString);
+//    
+//    NSDictionary *responseBody = [NSJSONSerialization JSONObjectWithData:result options:0 error:&error];
+//    
+//    NSString *downloadLink = [responseBody objectForKey:@"link"];
+//    
+//    NSURL *downloadURL = [NSURL URLWithString:downloadLink];
+//    
+////    NSURLRequest *downloadRequest = [NSURLRequest requestWithURL:downloadURL];
+////    NSURLSession *urlSession = [[NSURLSession alloc] init];
+////    NSData *downloadedData = [NSURLConnection sendSynchronousRequest:downloadRequest returningResponse:&response error:&error];
+//    
+//    NSData *downloadedData = [NSData dataWithContentsOfURL:downloadURL];
+//    return downloadedData;
 //    AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithData:downloadedData error:&error];
 //    [player play];
     
     
-//    NSString *metaURL = @"https://spclient.wg.spotify.com/metadata/4/track/";
-//    NSString *fullMetaURL = [metaURL stringByAppendingString:@"75aa6e3e6c454cedaca41d842e12a4e6?market=from_token"];
-//    [self request:[NSURL URLWithString:fullMetaURL] callback:^(NSDictionary *response, NSError *error){
-//        NSLog(@"I GOT RESPONZABLE: %@", response);
-//        NSArray *fileFormats = [response objectForKey:@"file"];
-//        NSDictionary *fileFormat = [fileFormats lastObject];
-//        
-//        NSString *fileId = [fileFormat objectForKey:@"file_id"];
-//        NSString *format = [fileFormat objectForKey:@"format"];
-//        
-//        NSLog(@"file ID: %@ with format: %@", fileId, format);
-//        
-//        NSString *storageURL = @"https://gew4-spclient.spotify.com/storage-resolve/v2/files/audio/interactive/10/";
-////        NSString *fullStorageURL = [[metaURL stringByAppendingString:fileId] stringByAppendingString:@"?version=10000000&product=9&platform=39&alt=json"];
-//
-//         NSString *fullStorageURL = [[storageURL stringByAppendingString:fileId] stringByAppendingString:@"?product=9&alt=json"];
-//        
-//        [self request:[NSURL URLWithString:fullStorageURL] callback:^(NSDictionary *response, NSError *error){
-//            NSLog(@"I GOT RESPONZABLE: %@", response);
-//            NSArray *cdns = [response objectForKey:@"cdnurl"];
-//            NSString *cdn = [cdns objectAtIndex:0];
-//            
-//            NSURL *cdnURL = [NSURL URLWithString:cdn];
-//            
-//            NSLog(@"CDN download url: %@", cdnURL);
-//            
-//            
-//        }];
-//    }];
+    NSString *metaURL = @"https://spclient.wg.spotify.com/metadata/4/track/";
+    NSURL *fullMetaURL = [NSURL URLWithString:[metaURL stringByAppendingString:@"75aa6e3e6c454cedaca41d842e12a4e6?market=from_token"]];
+    
+    [self request:fullMetaURL callback:^(NSDictionary *response, NSError *error){
+        NSLog(@"I GOT RESPONZABLE: %@", response);
+        NSArray *fileFormats = [response objectForKey:@"file"];
+        NSDictionary *fileFormat = fileFormats[0];
+        
+        NSString *fileId = [fileFormat objectForKey:@"file_id"];
+        NSString *format = [fileFormat objectForKey:@"format"];
+        
+        NSLog(@"file ID: %@ with format: %@", fileId, format);
+        
+        NSString *storageURL = @"https://gew4-spclient.spotify.com/storage-resolve/v2/files/audio/interactive/10/";
+//        NSString *fullStorageURL = [[metaURL stringByAppendingString:fileId] stringByAppendingString:@"?version=10000000&product=9&platform=39&alt=json"];
+
+         NSString *fullStorageURL = [[storageURL stringByAppendingString:fileId] stringByAppendingString:@"?product=9&alt=json"];
+        
+        [self request:[NSURL URLWithString:fullStorageURL] callback:^(NSDictionary *response, NSError *error){
+            NSLog(@"I GOT RESPONZABLE: %@", response);
+            NSArray *cdns = [response objectForKey:@"cdnurl"];
+            NSString *cdn = [cdns objectAtIndex:0];
+            
+            NSURL *cdnURL = [NSURL URLWithString:cdn];
+            
+            NSLog(@"CDN download url: %@", cdnURL);
+            
+            
+        }];
+    }];
+}
+
+- (void)downloadTrack:(FMSpotifyTrack *)track callback:(void(^)(NSData *))callback preview:(Boolean)preview
+{
+    
+    if (preview) {
+        NSURL *previewURL = track.previewURL;
+        [self getDataFromURL:previewURL withCallback:^(NSData *data){
+            callback(data);
+        }];
+    } else {
+        [self getTrackDownloadURL:track callback:^(NSURL *url) {
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            callback(data);
+        }];
+    }
+
+}
+
+- (void)downloadTrack:(FMSpotifyTrack *)track callback:(void(^)(NSData *))callback
+{
+    [self downloadTrack:track callback:callback preview:true];
+}
+
+- (NSURL *)getTrackMetaURL:(FMSpotifyTrack *)track
+{
+    
+    NSString *trackId = track.identifier;
+    FMBase62Decoder *decoder = [FMBase62Decoder decoderWithString:trackId];
+    trackId = [decoder toHex];
+    NSString *metaURL = [NSString stringWithFormat:@"https://spclient.wg.spotify.com/metadata/4/track/%@?market=from_token", trackId] ;
+    return [NSURL URLWithString:metaURL];
+}
+
+- (void)getTrackPreviewURL:(FMSpotifyTrack *)track callback:(void(^)(NSURL *))callback
+{
+    
+    
+    NSURL *metaURL = [self getTrackMetaURL:track];
+    
+    [self request:metaURL callback:^(NSDictionary *response, NSError *error){
+        
+        NSLog(@"This track doesn't have a supported codec! Loading preview of the song...");
+            //            return;
+        NSDictionary *fileFormat = [response objectForKey:@"preview"][0];
+        NSString *fileId = [fileFormat objectForKey:@"file_id"];
+        NSString *format = [fileFormat objectForKey:@"format"];
+        
+        NSLog(@"file ID: %@ with format: %@", fileId, format);
+        
+        NSString *previewURL = [@"https://p.scdn.co/mp3-preview/" stringByAppendingString:fileId];
+        
+        callback([NSURL URLWithString:previewURL]);
+    }];
+}
+
+- (void)getTrackDownloadURL:(FMSpotifyTrack *)track callback:(void(^)(NSURL *))callback
+{
+    NSString *metaURL = @"https://spclient.wg.spotify.com/metadata/4/track/";
+    NSURL *fullMetaURL = [NSURL URLWithString:[metaURL stringByAppendingString:@"75aa6e3e6c454cedaca41d842e12a4e6?market=from_token"]];
+    
+    [self request:fullMetaURL callback:^(NSDictionary *response, NSError *error){
+        NSLog(@"I GOT RESPONZABLE: %@", response);
+        NSArray *fileFormats = [response objectForKey:@"file"];
+        
+        NSString *fileId;
+        NSString *format;
+        
+        for (NSDictionary *fileFormat in fileFormats) {
+//            NSDictionary *fileFormat = fileFormats[0];
+            
+            NSString *formatFileId = [fileFormat objectForKey:@"file_id"];
+            NSString *formatFormat = [fileFormat objectForKey:@"format"];
+            
+            NSLog(@"Found format: %@ which has file ID: %@", formatFormat, formatFileId);
+            
+            if ([formatFormat isEqualToString:@"MP3_96"]) {
+                format = formatFormat;
+                fileId = formatFileId;
+                break;
+            }
+        }
+        
+        if (!fileId) {
+            NSLog(@"This track doesn't have a supported codec! Loading preview of the song...");
+//            return;
+            NSDictionary *fileFormat = [response objectForKey:@"preview"][0];
+            fileId = [fileFormat objectForKey:@"file_id"];
+            format = [fileFormat objectForKey:@"format"];
+        }
+        
+        NSLog(@"file ID: %@ with format: %@", fileId, format);
+        
+        NSString *previewURL = [@"https://p.scdn.co/mp3-preview/" stringByAppendingString:fileId];
+        
+        callback([NSURL URLWithString:previewURL]);
+        
+        NSString *storageURL = @"https://gew4-spclient.spotify.com/storage-resolve/v2/files/audio/interactive/10/";
+        //        NSString *fullStorageURL = [[metaURL stringByAppendingString:fileId] stringByAppendingString:@"?version=10000000&product=9&platform=39&alt=json"];
+        
+        NSString *fullStorageURL = [[storageURL stringByAppendingString:fileId] stringByAppendingString:@"?product=9&alt=json"];
+        
+        [self request:[NSURL URLWithString:fullStorageURL] callback:^(NSDictionary *response, NSError *error){
+            NSLog(@"I GOT RESPONZABLE: %@", response);
+            NSArray *cdns = [response objectForKey:@"cdnurl"];
+            NSString *cdn = [cdns objectAtIndex:4];
+            
+            NSURL *cdnURL = [NSURL URLWithString:cdn];
+            
+            NSLog(@"CDN download url: %@", cdnURL);
+            
+            
+            callback(cdnURL);
+        }];
+    }];
 }
 
 - (void)search:(NSString *)query withOnSuccess:(void(^)(FMSpotifyTrackArray *tracks))callbackSuccess onError:(void(^)(NSError *error))callbackError

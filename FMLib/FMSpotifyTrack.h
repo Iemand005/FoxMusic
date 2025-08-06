@@ -14,6 +14,7 @@
 @property NSString *name;
 @property NSTimeInterval duration;
 @property NSString *identifier;
+@property NSURL *previewURL;
 @property FMSpotifyAlbum *album;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;

@@ -14,21 +14,20 @@
 - (id)initWithDictionary:(NSDictionary *)dictionary
 {
     self = [super initWithDictionary:dictionary];
-    if (self) {
-        self.href = [dictionary objectForKey:@"href"];
-//        self.limit = [dictionary objectForKey:@"limit"];
-//        self.next = [dictionary objectForKey:@"next"];
-//        self.previous = [dictionary objectForKey:@"previous"];
-//        self.total = [dictionary objectForKey:@"total"];
-//        self.offset = [dictionary objectForKey:@"offset"];
-        
-        NSArray *items = [dictionary objectForKey:@"items"];
-        NSMutableArray *playlists = [NSMutableArray arrayWithCapacity:items.count];
-        for (NSDictionary *item in items) {
-            [playlists addObject:[FMSpotifyPlaylist playlistFromDictionary:item]];
-        }
-        [self.items addObjectsFromArray:playlists];
-    }
+    
+    if (self) [self addItemsFromDictionary:dictionary];
+    
+    return self;
+}
+
+- (FMSpotifyPlaylistArray *)addItemsFromDictionary:(NSDictionary *)dictionary
+{
+    [self setURLsFromDictionary:dictionary];
+    
+    NSArray *items = [dictionary objectForKey:@"items"];
+    for (NSDictionary *item in items)
+        [[self items] addObject:[FMSpotifyPlaylist playlistFromDictionary:item]];
+    
     return self;
 }
 

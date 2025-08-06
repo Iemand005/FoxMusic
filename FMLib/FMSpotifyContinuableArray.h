@@ -29,6 +29,7 @@
 - (id)itemAtIndex:(NSUInteger)index;
 
 - (FMSpotifyContinuableArray *)addItemsFromDictionary:(NSDictionary *)dictionary;
+- (FMSpotifyContinuableArray *)addItems:(FMSpotifyContinuableArray *)continuableArray;
 - (void)setURLsFromDictionary:(NSDictionary *)dictionary;
 
 //+ (FMSpotifyContinuableArray *)continuableFromDictionary:(NSDictionary *)dictionary;

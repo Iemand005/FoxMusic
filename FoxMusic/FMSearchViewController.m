@@ -10,12 +10,6 @@
 
 @implementation FMSearchViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    _appDelegate = [[UIApplication sharedApplication] delegate];
-}
-
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     NSLog(@"This dood want u to search!!: %@", searchText);

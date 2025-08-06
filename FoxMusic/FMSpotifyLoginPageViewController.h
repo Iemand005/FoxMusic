@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-#import "FMAppDelegate.h"
+#import "FMPageViewController.h"
 
-@interface FMSpotifyLoginPageViewController : UIPageViewController
+@interface FMSpotifyLoginPageViewController : FMPageViewController
 {
-    FMAppDelegate *appDelegate;
     BOOL hasShownLoginPage;
 }
 

@@ -10,11 +10,7 @@
 
 #import "FMSpotifyPlaylistTableViewController.h"
 
-@interface FMSpotifyTrackTableViewController : UITableViewController
-{
-    FMAppDelegate *_appDelegate;
-//    FMSP *_playlists;
-}
+@interface FMSpotifyTrackTableViewController : FMTableViewController
 
 @property FMSpotifyPlaylist *playlist;
 

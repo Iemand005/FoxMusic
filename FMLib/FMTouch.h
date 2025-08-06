@@ -7,6 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "FMSpotifyClient.h"
+#import "FMYouTubeClient.h"
+#import "FMLucidaClient.h"
+
 #import "FMMutableURLQueryDictionary.h"
 #import "FMSpotifyPlaylistArray.h"
+#import "FMBase62Decoder.h"

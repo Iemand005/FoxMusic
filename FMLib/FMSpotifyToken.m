@@ -84,7 +84,6 @@ NSString *const FMSpotifyTokenCreatedOnKey = @"created_on";
     BOOL isValid = [[self.createdOn dateByAddingTimeInterval:self.expiresIn.doubleValue] compare:[NSDate date]] == NSOrderedDescending;
     if (!isValid) {
         NSLog(@"TOken expired... requesting nes");
-        
     }
     return isValid;
 }
