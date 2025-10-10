@@ -10,6 +10,8 @@
 
 @interface FMTrack : NSObject
 
+@property (strong) NSString *title;
+
 @property (strong) NSURL *URL;
 
 + (FMTrack *)trackWithURL:(NSURL *)url;

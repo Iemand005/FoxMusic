@@ -120,6 +120,9 @@
 		0A7FB3242C33345B00F50618 /* FMURLConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3232C33345B00F50618 /* FMURLConnectionDelegate.m */; };
 		0A8E05AC2E996B7800A36852 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8E05AB2E996B7800A36852 /* AudioToolbox.framework */; };
 		0A8E05AE2E996D7F00A36852 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8E05AD2E996D7F00A36852 /* AVFoundation.framework */; };
+		0A8E05B22E996F9500A36852 /* FMWaveForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8E05B12E996F9500A36852 /* FMWaveForm.m */; };
+		0A8E05B62E99751A00A36852 /* FMOpenGLVisualizerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8E05B52E99751A00A36852 /* FMOpenGLVisualizerView.m */; };
+		0A8E05B82E99768C00A36852 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8E05B72E99768C00A36852 /* OpenGL.framework */; };
 		0A9798A22CF49AEE00C38E1B /* FMAlertDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9798A12CF49AEE00C38E1B /* FMAlertDelegate.m */; };
 		0A9798C42CF859E700C38E1B /* FMLucidaClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9798C32CF859E700C38E1B /* FMLucidaClient.m */; };
 		0A9798C72CF85FB900C38E1B /* FMURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9798C62CF85FB900C38E1B /* FMURLConnection.m */; };
@@ -350,6 +353,11 @@
 		0A7FB3232C33345B00F50618 /* FMURLConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMURLConnectionDelegate.m; sourceTree = "<group>"; };
 		0A8E05AB2E996B7800A36852 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
 		0A8E05AD2E996D7F00A36852 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		0A8E05B02E996F9500A36852 /* FMWaveForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMWaveForm.h; sourceTree = "<group>"; };
+		0A8E05B12E996F9500A36852 /* FMWaveForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMWaveForm.m; sourceTree = "<group>"; };
+		0A8E05B42E99751A00A36852 /* FMOpenGLVisualizerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMOpenGLVisualizerView.h; sourceTree = "<group>"; };
+		0A8E05B52E99751A00A36852 /* FMOpenGLVisualizerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMOpenGLVisualizerView.m; sourceTree = "<group>"; };
+		0A8E05B72E99768C00A36852 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
 		0A9798A02CF49AEE00C38E1B /* FMAlertDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMAlertDelegate.h; sourceTree = "<group>"; };
 		0A9798A12CF49AEE00C38E1B /* FMAlertDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMAlertDelegate.m; sourceTree = "<group>"; };
 		0A9798C22CF859E600C38E1B /* FMLucidaClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMLucidaClient.h; sourceTree = "<group>"; };
@@ -448,6 +456,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A8E05B82E99768C00A36852 /* OpenGL.framework in Frameworks */,
 				0A8E05AE2E996D7F00A36852 /* AVFoundation.framework in Frameworks */,
 				0A8E05AC2E996B7800A36852 /* AudioToolbox.framework in Frameworks */,
 				0A2F2C4F2E84381200755D69 /* QuartzCore.framework in Frameworks */,
@@ -522,6 +531,7 @@
 		0A2BFE9E2C2C44450009ADAD = {
 			isa = PBXGroup;
 			children = (
+				0A8E05B72E99768C00A36852 /* OpenGL.framework */,
 				0A8E05AD2E996D7F00A36852 /* AVFoundation.framework */,
 				0A8E05AB2E996B7800A36852 /* AudioToolbox.framework */,
 				0AC416502D011B7F007FA453 /* FMSocketRocket */,
@@ -589,6 +599,7 @@
 				0AC415F82D00D37E007FA453 /* FMAudioPlayerViewController.m */,
 				0AFD4E6B2D3EA0FC0073E7F3 /* FMVideoPlayerViewController.h */,
 				0AFD4E6C2D3EA0FC0073E7F3 /* FMVideoPlayerViewController.m */,
+				0A8E05B32E9972D800A36852 /* Views */,
 				0A7FB31B2C2DF4A700F50618 /* SpotifyViews */,
 				0AC415F02D00C891007FA453 /* YouTubeViews */,
 				0A2BFECB2C2C44450009ADAD /* first.png */,
@@ -654,6 +665,8 @@
 				0A2F2C472E81947D00755D69 /* FMDTrackTableViewController.m */,
 				0A2F2C492E81968D00755D69 /* FMDTrackTableView.h */,
 				0A2F2C4A2E81968D00755D69 /* FMDTrackTableView.m */,
+				0A8E05B42E99751A00A36852 /* FMOpenGLVisualizerView.h */,
+				0A8E05B52E99751A00A36852 /* FMOpenGLVisualizerView.m */,
 			);
 			path = FoxMusicDesktop;
 			sourceTree = "<group>";
@@ -760,6 +773,7 @@
 		0A6038062C2D83F800482179 /* FMLib */ = {
 			isa = PBXGroup;
 			children = (
+				0A8E05AF2E996F7200A36852 /* Visualizer */,
 				0A6038092C2D83F800482179 /* FMTouch.h */,
 				0A2F2C502E8439AB00755D69 /* FMTrack.h */,
 				0A2F2C512E8439AB00755D69 /* FMTrack.m */,
@@ -840,6 +854,22 @@
 				0A2F2C212E29322500755D69 /* Cocoa.framework */,
 			);
 			name = Desktop;
+			sourceTree = "<group>";
+		};
+		0A8E05AF2E996F7200A36852 /* Visualizer */ = {
+			isa = PBXGroup;
+			children = (
+				0A8E05B02E996F9500A36852 /* FMWaveForm.h */,
+				0A8E05B12E996F9500A36852 /* FMWaveForm.m */,
+			);
+			name = Visualizer;
+			sourceTree = "<group>";
+		};
+		0A8E05B32E9972D800A36852 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		0AC415D42D00A3AE007FA453 /* FMSpotify */ = {
@@ -1318,6 +1348,7 @@
 				0A2F2C3A2E29445F00755D69 /* FMNavigationController.m in Sources */,
 				0A2F2C3D2E2944EC00755D69 /* FMPageViewController.m in Sources */,
 				0A2F2C412E7D1F9900755D69 /* FMSpotMateClient.m in Sources */,
+				0A8E05B22E996F9500A36852 /* FMWaveForm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1353,6 +1384,7 @@
 				0A2F2C482E81947D00755D69 /* FMDTrackTableViewController.m in Sources */,
 				0A2F2C4B2E81968D00755D69 /* FMDTrackTableView.m in Sources */,
 				0A2F2C532E8439AB00755D69 /* FMTrack.m in Sources */,
+				0A8E05B62E99751A00A36852 /* FMOpenGLVisualizerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
