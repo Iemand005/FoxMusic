@@ -8,6 +8,9 @@
 
 #import "FMSpotifyClient.h"
 #import "FMMutableURLQueryDictionary.h"
+#import "FMURLConnectionDelegate.h"
+#import "FMSpotifyPlaylistArray.h"
+#import "FMBase62Decoder.h"
 
 //@interface NSURLRequest (DummyInterface)
 //+ (BOOL)allowsAnyHTTPSCertificateForHost:(NSString *)host;
@@ -40,9 +43,17 @@
         NSString *authorizeDeviceEndpoint = @"oauth2/device/authorize";
         NSString *tokenEndpoint = @"api/token";
         
-        self.baseAddress = [NSURL URLWithString:baseAddress];
-        self.authorizeDeviceEndpoint = [self.baseAddress URLByAppendingPathComponent:authorizeDeviceEndpoint];
-        self.tokenEndpoint = [self.baseAddress URLByAppendingPathComponent:tokenEndpoint];
+        self.accountsBaseAddress = [NSURL URLWithString:baseAddress];
+        self.authorizeDeviceEndpoint = [self.accountsBaseAddress URLByAppendingPathComponent:authorizeDeviceEndpoint];
+        self.tokenEndpoint = [self.accountsBaseAddress URLByAppendingPathComponent:tokenEndpoint];
+        
+        NSString *apiBaseAddress = @"https://api.spotify.com/v1";
+        NSString *searchEndpoint = @"search";
+        
+        self.apiBaseAddress = [NSURL URLWithString:apiBaseAddress];
+        self.searchEndpoint = [self.apiBaseAddress URLByAppendingPathComponent:searchEndpoint];
+        
+        self.token = [FMSpotifyToken savedToken];
     }
     return self;
 }
@@ -91,10 +102,10 @@
     // TODO: Add retry button.
 }
 
-- (FMDeviceAuthorizationInfo *)deviceAuthorizationInfo
+- (FMSpotifyDeviceAuthorizationInfo *)deviceAuthorizationInfo
 {
-    NSDictionary *response = [self request:self.authorizeDeviceEndpoint withBody:@{@"scope": @"streaming"}];
-    return [FMDeviceAuthorizationInfo deviceAuthorizationInfoFromDictionary:response];
+    NSDictionary *response = [self request:self.authorizeDeviceEndpoint withBody:@{@"scope": @"streaming user-read-private user-read-email"}];
+    return [FMSpotifyDeviceAuthorizationInfo deviceAuthorizationInfoFromDictionary:response];
 }
 
 + (FMSpotifyClient *)spotifyClient
