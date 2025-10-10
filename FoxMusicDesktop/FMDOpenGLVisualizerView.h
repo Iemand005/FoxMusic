@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface FMOpenGLVisualizerView : NSOpenGLView
+@interface FMDOpenGLVisualizerView : NSOpenGLView
 {
     NSTimer *animationTimer;
 }
