@@ -118,6 +118,8 @@
 		0A7FB31E2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB31D2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m */; };
 		0A7FB3212C33244100F50618 /* FMSpotifyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3202C33244000F50618 /* FMSpotifyNavigationController.m */; };
 		0A7FB3242C33345B00F50618 /* FMURLConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3232C33345B00F50618 /* FMURLConnectionDelegate.m */; };
+		0A8E05AC2E996B7800A36852 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8E05AB2E996B7800A36852 /* AudioToolbox.framework */; };
+		0A8E05AE2E996D7F00A36852 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8E05AD2E996D7F00A36852 /* AVFoundation.framework */; };
 		0A9798A22CF49AEE00C38E1B /* FMAlertDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9798A12CF49AEE00C38E1B /* FMAlertDelegate.m */; };
 		0A9798C42CF859E700C38E1B /* FMLucidaClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9798C32CF859E700C38E1B /* FMLucidaClient.m */; };
 		0A9798C72CF85FB900C38E1B /* FMURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9798C62CF85FB900C38E1B /* FMURLConnection.m */; };
@@ -346,6 +348,8 @@
 		0A7FB3202C33244000F50618 /* FMSpotifyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyNavigationController.m; sourceTree = "<group>"; };
 		0A7FB3222C33345B00F50618 /* FMURLConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMURLConnectionDelegate.h; sourceTree = "<group>"; };
 		0A7FB3232C33345B00F50618 /* FMURLConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMURLConnectionDelegate.m; sourceTree = "<group>"; };
+		0A8E05AB2E996B7800A36852 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		0A8E05AD2E996D7F00A36852 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		0A9798A02CF49AEE00C38E1B /* FMAlertDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMAlertDelegate.h; sourceTree = "<group>"; };
 		0A9798A12CF49AEE00C38E1B /* FMAlertDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMAlertDelegate.m; sourceTree = "<group>"; };
 		0A9798C22CF859E600C38E1B /* FMLucidaClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMLucidaClient.h; sourceTree = "<group>"; };
@@ -444,6 +448,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A8E05AE2E996D7F00A36852 /* AVFoundation.framework in Frameworks */,
+				0A8E05AC2E996B7800A36852 /* AudioToolbox.framework in Frameworks */,
 				0A2F2C4F2E84381200755D69 /* QuartzCore.framework in Frameworks */,
 				0A2F2C4D2E8437F500755D69 /* QuickLook.framework in Frameworks */,
 				0A2F2C452E8191F600755D69 /* CoreAudio.framework in Frameworks */,
@@ -516,14 +522,16 @@
 		0A2BFE9E2C2C44450009ADAD = {
 			isa = PBXGroup;
 			children = (
+				0A8E05AD2E996D7F00A36852 /* AVFoundation.framework */,
+				0A8E05AB2E996B7800A36852 /* AudioToolbox.framework */,
 				0AC416502D011B7F007FA453 /* FMSocketRocket */,
 				0A2BFEB02C2C44450009ADAD /* FoxMusic */,
 				0A2BFEE22C2C44460009ADAD /* FoxMusicTests */,
 				0A60379B2C2D804900482179 /* FoxMusicLegacy */,
 				0A6037B82C2D804A00482179 /* FoxMusicLegacyTests */,
-				0A6038062C2D83F800482179 /* FMTouch */,
-				0A6038192C2D83F800482179 /* FMLibTests */,
 				0A2F2C0A2E292E4000755D69 /* FoxMusicDesktop */,
+				0A6038062C2D83F800482179 /* FMLib */,
+				0A6038192C2D83F800482179 /* FMLibTests */,
 				0A2BFEA92C2C44450009ADAD /* Frameworks */,
 				0A2BFEA82C2C44450009ADAD /* Products */,
 			);
@@ -749,7 +757,7 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		0A6038062C2D83F800482179 /* FMTouch */ = {
+		0A6038062C2D83F800482179 /* FMLib */ = {
 			isa = PBXGroup;
 			children = (
 				0A6038092C2D83F800482179 /* FMTouch.h */,
@@ -767,7 +775,6 @@
 				0AC415D12CFF35AB007FA453 /* FMBase62Decoder.h */,
 				0AC415D22CFF35AB007FA453 /* FMBase62Decoder.m */,
 			);
-			name = FMTouch;
 			path = FMLib;
 			sourceTree = "<group>";
 		};
@@ -1113,11 +1120,11 @@
 				0A2BFEDA2C2C44460009ADAD /* FoxMusicTests */,
 				0A6037962C2D804900482179 /* FoxMusicLegacy */,
 				0A6037B12C2D804A00482179 /* FoxMusicLegacyTests */,
+				0A2F2C062E292E4000755D69 /* FoxMusicDesktop */,
 				0A6037CB2C2D81DC00482179 /* FMKit */,
 				0A6037E12C2D81DC00482179 /* FMKitTests */,
 				0A6038032C2D83F800482179 /* FMTouch */,
 				0A6038112C2D83F800482179 /* FMTouchTests */,
-				0A2F2C062E292E4000755D69 /* FoxMusicDesktop */,
 			);
 		};
 /* End PBXProject section */

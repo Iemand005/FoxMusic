@@ -9,6 +9,8 @@
 #import "FMDAppDelegate.h"
 #import <CoreAudio/CoreAudio.h>
 #import <CoreMedia/CoreMedia.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
 @implementation FMDAppDelegate
 @synthesize spotifyClient;
@@ -53,6 +55,20 @@
     }];
 }
 
+- (void)play:(id)sender
+{
+    FMTrack *track = [self.tracks objectAtIndex:0];
+    
+//    SystemSoundID soundId;
+//    AudioServicesCreateSystemSoundID((__bridge CFURLRef)track.URL, &soundId);
+//    
+//    AudioServicesPlaySystemSound(soundId);
+
+    NSError *error;
+    AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:track.URL error:&error];
+    [player prepareToPlay];
+    [player play];
+}
 
 
 @end

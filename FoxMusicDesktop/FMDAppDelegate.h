@@ -31,6 +31,7 @@
 
 - (IBAction)openAudioFile:(id)sender;
 
+- (IBAction)play:(id)sender;
 
 
 @end

@@ -24,74 +24,74 @@ typedef enum FMYouTubeClientName {
 
 @interface FMYouTubeClient : NSObject
 
-@property NSURL *baseAddress;
-@property NSURL *playerEndpoint;
-@property NSURL *browseEndpoint;
-@property NSURL *nextEndpoint;
-@property NSURL *likeEndpoint;
-@property NSURL *likeLikeEndpoint;
-@property NSURL *likeDislikeEndpoint;
-@property NSURL *likeRemoveLikeEndpoint;
-@property NSURL *searchEndpoint;
-@property NSURL *discoveryDocumentUrl;
-@property NSURL *deviceAuthorizationEndpoint;
-@property NSURL *tokenEndpoint;
-@property NSURL *userInfoEndpoint;
-@property NSURL *accountEndpoint;
-@property NSURL *accountAccountMenuEndpoint;
-@property NSURL *commentEndpoint;
-@property NSURL *commentCreateCommentEndpoint;
-@property NSURL *commentUpdateCommentEndpoint;
-@property NSURL *commentPerformCommentActionEndpoint;
+@property (assign) NSURL *baseAddress;
+@property (assign) NSURL *playerEndpoint;
+@property (assign) NSURL *browseEndpoint;
+@property (assign) NSURL *nextEndpoint;
+@property (assign) NSURL *likeEndpoint;
+@property (assign) NSURL *likeLikeEndpoint;
+@property (assign) NSURL *likeDislikeEndpoint;
+@property (assign) NSURL *likeRemoveLikeEndpoint;
+@property (assign) NSURL *searchEndpoint;
+@property (assign) NSURL *discoveryDocumentUrl;
+@property (assign) NSURL *deviceAuthorizationEndpoint;
+@property (assign) NSURL *tokenEndpoint;
+@property (assign) NSURL *userInfoEndpoint;
+@property (assign) NSURL *accountEndpoint;
+@property (assign) NSURL *accountAccountMenuEndpoint;
+@property (assign) NSURL *commentEndpoint;
+@property (assign) NSURL *commentCreateCommentEndpoint;
+@property (assign) NSURL *commentUpdateCommentEndpoint;
+@property (assign) NSURL *commentPerformCommentActionEndpoint;
 
-@property NSString *credentialFile;
-@property NSString *key;
+@property (assign) NSString *credentialFile;
+@property (assign) NSString *key;
 
-@property NSString *cookieString;
-@property NSArray *cookieArray;
+@property (assign) NSString *cookieString;
+@property (assign) NSArray *cookieArray;
 
-@property NSDictionary *context;
+@property (assign) NSDictionary *context;
 
-@property NSString *deviceCode;
+@property (assign) NSString *deviceCode;
 
-@property NSString *scope;
+@property (assign) NSString *scope;
 
-@property NSString *accessToken;
-@property NSString *refreshToken;
-@property NSNumber *tokenExpiresIn;
-@property NSDate *tokenCreatedOn;
-@property NSString *tokenType;
+@property (assign) NSString *accessToken;
+@property (assign) NSString *refreshToken;
+@property (assign) NSNumber *tokenExpiresIn;
+@property (assign) NSDate *tokenCreatedOn;
+@property (assign) NSString *tokenType;
 
-@property NSString *clientId;
-@property NSString *clientSecret;
+@property (assign) NSString *clientId;
+@property (assign) NSString *clientSecret;
 
-@property NSLocale *locale;
+@property (assign) NSLocale *locale;
 
 @property (nonatomic, readonly) NSString *hostLanguage;
 @property (nonatomic, readonly) NSString *gLanguage;
 
-@property NSString *pageTitle;
+@property (assign) NSString *pageTitle;
 
-@property NSString *name;
-@property NSString *version;
-@property NSString *browser;
-@property NSString *browserVersion;
-@property NSString *operatingSystem;
-@property NSString *operatingSystemVersion;
-@property NSString *platform;
-@property NSString *player;
+@property (assign) NSString *name;
+@property (assign) NSString *version;
+@property (assign) NSString *browser;
+@property (assign) NSString *browserVersion;
+@property (assign) NSString *operatingSystem;
+@property (assign) NSString *operatingSystemVersion;
+@property (assign) NSString *platform;
+@property (assign) NSString *player;
 
 @property BOOL logAuthCredentials;
-@property NSString *credentialLogPath;
-@property NSArray *credentialLog;
+@property (assign) NSString *credentialLogPath;
+@property (assign) NSArray *credentialLog;
 
 @property BOOL isLoggedIn;
 
 @property BOOL prettyPrint;
 
-@property FMYouTubeAPIParser *parser;
+@property (assign) FMYouTubeAPIParser *parser;
 
-@property FMYouTubeProfile *profile;
+@property (assign) FMYouTubeProfile *profile;
 
 - (id)initWithBaseAddressType:(FMYouTubeBaseAddressType)baseAddressType;
 
