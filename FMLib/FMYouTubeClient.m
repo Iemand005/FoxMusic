@@ -22,8 +22,8 @@
         
         NSURL *baseAddress;
         
-        self.name = @"MWEB"; // YTMusic uses WEB_REMIX
-        self.version = @"2.20220918";
+        self.name = @"MWEB"; // YTMusic uses WEB_REMIX, otherwise MWEB
+        self.version = @"1.20250915.03.00";
         self.browser = @"Firefox";
         self.browserVersion = @"10000";
         self.player = @"";
@@ -33,17 +33,16 @@
         self.platform = @"MacOS";
         
         switch (baseAddressType) {
-            case FMYouTubeBaseAddressDefault:
-                baseAddress = [NSURL URLWithString:@"https://www.youtube.com/youtubei/v1"];
-                break;
             case FMYouTubeBaseAddressMusic:
                 baseAddress = [NSURL URLWithString:@"https://music.youtube.com/youtubei/v1"];
                 self.name = @"WEB_REMIX";
-                self.version = @"1.20241127.01.00";
+                self.version = @"1.20250915.03.00";
                 break;
             case FMYouTubeBaseAddressAlternative:
                 baseAddress = [NSURL URLWithString:@"https://youtubei.googleapis.com/youtubei/v1"];
                 break;
+            default:
+                baseAddress = [NSURL URLWithString:@"https://www.youtube.com/youtubei/v1"];
         }
         
         [self setBaseAddress:baseAddress];
@@ -198,8 +197,14 @@
         NSURLResponse *response;
         NSData *responseBody = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:error];
         
-        NSString *htmlString = [[NSString alloc] initWithData:responseBody encoding:NSUTF8StringEncoding];
-        NSLog(@"%@", htmlString);
+        NSString *responseString = [[NSString alloc] initWithData:responseBody encoding:NSUTF8StringEncoding];
+        
+        NSLog(@"-- START RESPONSE --");
+        
+        NSLog(@"%@", responseString);
+        
+        NSLog(@"-- END RESPONSE --");
+        
         if (responseBody && (!error || !*error))
             result = [NSJSONSerialization JSONObjectWithData:responseBody options:NSJSONReadingAllowFragments error:error];
         if (!result) {
@@ -275,16 +280,11 @@
     NSDictionary *context = [self contextForClientName:FMYouTubeClientNameMobileWeb]; // this one gives MP3 stuff, the other one gives encrypted MP4 crap or something.
     NSDictionary *body = @{@"context": context, @"videoId": videoId, @"contentCheckOk": @"true", @"racyCheckOk": @"true"};
     
-<<<<<<< HEAD
     NSURL *baseAddress = [NSURL URLWithString:@"https://www.youtube.com/youtubei/v1"];
-    NSURL *endpoint = [baseAddress URLByAppendingPathComponent:@"next"];
+    NSURL *endpoint = [baseAddress URLByAppendingPathComponent:@"player"];
     
     NSError *error;
     NSDictionary *videoInfo = [self POSTRequest:endpoint withBody:body error:&error];
-=======
-    NSError *error;
-    NSDictionary *videoInfo = [self POSTRequest:self.nextEndpoint withBody:body error:&error];
->>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
     [self.parser addVideoData:videoInfo toVideo:video];
     NSDictionary *videoDetailsDict = [self POSTRequest:self.playerEndpoint withBody:body error:&error];
     if (error) {
@@ -297,7 +297,7 @@
 
 - (FMYouTubeVideo *)getVideo:(FMYouTubeVideo *)video clientName:(FMYouTubeClientName)clientName
 {
-    [self getVideoWithId:[video videoId] clientName:clientName];
+    return [self getVideoWithId:[video videoId] clientName:clientName];
 }
 
 - (FMYouTubeVideo *)getVideo:(FMYouTubeVideo *)video
@@ -475,7 +475,7 @@
 
 + (FMYouTubeClient *)youtubeClient
 {
-    return [[FMYouTubeClient alloc] init];
+    return [[FMYouTubeClient alloc] initWithBaseAddressType:FMYouTubeBaseAddressDefault];
 }
 
 + (FMYouTubeClient *)youtubeMusicClient

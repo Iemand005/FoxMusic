@@ -77,9 +77,9 @@
                     
                     // Setup audio session
                     AVAudioSession *session = [AVAudioSession sharedInstance];
-                    [session setCategory:AVAudioSessionCategoryPlayback 
-                              withOptions:AVAudioSessionCategoryOptionDuckOthers|AVAudioSessionCategoryOptionAllowBluetooth 
-                                    error:&error];
+                    [session setCategory:AVAudioSessionCategoryPlayback
+                             withOptions:AVAudioSessionCategoryOptionDuckOthers|AVAudioSessionCategoryOptionAllowBluetooth
+                                   error:&error];
                     if (error) {
                         NSLog(@"Audio session setup error: %@", error.localizedDescription);
                         [_appDelegate displayError:error];

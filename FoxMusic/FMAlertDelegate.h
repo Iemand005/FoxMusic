@@ -10,6 +10,6 @@
 
 @interface FMAlertDelegate : NSObject <UIAlertViewDelegate>
 
-@property (strong, atomic) void(^completionHandler)(int buttonIndex);
+@property (strong) void(^completionHandler)(int buttonIndex);
 
 @end

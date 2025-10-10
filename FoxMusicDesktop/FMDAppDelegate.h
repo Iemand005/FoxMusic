@@ -9,6 +9,9 @@
 #import <Cocoa/Cocoa.h>
 #import "FMTouch.h"
 
+#import "FMDTrackTableView.h"
+#import "FMDTrackTableViewController.h"
+
 @interface FMDAppDelegate : NSObject <NSApplicationDelegate>
 {
     FMSpotifyClient *_spotifyClient;
@@ -19,5 +22,15 @@
 @property (nonatomic, strong) FMSpotifyClient *spotifyClient;
 
 @property (assign) IBOutlet NSTextFieldCell *codeLabel;
+
+@property (assign) IBOutlet NSTableView *tableView;
+
+@property (assign) IBOutlet NSMutableArray *tracks;
+
+@property (assign) IBOutlet FMDTrackTableView *trackTable;
+
+- (IBAction)openAudioFile:(id)sender;
+
+
 
 @end

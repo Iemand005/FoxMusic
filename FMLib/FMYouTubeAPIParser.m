@@ -318,11 +318,20 @@
             
             NSDictionary *streamingData = [videoData objectForKey:@"streamingData"];
             
+            NSArray *adaptiveFormats = [streamingData objectForKey:@"adaptiveFormats"];
             NSArray *formats = [streamingData objectForKey:@"formats"];
+            
+            NSMutableArray *parsedFormats = [NSMutableArray arrayWithCapacity:formats.count + adaptiveFormats.count];
+            
+            for (NSDictionary *adaptiveFormat in adaptiveFormats) {
+                [parsedFormats addObject:[FMYouTubeVideoFormat formatWithDictionary:adaptiveFormat]];
+            }
+            
+            
             //NSArray *adaptiveFormats = [streamingData objectForKey:@"adaptiveFormats"];
             
             // https://gist.github.com/sidneys/7095afe4da4ae58694d128b1034e01e2
-            NSMutableArray *parsedFormats = [NSMutableArray arrayWithCapacity:formats.count];
+            
             for (NSDictionary *format in formats)
                 [parsedFormats addObject:[FMYouTubeVideoFormat formatWithDictionary:format]];
             //        for (NSDictionary *format in adaptiveFormats) [parsedFormats addObject:[LYVideoFormat formatWithDictionary:format]];

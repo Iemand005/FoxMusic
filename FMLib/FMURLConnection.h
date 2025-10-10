@@ -15,10 +15,7 @@
 
 @property FMURLConnectionDelegate *urlConnectionDelegate;
 
-<<<<<<< HEAD
 - (void)getDataFromURL:(NSURL *)url withCallback:(void (^)(NSData *))callback;
-=======
->>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
 - (void)getDataFromURL:(NSURL *)url withCallback:(void (^)(NSData *))callback andHeaders:(NSDictionary *)headers;
 - (void)getDataFromURL:(NSURL *)url withCallback:(void (^)(NSData *))callback andQuery:(NSDictionary *)query;
 - (void)getDataFromURL:(NSURL *)url withCallback:(void (^)(NSData *))callback andQuery:(NSDictionary *)query andHeaders:(NSDictionary *)headers;

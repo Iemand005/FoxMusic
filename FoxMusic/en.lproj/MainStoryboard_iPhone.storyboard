@@ -58,17 +58,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1k9-Dj-ZZ1">
-                            <size key="itemSize" width="171" height="180"/>
+                            <size key="itemSize" width="171" height="186"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="musicThumbnailItem" id="Znk-bC-Zd3" customClass="FMYouTubeMusicCollectionViewCell">
-                                <rect key="frame" x="74" y="0.0" width="171" height="180"/>
+                                <rect key="frame" x="74" y="0.0" width="171" height="186"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="171" height="180"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="171" height="186"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDr-dQ-mT7">
@@ -105,7 +105,7 @@
                                     <constraint firstItem="k6n-5x-2xf" firstAttribute="leading" secondItem="Znk-bC-Zd3" secondAttribute="leading" constant="20" type="default" id="yLr-Fg-qDa"/>
                                     <constraint firstItem="PDr-dQ-mT7" firstAttribute="leading" secondItem="Znk-bC-Zd3" secondAttribute="leading" type="default" id="yl4-Jv-qyv"/>
                                 </constraints>
-                                <size key="customSize" width="171" height="180"/>
+                                <size key="customSize" width="171" height="186"/>
                                 <connections>
                                     <outlet property="thumbnail" destination="PDr-dQ-mT7" id="dhX-hH-FF3"/>
                                     <outlet property="title" destination="k6n-5x-2xf" id="piq-1E-M9r"/>
@@ -125,11 +125,9 @@
             </objects>
             <point key="canvasLocation" x="2837" y="-1024"/>
         </scene>
-<<<<<<< HEAD
         <!--View Controller-->
         <scene sceneID="76b-Na-F1U">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="epS-iX-3xD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="xR7-aM-sL6" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L42-v1-5qZ">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
@@ -148,11 +146,10 @@
                         </constraints>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="epS-iX-3xD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3191" y="-585"/>
         </scene>
-=======
->>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
         <!--First View Controller - First-->
         <scene sceneID="11">
             <objects>
@@ -681,23 +678,6 @@
             </objects>
             <point key="canvasLocation" x="3435" y="791"/>
         </scene>
-<<<<<<< HEAD
-=======
-        <!--View Controller-->
-        <scene sceneID="UW2-3b-4YZ">
-            <objects>
-                <viewController id="XAs-nb-3JC" sceneMemberID="viewController">
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="4D4-Sz-Z5D">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mwJ-NN-YUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
->>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
         <!--Audio Player View Controller - Track-->
         <scene sceneID="g9r-XH-tqy">
             <objects>
@@ -746,45 +726,53 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bX1-Kw-8Ma" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="3515" y="-1013"/>
-=======
-            <point key="canvasLocation" x="3495" y="-829"/>
->>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
         </scene>
     </scenes>
     <resources>
         <image name="spotify.png" width="30" height="30"/>
     </resources>
-<<<<<<< HEAD
-=======
     <classes>
         <class className="FMAudioPlayerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMAudioPlayerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="pause:"/>
+                <relationship kind="action" name="play:"/>
+                <relationship kind="action" name="rewind:"/>
+                <relationship kind="outlet" name="albumCoverImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="playButtonItem" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+            </relationships>
         </class>
         <class className="FMFirstViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMFirstViewController.h"/>
         </class>
-        <class className="FMSearchViewController" superclassName="UIViewController">
+        <class className="FMNavigationController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMNavigationController.h"/>
+        </class>
+        <class className="FMPageViewController" superclassName="UIPageViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMPageViewController.h"/>
+        </class>
+        <class className="FMSearchViewController" superclassName="FMViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSearchViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
                 <relationship kind="outlet" name="searchResultTableView" candidateClass="UITableView"/>
             </relationships>
         </class>
-        <class className="FMSecondViewController" superclassName="UIViewController">
+        <class className="FMSecondViewController" superclassName="FMViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSecondViewController.h"/>
             <relationships>
                 <relationship kind="action" name="promptLogin:"/>
             </relationships>
         </class>
-        <class className="FMSpotifyLoginPageViewController" superclassName="UIPageViewController">
+        <class className="FMSpotifyLoginPageViewController" superclassName="FMPageViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyLoginPageViewController.h"/>
             <relationships>
                 <relationship kind="action" name="logIn:"/>
             </relationships>
         </class>
-        <class className="FMSpotifyLoginViewController" superclassName="UIViewController">
+        <class className="FMSpotifyLoginViewController" superclassName="FMViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyLoginViewController.h"/>
             <relationships>
                 <relationship kind="action" name="refreshCode:"/>
@@ -794,16 +782,16 @@
                 <relationship kind="outlet" name="userCodeField" candidateClass="UITextField"/>
             </relationships>
         </class>
-        <class className="FMSpotifyNavigationController" superclassName="UINavigationController">
+        <class className="FMSpotifyNavigationController" superclassName="FMNavigationController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyNavigationController.h"/>
         </class>
-        <class className="FMSpotifyPlaylistTableViewController" superclassName="UITableViewController">
+        <class className="FMSpotifyPlaylistTableViewController" superclassName="FMTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyPlaylistTableViewController.h"/>
         </class>
-        <class className="FMSpotifyTrackTableViewController" superclassName="UITableViewController">
+        <class className="FMSpotifyTrackTableViewController" superclassName="FMTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyTrackTableViewController.h"/>
         </class>
-        <class className="FMSpotifyTrackViewController" superclassName="UIViewController">
+        <class className="FMSpotifyTrackViewController" superclassName="FMViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMSpotifyTrackViewController.h"/>
             <relationships>
                 <relationship kind="action" name="pause:"/>
@@ -812,6 +800,16 @@
                 <relationship kind="outlet" name="albumCoverImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="playButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="FMTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMTableViewController.h"/>
+        </class>
+        <class className="FMViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="test:"/>
+                <relationship kind="outlet" name="testText" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="FMYouTubeMusicCollectionViewCell" superclassName="UICollectionViewCell">
@@ -839,11 +837,7 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
     </classes>
->>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -23,7 +23,6 @@
     NSString *viewControllerIdentifier;
     BOOL forwards = YES;
     
-<<<<<<< HEAD
     @try {
     
         [[[self.appDelegate spotifyClient] token] load];
@@ -51,28 +50,10 @@
         
         [self setViewControllers:@[viewController] direction:direction animated:YES completion:nil];
             
-=======
-    [[[appDelegate spotifyClient] token] load];
-    NSError *error;
-    if (!appDelegate.spotifyClient.isLoggedIn) NSLog(@"SHIT TOEKN EXPIRED");
-    [[appDelegate spotifyClient] refreshTokenWithError:&error];
-	
-    if (error) {
-        [appDelegate displayError:error];
->>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
     }
     @catch (NSException *exception) {
         [self.appDelegate displayException:exception];
     }
-<<<<<<< HEAD
-=======
-    
-    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:viewControllerIdentifier];
-    
-    UIPageViewControllerNavigationDirection direction = forwards ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse;
-    
-    [self setViewControllers:@[viewController] direction:direction animated:YES completion:nil];
->>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
 }
 
 - (void)logIn:(id)sender

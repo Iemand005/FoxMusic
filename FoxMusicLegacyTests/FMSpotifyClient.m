@@ -99,40 +99,6 @@
     return result;
 }
 
-//- (NSData *)repairJSON:(NSData *)jsonData
-//{
-//    NSMutableString *jsonString = [[NSMutableString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-//    
-//    for (NSUInteger i = jsonString.length - 1; i > 0; --i) {
-//        @autoreleasepool {
-//            NSString *substring = [jsonString substringToIndex:i];
-//            NSData *testData = [substring dataUsingEncoding:NSUTF8StringEncoding];
-//            
-//            NSError *testError;
-//            [NSJSONSerialization JSONObjectWithData:testData options:0 error:&testError];
-//            
-//            if (!testError) {
-//                if (i == jsonString.length - 1) break;
-//                
-//                NSLog(@"JSON threw an error at position %i", i);
-//                NSLog(@"Problematic data: %@", [jsonString substringFromIndex:i]);
-//                NSString *invalidCharacter = [jsonString substringWithRange:NSMakeRange(i, 1)];
-//                
-//                [jsonString replaceOccurrencesOfString:invalidCharacter withString:@" " options:0 range:NSMakeRange(i, jsonString.length)];
-//                
-//                i = jsonString.length - 1;
-//            }
-//        }
-//    }
-//    
-//    return [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-//}
-
-//- (NSString *)stringByWhitelistingCharacters:(NSString *)string withAllowedCharacters:(NSString *)allowedCharacters
-//{
-//    NSCharacterSet *allowedCharacterSet = NSCharacterSet
-//}
-
 - (id)parseResponseData:(NSData *)data error:(NSError **)error
 {
     id response;
@@ -191,7 +157,6 @@
     } andHeaders:@{@"Authorization": [[self token] bearer], @"Accept": @"application/json"}];
 }
 
-<<<<<<< HEAD
 //- (void)getDataFromURL:(NSURL *)url withCallback:(void(^)(NSData *data))callback
 //{
 //    [[[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:url] delegate:[FMURLConnectionDelegate urlConnectionControllerWithCallback:callback]] start];
@@ -203,24 +168,10 @@
 //    for (NSString *headerField in headers) [request addValue:[headers objectForKey:headerField] forHTTPHeaderField:headerField];
 //    [[[NSURLConnection alloc] initWithRequest:request delegate:[FMURLConnectionDelegate urlConnectionControllerWithCallback:callback]] start];
 //}
-=======
-- (void)getDataFromURL:(NSURL *)url withCallback:(void(^)(NSData *data))callback
-{
-    [[[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:url] delegate:[FMURLConnectionDelegate urlConnectionControllerWithCallback:^(NSData *data){
-        callback(data);
-    }]] start];
-}
->>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
 
 - (NSURL *)makeEndpointURL:(NSString *)endpoint
 {
-<<<<<<< HEAD
     return [self.apiBaseAddress URLByAppendingPathComponent:endpoint];
-=======
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    for (NSString *headerField in headers) [request addValue:[headers objectForKey:headerField] forHTTPHeaderField:headerField];
-    [[[NSURLConnection alloc] initWithRequest:request delegate:[FMURLConnectionDelegate urlConnectionControllerWithCallback:callback]] start];
->>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
 }
 
 - (void)getUserPlaylistsAndWhenSuccess:(void (^)(FMSpotifyPlaylistArray *))callbackSuccess whenError:(void (^)(NSError *))callbackError
@@ -388,6 +339,8 @@
 - (NSData *)downloadTrack:(FMSpotifyTrack *)track
 {
     
+    
+    
 //    NSString *url = @"https://api.spotifydown.com/metadata/track/";
 //    NSString *url = @"https://api.spotifydown.com/download/";
 //    NSString *fullUrl = [url stringByAppendingString:track.identifier];
@@ -428,7 +381,7 @@
     [self request:fullMetaURL callback:^(NSDictionary *response, NSError *error){
         NSLog(@"I GOT RESPONZABLE: %@", response);
         NSArray *fileFormats = [response objectForKey:@"file"];
-        NSDictionary *fileFormat = fileFormats[0];
+        NSDictionary *fileFormat = [fileFormats objectAtIndex:0];
         
         NSString *fileId = [fileFormat objectForKey:@"file_id"];
         NSString *format = [fileFormat objectForKey:@"format"];
@@ -473,6 +426,8 @@
 
 - (void)downloadTrack:(FMSpotifyTrack *)track callback:(void(^)(NSData *))callback
 {
+    
+    
     [self downloadTrack:track callback:callback preview:true];
 }
 

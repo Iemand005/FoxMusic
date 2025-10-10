@@ -7,6 +7,8 @@
 //
 
 #import "FMDAppDelegate.h"
+#import <CoreAudio/CoreAudio.h>
+#import <CoreMedia/CoreMedia.h>
 
 @implementation FMDAppDelegate
 @synthesize spotifyClient;
@@ -19,14 +21,38 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     
-    [self setSpotifyClient:[FMSpotifyClient spotifyClient]];
-    
-    NSError *error;
-    FMSpotifyDeviceAuthorizationInfo *authInfo = [spotifyClient refreshDeviceAuthorizationInfoWithError:error];
-    NSString *code = [authInfo userCode];
-    
-    [[self codeLabel] setValue:code];
+//    [self setSpotifyClient:[FMSpotifyClient spotifyClient]];
+//    
+//    NSError *error;
+//    FMSpotifyDeviceAuthorizationInfo *authInfo = [spotifyClient refreshDeviceAuthorizationInfoWithError:error];
+//    NSString *code = [authInfo userCode];
+//    
+//    [[self codeLabel] setValue:code];
     
 }
+
+- (void)openAudioFile:(id)sender
+{
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    
+    [panel setCanChooseDirectories:NO];
+    [panel setAllowsMultipleSelection:YES];
+    [panel setAllowedFileTypes:@[@"mp3"]];
+//    NSArray* imageTypes = [CM imageTypes];
+//    [panel setAllowedFileTypes:imageTypes];
+//    [panel setDirectoryURL:NSMusicDirectory];
+    
+//    NSInteger selected = [panel runModal];
+    [panel beginSheetModalForWindow:[self window] completionHandler:^(NSInteger result) {
+        if (result == NSFileHandlingPanelOKButton) {
+            
+            FMTrack *track = [FMTrack trackWithURL:[panel URL]];
+            [[self tracks] addObject:track];
+            [[self trackTable] reloadData];
+        }
+    }];
+}
+
+
 
 @end

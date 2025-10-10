@@ -20,6 +20,10 @@
     
     NSDictionary *response = [[[self appDelegate] youtubeClient] getBrowseEndpoint];
     
+    if (!response) {
+        @throw @"No response on browse endpoint.";
+    }
+    
     NSArray *musicVideos = [[[[self appDelegate] youtubeClient] parser] parseBrowseEndpoint:response];
     
     [self setVideos:[NSMutableArray arrayWithArray:musicVideos]];
@@ -36,9 +40,14 @@
     
     FMYouTubeVideoFormat *format = [[video formats] objectAtIndex:0];
     
+    if (![format isEncrypted]) {
+    
     NSData *videoData = [video getVideoDataWithFormat:format];
     
     [[self appDelegate] loadAudioFromData:videoData];
+    } else {
+        [[self appDelegate] displayError:[NSError errorWithDomain:@"Cannot load video" code:100 userInfo:@{@"Reason": @"This video is encrypted."}]];
+    }
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -52,8 +61,8 @@
     FMYouTubeMusicCollectionViewCell *cell = (FMYouTubeMusicCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"musicThumbnailItem" forIndexPath:indexPath];
     
     FMYouTubeVideo *video = [self videoForIndexPath:indexPath];
-    [[cell title] setText:[video title]];
-    [[cell thumbnail] setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[video thumbnailURL]]]];
+    
+    [cell displayVideo:video];
     
     return cell;
 }

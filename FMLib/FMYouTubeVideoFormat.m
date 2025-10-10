@@ -14,7 +14,12 @@
 {
     self = [super init];
     if (self) {
-        self.URL = [NSURL URLWithString:[dict objectForKey:@"url"]];
+        NSString *signatureCipher = [NSURL URLWithString:[dict objectForKey:@"signatureCipher"]];
+        
+        self.isEncrypted = signatureCipher ? true : false;
+        self.signatureCipher = signatureCipher;
+        
+        self.url = [NSURL URLWithString:[dict objectForKey:@"url"]];
         self.fps = [dict objectForKey:@"fps"];
         self.width = [dict objectForKey:@"width"];
         self.height = [dict objectForKey:@"height"];

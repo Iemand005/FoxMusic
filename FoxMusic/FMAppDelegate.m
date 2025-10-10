@@ -7,10 +7,6 @@
 //
 
 #import "FMAppDelegate.h"
-#import "FMSpotifyClient.h"
-#import "FMYouTubeClient.h"
-#import "FMLucidaClient.h"
-#import "FMBase62Decoder.h"
 
 
 
@@ -28,17 +24,6 @@
     // Override point for customization after application launch.
     [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"*.spotify.com"];
     [NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:@"accounts.spotify.com"];
-    
-//    [self lucidaClient];
-    
-    // Test YouTube integration
-    FMBase62Decoder *decoder = [FMBase62Decoder decoderWithString:@"GitHub"];
-    NSString *shouldbeHex = [[FMBase62Decoder decoderWithString:@"0nMn7LRJk9nYT0rNb5ZwAD"] toHex];
-    
-    NSLog(@"Base62 decoded: %@", shouldbeHex);
-    
-    NSDictionary *response = [[self youtubeClient] getBrowseEndpoint];
-    NSArray *musicVideos = [[[self youtubeClient] parser] parseBrowseEndpoint:response];
     
     return YES;
 }
@@ -61,12 +46,13 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
     @try {
-        // Ensure audio continues playing in background
-        if (self.audioPlayer && [self.audioPlayer isPlaying]) {
+        // Ensure audio continues playing in the background
+        if ([self audioPlayer] && [[self audioPlayer] isPlaying]) {
             // Audio will continue playing due to background modes in Info.plist
             NSLog(@"Audio continuing in background");
         }
-    } @catch (NSException *exception) {
+    }
+    @catch (NSException *exception) {
         NSLog(@"Exception entering background: %@", exception.reason);
     }
 }
@@ -92,11 +78,10 @@
             self.audioPlayer = nil;
         }
         
-        // Deactivate audio session
         AVAudioSession *session = [AVAudioSession sharedInstance];
         [session setActive:NO error:nil];
-        
-    } @catch (NSException *exception) {
+    }
+    @catch (NSException *exception) {
         NSLog(@"Exception during app termination: %@", exception.reason);
     }
 }
@@ -112,29 +97,28 @@
         
         switch (event.subtype) {
             case UIEventSubtypeRemoteControlPlay:
-                [audioPlayer play];
+                [[self audioPlayer] play];
                 break;
                 
             case UIEventSubtypeRemoteControlPause:
-                [audioPlayer pause];
+                [[self audioPlayer] pause];
                 break;
                 
             case UIEventSubtypeRemoteControlStop:
-                [audioPlayer stop];
+                [[self audioPlayer] stop];
                 break;
                 
             case UIEventSubtypeRemoteControlTogglePlayPause:
-                if ([audioPlayer isPlaying]) {
+                if (audioPlayer.isPlaying)
                     [audioPlayer pause];
-                } else {
-                    [audioPlayer play];
-                }
+                else [audioPlayer play];
                 break;
                 
             default:
                 break;
         }
-    } @catch (NSException *exception) {
+    }
+    @catch (NSException *exception) {
         NSLog(@"Exception in remote control: %@", exception.reason);
         [self displayException:exception];
     }
@@ -174,27 +158,31 @@
 
 - (void)loadAudioFromData:(NSData *)audioData
 {
-    @try {
-        if (!audioData || audioData.length == 0) {
-            NSLog(@"No audio data provided");
-            return;
+    if (error) {
+        [self displayError:error];
+        
+        @try {
+            if (!audioData || audioData.length == 0) {
+                NSLog(@"No audio data provided");
+                return;
+            }
+            
+            NSError *error;
+            AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithData:audioData error:&error];
+            
+            if (error) {
+                NSLog(@"Error creating audio player: %@", error.localizedDescription);
+                [self displayError:error];
+                return;
+            }
+            
+            [self setAudioPlayer:audioPlayer];
+            [audioPlayer prepareToPlay]
         }
-        
-        NSError *error;
-        AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithData:audioData error:&error];
-        
-        if (error) {
-            NSLog(@"Error creating audio player: %@", error.localizedDescription);
-            [self displayError:error];
-            return;
+        @catch (NSException *exception) {
+            NSLog(@"Exception loading audio: %@", error.reason);
+            [self displayException:exception];
         }
-        
-        [self setAudioPlayer:audioPlayer];
-        [audioPlayer prepareToPlay];
-        
-    } @catch (NSException *exception) {
-        NSLog(@"Exception loading audio: %@", exception.reason);
-        [self displayException:exception];
     }
 }
 
@@ -209,12 +197,11 @@
         
         [audioPlayer prepareToPlay];
         BOOL success = [audioPlayer play];
-        if (!success) {
+        if (!success)
             NSLog(@"Failed to start audio playback");
-        }
-        
-    } @catch (NSException *exception) {
-        NSLog(@"Exception in play method: %@", exception.reason);
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Exception playing audio: %@", error.reason);
         [self displayException:exception];
     }
 }

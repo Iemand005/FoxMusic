@@ -18,24 +18,24 @@
 
 @interface FMYouTubeVideo : NSObject
 
-@property NSString *videoId;
-@property NSArray *formats;
-@property NSArray *adaptiveFormats;
-@property NSString *title;
-@property NSString *description;
-@property NSNumber *viewCount;
-@property NSString *subtitle;
+@property (retain) NSString *videoId;
+@property (retain) NSArray *formats;
+@property (retain) NSArray *adaptiveFormats;
+@property (retain) NSString *title;
+@property (retain) NSString *description;
+@property (retain) NSNumber *viewCount;
+@property (retain) NSString *subtitle;
 //@property QTMovie *movie;
-@property FMYouTubeClient *client;
-@property FMYouTubeChannel *channel;
-@property FMYouTubePlaybackTracker *tracker;
+@property (retain) FMYouTubeClient *client;
+@property (retain) FMYouTubeChannel *channel;
+@property (retain) FMYouTubePlaybackTracker *tracker;
 @property BOOL isWatched;
 //@property NSImage *thumbnail;
-@property NSURL *thumbnailURL;
-@property NSString *shortStats;
-@property NSString *lengthText;
+@property (retain) NSURL *thumbnailURL;
+@property (retain) NSString *shortStats;
+@property (retain) NSString *lengthText;
 
-@property NSURL *url;
+@property (retain) NSURL *url;
 
 @property BOOL isYouTubeVideo;
 

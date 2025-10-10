@@ -19,14 +19,10 @@
     return self;
 }
 
-<<<<<<< HEAD
 - (void)getDataFromURL:(NSURL *)url withCallback:(void (^)(NSData *))callback
 {
     [self getDataFromURL:url withCallback:callback andQuery:nil andHeaders:nil];
 }
-
-=======
->>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
 
 - (void)getDataFromURL:(NSURL *)url withCallback:(void (^)(NSData *))callback andHeaders:(NSDictionary *)headers
 {

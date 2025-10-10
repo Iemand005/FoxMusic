@@ -48,11 +48,7 @@
 	
 	NSError *error;
     
-<<<<<<< HEAD
     FMSpotifyDeviceAuthorizationInfo *deviceAuthorizationInfo = [self.appDelegate.spotifyClient refreshDeviceAuthorizationInfoWithError:&error];
-=======
-    FMSpotifyDeviceAuthorizationInfo *deviceAuthorizationInfo = [appDelegate.spotifyClient refreshDeviceAuthorizationInfoWithError:&error];
->>>>>>> 0528d88226e3bdf583d85e97437e45f885aa773a
     NSLog(@"Erorrs");
     if (error) {
 //		[appDelegate displayError:error withCompletionHandler:^(){

@@ -10,4 +10,13 @@
 
 @implementation FMYouTubeMusicCollectionViewCell
 
+- (void)displayVideo:(FMYouTubeVideo *)video
+{
+    [[self title] setText:[video title]];
+    [[self thumbnail] setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[video thumbnailURL]]]];
+    
+    FMYouTubeVideoFormat *format = [[video formats] objectAtIndex:0];
+    if ([format isEncrypted]) [[self title] setTextColor:[UIColor redColor]];
+}
+
 @end

@@ -11,7 +11,7 @@
 @interface FMYouTubeVideoFormat : NSObject
 
 @property NSNumber *itag;
-@property NSURL *URL;
+@property NSURL *url;
 @property NSString *mimeType;
 @property int bitrate;
 @property NSNumber *width;
@@ -27,6 +27,8 @@
 @property int approxDurationMs;
 @property int audioSampleRate;
 @property int audioChannels;
+@property Boolean isEncrypted;
+@property NSString *signatureCipher;
 
 - (id)initWithDictionary:(NSDictionary *)dict;
 

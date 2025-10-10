@@ -68,7 +68,7 @@
 
 - (NSData *)getVideoDataWithFormat:(FMYouTubeVideoFormat *)format
 {
-    NSURL *formatURL = [format URL];
+    NSURL *formatURL = [format url];
     return [NSData dataWithContentsOfURL:formatURL];
 }
 

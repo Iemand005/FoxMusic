@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "FMYouTubeVideo.h"
+
 @interface FMYouTubeMusicCollectionViewCell : UICollectionViewCell
 
 @property IBOutlet UILabel *title;
 
 @property IBOutlet UIImageView *thumbnail;
+
+- (void)displayVideo:(FMYouTubeVideo *)video;
 
 @end
