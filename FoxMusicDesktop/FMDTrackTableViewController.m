@@ -39,7 +39,7 @@
 - (id<QLPreviewItem>)previewPanel:(QLPreviewPanel *)panel previewItemAtIndex:(NSInteger)index
 {
     if (self.tracks.count) {
-        FMDTrackTableItem *track = [self.tracks objectAtIndex:0];
+        FMDTrackTableItem *track = [self.tracks objectAtIndex:index];
         return track;
     }
     return nil;
@@ -47,7 +47,7 @@
 
 - (NSInteger)numberOfPreviewItemsInPreviewPanel:(QLPreviewPanel *)panel
 {
-    return 1;
+    return self.tracks.count;
 }
 
 - (void)quickLook:(id)sender

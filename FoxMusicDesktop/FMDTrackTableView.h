@@ -12,7 +12,7 @@
 #import "FMDTrackTableItem.h"
 
 @class FMDTrackTableViewController;
-@class FMTrackTableViewDelegate;
+@class FMDTrackTableViewDelegate;
 
 @interface FMDTrackTableView : NSTableView
 

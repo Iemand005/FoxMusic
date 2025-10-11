@@ -6,9 +6,9 @@
 //  Copyright (c) 2025 Lasse Lauwerys. All rights reserved.
 //
 
-#import "FMTrackTableViewDelegate.h"
+#import "FMDTrackTableViewDelegate.h"
 
-@implementation FMTrackTableViewDelegate
+@implementation FMDTrackTableViewDelegate
 
 
 @end

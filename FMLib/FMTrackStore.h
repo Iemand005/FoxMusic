@@ -1,5 +1,5 @@
 //
-//  FMTrackTableViewDelegate.h
+//  FMTrackStore.h
 //  FoxMusic
 //
 //  Created by Lasse Lauwerys on 11/10/25.
@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Quartz/Quartz.h>
 
-@interface FMTrackTableViewDelegate : NSObject <NSTableViewDelegate, QLPreviewPanelDelegate>
+@interface FMTrackStore : NSObject
 
-
+@property (retain) NSArray *tracks;
 
 @end

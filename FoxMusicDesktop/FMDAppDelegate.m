@@ -48,9 +48,15 @@
     [panel beginSheetModalForWindow:[self window] completionHandler:^(NSInteger result) {
         if (result == NSFileHandlingPanelOKButton) {
             
-            FMDTrackTableItem *track = [FMDTrackTableItem trackWithURL:[panel URL]];
-            [[self tracks] addObject:track];
-            [[self trackTable] reloadData];
+            NSArray *urls = [panel URLs];
+            
+            for (NSURL *url in urls) {
+                FMDTrackTableItem *track = [FMDTrackTableItem trackWithURL:url];
+                [[self tracks] addObject:track];
+                [[self trackTable] reloadData];
+            }
+            
+            
         }
     }];
 }

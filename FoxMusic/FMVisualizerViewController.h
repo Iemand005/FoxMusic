@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
 
-@interface FMGLKVizualizerView : GLKViewController
+@interface FMVisualizerViewController : GLKViewController
+
+@property EAGLContext *context;
 
 @property IBOutlet GLKView *glView;
 
