@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
 
+#import "FMGLVizualizerView.h"
+
 @interface FMVisualizerViewController : GLKViewController
+{
+    GLuint _positionSlot;
+}
 
 @property EAGLContext *context;
 

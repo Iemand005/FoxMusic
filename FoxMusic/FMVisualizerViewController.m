@@ -45,6 +45,7 @@
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
+    glClearColor(1.0f, 0.0f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     
     GLfloat vertices [] = {
@@ -58,8 +59,24 @@
     glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
     glDisableVertexAttribArray(0);
     
-    glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
+//    glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
+//    glClear(GL_COLOR_BUFFER_BIT);
+//    
+//    glViewport(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+//    
+//    GLfloat vertices[] = {
+//        0.0f,  0.5f, 0.0f,
+//        -0.5f, -0.5f, 0.0f,
+//        0.5f,  -0.5f, 0.0f };
+//    
+//    // Load the vertex data
+//    //
+//    glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, 0, vertices );
+//    glEnableVertexAttribArray(_positionSlot);
+//    
+//    // Draw triangle
+//    //
+//    glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 
 - (void)drawRect:(CGRect)rect
