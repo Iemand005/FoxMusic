@@ -65,7 +65,6 @@
 		0A2F2C372E29424F00755D69 /* FMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2F2C362E29424F00755D69 /* FMTableViewController.m */; };
 		0A2F2C3A2E29445F00755D69 /* FMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2F2C392E29445E00755D69 /* FMNavigationController.m */; };
 		0A2F2C3D2E2944EC00755D69 /* FMPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2F2C3C2E2944EC00755D69 /* FMPageViewController.m */; };
-		0A2F2C412E7D1F9900755D69 /* FMSpotMateClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2F2C402E7D1F9900755D69 /* FMSpotMateClient.m */; };
 		0A2F2C432E8191D000755D69 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2F2C422E8191CE00755D69 /* CoreMedia.framework */; };
 		0A2F2C452E8191F600755D69 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2F2C442E8191F500755D69 /* CoreAudio.framework */; };
 		0A2F2C482E81947D00755D69 /* FMDTrackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2F2C472E81947D00755D69 /* FMDTrackTableViewController.m */; };
@@ -123,9 +122,11 @@
 		0A8E05B22E996F9500A36852 /* FMWaveForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8E05B12E996F9500A36852 /* FMWaveForm.m */; };
 		0A8E05B62E99751A00A36852 /* FMDOpenGLVisualizerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8E05B52E99751A00A36852 /* FMDOpenGLVisualizerView.m */; };
 		0A8E05B82E99768C00A36852 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8E05B72E99768C00A36852 /* OpenGL.framework */; };
-		0A8E05BB2E9AAB6000A36852 /* FMGLVizualizerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8E05BA2E9AAB6000A36852 /* FMGLVizualizerView.m */; };
+		0A8E05BB2E9AAB6000A36852 /* FMGLKVizualizerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8E05BA2E9AAB6000A36852 /* FMGLKVizualizerView.m */; };
 		0A8E05BD2E9AAB9400A36852 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8E05BC2E9AAB9400A36852 /* GLKit.framework */; };
 		0A8E05BF2E9AAB9B00A36852 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8E05BE2E9AAB9B00A36852 /* OpenGLES.framework */; };
+		0A8E05C22E9AB37900A36852 /* FMTrackTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8E05C12E9AB37900A36852 /* FMTrackTableViewDelegate.m */; };
+		0A8E05C42E9AB6AB00A36852 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8E05C32E9AB6AB00A36852 /* Quartz.framework */; };
 		0A9798A22CF49AEE00C38E1B /* FMAlertDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9798A12CF49AEE00C38E1B /* FMAlertDelegate.m */; };
 		0A9798C42CF859E700C38E1B /* FMLucidaClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9798C32CF859E700C38E1B /* FMLucidaClient.m */; };
 		0A9798C72CF85FB900C38E1B /* FMURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9798C62CF85FB900C38E1B /* FMURLConnection.m */; };
@@ -361,10 +362,13 @@
 		0A8E05B42E99751A00A36852 /* FMDOpenGLVisualizerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDOpenGLVisualizerView.h; sourceTree = "<group>"; };
 		0A8E05B52E99751A00A36852 /* FMDOpenGLVisualizerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDOpenGLVisualizerView.m; sourceTree = "<group>"; };
 		0A8E05B72E99768C00A36852 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
-		0A8E05B92E9AAB6000A36852 /* FMGLVizualizerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMGLVizualizerView.h; sourceTree = "<group>"; };
-		0A8E05BA2E9AAB6000A36852 /* FMGLVizualizerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMGLVizualizerView.m; sourceTree = "<group>"; };
+		0A8E05B92E9AAB6000A36852 /* FMGLKVizualizerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMGLKVizualizerView.h; sourceTree = "<group>"; };
+		0A8E05BA2E9AAB6000A36852 /* FMGLKVizualizerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMGLKVizualizerView.m; sourceTree = "<group>"; };
 		0A8E05BC2E9AAB9400A36852 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		0A8E05BE2E9AAB9B00A36852 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		0A8E05C02E9AB37900A36852 /* FMTrackTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMTrackTableViewDelegate.h; sourceTree = "<group>"; };
+		0A8E05C12E9AB37900A36852 /* FMTrackTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMTrackTableViewDelegate.m; sourceTree = "<group>"; };
+		0A8E05C32E9AB6AB00A36852 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Quartz.framework; sourceTree = DEVELOPER_DIR; };
 		0A9798A02CF49AEE00C38E1B /* FMAlertDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMAlertDelegate.h; sourceTree = "<group>"; };
 		0A9798A12CF49AEE00C38E1B /* FMAlertDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMAlertDelegate.m; sourceTree = "<group>"; };
 		0A9798C22CF859E600C38E1B /* FMLucidaClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMLucidaClient.h; sourceTree = "<group>"; };
@@ -465,6 +469,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A8E05C42E9AB6AB00A36852 /* Quartz.framework in Frameworks */,
 				0A8E05B82E99768C00A36852 /* OpenGL.framework in Frameworks */,
 				0A8E05AE2E996D7F00A36852 /* AVFoundation.framework in Frameworks */,
 				0A8E05AC2E996B7800A36852 /* AudioToolbox.framework in Frameworks */,
@@ -540,6 +545,7 @@
 		0A2BFE9E2C2C44450009ADAD = {
 			isa = PBXGroup;
 			children = (
+				0A8E05C32E9AB6AB00A36852 /* Quartz.framework */,
 				0A8E05BE2E9AAB9B00A36852 /* OpenGLES.framework */,
 				0A8E05BC2E9AAB9400A36852 /* GLKit.framework */,
 				0A8E05B72E99768C00A36852 /* OpenGL.framework */,
@@ -672,10 +678,12 @@
 				0A2F2C172E292E4100755D69 /* FMDAppDelegate.m */,
 				0A2F2C192E292E4100755D69 /* MainMenu.xib */,
 				0A2F2C0B2E292E4100755D69 /* Supporting Files */,
-				0A2F2C462E81947D00755D69 /* FMDTrackTableViewController.h */,
-				0A2F2C472E81947D00755D69 /* FMDTrackTableViewController.m */,
 				0A2F2C492E81968D00755D69 /* FMDTrackTableView.h */,
 				0A2F2C4A2E81968D00755D69 /* FMDTrackTableView.m */,
+				0A2F2C462E81947D00755D69 /* FMDTrackTableViewController.h */,
+				0A2F2C472E81947D00755D69 /* FMDTrackTableViewController.m */,
+				0A8E05C02E9AB37900A36852 /* FMTrackTableViewDelegate.h */,
+				0A8E05C12E9AB37900A36852 /* FMTrackTableViewDelegate.m */,
 				0A8E05B42E99751A00A36852 /* FMDOpenGLVisualizerView.h */,
 				0A8E05B52E99751A00A36852 /* FMDOpenGLVisualizerView.m */,
 			);
@@ -879,8 +887,8 @@
 		0A8E05B32E9972D800A36852 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0A8E05B92E9AAB6000A36852 /* FMGLVizualizerView.h */,
-				0A8E05BA2E9AAB6000A36852 /* FMGLVizualizerView.m */,
+				0A8E05B92E9AAB6000A36852 /* FMGLKVizualizerView.h */,
+				0A8E05BA2E9AAB6000A36852 /* FMGLKVizualizerView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1360,9 +1368,8 @@
 				0A2F2C372E29424F00755D69 /* FMTableViewController.m in Sources */,
 				0A2F2C3A2E29445F00755D69 /* FMNavigationController.m in Sources */,
 				0A2F2C3D2E2944EC00755D69 /* FMPageViewController.m in Sources */,
-				0A2F2C412E7D1F9900755D69 /* FMSpotMateClient.m in Sources */,
 				0A8E05B22E996F9500A36852 /* FMWaveForm.m in Sources */,
-				0A8E05BB2E9AAB6000A36852 /* FMGLVizualizerView.m in Sources */,
+				0A8E05BB2E9AAB6000A36852 /* FMGLKVizualizerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1399,6 +1406,7 @@
 				0A2F2C4B2E81968D00755D69 /* FMDTrackTableView.m in Sources */,
 				0A2F2C532E8439AB00755D69 /* FMTrack.m in Sources */,
 				0A8E05B62E99751A00A36852 /* FMDOpenGLVisualizerView.m in Sources */,
+				0A8E05C22E9AB37900A36852 /* FMTrackTableViewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

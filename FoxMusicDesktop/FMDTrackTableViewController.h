@@ -7,13 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <Quartz/Quartz.h>
 #import "FMDAppDelegate.h"
 
-@interface FMDTrackTableViewController : NSObject <NSTableViewDelegate, NSTableViewDataSource>
+@interface FMDTrackTableViewController : NSObject <NSTableViewDelegate, NSTableViewDataSource, QLPreviewPanelDataSource>
 
 //@property (assign) IBOutlet FMD *app;
 
 @property (assign) IBOutlet NSMutableArray *tracks;
+
+- (void)quickLook;
+- (IBAction)quickLook:(id)sender;
+
+
 
 @end

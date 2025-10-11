@@ -36,4 +36,28 @@
     return [[track URL] absoluteString];
 }
 
+- (id<QLPreviewItem>)previewPanel:(QLPreviewPanel *)panel previewItemAtIndex:(NSInteger)index
+{
+    
+}
+
+- (void)quickLook:(id)sender
+{
+    
+}
+
+- (void)quickLook
+{
+    QLPreviewPanel *panel = [QLPreviewPanel sharedPreviewPanel];
+    
+    [panel makeKeyAndOrderFront:nil];
+    [panel reloadData];
+}
+
+- (void)keyDown:(NSEvent *)theEvent
+{
+    if ([theEvent keyCode] == 20) [self quickLook];
+}
+
+
 @end

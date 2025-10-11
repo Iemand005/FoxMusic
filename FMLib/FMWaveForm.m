@@ -18,14 +18,14 @@
     AVURLAsset *asset = [AVURLAsset assetWithURL:url];
     AVAssetTrack *track = [asset.tracks objectAtIndex:0];
     
-    AVAssetReader *reader = [[AVASsetReader alloc] initWithAsset:asset error:&error];
+    AVAssetReader *reader = [[AVAssetReader alloc] initWithAsset:asset error:&error];
     
     NSDictionary *outputSettings = @{
-                                     AVFormatIDKey: kAudioFormatLinearPCM,
+                                     AVFormatIDKey: [NSNumber numberWithInt:kAudioFormatLinearPCM],
                                      AVLinearPCMBitDepthKey: @16
                                      };
     
-    AVAssetReaderTrackOutput *output = [[AVAssetReaderTrackOutput alloc] initWithTrack: outputSettings:nil];
+    AVAssetReaderTrackOutput *output = [[AVAssetReaderTrackOutput alloc] initWithTrack:track outputSettings:nil];
     
     [reader addOutput:output];
     

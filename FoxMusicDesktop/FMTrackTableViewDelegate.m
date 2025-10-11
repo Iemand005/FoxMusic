@@ -1,13 +1,15 @@
 //
-//  FMGLVizualizerView.m
+//  FMTrackTableViewDelegate.m
 //  FoxMusic
 //
 //  Created by Lasse Lauwerys on 11/10/25.
 //  Copyright (c) 2025 Lasse Lauwerys. All rights reserved.
 //
 
-#import "FMGLVizualizerView.h"
+#import "FMTrackTableViewDelegate.h"
 
-@implementation FMGLVizualizerView
+@implementation FMTrackTableViewDelegate
+
+
 
 @end

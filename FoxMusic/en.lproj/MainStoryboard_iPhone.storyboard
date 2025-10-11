@@ -160,35 +160,47 @@
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Offline" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="20">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="puA-v4-owS"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" bouncesZoom="NO" editable="NO" text="Offline is still work in progress." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="21">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="88" id="Ikv-jk-tyi"/>
+                                    <constraint firstAttribute="height" constant="27" id="Ofs-Xr-TRd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" size="system"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9GV-cH-jhi">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="227" id="2qe-PB-mRi"/>
-                                </constraints>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gaq-ia-lfG">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9GV-cH-jhi" firstAttribute="top" secondItem="16" secondAttribute="top" constant="273" id="EM1-qh-toM"/>
-                            <constraint firstAttribute="trailing" secondItem="21" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="QBg-X6-fBV"/>
-                            <constraint firstAttribute="trailing" secondItem="20" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Qxj-1L-2Yh"/>
-                            <constraint firstItem="20" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Ty9-wx-CyI"/>
-                            <constraint firstItem="21" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Zmm-k2-2L7"/>
-                            <constraint firstItem="21" firstAttribute="top" secondItem="20" secondAttribute="bottom" constant="40" type="user" id="jX0-Wi-kmb"/>
+                            <constraint firstItem="20" firstAttribute="top" secondItem="16" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Ahc-yC-bWN"/>
+                            <constraint firstItem="20" firstAttribute="leading" secondItem="16" secondAttribute="leading" constant="15" id="GAX-R7-evU"/>
+                            <constraint firstItem="9GV-cH-jhi" firstAttribute="top" secondItem="21" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="GE3-tb-3Tz"/>
+                            <constraint firstAttribute="trailing" secondItem="Gaq-ia-lfG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="HKX-Iy-H7S"/>
+                            <constraint firstItem="21" firstAttribute="leading" secondItem="20" secondAttribute="leading" type="default" id="S6C-1h-ouN"/>
+                            <constraint firstItem="21" firstAttribute="top" secondItem="20" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="V74-YP-XzR"/>
+                            <constraint firstItem="21" firstAttribute="trailing" secondItem="20" secondAttribute="trailing" type="default" id="WWk-ae-pIM"/>
+                            <constraint firstAttribute="bottom" secondItem="Gaq-ia-lfG" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Y9x-hr-uSC"/>
                             <constraint firstItem="9GV-cH-jhi" firstAttribute="leading" secondItem="16" secondAttribute="leading" type="default" id="kn5-00-fqg"/>
                             <constraint firstItem="9GV-cH-jhi" firstAttribute="trailing" secondItem="16" secondAttribute="trailing" type="default" id="kyK-Ie-ihb"/>
-                            <constraint firstAttribute="centerY" secondItem="21" secondAttribute="centerY" type="user" id="yWk-L2-m9F"/>
+                            <constraint firstItem="Gaq-ia-lfG" firstAttribute="top" secondItem="9GV-cH-jhi" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="wo1-d8-vip"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" enabled="NO" systemItem="downloads" id="7"/>
@@ -402,18 +414,21 @@
         <!--GLKit View Controller-->
         <scene sceneID="khO-KY-TVh">
             <objects>
-                <glkViewController autoresizesArchivedViewToFullSize="NO" preferredFramesPerSecond="30" id="lrw-9S-AbL" sceneMemberID="viewController">
+                <glkViewController autoresizesArchivedViewToFullSize="NO" preferredFramesPerSecond="30" id="lrw-9S-AbL" customClass="FMGLKVizualizerView" sceneMemberID="viewController">
                     <glkView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="pw6-kw-1RS">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <connections>
                             <outlet property="delegate" destination="lrw-9S-AbL" id="rAU-U7-Jlo"/>
                         </connections>
                     </glkView>
+                    <tabBarItem key="tabBarItem" title="Item" id="VxY-u6-b0q"/>
+                    <navigationItem key="navigationItem" id="Zfq-5h-AdT"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </glkViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="22e-eG-zNk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="221" y="1007"/>
+            <point key="canvasLocation" x="191" y="-850"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -427,10 +442,10 @@
                     </tabBar>
                     <connections>
                         <segue destination="3" kind="relationship" relationship="viewControllers" id="27"/>
-                        <segue destination="15x-nr-Mz0" kind="relationship" relationship="viewControllers" id="2Tj-cM-UNG"/>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="26"/>
                         <segue destination="qv1-OS-5Uc" kind="relationship" relationship="viewControllers" id="4Aj-Xu-nG3"/>
                         <segue destination="eh6-gU-Z1P" kind="relationship" relationship="viewControllers" id="vnZ-WH-yOs"/>
+                        <segue destination="lrw-9S-AbL" kind="relationship" relationship="viewControllers" id="ei3-Lv-iT5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
@@ -762,6 +777,12 @@
         </class>
         <class className="FMFirstViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMFirstViewController.h"/>
+        </class>
+        <class className="FMGLKVizualizerView" superclassName="GLKViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMGLKVizualizerView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="glView" candidateClass="GLKView"/>
+            </relationships>
         </class>
         <class className="FMNavigationController" superclassName="UINavigationController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FMNavigationController.h"/>

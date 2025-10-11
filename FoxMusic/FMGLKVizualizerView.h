@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
 
-@interface FMGLVizualizerView : GLKView
+@interface FMGLKVizualizerView : GLKViewController
+
+@property IBOutlet GLKView *glView;
 
 @end

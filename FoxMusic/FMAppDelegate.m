@@ -158,31 +158,27 @@
 
 - (void)loadAudioFromData:(NSData *)audioData
 {
-    if (error) {
-        [self displayError:error];
+    @try {
+        if (!audioData || audioData.length == 0) {
+            NSLog(@"No audio data provided");
+            return;
+        }
         
-        @try {
-            if (!audioData || audioData.length == 0) {
-                NSLog(@"No audio data provided");
-                return;
-            }
-            
-            NSError *error;
-            AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithData:audioData error:&error];
-            
-            if (error) {
-                NSLog(@"Error creating audio player: %@", error.localizedDescription);
-                [self displayError:error];
-                return;
-            }
-            
-            [self setAudioPlayer:audioPlayer];
-            [audioPlayer prepareToPlay]
+        NSError *error;
+        AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithData:audioData error:&error];
+        
+        if (error) {
+            NSLog(@"Error creating audio player: %@", error.localizedDescription);
+            [self displayError:error];
+            return;
         }
-        @catch (NSException *exception) {
-            NSLog(@"Exception loading audio: %@", error.reason);
-            [self displayException:exception];
-        }
+        
+        [self setAudioPlayer:audioPlayer];
+        [audioPlayer prepareToPlay];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Exception loading audio: %@", exception.reason);
+        [self displayException:exception];
     }
 }
 
@@ -201,7 +197,7 @@
             NSLog(@"Failed to start audio playback");
     }
     @catch (NSException *exception) {
-        NSLog(@"Exception playing audio: %@", error.reason);
+        NSLog(@"Exception playing audio: %@", exception.reason);
         [self displayException:exception];
     }
 }
