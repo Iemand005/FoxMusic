@@ -8,6 +8,9 @@
 
 #import "FMDTrackTableView.h"
 
+#import "FMDTrackTableViewController.h"
+#import "FMTrackTableViewDelegate.h"
+
 @implementation FMDTrackTableView
 
 - (void)keyDown:(NSEvent *)theEvent
@@ -29,5 +32,28 @@
     [panel makeKeyAndOrderFront:nil];
     [panel reloadData];
 }
+
+- (BOOL)acceptsPreviewPanelControl:(QLPreviewPanel *)panel
+{
+    return YES;
+}
+
+- (void)beginPreviewPanelControl:(QLPreviewPanel *)panel
+{
+    [panel setDataSource:(id)[self controller]];
+//    [panel setDelegate:(id)[self delegate]];
+}
+
+- (void)endPreviewPanelControl:(QLPreviewPanel *)panel
+{
+    panel.dataSource = nil;
+    panel.delegate = nil;
+}
+
+//
+//- (id<QLPreviewItem>)previewPanel:(QLPreviewPanel *)panel previewItemAtIndex:(NSInteger)index
+//{
+//    
+//}
 
 @end

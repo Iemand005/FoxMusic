@@ -9,8 +9,14 @@
 #import <Cocoa/Cocoa.h>
 #import <Quartz/Quartz.h>
 
-@interface FMDTrackTableView : NSTableView <QLPreviewPanelDataSource>
+#import "FMDTrackTableItem.h"
 
-//@property IBOutlet FMDTrackTableViewController *controller;
+@class FMDTrackTableViewController;
+@class FMTrackTableViewDelegate;
+
+@interface FMDTrackTableView : NSTableView
+
+@property IBOutlet FMDTrackTableViewController *controller;
+//@property IBOutlet FMTrackTableViewDelegate *delegate;
 
 @end

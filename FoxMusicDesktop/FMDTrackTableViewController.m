@@ -32,13 +32,22 @@
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-    FMTrack *track = [[self tracks] objectAtIndex:row];
+    FMDTrackTableItem *track = [[self tracks] objectAtIndex:row];
     return [[track URL] absoluteString];
 }
 
 - (id<QLPreviewItem>)previewPanel:(QLPreviewPanel *)panel previewItemAtIndex:(NSInteger)index
 {
-    
+    if (self.tracks.count) {
+        FMDTrackTableItem *track = [self.tracks objectAtIndex:0];
+        return track;
+    }
+    return nil;
+}
+
+- (NSInteger)numberOfPreviewItemsInPreviewPanel:(QLPreviewPanel *)panel
+{
+    return 1;
 }
 
 - (void)quickLook:(id)sender
