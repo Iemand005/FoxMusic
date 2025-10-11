@@ -10,4 +10,24 @@
 
 @implementation FMDTrackTableView
 
+- (void)keyDown:(NSEvent *)theEvent
+{
+    int keyCode = [theEvent keyCode];
+    if (keyCode == 49)
+        [self quickLook];
+}
+
+- (void)quickLook:(id)sender
+{
+    [self quickLook];
+}
+
+- (void)quickLook
+{
+    QLPreviewPanel *panel = [QLPreviewPanel sharedPreviewPanel];
+    
+    [panel makeKeyAndOrderFront:nil];
+    [panel reloadData];
+}
+
 @end

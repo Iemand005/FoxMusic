@@ -43,7 +43,7 @@
 
 - (void)quickLook:(id)sender
 {
-    
+    [self quickLook];
 }
 
 - (void)quickLook
@@ -52,11 +52,6 @@
     
     [panel makeKeyAndOrderFront:nil];
     [panel reloadData];
-}
-
-- (void)keyDown:(NSEvent *)theEvent
-{
-    if ([theEvent keyCode] == 20) [self quickLook];
 }
 
 

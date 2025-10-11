@@ -10,7 +10,7 @@
 #import <Quartz/Quartz.h>
 #import "FMDAppDelegate.h"
 
-@interface FMDTrackTableViewController : NSObject <NSTableViewDelegate, NSTableViewDataSource, QLPreviewPanelDataSource>
+@interface FMDTrackTableViewController : NSObject <NSTableViewDelegate, NSTableViewDataSource>
 
 //@property (assign) IBOutlet FMD *app;
 

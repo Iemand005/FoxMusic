@@ -10,7 +10,6 @@
 #import "FMTouch.h"
 
 #import "FMDTrackTableView.h"
-#import "FMDTrackTableViewController.h"
 
 @interface FMDAppDelegate : NSObject <NSApplicationDelegate>
 {
