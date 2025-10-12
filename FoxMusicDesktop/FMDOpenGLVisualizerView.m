@@ -16,13 +16,35 @@
     GLuint vao, vbo, ebo;
 }
 
+- (void)awakeFromNib
+{
+    NSOpenGLPixelFormatAttribute attributes[] = {
+        //        NSOpenGLPFAWindow,
+        NSOpenGLPFADoubleBuffer,
+        NSOpenGLPFADepthSize, 24,
+        //        NSOpenGLPFAColorSize, 32,
+        NSOpenGLPFAOpenGLProfile,
+        NSOpenGLProfileVersion3_2Core,
+        0
+    };
+    
+    NSOpenGLPixelFormat *pixelFormat = [[NSOpenGLPixelFormat alloc] initWithAttributes:attributes];
+    
+    NSOpenGLContext *context = [[NSOpenGLContext alloc] initWithFormat:pixelFormat shareContext:nil];
+    [self setOpenGLContext:context];
+    
+    [[self openGLContext] makeCurrentContext];
+}
+
 - (id)initWithFrame:(NSRect)frameRect
 {
     NSOpenGLPixelFormatAttribute attributes[] = {
-        NSOpenGLPFAWindow,
+//        NSOpenGLPFAWindow,
         NSOpenGLPFADoubleBuffer,
         NSOpenGLPFADepthSize, 24,
-        NSOpenGLPFAColorSize, 32,
+//        NSOpenGLPFAColorSize, 32,
+        NSOpenGLPFAOpenGLProfile,
+        NSOpenGLProfileVersion3_2Core,
         0
     };
     
@@ -31,6 +53,10 @@
 //    self = [super initWithFrame:frameRect pixelFormat:pixelFormat];
     self = [super initWithFrame:frameRect];
     if (self) {
+        
+        NSOpenGLContext *context = [[NSOpenGLContext alloc] initWithFormat:pixelFormat shareContext:nil];
+        [self setOpenGLContext:context];
+        
         [[self openGLContext] makeCurrentContext];
         
         
@@ -50,27 +76,32 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
+    [[self openGLContext] clearDrawable];
+    [[self openGLContext] setView:self];
     [[self openGLContext] makeCurrentContext];
     
-    glClear(GL_COLOR_BUFFER_BIT);
-    
-    glBindVertexArray(vao);
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-    glBindVertexArray(0);
-    
-    GLfloat vertices [] = {
-        -0.5f, -0.5f, 0.0f,
-        0.5f, -0.5f, 0.0f,
-        0.5f,  0.5f, 0.0f,
-        -0.5f,  0.5f, 0.0f,
-    };
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, vertices);
-    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-    glDisableVertexAttribArray(0);
+//    glClear(GL_COLOR_BUFFER_BIT);
+//    
+//    glBindVertexArray(vao);
+//    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+//    glBindVertexArray(0);
+//    
+//    GLfloat vertices [] = {
+//        -0.5f, -0.5f, 0.0f,
+//        0.5f, -0.5f, 0.0f,
+//        0.5f,  0.5f, 0.0f,
+//        -0.5f,  0.5f, 0.0f,
+//    };
+//    glEnableVertexAttribArray(0);
+//    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, vertices);
+//    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+//    glDisableVertexAttribArray(0);
     
     glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
+    
+    glViewport(0, 0, self.frame.size.width, self.frame.size.height);
+    
     
     
     [[self openGLContext] flushBuffer];

@@ -8,7 +8,7 @@
 
 #import "FMVisualizerViewController.h"
 
-#import "../FMLib/FMGLUtils.h"
+//#import "../FMLib/FMGLUtils.h"
 
 @implementation FMVisualizerViewController
 
@@ -51,7 +51,7 @@
     NSString * vertexShaderPath = [[NSBundle mainBundle] pathForResource:@"VertexShader" ofType:@"glsl"];
     NSString * fragmentShaderPath = [[NSBundle mainBundle] pathForResource:@"FragmentShader" ofType:@"glsl"];
     
-_programHandle = [FMGLUtils loadProgram:vertexShaderPath withFragmentShaderFilepath:fragmentShaderPath];
+    _programHandle = [FMGLUtils loadProgram:vertexShaderPath withFragmentShaderFilepath:fragmentShaderPath];
     
     glUseProgram(_programHandle);
     

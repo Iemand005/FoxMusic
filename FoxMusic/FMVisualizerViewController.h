@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
 
+#import "../FMLib/FMGLUtils.h"
+
 //#import "FMGLVizualizerView.h"
 
 @interface FMVisualizerViewController : GLKViewController
