@@ -58,25 +58,47 @@
     _positionSlot = glGetAttribLocation(_programHandle, "vPosition");
 }
 
+- (GLfloat *)createVertices
+{
+//    GLfloat *vertices = malloc(9 * sizeof(GLfloat));
+    
+    GLfloat vertices[] = {
+        -1.0f,  1.0f, 0.0f,
+        -1.0f, -1.0f, 0.0f,
+         1.0f, -1.0f, 0.0f,
+         1.0f,  1.0f, 0.0f,
+    };
+    return vertices;
+}
+
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
     glClearColor(1.0f, 0.0f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     glViewport(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     
+//    GLfloat vertices[] = {
+//        -1.0f,  1.0f, 0.0f,
+//        -1.0f, -1.0f, 0.0f,
+//         1.0f,  -1.0f, 0.0f
+//    };
+    
+//    GLfloat *vertices = [self createVertices];
     GLfloat vertices[] = {
-        0.0f,  0.5f, 0.0f,
-        -0.5f, -0.5f, 0.0f,
-        0.5f,  -0.5f, 0.0f };
+        -1.0f,  1.0f, 0.0f,
+        -1.0f, -1.0f, 0.0f,
+        1.0f, -1.0f, 0.0f,
+        1.0f,  1.0f, 0.0f,
+    };
     
     // Load the vertex data
     //
-    glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, 0, vertices );
+    glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, 0, vertices);
     glEnableVertexAttribArray(_positionSlot);
     
     // Draw triangle
     //
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDrawArrays(GL_TRIANGLES, 0, 4);
     
 //    GLfloat vertices [] = {
 //        -0.5f, -0.5f, 0.0f,
@@ -122,11 +144,12 @@
     glClear(GL_COLOR_BUFFER_BIT);
     
     GLfloat vertices [] = {
-        -0.5f, -0.5f, 0.0f,
+        -1.0f, -1.0f, 0.0f,
         0.5f, -0.5f, 0.0f,
         0.5f,  0.5f, 0.0f,
-        -0.5f,  0.5f, 0.0f,
+        -1.5f,  0.5f, 0.0f,
     };
+    
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, vertices);
     glDrawArrays(GL_TRIANGLE_FAN, 0, 4);

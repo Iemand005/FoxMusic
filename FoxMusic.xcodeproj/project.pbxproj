@@ -173,6 +173,8 @@
 		0ACB51932C338B7B004CA3E6 /* FMSpotifyTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB51922C338B7B004CA3E6 /* FMSpotifyTrack.m */; };
 		0ACB51962C338C8B004CA3E6 /* FMSpotifyTrackArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB51952C338C8B004CA3E6 /* FMSpotifyTrackArray.m */; };
 		0ACB51992C3392CB004CA3E6 /* FMSpotifyContinuableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB51982C3392CB004CA3E6 /* FMSpotifyContinuableArray.m */; };
+		0ADCA4A22E9C0506007DAA07 /* VertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0ADCA4A02E9C0506007DAA07 /* VertexShader.glsl */; };
+		0ADCA4A32E9C0506007DAA07 /* FragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0ADCA4A12E9C0506007DAA07 /* FragmentShader.glsl */; };
 		0AFD4E692D3EA02C0073E7F3 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFD4E672D3EA02C0073E7F3 /* CoreVideo.framework */; };
 		0AFD4E6A2D3EA02C0073E7F3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFD4E682D3EA02C0073E7F3 /* QuartzCore.framework */; };
 		0AFD4E6D2D3EA0FC0073E7F3 /* FMVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD4E6C2D3EA0FC0073E7F3 /* FMVideoPlayerViewController.m */; };
@@ -441,6 +443,8 @@
 		0ACB51952C338C8B004CA3E6 /* FMSpotifyTrackArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyTrackArray.m; sourceTree = "<group>"; };
 		0ACB51972C3392CA004CA3E6 /* FMSpotifyContinuableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyContinuableArray.h; sourceTree = "<group>"; };
 		0ACB51982C3392CB004CA3E6 /* FMSpotifyContinuableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyContinuableArray.m; sourceTree = "<group>"; };
+		0ADCA4A02E9C0506007DAA07 /* VertexShader.glsl */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = VertexShader.glsl; sourceTree = "<group>"; };
+		0ADCA4A12E9C0506007DAA07 /* FragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader.glsl; sourceTree = "<group>"; };
 		0AFD4E672D3EA02C0073E7F3 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		0AFD4E682D3EA02C0073E7F3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0AFD4E6B2D3EA0FC0073E7F3 /* FMVideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMVideoPlayerViewController.h; sourceTree = "<group>"; };
@@ -710,6 +714,8 @@
 		0A2F2C0B2E292E4100755D69 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0ADCA4A02E9C0506007DAA07 /* VertexShader.glsl */,
+				0ADCA4A12E9C0506007DAA07 /* FragmentShader.glsl */,
 				0A2F2C0C2E292E4100755D69 /* FoxMusicDesktop-Info.plist */,
 				0A2F2C0D2E292E4100755D69 /* InfoPlist.strings */,
 				0A2F2C102E292E4100755D69 /* main.m */,
@@ -1252,6 +1258,8 @@
 				0A2F2C0F2E292E4100755D69 /* InfoPlist.strings in Resources */,
 				0A2F2C152E292E4100755D69 /* Credits.rtf in Resources */,
 				0A2F2C1B2E292E4100755D69 /* MainMenu.xib in Resources */,
+				0ADCA4A22E9C0506007DAA07 /* VertexShader.glsl in Resources */,
+				0ADCA4A32E9C0506007DAA07 /* FragmentShader.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,10 +7,19 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <CoreVideo/CoreVideo.h>
+
+//#import "../FMLib/FMGLUtils.h"
 
 @interface FMDOpenGLVisualizerView : NSOpenGLView
 {
     NSTimer *animationTimer;
-}
+    CVDisplayLinkRef displayLink;
+    
+//        GLuint _positionSlot;
+//        GLuint _programHandle;
+    }
+
+- (void)createDisplayLink;
 
 @end

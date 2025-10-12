@@ -34,36 +34,80 @@
     [self setOpenGLContext:context];
     
     [[self openGLContext] makeCurrentContext];
+    
+    [self createDisplayLink];
 }
 
-- (id)initWithFrame:(NSRect)frameRect
-{
-    NSOpenGLPixelFormatAttribute attributes[] = {
-//        NSOpenGLPFAWindow,
-        NSOpenGLPFADoubleBuffer,
-        NSOpenGLPFADepthSize, 24,
-//        NSOpenGLPFAColorSize, 32,
-        NSOpenGLPFAOpenGLProfile,
-        NSOpenGLProfileVersion3_2Core,
-        0
-    };
-    
-    NSOpenGLPixelFormat *pixelFormat = [[NSOpenGLPixelFormat alloc] initWithAttributes:attributes];
-    
-//    self = [super initWithFrame:frameRect pixelFormat:pixelFormat];
-    self = [super initWithFrame:frameRect];
-    if (self) {
-        
-        NSOpenGLContext *context = [[NSOpenGLContext alloc] initWithFormat:pixelFormat shareContext:nil];
-        [self setOpenGLContext:context];
-        
-        [[self openGLContext] makeCurrentContext];
-        
-        
-        animationTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/60 target:self selector:@selector(animate:) userInfo:nil repeats:YES];
-    }
-    return self;
+CVReturn displayCallback(CVDisplayLinkRef displayLink,
+                         const CVTimeStamp *inNow,
+                         const CVTimeStamp *inOutputTime,
+                         CVOptionFlags flagsIn,
+                         CVOptionFlags *flagsOut,
+                         void *displayLinkContext) {
+    FMDOpenGLVisualizerView *view = (FMDOpenGLVisualizerView *)displayLinkContext;
+    [view renderForTime:*inOutputTime];
+    return kCVReturnSuccess;
 }
+
+- (void)renderForTime:(CVTimeStamp)time
+{
+    [[self openGLContext] clearDrawable];
+    [[self openGLContext] setView:self];
+    [[self openGLContext] makeCurrentContext];
+    
+    //    glClear(GL_COLOR_BUFFER_BIT);
+    //
+    //    glBindVertexArray(vao);
+    //    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    //    glBindVertexArray(0);
+    //
+    //    GLfloat vertices [] = {
+    //        -0.5f, -0.5f, 0.0f,
+    //        0.5f, -0.5f, 0.0f,
+    //        0.5f,  0.5f, 0.0f,
+    //        -0.5f,  0.5f, 0.0f,
+    //    };
+    //    glEnableVertexAttribArray(0);
+    //    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, vertices);
+    //    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+    //    glDisableVertexAttribArray(0);
+    
+    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    
+    glViewport(0, 0, self.frame.size.width, self.frame.size.height);
+    
+    [[self openGLContext] flushBuffer];
+}
+
+- (void)setupShader
+{
+//    NSString * vertexShaderPath = [[NSBundle mainBundle] pathForResource:@"VertexShader" ofType:@"glsl"];
+//    NSString * fragmentShaderPath = [[NSBundle mainBundle] pathForResource:@"FragmentShader" ofType:@"glsl"];
+//    
+//    _programHandle = [FMGLUtils loadProgram:vertexShaderPath withFragmentShaderFilepath:fragmentShaderPath];
+//    
+//    glUseProgram(_programHandle);
+//    
+//    _positionSlot = glGetAttribLocation(_programHandle, "vPosition");
+    GLuint vertexShader;
+    GLuint fragmentShader;
+    
+//    vertexShader = [self comp]
+}
+
+- (void)createDisplayLink
+{
+    CGDirectDisplayID displayID = CGMainDisplayID();
+    CVReturn error = CVDisplayLinkCreateWithCGDisplay(displayID, &displayLink);
+    
+    if (error == kCVReturnSuccess) {
+        CVDisplayLinkSetOutputCallback(displayLink, displayCallback, self);
+        CVDisplayLinkStart(displayLink);
+    }
+}
+
+
 
 - (void)prepareOpenGL
 {
@@ -74,38 +118,38 @@
     [self setupSquare];
 }
 
-- (void)drawRect:(NSRect)dirtyRect
-{
-    [[self openGLContext] clearDrawable];
-    [[self openGLContext] setView:self];
-    [[self openGLContext] makeCurrentContext];
-    
-//    glClear(GL_COLOR_BUFFER_BIT);
-//    
-//    glBindVertexArray(vao);
-//    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-//    glBindVertexArray(0);
-//    
-//    GLfloat vertices [] = {
-//        -0.5f, -0.5f, 0.0f,
-//        0.5f, -0.5f, 0.0f,
-//        0.5f,  0.5f, 0.0f,
-//        -0.5f,  0.5f, 0.0f,
-//    };
-//    glEnableVertexAttribArray(0);
-//    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, vertices);
-//    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-//    glDisableVertexAttribArray(0);
-    
-    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-    
-    glViewport(0, 0, self.frame.size.width, self.frame.size.height);
-    
-    
-    
-    [[self openGLContext] flushBuffer];
-}
+//- (void)drawRect:(NSRect)dirtyRect
+//{
+////    [[self openGLContext] clearDrawable];
+////    [[self openGLContext] setView:self];
+////    [[self openGLContext] makeCurrentContext];
+////    
+//////    glClear(GL_COLOR_BUFFER_BIT);
+//////    
+//////    glBindVertexArray(vao);
+//////    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+//////    glBindVertexArray(0);
+//////    
+//////    GLfloat vertices [] = {
+//////        -0.5f, -0.5f, 0.0f,
+//////        0.5f, -0.5f, 0.0f,
+//////        0.5f,  0.5f, 0.0f,
+//////        -0.5f,  0.5f, 0.0f,
+//////    };
+//////    glEnableVertexAttribArray(0);
+//////    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, vertices);
+//////    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+//////    glDisableVertexAttribArray(0);
+////    
+////    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+////    glClear(GL_COLOR_BUFFER_BIT);
+////    
+////    glViewport(0, 0, self.frame.size.width, self.frame.size.height);
+////    
+////    
+////    
+////    [[self openGLContext] flushBuffer];
+//}
 
 - (void)setupSquare
 {
