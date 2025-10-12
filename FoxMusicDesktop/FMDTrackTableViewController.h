@@ -17,6 +17,7 @@
 //@property (assign) IBOutlet FMD *app;
 
 @property (assign) IBOutlet NSMutableArray *tracks;
+@property (assign) IBOutlet NSTableView *view;
 
 - (void)quickLook;
 - (IBAction)quickLook:(id)sender;
