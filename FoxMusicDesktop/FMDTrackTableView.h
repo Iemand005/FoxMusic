@@ -16,7 +16,7 @@
 
 @interface FMDTrackTableView : NSTableView
 
-//@property IBOutlet FMDTrackTableViewController *controller;
+@property IBOutlet FMDTrackTableViewController *controller;
 //@property IBOutlet FMTrackTableViewDelegate *delegate;
 
 @end

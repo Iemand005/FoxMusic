@@ -1328,13 +1328,13 @@
 							<string key="NSFrame">{{13, 10}, {599, 361}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="757978227"/>
+							<reference key="NSNextKeyView" ref="218529288"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<array class="NSMutableArray" key="NSTabViewItems">
 								<object class="NSTabViewItem" id="1017112066">
 									<string key="NSIdentifier">1</string>
 									<object class="NSView" key="NSView" id="757978227">
-										<reference key="NSNextResponder" ref="323337033"/>
+										<nil key="NSNextResponder"/>
 										<int key="NSvFlags">256</int>
 										<array class="NSMutableArray" key="NSSubviews">
 											<object class="NSScrollView" id="207113726">
@@ -1350,7 +1350,6 @@
 																<int key="NSvFlags">256</int>
 																<string key="NSFrameSize">{543, 245}</string>
 																<reference key="NSSuperview" ref="670073398"/>
-																<reference key="NSWindow"/>
 																<reference key="NSNextKeyView" ref="292047665"/>
 																<string key="NSReuseIdentifierKey">_NS:13</string>
 																<bool key="NSEnabled">YES</bool>
@@ -1361,7 +1360,6 @@
 																	<int key="NSvFlags">256</int>
 																	<string key="NSFrameSize">{543, 17}</string>
 																	<reference key="NSSuperview" ref="325145342"/>
-																	<reference key="NSWindow"/>
 																	<reference key="NSNextKeyView" ref="670073398"/>
 																	<string key="NSReuseIdentifierKey">_NS:16</string>
 																	<reference key="NSTableView" ref="230277613"/>
@@ -1475,7 +1473,7 @@
 																	</object>
 																</object>
 																<double key="NSRowHeight">17</double>
-																<int key="NSTvFlags">-700448768</int>
+																<int key="NSTvFlags">-566231040</int>
 																<reference key="NSDelegate"/>
 																<reference key="NSDataSource"/>
 																<int key="NSColumnAutoresizingStyle">4</int>
@@ -1488,7 +1486,6 @@
 														</array>
 														<string key="NSFrame">{{1, 17}, {543, 245}}</string>
 														<reference key="NSSuperview" ref="207113726"/>
-														<reference key="NSWindow"/>
 														<reference key="NSNextKeyView" ref="230277613"/>
 														<string key="NSReuseIdentifierKey">_NS:11</string>
 														<reference key="NSDocView" ref="230277613"/>
@@ -1500,7 +1497,6 @@
 														<int key="NSvFlags">-2147483392</int>
 														<string key="NSFrame">{{224, 17}, {15, 102}}</string>
 														<reference key="NSSuperview" ref="207113726"/>
-														<reference key="NSWindow"/>
 														<reference key="NSNextKeyView" ref="620211312"/>
 														<string key="NSReuseIdentifierKey">_NS:58</string>
 														<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -1514,7 +1510,6 @@
 														<int key="NSvFlags">-2147483392</int>
 														<string key="NSFrame">{{1, 119}, {223, 15}}</string>
 														<reference key="NSSuperview" ref="207113726"/>
-														<reference key="NSWindow"/>
 														<reference key="NSNextKeyView" ref="753743470"/>
 														<string key="NSReuseIdentifierKey">_NS:60</string>
 														<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -1531,7 +1526,6 @@
 														</array>
 														<string key="NSFrame">{{1, 0}, {543, 17}}</string>
 														<reference key="NSSuperview" ref="207113726"/>
-														<reference key="NSWindow"/>
 														<reference key="NSNextKeyView" ref="275359478"/>
 														<string key="NSReuseIdentifierKey">_NS:15</string>
 														<reference key="NSDocView" ref="275359478"/>
@@ -1541,7 +1535,6 @@
 												</array>
 												<string key="NSFrame">{{17, 49}, {545, 263}}</string>
 												<reference key="NSSuperview" ref="757978227"/>
-												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="325145342"/>
 												<string key="NSReuseIdentifierKey">_NS:9</string>
 												<int key="NSsFlags">133682</int>
@@ -1559,7 +1552,6 @@
 												<int key="NSvFlags">289</int>
 												<string key="NSFrame">{{502, 10}, {66, 32}}</string>
 												<reference key="NSSuperview" ref="757978227"/>
-												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="919501747"/>
 												<string key="NSReuseIdentifierKey">_NS:9</string>
 												<bool key="NSEnabled">YES</bool>
@@ -1584,7 +1576,6 @@
 												<int key="NSvFlags">268</int>
 												<string key="NSFrame">{{429, 10}, {65, 32}}</string>
 												<reference key="NSSuperview" ref="757978227"/>
-												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="537792469"/>
 												<string key="NSReuseIdentifierKey">_NS:9</string>
 												<bool key="NSEnabled">YES</bool>
@@ -1609,7 +1600,6 @@
 												<int key="NSvFlags">268</int>
 												<string key="NSFrame">{{353, 10}, {71, 32}}</string>
 												<reference key="NSSuperview" ref="757978227"/>
-												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="975952094"/>
 												<string key="NSReuseIdentifierKey">_NS:9</string>
 												<bool key="NSEnabled">YES</bool>
@@ -1631,8 +1621,6 @@
 											</object>
 										</array>
 										<string key="NSFrame">{{10, 33}, {579, 315}}</string>
-										<reference key="NSSuperview" ref="323337033"/>
-										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="207113726"/>
 										<string key="NSReuseIdentifierKey">_NS:11</string>
 									</object>
@@ -1660,7 +1648,7 @@
 								</object>
 								<object class="NSTabViewItem" id="189829545">
 									<object class="NSView" key="NSView" id="218529288">
-										<nil key="NSNextResponder"/>
+										<reference key="NSNextResponder" ref="323337033"/>
 										<int key="NSvFlags">256</int>
 										<array class="NSMutableArray" key="NSSubviews">
 											<object class="NSOpenGLView" id="879649703">
@@ -1668,6 +1656,7 @@
 												<int key="NSvFlags">274</int>
 												<string key="NSFrame">{{12, 17}, {550, 295}}</string>
 												<reference key="NSSuperview" ref="218529288"/>
+												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="919501747"/>
 												<string key="NSReuseIdentifierKey">_NS:24</string>
 												<object class="NSOpenGLPixelFormat" key="NSPixelFormat">
@@ -1678,26 +1667,28 @@
 											</object>
 										</array>
 										<string key="NSFrame">{{10, 33}, {579, 315}}</string>
+										<reference key="NSSuperview" ref="323337033"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="879649703"/>
 									</object>
 									<string key="NSLabel">Visualizer</string>
 									<reference key="NSColor" ref="318133960"/>
 									<reference key="NSTabView" ref="323337033"/>
 								</object>
-								<object class="NSTabViewItem" id="513463029">
-									<object class="NSView" key="NSView" id="406796681">
+								<object class="NSTabViewItem" id="376430476">
+									<object class="NSView" key="NSView" id="813417013">
 										<nil key="NSNextResponder"/>
 										<int key="NSvFlags">256</int>
 										<array class="NSMutableArray" key="NSSubviews">
-											<object class="QCView" id="792506084">
-												<reference key="NSNextResponder" ref="406796681"/>
+											<object class="QCView" id="476601170">
+												<reference key="NSNextResponder" ref="813417013"/>
 												<int key="NSvFlags">268</int>
 												<array class="NSMutableArray" key="NSSubviews"/>
 												<set class="NSMutableSet" key="NSDragTypes">
 													<string>NSFilenamesPboardType</string>
 												</set>
 												<string key="NSFrame">{{17, 17}, {545, 163}}</string>
-												<reference key="NSSuperview" ref="406796681"/>
+												<reference key="NSSuperview" ref="813417013"/>
 												<reference key="NSNextKeyView"/>
 												<bool key="NSViewWantsBestResolutionOpenGLSurface">YES</bool>
 												<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -1708,29 +1699,29 @@
 												<float key="maxFPS">0.0</float>
 												<bool key="autorun">NO</bool>
 												<int key="forwardingEventMask">0</int>
-												<object class="NSColor" key="clearColor" id="1049945963">
+												<object class="NSColor" key="clearColor" id="474920001">
 													<int key="NSColorSpace">1</int>
 													<bytes key="NSRGB">MCAwIDAAA</bytes>
 												</object>
-												<reference key="backgroundColor" ref="1049945963"/>
+												<reference key="backgroundColor" ref="474920001"/>
 												<int key="checkerboardSize">0</int>
 												<int key="flags">0</int>
 												<bool key="forcesClear">NO</bool>
 											</object>
-											<object class="QCCompositionPickerView" id="211856616">
-												<reference key="NSNextResponder" ref="406796681"/>
+											<object class="QCCompositionPickerView" id="54161654">
+												<reference key="NSNextResponder" ref="813417013"/>
 												<int key="NSvFlags">274</int>
 												<array class="NSMutableArray" key="NSSubviews">
-													<object class="QCCompositionPickerNavigationView" id="872975606">
-														<reference key="NSNextResponder" ref="211856616"/>
+													<object class="QCCompositionPickerNavigationView" id="471185946">
+														<reference key="NSNextResponder" ref="54161654"/>
 														<int key="NSvFlags">256</int>
 														<array class="NSMutableArray" key="NSSubviews">
-															<object class="QCDashboardButton" id="673326080">
-																<reference key="NSNextResponder" ref="872975606"/>
+															<object class="QCDashboardButton" id="87411379">
+																<reference key="NSNextResponder" ref="471185946"/>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{10, 0}, {100, 20}}</string>
-																<reference key="NSSuperview" ref="872975606"/>
-																<reference key="NSNextKeyView" ref="515692818"/>
+																<reference key="NSSuperview" ref="471185946"/>
+																<reference key="NSNextKeyView" ref="118431146"/>
 																<string key="NSReuseIdentifierKey">_NS:13</string>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
@@ -1738,7 +1729,7 @@
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">134217728</int>
 																	<string key="NSContents">Button</string>
-																	<object class="NSFont" key="NSSupport" id="508909640">
+																	<object class="NSFont" key="NSSupport" id="332500856">
 																		<string key="NSName">LucidaGrande</string>
 																		<double key="NSSize">12</double>
 																		<int key="NSfFlags">16</int>
@@ -1750,23 +1741,23 @@
 																		</dictionary>
 																	</array>
 																	<string key="NSCellIdentifier">_NS:13</string>
-																	<reference key="NSControlView" ref="673326080"/>
+																	<reference key="NSControlView" ref="87411379"/>
 																	<string key="NSAction">gotoPreviousPage:</string>
 																	<int key="NSButtonFlags">-2038284288</int>
 																	<int key="NSButtonFlags2">0</int>
-																	<reference key="NSAlternateImage" ref="508909640"/>
+																	<reference key="NSAlternateImage" ref="332500856"/>
 																	<string key="NSKeyEquivalent"/>
 																	<int key="NSPeriodicDelay">400</int>
 																	<int key="NSPeriodicInterval">75</int>
 																</object>
 																<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 															</object>
-															<object class="QCDashboardButton" id="515692818">
-																<reference key="NSNextResponder" ref="872975606"/>
+															<object class="QCDashboardButton" id="118431146">
+																<reference key="NSNextResponder" ref="471185946"/>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{290, 0}, {100, 20}}</string>
-																<reference key="NSSuperview" ref="872975606"/>
-																<reference key="NSNextKeyView" ref="362188912"/>
+																<reference key="NSSuperview" ref="471185946"/>
+																<reference key="NSNextKeyView" ref="863736775"/>
 																<string key="NSReuseIdentifierKey">_NS:32</string>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
@@ -1774,7 +1765,7 @@
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">134217728</int>
 																	<string key="NSContents">Button</string>
-																	<reference key="NSSupport" ref="508909640"/>
+																	<reference key="NSSupport" ref="332500856"/>
 																	<array class="NSMutableArray" key="NSAccessibilityOverriddenAttributes">
 																		<dictionary class="NSMutableDictionary">
 																			<string key="AXDescription">Next Page</string>
@@ -1782,11 +1773,11 @@
 																		</dictionary>
 																	</array>
 																	<string key="NSCellIdentifier">_NS:32</string>
-																	<reference key="NSControlView" ref="515692818"/>
+																	<reference key="NSControlView" ref="118431146"/>
 																	<string key="NSAction">gotoNextPage:</string>
 																	<int key="NSButtonFlags">-2038284288</int>
 																	<int key="NSButtonFlags2">0</int>
-																	<reference key="NSAlternateImage" ref="508909640"/>
+																	<reference key="NSAlternateImage" ref="332500856"/>
 																	<string key="NSKeyEquivalent"/>
 																	<int key="NSPeriodicDelay">400</int>
 																	<int key="NSPeriodicInterval">75</int>
@@ -1795,20 +1786,20 @@
 															</object>
 														</array>
 														<string key="NSFrame">{{0, 3}, {400, 20}}</string>
-														<reference key="NSSuperview" ref="211856616"/>
-														<reference key="NSNextKeyView" ref="673326080"/>
+														<reference key="NSSuperview" ref="54161654"/>
+														<reference key="NSNextKeyView" ref="87411379"/>
 														<string key="NSReuseIdentifierKey">_NS:11</string>
 													</object>
-													<object class="QCCompositionPickerNavigationView" id="362188912">
-														<reference key="NSNextResponder" ref="211856616"/>
+													<object class="QCCompositionPickerNavigationView" id="863736775">
+														<reference key="NSNextResponder" ref="54161654"/>
 														<int key="NSvFlags">-2147483392</int>
 														<array class="NSMutableArray" key="NSSubviews">
-															<object class="QCDashboardButton" id="944716767">
-																<reference key="NSNextResponder" ref="362188912"/>
+															<object class="QCDashboardButton" id="306862050">
+																<reference key="NSNextResponder" ref="863736775"/>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{10, 0}, {100, 20}}</string>
-																<reference key="NSSuperview" ref="362188912"/>
-																<reference key="NSNextKeyView" ref="270606469"/>
+																<reference key="NSSuperview" ref="863736775"/>
+																<reference key="NSNextKeyView" ref="355117181"/>
 																<string key="NSReuseIdentifierKey">_NS:44</string>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
@@ -1816,7 +1807,7 @@
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">134217728</int>
 																	<string key="NSContents">Button</string>
-																	<reference key="NSSupport" ref="508909640"/>
+																	<reference key="NSSupport" ref="332500856"/>
 																	<array class="NSMutableArray" key="NSAccessibilityOverriddenAttributes">
 																		<dictionary class="NSMutableDictionary">
 																			<string key="AXDescription">Previous Page</string>
@@ -1824,23 +1815,23 @@
 																		</dictionary>
 																	</array>
 																	<string key="NSCellIdentifier">_NS:44</string>
-																	<reference key="NSControlView" ref="944716767"/>
+																	<reference key="NSControlView" ref="306862050"/>
 																	<string key="NSAction">gotoPreviousPage:</string>
 																	<int key="NSButtonFlags">-2038284288</int>
 																	<int key="NSButtonFlags2">0</int>
-																	<reference key="NSAlternateImage" ref="508909640"/>
+																	<reference key="NSAlternateImage" ref="332500856"/>
 																	<string key="NSKeyEquivalent"/>
 																	<int key="NSPeriodicDelay">400</int>
 																	<int key="NSPeriodicInterval">75</int>
 																</object>
 																<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 															</object>
-															<object class="QCDashboardButton" id="270606469">
-																<reference key="NSNextResponder" ref="362188912"/>
+															<object class="QCDashboardButton" id="355117181">
+																<reference key="NSNextResponder" ref="863736775"/>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{290, 0}, {100, 20}}</string>
-																<reference key="NSSuperview" ref="362188912"/>
-																<reference key="NSNextKeyView" ref="728371638"/>
+																<reference key="NSSuperview" ref="863736775"/>
+																<reference key="NSNextKeyView" ref="1072263878"/>
 																<string key="NSReuseIdentifierKey">_NS:51</string>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
@@ -1848,7 +1839,7 @@
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">134217728</int>
 																	<string key="NSContents">Button</string>
-																	<reference key="NSSupport" ref="508909640"/>
+																	<reference key="NSSupport" ref="332500856"/>
 																	<array class="NSMutableArray" key="NSAccessibilityOverriddenAttributes">
 																		<dictionary class="NSMutableDictionary">
 																			<string key="AXDescription">Next Page</string>
@@ -1856,11 +1847,11 @@
 																		</dictionary>
 																	</array>
 																	<string key="NSCellIdentifier">_NS:51</string>
-																	<reference key="NSControlView" ref="270606469"/>
+																	<reference key="NSControlView" ref="355117181"/>
 																	<string key="NSAction">gotoNextPage:</string>
 																	<int key="NSButtonFlags">-2038284288</int>
 																	<int key="NSButtonFlags2">0</int>
-																	<reference key="NSAlternateImage" ref="508909640"/>
+																	<reference key="NSAlternateImage" ref="332500856"/>
 																	<string key="NSKeyEquivalent"/>
 																	<int key="NSPeriodicDelay">400</int>
 																	<int key="NSPeriodicInterval">75</int>
@@ -1869,20 +1860,20 @@
 															</object>
 														</array>
 														<string key="NSFrame">{{0, 3}, {400, 20}}</string>
-														<reference key="NSSuperview" ref="211856616"/>
-														<reference key="NSNextKeyView" ref="944716767"/>
+														<reference key="NSSuperview" ref="54161654"/>
+														<reference key="NSNextKeyView" ref="306862050"/>
 														<string key="NSReuseIdentifierKey">_NS:42</string>
 													</object>
-													<object class="QCCompositionPickerNavigationView" id="728371638">
-														<reference key="NSNextResponder" ref="211856616"/>
+													<object class="QCCompositionPickerNavigationView" id="1072263878">
+														<reference key="NSNextResponder" ref="54161654"/>
 														<int key="NSvFlags">256</int>
 														<array class="NSMutableArray" key="NSSubviews">
-															<object class="QCDashboardButton" id="910236309">
-																<reference key="NSNextResponder" ref="728371638"/>
+															<object class="QCDashboardButton" id="664871001">
+																<reference key="NSNextResponder" ref="1072263878"/>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{10, 0}, {100, 20}}</string>
-																<reference key="NSSuperview" ref="728371638"/>
-																<reference key="NSNextKeyView" ref="808543474"/>
+																<reference key="NSSuperview" ref="1072263878"/>
+																<reference key="NSNextKeyView" ref="145722153"/>
 																<string key="NSReuseIdentifierKey">_NS:61</string>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
@@ -1890,7 +1881,7 @@
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">134217728</int>
 																	<string key="NSContents">Button</string>
-																	<reference key="NSSupport" ref="508909640"/>
+																	<reference key="NSSupport" ref="332500856"/>
 																	<array class="NSMutableArray" key="NSAccessibilityOverriddenAttributes">
 																		<dictionary class="NSMutableDictionary">
 																			<string key="AXDescription">Previous Page</string>
@@ -1898,23 +1889,23 @@
 																		</dictionary>
 																	</array>
 																	<string key="NSCellIdentifier">_NS:61</string>
-																	<reference key="NSControlView" ref="910236309"/>
+																	<reference key="NSControlView" ref="664871001"/>
 																	<string key="NSAction">gotoPreviousPage:</string>
 																	<int key="NSButtonFlags">-2038284288</int>
 																	<int key="NSButtonFlags2">0</int>
-																	<reference key="NSAlternateImage" ref="508909640"/>
+																	<reference key="NSAlternateImage" ref="332500856"/>
 																	<string key="NSKeyEquivalent"/>
 																	<int key="NSPeriodicDelay">400</int>
 																	<int key="NSPeriodicInterval">75</int>
 																</object>
 																<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 															</object>
-															<object class="QCDashboardButton" id="808543474">
-																<reference key="NSNextResponder" ref="728371638"/>
+															<object class="QCDashboardButton" id="145722153">
+																<reference key="NSNextResponder" ref="1072263878"/>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{290, 0}, {100, 20}}</string>
-																<reference key="NSSuperview" ref="728371638"/>
-																<reference key="NSNextKeyView" ref="533184903"/>
+																<reference key="NSSuperview" ref="1072263878"/>
+																<reference key="NSNextKeyView" ref="614985401"/>
 																<string key="NSReuseIdentifierKey">_NS:68</string>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
@@ -1922,7 +1913,7 @@
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">134217728</int>
 																	<string key="NSContents">Button</string>
-																	<reference key="NSSupport" ref="508909640"/>
+																	<reference key="NSSupport" ref="332500856"/>
 																	<array class="NSMutableArray" key="NSAccessibilityOverriddenAttributes">
 																		<dictionary class="NSMutableDictionary">
 																			<string key="AXDescription">Next Page</string>
@@ -1930,11 +1921,11 @@
 																		</dictionary>
 																	</array>
 																	<string key="NSCellIdentifier">_NS:68</string>
-																	<reference key="NSControlView" ref="808543474"/>
+																	<reference key="NSControlView" ref="145722153"/>
 																	<string key="NSAction">gotoNextPage:</string>
 																	<int key="NSButtonFlags">-2038284288</int>
 																	<int key="NSButtonFlags2">0</int>
-																	<reference key="NSAlternateImage" ref="508909640"/>
+																	<reference key="NSAlternateImage" ref="332500856"/>
 																	<string key="NSKeyEquivalent"/>
 																	<int key="NSPeriodicDelay">400</int>
 																	<int key="NSPeriodicInterval">75</int>
@@ -1943,20 +1934,20 @@
 															</object>
 														</array>
 														<string key="NSFrame">{{0, 3}, {400, 20}}</string>
-														<reference key="NSSuperview" ref="211856616"/>
-														<reference key="NSNextKeyView" ref="910236309"/>
+														<reference key="NSSuperview" ref="54161654"/>
+														<reference key="NSNextKeyView" ref="664871001"/>
 														<string key="NSReuseIdentifierKey">_NS:59</string>
 													</object>
-													<object class="QCCompositionPickerNavigationView" id="533184903">
-														<reference key="NSNextResponder" ref="211856616"/>
+													<object class="QCCompositionPickerNavigationView" id="614985401">
+														<reference key="NSNextResponder" ref="54161654"/>
 														<int key="NSvFlags">-2147483392</int>
 														<array class="NSMutableArray" key="NSSubviews">
-															<object class="QCDashboardButton" id="544524603">
-																<reference key="NSNextResponder" ref="533184903"/>
+															<object class="QCDashboardButton" id="67586535">
+																<reference key="NSNextResponder" ref="614985401"/>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{10, 0}, {100, 20}}</string>
-																<reference key="NSSuperview" ref="533184903"/>
-																<reference key="NSNextKeyView" ref="407845368"/>
+																<reference key="NSSuperview" ref="614985401"/>
+																<reference key="NSNextKeyView" ref="187596932"/>
 																<string key="NSReuseIdentifierKey">_NS:78</string>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
@@ -1964,7 +1955,7 @@
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">134217728</int>
 																	<string key="NSContents">Button</string>
-																	<reference key="NSSupport" ref="508909640"/>
+																	<reference key="NSSupport" ref="332500856"/>
 																	<array class="NSMutableArray" key="NSAccessibilityOverriddenAttributes">
 																		<dictionary class="NSMutableDictionary">
 																			<string key="AXDescription">Previous Page</string>
@@ -1972,23 +1963,23 @@
 																		</dictionary>
 																	</array>
 																	<string key="NSCellIdentifier">_NS:78</string>
-																	<reference key="NSControlView" ref="544524603"/>
+																	<reference key="NSControlView" ref="67586535"/>
 																	<string key="NSAction">gotoPreviousPage:</string>
 																	<int key="NSButtonFlags">-2038284288</int>
 																	<int key="NSButtonFlags2">0</int>
-																	<reference key="NSAlternateImage" ref="508909640"/>
+																	<reference key="NSAlternateImage" ref="332500856"/>
 																	<string key="NSKeyEquivalent"/>
 																	<int key="NSPeriodicDelay">400</int>
 																	<int key="NSPeriodicInterval">75</int>
 																</object>
 																<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 															</object>
-															<object class="QCDashboardButton" id="407845368">
-																<reference key="NSNextResponder" ref="533184903"/>
+															<object class="QCDashboardButton" id="187596932">
+																<reference key="NSNextResponder" ref="614985401"/>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{290, 0}, {100, 20}}</string>
-																<reference key="NSSuperview" ref="533184903"/>
-																<reference key="NSNextKeyView" ref="626617943"/>
+																<reference key="NSSuperview" ref="614985401"/>
+																<reference key="NSNextKeyView" ref="402132656"/>
 																<string key="NSReuseIdentifierKey">_NS:85</string>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
@@ -1996,7 +1987,7 @@
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">134217728</int>
 																	<string key="NSContents">Button</string>
-																	<reference key="NSSupport" ref="508909640"/>
+																	<reference key="NSSupport" ref="332500856"/>
 																	<array class="NSMutableArray" key="NSAccessibilityOverriddenAttributes">
 																		<dictionary class="NSMutableDictionary">
 																			<string key="AXDescription">Next Page</string>
@@ -2004,11 +1995,11 @@
 																		</dictionary>
 																	</array>
 																	<string key="NSCellIdentifier">_NS:85</string>
-																	<reference key="NSControlView" ref="407845368"/>
+																	<reference key="NSControlView" ref="187596932"/>
 																	<string key="NSAction">gotoNextPage:</string>
 																	<int key="NSButtonFlags">-2038284288</int>
 																	<int key="NSButtonFlags2">0</int>
-																	<reference key="NSAlternateImage" ref="508909640"/>
+																	<reference key="NSAlternateImage" ref="332500856"/>
 																	<string key="NSKeyEquivalent"/>
 																	<int key="NSPeriodicDelay">400</int>
 																	<int key="NSPeriodicInterval">75</int>
@@ -2017,20 +2008,20 @@
 															</object>
 														</array>
 														<string key="NSFrame">{{0, 3}, {400, 20}}</string>
-														<reference key="NSSuperview" ref="211856616"/>
-														<reference key="NSNextKeyView" ref="544524603"/>
+														<reference key="NSSuperview" ref="54161654"/>
+														<reference key="NSNextKeyView" ref="67586535"/>
 														<string key="NSReuseIdentifierKey">_NS:76</string>
 													</object>
-													<object class="QCCompositionPickerNavigationView" id="626617943">
-														<reference key="NSNextResponder" ref="211856616"/>
+													<object class="QCCompositionPickerNavigationView" id="402132656">
+														<reference key="NSNextResponder" ref="54161654"/>
 														<int key="NSvFlags">-2147483392</int>
 														<array class="NSMutableArray" key="NSSubviews">
-															<object class="QCDashboardButton" id="134066694">
-																<reference key="NSNextResponder" ref="626617943"/>
+															<object class="QCDashboardButton" id="1070334671">
+																<reference key="NSNextResponder" ref="402132656"/>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{10, 0}, {100, 20}}</string>
-																<reference key="NSSuperview" ref="626617943"/>
-																<reference key="NSNextKeyView" ref="214305888"/>
+																<reference key="NSSuperview" ref="402132656"/>
+																<reference key="NSNextKeyView" ref="1013925422"/>
 																<string key="NSReuseIdentifierKey">_NS:95</string>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
@@ -2038,7 +2029,7 @@
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">134217728</int>
 																	<string key="NSContents">Button</string>
-																	<reference key="NSSupport" ref="508909640"/>
+																	<reference key="NSSupport" ref="332500856"/>
 																	<array class="NSMutableArray" key="NSAccessibilityOverriddenAttributes">
 																		<dictionary class="NSMutableDictionary">
 																			<string key="AXDescription">Previous Page</string>
@@ -2046,23 +2037,23 @@
 																		</dictionary>
 																	</array>
 																	<string key="NSCellIdentifier">_NS:95</string>
-																	<reference key="NSControlView" ref="134066694"/>
+																	<reference key="NSControlView" ref="1070334671"/>
 																	<string key="NSAction">gotoPreviousPage:</string>
 																	<int key="NSButtonFlags">-2038284288</int>
 																	<int key="NSButtonFlags2">0</int>
-																	<reference key="NSAlternateImage" ref="508909640"/>
+																	<reference key="NSAlternateImage" ref="332500856"/>
 																	<string key="NSKeyEquivalent"/>
 																	<int key="NSPeriodicDelay">400</int>
 																	<int key="NSPeriodicInterval">75</int>
 																</object>
 																<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 															</object>
-															<object class="QCDashboardButton" id="214305888">
-																<reference key="NSNextResponder" ref="626617943"/>
+															<object class="QCDashboardButton" id="1013925422">
+																<reference key="NSNextResponder" ref="402132656"/>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{290, 0}, {100, 20}}</string>
-																<reference key="NSSuperview" ref="626617943"/>
-																<reference key="NSNextKeyView" ref="910877401"/>
+																<reference key="NSSuperview" ref="402132656"/>
+																<reference key="NSNextKeyView" ref="978233243"/>
 																<string key="NSReuseIdentifierKey">_NS:102</string>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
@@ -2070,7 +2061,7 @@
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">134217728</int>
 																	<string key="NSContents">Button</string>
-																	<reference key="NSSupport" ref="508909640"/>
+																	<reference key="NSSupport" ref="332500856"/>
 																	<array class="NSMutableArray" key="NSAccessibilityOverriddenAttributes">
 																		<dictionary class="NSMutableDictionary">
 																			<string key="AXDescription">Next Page</string>
@@ -2078,11 +2069,11 @@
 																		</dictionary>
 																	</array>
 																	<string key="NSCellIdentifier">_NS:102</string>
-																	<reference key="NSControlView" ref="214305888"/>
+																	<reference key="NSControlView" ref="1013925422"/>
 																	<string key="NSAction">gotoNextPage:</string>
 																	<int key="NSButtonFlags">-2038284288</int>
 																	<int key="NSButtonFlags2">0</int>
-																	<reference key="NSAlternateImage" ref="508909640"/>
+																	<reference key="NSAlternateImage" ref="332500856"/>
 																	<string key="NSKeyEquivalent"/>
 																	<int key="NSPeriodicDelay">400</int>
 																	<int key="NSPeriodicInterval">75</int>
@@ -2091,20 +2082,20 @@
 															</object>
 														</array>
 														<string key="NSFrame">{{0, 3}, {400, 20}}</string>
-														<reference key="NSSuperview" ref="211856616"/>
-														<reference key="NSNextKeyView" ref="134066694"/>
+														<reference key="NSSuperview" ref="54161654"/>
+														<reference key="NSNextKeyView" ref="1070334671"/>
 														<string key="NSReuseIdentifierKey">_NS:93</string>
 													</object>
-													<object class="QCCompositionPickerNavigationView" id="910877401">
-														<reference key="NSNextResponder" ref="211856616"/>
+													<object class="QCCompositionPickerNavigationView" id="978233243">
+														<reference key="NSNextResponder" ref="54161654"/>
 														<int key="NSvFlags">256</int>
 														<array class="NSMutableArray" key="NSSubviews">
-															<object class="QCDashboardButton" id="503520213">
-																<reference key="NSNextResponder" ref="910877401"/>
+															<object class="QCDashboardButton" id="666197821">
+																<reference key="NSNextResponder" ref="978233243"/>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{10, 0}, {100, 20}}</string>
-																<reference key="NSSuperview" ref="910877401"/>
-																<reference key="NSNextKeyView" ref="412192148"/>
+																<reference key="NSSuperview" ref="978233243"/>
+																<reference key="NSNextKeyView" ref="30098095"/>
 																<string key="NSReuseIdentifierKey">_NS:112</string>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
@@ -2112,7 +2103,7 @@
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">134217728</int>
 																	<string key="NSContents">Button</string>
-																	<reference key="NSSupport" ref="508909640"/>
+																	<reference key="NSSupport" ref="332500856"/>
 																	<array class="NSMutableArray" key="NSAccessibilityOverriddenAttributes">
 																		<dictionary class="NSMutableDictionary">
 																			<string key="AXDescription">Previous Page</string>
@@ -2120,23 +2111,23 @@
 																		</dictionary>
 																	</array>
 																	<string key="NSCellIdentifier">_NS:112</string>
-																	<reference key="NSControlView" ref="503520213"/>
+																	<reference key="NSControlView" ref="666197821"/>
 																	<string key="NSAction">gotoPreviousPage:</string>
 																	<int key="NSButtonFlags">-2038284288</int>
 																	<int key="NSButtonFlags2">0</int>
-																	<reference key="NSAlternateImage" ref="508909640"/>
+																	<reference key="NSAlternateImage" ref="332500856"/>
 																	<string key="NSKeyEquivalent"/>
 																	<int key="NSPeriodicDelay">400</int>
 																	<int key="NSPeriodicInterval">75</int>
 																</object>
 																<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 															</object>
-															<object class="QCDashboardButton" id="412192148">
-																<reference key="NSNextResponder" ref="910877401"/>
+															<object class="QCDashboardButton" id="30098095">
+																<reference key="NSNextResponder" ref="978233243"/>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{290, 0}, {100, 20}}</string>
-																<reference key="NSSuperview" ref="910877401"/>
-																<reference key="NSNextKeyView" ref="355629761"/>
+																<reference key="NSSuperview" ref="978233243"/>
+																<reference key="NSNextKeyView" ref="329865212"/>
 																<string key="NSReuseIdentifierKey">_NS:119</string>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
@@ -2144,7 +2135,7 @@
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">134217728</int>
 																	<string key="NSContents">Button</string>
-																	<reference key="NSSupport" ref="508909640"/>
+																	<reference key="NSSupport" ref="332500856"/>
 																	<array class="NSMutableArray" key="NSAccessibilityOverriddenAttributes">
 																		<dictionary class="NSMutableDictionary">
 																			<string key="AXDescription">Next Page</string>
@@ -2152,11 +2143,11 @@
 																		</dictionary>
 																	</array>
 																	<string key="NSCellIdentifier">_NS:119</string>
-																	<reference key="NSControlView" ref="412192148"/>
+																	<reference key="NSControlView" ref="30098095"/>
 																	<string key="NSAction">gotoNextPage:</string>
 																	<int key="NSButtonFlags">-2038284288</int>
 																	<int key="NSButtonFlags2">0</int>
-																	<reference key="NSAlternateImage" ref="508909640"/>
+																	<reference key="NSAlternateImage" ref="332500856"/>
 																	<string key="NSKeyEquivalent"/>
 																	<int key="NSPeriodicDelay">400</int>
 																	<int key="NSPeriodicInterval">75</int>
@@ -2165,20 +2156,20 @@
 															</object>
 														</array>
 														<string key="NSFrame">{{0, 3}, {400, 20}}</string>
-														<reference key="NSSuperview" ref="211856616"/>
-														<reference key="NSNextKeyView" ref="503520213"/>
+														<reference key="NSSuperview" ref="54161654"/>
+														<reference key="NSNextKeyView" ref="666197821"/>
 														<string key="NSReuseIdentifierKey">_NS:110</string>
 													</object>
-													<object class="QCCompositionPickerNavigationView" id="355629761">
-														<reference key="NSNextResponder" ref="211856616"/>
+													<object class="QCCompositionPickerNavigationView" id="329865212">
+														<reference key="NSNextResponder" ref="54161654"/>
 														<int key="NSvFlags">256</int>
 														<array class="NSMutableArray" key="NSSubviews">
-															<object class="QCDashboardButton" id="946126965">
-																<reference key="NSNextResponder" ref="355629761"/>
+															<object class="QCDashboardButton" id="341105962">
+																<reference key="NSNextResponder" ref="329865212"/>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{10, 0}, {100, 20}}</string>
-																<reference key="NSSuperview" ref="355629761"/>
-																<reference key="NSNextKeyView" ref="487536540"/>
+																<reference key="NSSuperview" ref="329865212"/>
+																<reference key="NSNextKeyView" ref="294473002"/>
 																<string key="NSReuseIdentifierKey">_NS:129</string>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
@@ -2186,7 +2177,7 @@
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">134217728</int>
 																	<string key="NSContents">Button</string>
-																	<reference key="NSSupport" ref="508909640"/>
+																	<reference key="NSSupport" ref="332500856"/>
 																	<array class="NSMutableArray" key="NSAccessibilityOverriddenAttributes">
 																		<dictionary class="NSMutableDictionary">
 																			<string key="AXDescription">Previous Page</string>
@@ -2194,23 +2185,23 @@
 																		</dictionary>
 																	</array>
 																	<string key="NSCellIdentifier">_NS:129</string>
-																	<reference key="NSControlView" ref="946126965"/>
+																	<reference key="NSControlView" ref="341105962"/>
 																	<string key="NSAction">gotoPreviousPage:</string>
 																	<int key="NSButtonFlags">-2038284288</int>
 																	<int key="NSButtonFlags2">0</int>
-																	<reference key="NSAlternateImage" ref="508909640"/>
+																	<reference key="NSAlternateImage" ref="332500856"/>
 																	<string key="NSKeyEquivalent"/>
 																	<int key="NSPeriodicDelay">400</int>
 																	<int key="NSPeriodicInterval">75</int>
 																</object>
 																<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 															</object>
-															<object class="QCDashboardButton" id="487536540">
-																<reference key="NSNextResponder" ref="355629761"/>
+															<object class="QCDashboardButton" id="294473002">
+																<reference key="NSNextResponder" ref="329865212"/>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{290, 0}, {100, 20}}</string>
-																<reference key="NSSuperview" ref="355629761"/>
-																<reference key="NSNextKeyView" ref="809418307"/>
+																<reference key="NSSuperview" ref="329865212"/>
+																<reference key="NSNextKeyView" ref="34288603"/>
 																<string key="NSReuseIdentifierKey">_NS:141</string>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
@@ -2218,7 +2209,7 @@
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">134217728</int>
 																	<string key="NSContents">Button</string>
-																	<reference key="NSSupport" ref="508909640"/>
+																	<reference key="NSSupport" ref="332500856"/>
 																	<array class="NSMutableArray" key="NSAccessibilityOverriddenAttributes">
 																		<dictionary class="NSMutableDictionary">
 																			<string key="AXDescription">Next Page</string>
@@ -2226,11 +2217,11 @@
 																		</dictionary>
 																	</array>
 																	<string key="NSCellIdentifier">_NS:141</string>
-																	<reference key="NSControlView" ref="487536540"/>
+																	<reference key="NSControlView" ref="294473002"/>
 																	<string key="NSAction">gotoNextPage:</string>
 																	<int key="NSButtonFlags">-2038284288</int>
 																	<int key="NSButtonFlags2">0</int>
-																	<reference key="NSAlternateImage" ref="508909640"/>
+																	<reference key="NSAlternateImage" ref="332500856"/>
 																	<string key="NSKeyEquivalent"/>
 																	<int key="NSPeriodicDelay">400</int>
 																	<int key="NSPeriodicInterval">75</int>
@@ -2239,20 +2230,20 @@
 															</object>
 														</array>
 														<string key="NSFrame">{{0, 3}, {400, 20}}</string>
-														<reference key="NSSuperview" ref="211856616"/>
-														<reference key="NSNextKeyView" ref="946126965"/>
+														<reference key="NSSuperview" ref="54161654"/>
+														<reference key="NSNextKeyView" ref="341105962"/>
 														<string key="NSReuseIdentifierKey">_NS:127</string>
 													</object>
-													<object class="QCCompositionPickerNavigationView" id="809418307">
-														<reference key="NSNextResponder" ref="211856616"/>
+													<object class="QCCompositionPickerNavigationView" id="34288603">
+														<reference key="NSNextResponder" ref="54161654"/>
 														<int key="NSvFlags">256</int>
 														<array class="NSMutableArray" key="NSSubviews">
-															<object class="QCDashboardButton" id="968556553">
-																<reference key="NSNextResponder" ref="809418307"/>
+															<object class="QCDashboardButton" id="582594634">
+																<reference key="NSNextResponder" ref="34288603"/>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{10, 0}, {100, 20}}</string>
-																<reference key="NSSuperview" ref="809418307"/>
-																<reference key="NSNextKeyView" ref="5345813"/>
+																<reference key="NSSuperview" ref="34288603"/>
+																<reference key="NSNextKeyView" ref="15197256"/>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
 																<object class="NSButtonCell" key="NSCell">
@@ -2270,7 +2261,7 @@
 																			<integer value="1" key="NSAccessibilityEncodedAttributesValueType"/>
 																		</dictionary>
 																	</array>
-																	<reference key="NSControlView" ref="968556553"/>
+																	<reference key="NSControlView" ref="582594634"/>
 																	<string key="NSAction">gotoPreviousPage:</string>
 																	<int key="NSButtonFlags">-2038284288</int>
 																	<int key="NSButtonFlags2">0</int>
@@ -2281,12 +2272,12 @@
 																</object>
 																<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 															</object>
-															<object class="QCDashboardButton" id="5345813">
-																<reference key="NSNextResponder" ref="809418307"/>
+															<object class="QCDashboardButton" id="15197256">
+																<reference key="NSNextResponder" ref="34288603"/>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{290, 0}, {100, 20}}</string>
-																<reference key="NSSuperview" ref="809418307"/>
-																<reference key="NSNextKeyView" ref="222668436"/>
+																<reference key="NSSuperview" ref="34288603"/>
+																<reference key="NSNextKeyView" ref="1037631377"/>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
 																<object class="NSButtonCell" key="NSCell">
@@ -2300,7 +2291,7 @@
 																			<integer value="1" key="NSAccessibilityEncodedAttributesValueType"/>
 																		</dictionary>
 																	</array>
-																	<reference key="NSControlView" ref="5345813"/>
+																	<reference key="NSControlView" ref="15197256"/>
 																	<string key="NSAction">gotoNextPage:</string>
 																	<int key="NSButtonFlags">-2038284288</int>
 																	<int key="NSButtonFlags2">0</int>
@@ -2313,19 +2304,19 @@
 															</object>
 														</array>
 														<string key="NSFrame">{{0, 3}, {400, 20}}</string>
-														<reference key="NSSuperview" ref="211856616"/>
-														<reference key="NSNextKeyView" ref="968556553"/>
+														<reference key="NSSuperview" ref="54161654"/>
+														<reference key="NSNextKeyView" ref="582594634"/>
 													</object>
-													<object class="QCCompositionPickerNavigationView" id="222668436">
-														<reference key="NSNextResponder" ref="211856616"/>
+													<object class="QCCompositionPickerNavigationView" id="1037631377">
+														<reference key="NSNextResponder" ref="54161654"/>
 														<int key="NSvFlags">-2147483392</int>
 														<array class="NSMutableArray" key="NSSubviews">
-															<object class="QCDashboardButton" id="301609411">
-																<reference key="NSNextResponder" ref="222668436"/>
+															<object class="QCDashboardButton" id="322269822">
+																<reference key="NSNextResponder" ref="1037631377"/>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{10, 0}, {100, 20}}</string>
-																<reference key="NSSuperview" ref="222668436"/>
-																<reference key="NSNextKeyView" ref="816303944"/>
+																<reference key="NSSuperview" ref="1037631377"/>
+																<reference key="NSNextKeyView" ref="1684166"/>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
 																<object class="NSButtonCell" key="NSCell">
@@ -2339,7 +2330,7 @@
 																			<integer value="1" key="NSAccessibilityEncodedAttributesValueType"/>
 																		</dictionary>
 																	</array>
-																	<reference key="NSControlView" ref="301609411"/>
+																	<reference key="NSControlView" ref="322269822"/>
 																	<string key="NSAction">gotoPreviousPage:</string>
 																	<reference key="NSTarget"/>
 																	<int key="NSButtonFlags">-2038284288</int>
@@ -2351,12 +2342,12 @@
 																</object>
 																<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 															</object>
-															<object class="QCDashboardButton" id="816303944">
-																<reference key="NSNextResponder" ref="222668436"/>
+															<object class="QCDashboardButton" id="1684166">
+																<reference key="NSNextResponder" ref="1037631377"/>
 																<int key="NSvFlags">-2147483392</int>
 																<string key="NSFrame">{{290, 0}, {100, 20}}</string>
-																<reference key="NSSuperview" ref="222668436"/>
-																<reference key="NSNextKeyView" ref="792506084"/>
+																<reference key="NSSuperview" ref="1037631377"/>
+																<reference key="NSNextKeyView" ref="476601170"/>
 																<int key="NSTag">-1</int>
 																<bool key="NSEnabled">YES</bool>
 																<object class="NSButtonCell" key="NSCell">
@@ -2370,7 +2361,7 @@
 																			<integer value="1" key="NSAccessibilityEncodedAttributesValueType"/>
 																		</dictionary>
 																	</array>
-																	<reference key="NSControlView" ref="816303944"/>
+																	<reference key="NSControlView" ref="1684166"/>
 																	<string key="NSAction">gotoNextPage:</string>
 																	<reference key="NSTarget"/>
 																	<int key="NSButtonFlags">-2038284288</int>
@@ -2384,16 +2375,16 @@
 															</object>
 														</array>
 														<string key="NSFrame">{{0, 3}, {400, 20}}</string>
-														<reference key="NSSuperview" ref="211856616"/>
-														<reference key="NSNextKeyView" ref="301609411"/>
+														<reference key="NSSuperview" ref="54161654"/>
+														<reference key="NSNextKeyView" ref="322269822"/>
 													</object>
 												</array>
 												<set class="NSMutableSet" key="NSDragTypes">
 													<string>NSFilenamesPboardType</string>
 												</set>
 												<string key="NSFrame">{{17, 188}, {545, 124}}</string>
-												<reference key="NSSuperview" ref="406796681"/>
-												<reference key="NSNextKeyView" ref="872975606"/>
+												<reference key="NSSuperview" ref="813417013"/>
+												<reference key="NSNextKeyView" ref="471185946"/>
 												<bool key="NSViewIsLayerTreeHost">YES</bool>
 												<string key="NSReuseIdentifierKey">_NS:9</string>
 												<string key="compositionAspectRatio">{0, 0}</string>
@@ -2410,20 +2401,20 @@
 											</object>
 										</array>
 										<string key="NSFrame">{{10, 33}, {579, 315}}</string>
-										<reference key="NSNextKeyView" ref="211856616"/>
+										<reference key="NSNextKeyView" ref="54161654"/>
 									</object>
 									<string key="NSLabel">Quartz Compositions</string>
 									<reference key="NSColor" ref="318133960"/>
 									<reference key="NSTabView" ref="323337033"/>
 								</object>
 							</array>
-							<reference key="NSSelectedTabViewItem" ref="1017112066"/>
+							<reference key="NSSelectedTabViewItem" ref="189829545"/>
 							<reference key="NSFont" ref="798865298"/>
 							<int key="NSTvFlags">0</int>
 							<bool key="NSAllowTruncatedLabels">YES</bool>
 							<bool key="NSDrawsBackground">YES</bool>
 							<array class="NSMutableArray" key="NSSubviews">
-								<reference ref="757978227"/>
+								<reference ref="218529288"/>
 							</array>
 						</object>
 						<object class="NSBox" id="919501747">
@@ -4439,7 +4430,7 @@
 							<reference ref="1017112066"/>
 							<reference ref="169910116"/>
 							<reference ref="189829545"/>
-							<reference ref="513463029"/>
+							<reference ref="376430476"/>
 						</array>
 						<reference key="parent" ref="439893737"/>
 					</object>
@@ -4720,30 +4711,30 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">828</int>
-						<reference key="object" ref="513463029"/>
+						<reference key="object" ref="376430476"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="406796681"/>
+							<reference ref="813417013"/>
 						</array>
 						<reference key="parent" ref="323337033"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">829</int>
-						<reference key="object" ref="406796681"/>
+						<reference key="object" ref="813417013"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="792506084"/>
-							<reference ref="211856616"/>
+							<reference ref="476601170"/>
+							<reference ref="54161654"/>
 						</array>
-						<reference key="parent" ref="513463029"/>
+						<reference key="parent" ref="376430476"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">831</int>
-						<reference key="object" ref="792506084"/>
-						<reference key="parent" ref="406796681"/>
+						<reference key="object" ref="476601170"/>
+						<reference key="parent" ref="813417013"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">832</int>
-						<reference key="object" ref="211856616"/>
-						<reference key="parent" ref="406796681"/>
+						<reference key="object" ref="54161654"/>
+						<reference key="parent" ref="813417013"/>
 					</object>
 				</array>
 			</object>
@@ -5067,6 +5058,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">FMDTrackTableView</string>
 					<string key="superclassName">NSTableView</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">controller</string>
+						<string key="NS.object.0">FMDTrackTableViewController</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">controller</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">controller</string>
+							<string key="candidateClassName">FMDTrackTableViewController</string>
+						</object>
+					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/FMDTrackTableView.h</string>
