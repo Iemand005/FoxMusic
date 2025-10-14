@@ -10,9 +10,16 @@
 
 @implementation FMTrackStore
 
+
+
 - (void)save
 {
     [NSKeyedArchiver archiveRootObject:self toFile:@"hi.plist"];
+}
+
++ (FMTrackStore *)loadSavedStore
+{
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:@"hi.plist"];
 }
 
 @end

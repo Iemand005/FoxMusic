@@ -13,8 +13,11 @@
 
 @interface FMDAppDelegate : NSObject <NSApplicationDelegate>
 {
+    
     FMSpotifyClient *_spotifyClient;
 }
+
+@property (strong) FMTrackStore *trackStore;
 
 @property (assign) IBOutlet NSWindow *window;
 

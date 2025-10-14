@@ -31,6 +31,7 @@
 //    
 //    [[self codeLabel] setValue:code];
     
+    [self setTrackStore:[FMTrackStore loadSavedStore]];
 }
 
 - (void)openAudioFile:(id)sender
@@ -53,9 +54,9 @@
             for (NSURL *url in urls) {
                 FMDTrackTableItem *track = [FMDTrackTableItem trackWithURL:url];
                 [[self tracks] addObject:track];
-                [[self trackTable] reloadData];
+                
             }
-            
+            [[self trackTable] reloadData];
             
         }
     }];

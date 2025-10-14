@@ -18,4 +18,6 @@
 #import "FMSpotifyPlaylistArray.h"
 #import "FMBase62Decoder.h"
 
+#import "FMTrackStore.h"
+
 #import "FMGLUtils.h"

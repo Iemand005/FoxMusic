@@ -444,7 +444,7 @@
 		0ACB51972C3392CA004CA3E6 /* FMSpotifyContinuableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSpotifyContinuableArray.h; sourceTree = "<group>"; };
 		0ACB51982C3392CB004CA3E6 /* FMSpotifyContinuableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyContinuableArray.m; sourceTree = "<group>"; };
 		0ADCA4A02E9C0506007DAA07 /* VertexShader.glsl */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = VertexShader.glsl; sourceTree = "<group>"; };
-		0ADCA4A12E9C0506007DAA07 /* FragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader.glsl; sourceTree = "<group>"; };
+		0ADCA4A12E9C0506007DAA07 /* FragmentShader.glsl */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = FragmentShader.glsl; sourceTree = "<group>"; };
 		0AFD4E672D3EA02C0073E7F3 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		0AFD4E682D3EA02C0073E7F3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0AFD4E6B2D3EA0FC0073E7F3 /* FMVideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMVideoPlayerViewController.h; sourceTree = "<group>"; };

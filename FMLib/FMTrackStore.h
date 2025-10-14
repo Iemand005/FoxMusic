@@ -10,6 +10,10 @@
 
 @interface FMTrackStore : NSObject
 
+@property (retain) NSString *saveFileName;
+
 @property (retain) NSArray *tracks;
+
++ (FMTrackStore *)loadSavedStore;
 
 @end

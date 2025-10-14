@@ -72,12 +72,50 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink,
     //    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
     //    glDisableVertexAttribArray(0);
     
-    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+    glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
     
+    GLfloat vertices[] = {
+        -1.0f,  1.0f, 0.0f,
+        -1.0f, -1.0f, 0.0f,
+        1.0f, -1.0f, 0.0f,
+        1.0f,  1.0f, 0.0f,
+    };
+    
+    // Load the vertex data
+    //
+    glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, 0, vertices);
+    glEnableVertexAttribArray(_positionSlot);
+    
+    // Draw triangle
+    //
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    
     [[self openGLContext] flushBuffer];
+}
+
+- (BOOL)checkIfShaderLoaded:(GLuint)shader
+{
+    GLint compiled = 0;
+    glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
+    
+    if (compiled) return YES;
+    
+    GLint infoLen = 0;
+    glGetShaderiv ( shader, GL_INFO_LOG_LENGTH, &infoLen );
+    
+    if (infoLen > 1) {
+        char * infoLog = malloc(sizeof(char) * infoLen);
+        glGetShaderInfoLog (shader, infoLen, NULL, infoLog);
+        NSLog(@"Error compiling shader:\n%s\n", infoLog );
+        
+        free(infoLog);
+    }
+    
+    glDeleteShader(shader);
+    return 0;
 }
 
 - (void)setupShader
@@ -90,8 +128,49 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink,
 //    glUseProgram(_programHandle);
 //    
 //    _positionSlot = glGetAttribLocation(_programHandle, "vPosition");
-    GLuint vertexShader;
-    GLuint fragmentShader;
+//    GLuint vertexShader;
+//    GLuint fragmentShader;
+    
+    NSString *vertexShaderPath = [[NSBundle mainBundle] pathForResource:@"VertexShader" ofType:@"glsl"];
+    NSString *fragmentShaderPath = [[NSBundle mainBundle] pathForResource:@"FragmentShader" ofType:@"glsl"];
+    
+    
+    GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
+    const char* vertexShaderStr = vertexShaderPath.UTF8String;
+    glShaderSource(vertexShader, 1, &vertexShaderStr, NULL);
+    
+    glCompileShader(vertexShader);
+    
+    BOOL ok = [self checkIfShaderLoaded:vertexShader];
+    
+    GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+    const char* fragmentShaderStr = vertexShaderPath.UTF8String;
+    glShaderSource(fragmentShader, 1, &fragmentShaderStr, NULL);
+    
+    glCompileShader(fragmentShader);
+    
+    ok = [self checkIfShaderLoaded:fragmentShader];
+    
+    
+    
+    // Create torprogrq,
+    
+    programHandle = glCreateProgram();
+    
+    glAttachShader(programHandle, vertexShader);
+    glAttachShader(programHandle, fragmentShader);
+    
+    // Link the program
+    glLinkProgram(programHandle);
+    
+    glDeleteShader(vertexShader);
+    glDeleteShader(fragmentShader);
+    
+    glUseProgram(programHandle);
+    
+    _positionSlot = glGetAttribLocation(programHandle, "vPosition");
+    
+//    glUseProgram(<#GLuint program#>)
     
 //    vertexShader = [self comp]
 }
@@ -114,6 +193,7 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink,
     [super prepareOpenGL];
     
     glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+    [self setupShader];
     
     [self setupSquare];
 }

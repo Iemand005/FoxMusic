@@ -98,7 +98,7 @@
     
     // Draw triangle
     //
-    glDrawArrays(GL_TRIANGLES, 0, 4);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
     
 //    GLfloat vertices [] = {
 //        -0.5f, -0.5f, 0.0f,

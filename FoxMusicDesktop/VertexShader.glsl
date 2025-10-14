@@ -1,4 +1,5 @@
-attribute vec4 vPosition; 
+#version 3.2
+attribute vec4 vPosition;
  
 void main(void)
 {

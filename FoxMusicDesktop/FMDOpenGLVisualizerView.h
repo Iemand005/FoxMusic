@@ -15,6 +15,8 @@
 {
     NSTimer *animationTimer;
     CVDisplayLinkRef displayLink;
+    GLuint programHandle;
+    GLuint _positionSlot;
     
 //        GLuint _positionSlot;
 //        GLuint _programHandle;
