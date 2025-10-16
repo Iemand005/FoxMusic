@@ -51,11 +51,12 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink,
 
 - (void)renderForTime:(CVTimeStamp)time
 {
+    @autoreleasepool {
     [[self openGLContext] clearDrawable];
     [[self openGLContext] setView:self];
     [[self openGLContext] makeCurrentContext];
         
-    glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
+    //glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
@@ -76,7 +77,20 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink,
     //
     glDrawArrays(GL_TRIANGLES, 0, 3);
     
+    GLfloat vertices2 [] = {
+        -1.0f, -1.0f, 0.0f,
+        0.5f, -0.5f, 0.0f,
+        0.5f,  0.5f, 0.0f,
+        -1.5f,  0.5f, 0.0f,
+    };
+    
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, vertices2);
+    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+    glDisableVertexAttribArray(0);
+    
     [[self openGLContext] flushBuffer];
+    }
 }
 
 - (BOOL)checkIfShaderLoaded:(GLuint)shader
@@ -175,10 +189,10 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink,
 {
     [super prepareOpenGL];
     
-    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+    glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
     [self setupShader];
     
-    [self setupSquare];
+    //[self setupSquare];
 }
 
 //- (void)drawRect:(NSRect)dirtyRect
