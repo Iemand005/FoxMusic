@@ -54,24 +54,7 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink,
     [[self openGLContext] clearDrawable];
     [[self openGLContext] setView:self];
     [[self openGLContext] makeCurrentContext];
-    
-    //    glClear(GL_COLOR_BUFFER_BIT);
-    //
-    //    glBindVertexArray(vao);
-    //    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-    //    glBindVertexArray(0);
-    //
-    //    GLfloat vertices [] = {
-    //        -0.5f, -0.5f, 0.0f,
-    //        0.5f, -0.5f, 0.0f,
-    //        0.5f,  0.5f, 0.0f,
-    //        -0.5f,  0.5f, 0.0f,
-    //    };
-    //    glEnableVertexAttribArray(0);
-    //    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, vertices);
-    //    glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-    //    glDisableVertexAttribArray(0);
-    
+        
     glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     
@@ -136,7 +119,7 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink,
     
     
     GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    const char* vertexShaderStr = vertexShaderPath.UTF8String;
+    const char* vertexShaderStr = [[NSString stringWithContentsOfFile:vertexShaderPath encoding:NSUTF8StringEncoding error:nil] UTF8String];
     glShaderSource(vertexShader, 1, &vertexShaderStr, NULL);
     
     glCompileShader(vertexShader);
@@ -144,7 +127,7 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink,
     BOOL ok = [self checkIfShaderLoaded:vertexShader];
     
     GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    const char* fragmentShaderStr = vertexShaderPath.UTF8String;
+    const char* fragmentShaderStr = [[NSString stringWithContentsOfFile:fragmentShaderPath encoding:NSUTF8StringEncoding error:nil] UTF8String];;
     glShaderSource(fragmentShader, 1, &fragmentShaderStr, NULL);
     
     glCompileShader(fragmentShader);
