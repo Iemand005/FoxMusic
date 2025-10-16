@@ -96,19 +96,8 @@
     glClear(GL_COLOR_BUFFER_BIT);
     glViewport(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     
-//    GLfloat vertices[] = {
-//        -1.0f,  1.0f, 0.0f,
-//        -1.0f, -1.0f, 0.0f,
-//         1.0f,  -1.0f, 0.0f
-//    };
     
     GLfloat *vertices = [self createVertices:0.0f];
-//    GLfloat vertices[] = {
-//        -1.0f,  1.0f, 0.0f,
-//        -1.0f, -1.0f, 0.0f,
-//        1.0f, -1.0f, 0.0f,
-//        1.0f,  1.0f, 0.0f,
-//    };
     
     // Load the vertex data
     //

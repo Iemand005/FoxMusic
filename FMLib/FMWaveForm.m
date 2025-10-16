@@ -25,7 +25,7 @@
                                      AVLinearPCMBitDepthKey: @16
                                      };
     
-    AVAssetReaderTrackOutput *output = [[AVAssetReaderTrackOutput alloc] initWithTrack:track outputSettings:nil];
+    AVAssetReaderTrackOutput *output = [[AVAssetReaderTrackOutput alloc] initWithTrack:track outputSettings:outputSettings];
     
     [reader addOutput:output];
     
@@ -34,7 +34,7 @@
     NSArray *formatDesc = [track formatDescriptions];
     
     for (int i = 0; i < formatDesc.count; ++i) {
-        
+        [reader ]
     }
 }
 
