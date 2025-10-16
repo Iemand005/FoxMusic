@@ -58,19 +58,14 @@
     _positionSlot = glGetAttribLocation(_programHandle, "vPosition");
 }
 
-- (GLfloat *)createVertices
+- (GLfloat *)createVertices:(GLfloat)height
 {
+    GLfloat top = height;
+    
     GLfloat *vertices = malloc(18 * sizeof(GLfloat));
     
-//    vertices = {
-//        -1.0f,  1.0f, 0.0f,
-//        -1.0f, -1.0f, 0.0f,
-//         1.0f, -1.0f, 0.0f,
-//         1.0f,  1.0f, 0.0f,
-//    };
-    
     vertices[0] = -1.0f;
-    vertices[1] =  1.0f;
+    vertices[1] =  top;
     vertices[2] =  0.0f;
     
     vertices[3] = -1.0f;
@@ -82,11 +77,11 @@
     vertices[8] =  0.0f;
     
     vertices[9] = 1.0f;
-    vertices[10] =  1.0f;
+    vertices[10] =  top;
     vertices[11] =  0.0f;
     
     vertices[12] = -1.0f;
-    vertices[13] = -1.0f;
+    vertices[13] =  top;
     vertices[14] =  0.0f;
     
     vertices[15] =  1.0f;
@@ -107,7 +102,7 @@
 //         1.0f,  -1.0f, 0.0f
 //    };
     
-    GLfloat *vertices = [self createVertices];
+    GLfloat *vertices = [self createVertices:0.0f];
 //    GLfloat vertices[] = {
 //        -1.0f,  1.0f, 0.0f,
 //        -1.0f, -1.0f, 0.0f,
