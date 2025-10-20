@@ -34,7 +34,7 @@
     NSArray *formatDesc = [track formatDescriptions];
     
     for (int i = 0; i < formatDesc.count; ++i) {
-        [reader ]
+//        [reader ]
     }
 }
 

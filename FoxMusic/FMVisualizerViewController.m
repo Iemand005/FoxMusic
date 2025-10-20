@@ -93,12 +93,18 @@
 
 - (GLfloat *)createBars:(GLuint)amount withHeights:(GLfloat *)heights
 {
-    GLfloat *vertices = malloc(18 * sizeof(GLfloat));
+    GLuint rectangleVertexCount = 18;
+    GLfloat *vertices = malloc(amount * rectangleVertexCount * sizeof(GLfloat));
     
     for (GLuint index = 0; index < amount; ++index) {
-        GLfloat width = 2 / amount;
-        GLfloat left = 
-        GLfloat *rectangle = [self createVerticesForRectangleWithHeight:heights[index] left:<#(GLfloat)#> andRight:<#(GLfloat)#>]
+        GLfloat width = 2 / amount - 1;
+        GLfloat left = index;
+        GLfloat right = index + width;
+        GLfloat *rectangle = [self createVerticesForRectangleWithHeight:heights[index] left:left andRight:right];
+        for (GLuint vertIdx = 0; vertIdx < rectangleVertexCount; ++vertIdx) {
+            vertices[index * rectangleVertexCount + vertIdx] = rectangle[vertIdx];
+        }
+        
     }
     return vertices;
 }
@@ -110,7 +116,9 @@
     glViewport(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     
     
-    GLfloat *vertices = [self createVerticesForRectangleWithHeight:0.0f left:-1.0f andRight:0.0f];
+//    GLfloat *vertices = [self createVerticesForRectangleWithHeight:0.0f left:-1.0f andRight:0.0f];
+    GLfloat heights[] = {1.0};
+    GLfloat *vertices = [self createBars:1 withHeights:heights];
     
     // Load the vertex data
     //
