@@ -98,8 +98,8 @@
     
     for (GLuint index = 0; index < amount; ++index) {
         GLfloat width = 2 / amount - 1;
-        GLfloat left = index;
-        GLfloat right = index + width;
+        GLfloat left = width * index - 1;
+        GLfloat right = left + width;
         GLfloat *rectangle = [self createVerticesForRectangleWithHeight:heights[index] left:left andRight:right];
         for (GLuint vertIdx = 0; vertIdx < rectangleVertexCount; ++vertIdx) {
             vertices[index * rectangleVertexCount + vertIdx] = rectangle[vertIdx];
@@ -117,8 +117,8 @@
     
     
 //    GLfloat *vertices = [self createVerticesForRectangleWithHeight:0.0f left:-1.0f andRight:0.0f];
-    GLfloat heights[] = {1.0};
-    GLfloat *vertices = [self createBars:1 withHeights:heights];
+    GLfloat heights[] = {1.0, 0.0};
+    GLfloat *vertices = [self createBars:2 withHeights:heights];
     
     // Load the vertex data
     //
