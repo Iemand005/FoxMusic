@@ -58,35 +58,48 @@
     _positionSlot = glGetAttribLocation(_programHandle, "vPosition");
 }
 
-- (GLfloat *)createVertices:(GLfloat)height
+- (GLfloat *)createVerticesForRectangleWithHeight:(GLfloat)top left:(GLfloat)left andRight:(GLfloat)right
 {
-    GLfloat top = height;
+//    GLfloat top = height;
+    GLfloat bottom = -1.0f;
     
     GLfloat *vertices = malloc(18 * sizeof(GLfloat));
     
-    vertices[0] = -1.0f;
+    vertices[0] =  left;
     vertices[1] =  top;
     vertices[2] =  0.0f;
     
-    vertices[3] = -1.0f;
-    vertices[4] = -1.0f;
+    vertices[3] =  left;
+    vertices[4] = bottom;
     vertices[5] =  0.0f;
     
-    vertices[6] =  1.0f;
-    vertices[7] = -1.0f;
+    vertices[6] =  right;
+    vertices[7] = bottom;
     vertices[8] =  0.0f;
     
-    vertices[9] = 1.0f;
+    vertices[9] =  right;
     vertices[10] =  top;
     vertices[11] =  0.0f;
     
-    vertices[12] = -1.0f;
+    vertices[12] =  left;
     vertices[13] =  top;
     vertices[14] =  0.0f;
     
-    vertices[15] =  1.0f;
-    vertices[16] = -1.0f;
+    vertices[15] =  right;
+    vertices[16] = bottom;
     vertices[17] =  0.0f;
+    return vertices;
+}
+
+- (GLfloat *)createBars:(GLuint)amount withHeights:(GLfloat *)heights
+{
+    GLfloat *vertices = malloc(18 * sizeof(GLfloat));
+    
+    for (GLuint index = 0; index < amount; ++index) {
+        GLfloat width = 2 / amount;
+        GLfloat left = 
+        GLfloat *rectangle = [self createVerticesForRectangleWithHeight:heights[index] left:<#(GLfloat)#> andRight:<#(GLfloat)#>]
+    }
     return vertices;
 }
 
@@ -97,7 +110,7 @@
     glViewport(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     
     
-    GLfloat *vertices = [self createVertices:0.0f];
+    GLfloat *vertices = [self createVerticesForRectangleWithHeight:0.0f left:-1.0f andRight:0.0f];
     
     // Load the vertex data
     //
