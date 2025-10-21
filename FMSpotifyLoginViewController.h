@@ -27,4 +27,8 @@
 
 @property IBOutlet UIBarButtonItem *shareButton;
 
+
+
+@property IBOutlet UIImageView *imageView;
+
 @end

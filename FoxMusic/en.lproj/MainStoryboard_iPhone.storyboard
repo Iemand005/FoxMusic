@@ -521,22 +521,30 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJt-uW-Knj">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="HfW-US-i6u"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="KJt-uW-Knj" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0iG-dB-OjM"/>
                             <constraint firstItem="9at-DA-Fgs" firstAttribute="centerX" secondItem="o7p-c4-Iil" secondAttribute="centerX" type="default" id="2KY-nq-s6c"/>
                             <constraint firstItem="9at-DA-Fgs" firstAttribute="top" secondItem="HIN-eR-Vic" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8KN-RO-9XX"/>
                             <constraint firstItem="UkU-mQ-emm" firstAttribute="trailing" secondItem="DDl-5Q-dCE" secondAttribute="trailing" type="default" id="C1o-8O-nCk"/>
                             <constraint firstAttribute="trailing" secondItem="o7p-c4-Iil" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="CUi-0Y-rnC"/>
                             <constraint firstAttribute="trailing" secondItem="xZK-ra-JtQ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="GOE-Fr-vdz"/>
+                            <constraint firstItem="KJt-uW-Knj" firstAttribute="leading" secondItem="DDl-5Q-dCE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Hg6-gw-g2M"/>
                             <constraint firstItem="22" firstAttribute="leading" secondItem="DDl-5Q-dCE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="OS2-QF-Zz1"/>
                             <constraint firstItem="HIN-eR-Vic" firstAttribute="centerX" secondItem="9at-DA-Fgs" secondAttribute="centerX" type="default" id="PB9-hj-uQK"/>
+                            <constraint firstAttribute="bottom" secondItem="KJt-uW-Knj" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Sr4-FL-9Ma"/>
                             <constraint firstItem="UkU-mQ-emm" firstAttribute="leading" secondItem="DDl-5Q-dCE" secondAttribute="leading" type="default" id="TYz-PF-o5G"/>
                             <constraint firstItem="UkU-mQ-emm" firstAttribute="top" secondItem="DDl-5Q-dCE" secondAttribute="top" type="default" id="Vji-WF-UtD"/>
                             <constraint firstItem="xZK-ra-JtQ" firstAttribute="leading" secondItem="DDl-5Q-dCE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="YBR-lr-Tua"/>
                             <constraint firstItem="o7p-c4-Iil" firstAttribute="top" secondItem="9at-DA-Fgs" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="asE-P8-BWP"/>
                             <constraint firstItem="HIN-eR-Vic" firstAttribute="top" secondItem="22" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="d3b-ej-NbC"/>
-                            <constraint firstItem="22" firstAttribute="top" secondItem="DDl-5Q-dCE" secondAttribute="top" constant="128" id="ejO-7n-dr6"/>
+                            <constraint firstItem="xZK-ra-JtQ" firstAttribute="centerY" secondItem="DDl-5Q-dCE" secondAttribute="centerY" type="default" id="deR-8Y-vVb"/>
                             <constraint firstItem="xZK-ra-JtQ" firstAttribute="top" secondItem="o7p-c4-Iil" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="lGT-gr-Anz"/>
                             <constraint firstItem="o7p-c4-Iil" firstAttribute="leading" secondItem="DDl-5Q-dCE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="yL5-8s-z4B"/>
                             <constraint firstAttribute="trailing" secondItem="22" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="zeV-v8-JKn"/>
@@ -545,6 +553,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="6R8-kD-pZq"/>
                     <connections>
+                        <outlet property="imageView" destination="KJt-uW-Knj" id="Aac-nI-Q6g"/>
                         <outlet property="remainingTimeView" destination="o7p-c4-Iil" id="uVv-8j-ofz"/>
                         <outlet property="shareButton" destination="6qI-au-mwJ" id="guN-tR-iBc"/>
                         <outlet property="userCodeField" destination="9at-DA-Fgs" id="9d8-9B-Oh5"/>
@@ -814,6 +823,7 @@
             <relationships>
                 <relationship kind="action" name="refreshCode:"/>
                 <relationship kind="action" name="shareCode:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="remainingTimeView" candidateClass="UIProgressView"/>
                 <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="userCodeField" candidateClass="UITextField"/>

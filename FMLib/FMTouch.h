@@ -21,3 +21,5 @@
 #import "FMTrackStore.h"
 
 #import "FMGLUtils.h"
+
+#import "FMWaveForm.h"

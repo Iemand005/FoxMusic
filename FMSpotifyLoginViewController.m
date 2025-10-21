@@ -15,6 +15,9 @@
 {
     [super viewDidLoad];
     
+//    FMWaveForm *waveForm = [[FMWaveForm alloc] init];
+//    [waveForm renderPNGAudioPictogramForAsset:<#(AVURLAsset *)#>]
+    
     [self getNewUserCode];
 }
 

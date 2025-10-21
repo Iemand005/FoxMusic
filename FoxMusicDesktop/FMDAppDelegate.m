@@ -77,5 +77,17 @@
     [player play];
 }
 
+- (void)generateWaveform:(id)sender
+{
+    FMWaveForm *waveform = [[FMWaveForm alloc] init];
+    FMTrack *track = [self.tracks objectAtIndex:0];
+    AVURLAsset *asset = [AVURLAsset assetWithURL:[track URL]];
+    NSData *imageData = [waveform renderPNGAudioPictogramForAsset:asset];
+    
+    NSImage *image = [[NSImage alloc] initWithData:imageData];
+    
+    [[self imageView] setImage:image];
+}
+
 
 @end

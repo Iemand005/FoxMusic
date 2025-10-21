@@ -31,9 +31,12 @@
 
 @property (assign) IBOutlet FMDTrackTableView *trackTable;
 
+@property (assign) IBOutlet NSImageView *imageView;
+
 - (IBAction)openAudioFile:(id)sender;
 
 - (IBAction)play:(id)sender;
 
+- (IBAction)generateWaveform:(id)sender;
 
 @end

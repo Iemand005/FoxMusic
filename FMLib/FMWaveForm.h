@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <AVFoundation/AVFoundation.h>
 #import "FMTrack.h"
 
 @interface FMWaveForm : NSObject
@@ -15,5 +15,6 @@
 - (void)getSamplesFromURL:(NSURL *)url;
 - (void)getSamplesFromTrack:(FMTrack *)track;
 
+- (NSData *) renderPNGAudioPictogramForAsset:(AVURLAsset *)songAsset;
 
 @end

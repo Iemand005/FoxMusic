@@ -489,6 +489,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A2F2C432E8191D000755D69 /* CoreMedia.framework in Frameworks */,
 				0A8E05C42E9AB6AB00A36852 /* Quartz.framework in Frameworks */,
 				0A8E05B82E99768C00A36852 /* OpenGL.framework in Frameworks */,
 				0A8E05AE2E996D7F00A36852 /* AVFoundation.framework in Frameworks */,
@@ -496,7 +497,6 @@
 				0A2F2C4F2E84381200755D69 /* QuartzCore.framework in Frameworks */,
 				0A2F2C4D2E8437F500755D69 /* QuickLook.framework in Frameworks */,
 				0A2F2C452E8191F600755D69 /* CoreAudio.framework in Frameworks */,
-				0A2F2C432E8191D000755D69 /* CoreMedia.framework in Frameworks */,
 				0A2F2C222E29322500755D69 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
