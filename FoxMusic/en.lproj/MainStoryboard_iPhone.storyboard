@@ -414,7 +414,7 @@
         <!--GLKit View Controller-->
         <scene sceneID="khO-KY-TVh">
             <objects>
-                <glkViewController autoresizesArchivedViewToFullSize="NO" preferredFramesPerSecond="30" id="lrw-9S-AbL" customClass="FMVisualizerViewController" sceneMemberID="viewController">
+                <glkViewController autoresizesArchivedViewToFullSize="NO" preferredFramesPerSecond="30" id="lrw-9S-AbL" customClass="FMBarVisualizerViewController" sceneMemberID="viewController">
                     <glkView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="pw6-kw-1RS">
                         <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -773,6 +773,12 @@
                 <relationship kind="outlet" name="albumCoverImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="playButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="FMBarVisualizerViewController" superclassName="GLKViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FMBarVisualizerViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="glView" candidateClass="GLKView"/>
             </relationships>
         </class>
         <class className="FMFirstViewController" superclassName="UIViewController">

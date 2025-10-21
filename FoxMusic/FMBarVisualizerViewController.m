@@ -1,28 +1,32 @@
 //
-//  FMGLVizualizerView.m
+//  FMBarVisualizerViewController.m
 //  FoxMusic
 //
-//  Created by Lasse Lauwerys on 11/10/25.
+//  Created by Lasse Lauwerys on 21/10/25.
 //  Copyright (c) 2025 Lasse Lauwerys. All rights reserved.
 //
 
-#import "FMVisualizerViewController.h"
+#import "FMBarVisualizerViewController.h"
 
-//#import "../FMLib/FMGLUtils.h"
+@interface FMBarVisualizerViewController ()
 
-@implementation FMVisualizerViewController
+@end
 
-//- (id)init:(CGRect)frame
-//{
-//    self = [super initWithFrame:frame];
-//
-//    return self;
-//}
+@implementation FMBarVisualizerViewController
 
-//- (void)setupGL;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
     GLKView *view = (GLKView *)self.view;
     self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     [view setContext:self.context];
@@ -30,20 +34,16 @@
     [self setupGL];
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 - (void)setupGL
 {
     [EAGLContext setCurrentContext:self.context];
     
     [self setupShader];
-//    glEnable(GL_DEPTH_TEST);
-    
-    
-    
-//    [view setEnableSetNeedsDisplay:YES];
-//    
-//    [view setNeedsDisplay];
-    
-    // Setup layer
 }
 
 - (void)setupShader
@@ -60,41 +60,35 @@
 
 - (GLfloat *)createVerticesForRectangleWithHeight:(GLfloat)top left:(GLfloat)left andRight:(GLfloat)right
 {
-//    GLfloat top = height;
+    //    GLfloat top = height;
     GLfloat bottom = -1.0f;
     
-    GLfloat *vertices = malloc(18 * sizeof(GLfloat));
+    GLfloat *vertices = malloc(12 * sizeof(GLfloat));
     
     vertices[0] =  left;
     vertices[1] =  top;
-    vertices[2] =  0.0f;
     
-    vertices[3] =  left;
-    vertices[4] = bottom;
-    vertices[5] =  0.0f;
+    vertices[2] =  left;
+    vertices[3] = bottom;
+    
+    vertices[4] =  right;
+    vertices[5] = bottom;
     
     vertices[6] =  right;
-    vertices[7] = bottom;
-    vertices[8] =  0.0f;
+    vertices[7] =  top;
     
-    vertices[9] =  right;
-    vertices[10] =  top;
-    vertices[11] =  0.0f;
+    vertices[8] =  left;
+    vertices[9] =  top;
     
-    vertices[12] =  left;
-    vertices[13] =  top;
-    vertices[14] =  0.0f;
-    
-    vertices[15] =  right;
-    vertices[16] = bottom;
-    vertices[17] =  0.0f;
+    vertices[10] =  right;
+    vertices[11] = bottom;
     
     return vertices;
 }
 
 - (GLfloat *)createBars:(GLuint)amount withHeights:(GLfloat *)heights
 {
-    GLuint rectangleVertexCount = 18;
+    GLuint rectangleVertexCount = 12;
     GLfloat *vertices = malloc(amount * rectangleVertexCount * sizeof(GLfloat));
     
     GLfloat a = 2.0f / amount;
@@ -127,7 +121,7 @@
     
     // Load the vertex data
     //
-    glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, 0, vertices);
+    glVertexAttribPointer(_positionSlot, 2, GL_FLOAT, GL_FALSE, 0, vertices);
     glEnableVertexAttribArray(_positionSlot);
     
     // Draw triangle

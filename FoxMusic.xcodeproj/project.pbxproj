@@ -175,6 +175,7 @@
 		0ACB51992C3392CB004CA3E6 /* FMSpotifyContinuableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ACB51982C3392CB004CA3E6 /* FMSpotifyContinuableArray.m */; };
 		0ADCA4A22E9C0506007DAA07 /* VertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0ADCA4A02E9C0506007DAA07 /* VertexShader.glsl */; };
 		0ADCA4A32E9C0506007DAA07 /* FragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0ADCA4A12E9C0506007DAA07 /* FragmentShader.glsl */; };
+		0ADCA4A72EA7B920007DAA07 /* FMBarVisualizerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADCA4A62EA7B920007DAA07 /* FMBarVisualizerViewController.m */; };
 		0AFD4E692D3EA02C0073E7F3 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFD4E672D3EA02C0073E7F3 /* CoreVideo.framework */; };
 		0AFD4E6A2D3EA02C0073E7F3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFD4E682D3EA02C0073E7F3 /* QuartzCore.framework */; };
 		0AFD4E6D2D3EA0FC0073E7F3 /* FMVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFD4E6C2D3EA0FC0073E7F3 /* FMVideoPlayerViewController.m */; };
@@ -445,6 +446,8 @@
 		0ACB51982C3392CB004CA3E6 /* FMSpotifyContinuableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyContinuableArray.m; sourceTree = "<group>"; };
 		0ADCA4A02E9C0506007DAA07 /* VertexShader.glsl */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = VertexShader.glsl; sourceTree = "<group>"; };
 		0ADCA4A12E9C0506007DAA07 /* FragmentShader.glsl */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = FragmentShader.glsl; sourceTree = "<group>"; };
+		0ADCA4A52EA7B920007DAA07 /* FMBarVisualizerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMBarVisualizerViewController.h; sourceTree = "<group>"; };
+		0ADCA4A62EA7B920007DAA07 /* FMBarVisualizerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMBarVisualizerViewController.m; sourceTree = "<group>"; };
 		0AFD4E672D3EA02C0073E7F3 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		0AFD4E682D3EA02C0073E7F3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0AFD4E6B2D3EA0FC0073E7F3 /* FMVideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMVideoPlayerViewController.h; sourceTree = "<group>"; };
@@ -915,6 +918,8 @@
 			children = (
 				0A8E05B92E9AAB6000A36852 /* FMVisualizerViewController.h */,
 				0A8E05BA2E9AAB6000A36852 /* FMVisualizerViewController.m */,
+				0ADCA4A52EA7B920007DAA07 /* FMBarVisualizerViewController.h */,
+				0ADCA4A62EA7B920007DAA07 /* FMBarVisualizerViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1410,6 +1415,7 @@
 				0A8E05B22E996F9500A36852 /* FMWaveForm.m in Sources */,
 				0A8E05BB2E9AAB6000A36852 /* FMVisualizerViewController.m in Sources */,
 				0A8E05D22E9B18C800A36852 /* FMGLUtils.m in Sources */,
+				0ADCA4A72EA7B920007DAA07 /* FMBarVisualizerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
