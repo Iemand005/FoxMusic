@@ -131,7 +131,7 @@
     [self getSamplesFromURL:track.URL];
 }
 
--(UIImage *) audioImageGraph:(SInt16 *) samples
+-(NSData *) audioImageGraph:(SInt16 *) samples
                 normalizeMax:(SInt16) normalizeMax
                  sampleCount:(NSInteger) sampleCount
                 channelCount:(NSInteger) channelCount
@@ -141,15 +141,18 @@
     UIGraphicsBeginImageContext(imageSize);
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
+//    CGContextSetFillColorWithColor(context, [CIColor blackColor].CGColor);
+    CGContextSetFillColorWithColor(context, CGColorCreateGenericRGB(0, 0, 0, 255));
     CGContextSetAlpha(context,1.0);
     CGRect rect;
     rect.size = imageSize;
     rect.origin.x = 0;
     rect.origin.y = 0;
     
-    CGColorRef leftcolor = [[UIColor whiteColor] CGColor];
-    CGColorRef rightcolor = [[UIColor redColor] CGColor];
+//    CGColorRef leftcolor = [[UIColor whiteColor] CGColor];
+//    CGColorRef rightcolor = [[UIColor redColor] CGColor];
+    CGColorRef leftcolor = CGColorCreateGenericRGB(255, 255, 255, 255);
+    CGColorRef rightcolor = CGColorCreateGenericRGB(255, 0, 0, 255);
     
     CGContextFillRect(context, rect);
     
@@ -181,12 +184,12 @@
     }
     
     // Create new image
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     
     // Tidy up
     UIGraphicsEndImageContext();
     
-    return newImage;
+    return nil;
 }
 
 - (NSData *) renderPNGAudioPictogramForAsset:(AVURLAsset *)songAsset {

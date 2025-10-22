@@ -65,7 +65,6 @@
 		0A2F2C372E29424F00755D69 /* FMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2F2C362E29424F00755D69 /* FMTableViewController.m */; };
 		0A2F2C3A2E29445F00755D69 /* FMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2F2C392E29445E00755D69 /* FMNavigationController.m */; };
 		0A2F2C3D2E2944EC00755D69 /* FMPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2F2C3C2E2944EC00755D69 /* FMPageViewController.m */; };
-		0A2F2C432E8191D000755D69 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2F2C422E8191CE00755D69 /* CoreMedia.framework */; };
 		0A2F2C452E8191F600755D69 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2F2C442E8191F500755D69 /* CoreAudio.framework */; };
 		0A2F2C482E81947D00755D69 /* FMDTrackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2F2C472E81947D00755D69 /* FMDTrackTableViewController.m */; };
 		0A2F2C4B2E81968D00755D69 /* FMDTrackTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2F2C4A2E81968D00755D69 /* FMDTrackTableView.m */; };
@@ -117,6 +116,9 @@
 		0A7FB31E2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB31D2C2DFC0900F50618 /* FMSpotifyLoginPageViewController.m */; };
 		0A7FB3212C33244100F50618 /* FMSpotifyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3202C33244000F50618 /* FMSpotifyNavigationController.m */; };
 		0A7FB3242C33345B00F50618 /* FMURLConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FB3232C33345B00F50618 /* FMURLConnectionDelegate.m */; };
+		0A8BD54F2EA7ED2F00006616 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2F2C422E8191CE00755D69 /* CoreMedia.framework */; };
+		0A8BD5512EA8BC3E00006616 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8BD5502EA8BC3E00006616 /* CoreMedia.framework */; };
+		0A8BD5522EA8BCDD00006616 /* FMWaveForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8E05B12E996F9500A36852 /* FMWaveForm.m */; };
 		0A8E05AC2E996B7800A36852 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8E05AB2E996B7800A36852 /* AudioToolbox.framework */; };
 		0A8E05AE2E996D7F00A36852 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8E05AD2E996D7F00A36852 /* AVFoundation.framework */; };
 		0A8E05B22E996F9500A36852 /* FMWaveForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8E05B12E996F9500A36852 /* FMWaveForm.m */; };
@@ -363,6 +365,7 @@
 		0A7FB3202C33244000F50618 /* FMSpotifyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSpotifyNavigationController.m; sourceTree = "<group>"; };
 		0A7FB3222C33345B00F50618 /* FMURLConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMURLConnectionDelegate.h; sourceTree = "<group>"; };
 		0A7FB3232C33345B00F50618 /* FMURLConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMURLConnectionDelegate.m; sourceTree = "<group>"; };
+		0A8BD5502EA8BC3E00006616 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		0A8E05AB2E996B7800A36852 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
 		0A8E05AD2E996D7F00A36852 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		0A8E05B02E996F9500A36852 /* FMWaveForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMWaveForm.h; sourceTree = "<group>"; };
@@ -459,6 +462,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A8BD5512EA8BC3E00006616 /* CoreMedia.framework in Frameworks */,
 				0A8E05BF2E9AAB9B00A36852 /* OpenGLES.framework in Frameworks */,
 				0A8E05BD2E9AAB9400A36852 /* GLKit.framework in Frameworks */,
 				0AFD4E692D3EA02C0073E7F3 /* CoreVideo.framework in Frameworks */,
@@ -489,7 +493,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A2F2C432E8191D000755D69 /* CoreMedia.framework in Frameworks */,
+				0A8BD54F2EA7ED2F00006616 /* CoreMedia.framework in Frameworks */,
 				0A8E05C42E9AB6AB00A36852 /* Quartz.framework in Frameworks */,
 				0A8E05B82E99768C00A36852 /* OpenGL.framework in Frameworks */,
 				0A8E05AE2E996D7F00A36852 /* AVFoundation.framework in Frameworks */,
@@ -565,6 +569,7 @@
 		0A2BFE9E2C2C44450009ADAD = {
 			isa = PBXGroup;
 			children = (
+				0A8BD5502EA8BC3E00006616 /* CoreMedia.framework */,
 				0A8E05C32E9AB6AB00A36852 /* Quartz.framework */,
 				0A8E05BE2E9AAB9B00A36852 /* OpenGLES.framework */,
 				0A8E05BC2E9AAB9400A36852 /* GLKit.framework */,
@@ -1433,6 +1438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A8BD5522EA8BCDD00006616 /* FMWaveForm.m in Sources */,
 				0A2F2C2D2E29331100755D69 /* FMMutableURLQueryDictionary.m in Sources */,
 				0A2F2C2E2E29331100755D69 /* FMURLConnection.m in Sources */,
 				0A2F2C2F2E29331100755D69 /* FMURLConnectionDelegate.m in Sources */,
