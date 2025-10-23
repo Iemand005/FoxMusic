@@ -131,38 +131,101 @@
     [self getSamplesFromURL:track.URL];
 }
 
--(NSData *) audioImageGraph:(SInt16 *) samples
+//-(UIImage *) audioImageGraph:(SInt16 *) samples
+//                normalizeMax:(SInt16) normalizeMax
+//                 sampleCount:(NSInteger) sampleCount
+//                channelCount:(NSInteger) channelCount
+//                 imageHeight:(float) imageHeight {
+//    
+//    CGSize imageSize = CGSizeMake(sampleCount, imageHeight);
+//    UIGraphicsBeginImageContext(imageSize);
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    
+////    CGContextSetFillColorWithColor(context, [CIColor blackColor].CGColor);
+//    CGContextSetFillColorWithColor(context, CGColorCreateGenericRGB(255, 0, 0, 255));
+//    CGContextSetAlpha(context,1.0);
+//    CGRect rect;
+//    rect.size = imageSize;
+//    rect.origin.x = 0;
+//    rect.origin.y = 0;
+//    
+////    CGColorRef leftcolor = [[UIColor whiteColor] CGColor];
+////    CGColorRef rightcolor = [[UIColor redColor] CGColor];
+//    CGColorRef leftcolor = CGColorCreateGenericRGB(255, 255, 255, 255);
+//    CGColorRef rightcolor = CGColorCreateGenericRGB(255, 0, 0, 255);
+//    
+//    CGContextFillRect(context, rect);
+//    
+//    CGContextSetLineWidth(context, 1.0);
+//    
+//    float halfGraphHeight = (imageHeight / 2) / (float) channelCount ;
+//    float centerLeft = halfGraphHeight;
+//    float centerRight = (halfGraphHeight*3) ;
+//    float sampleAdjustmentFactor = (imageHeight/ (float) channelCount) / (float) normalizeMax;
+//    
+//    for (NSInteger intSample = 0 ; intSample < sampleCount ; intSample ++ ) {
+//        SInt16 left = *samples++;
+//        float pixels = (float) left;
+//        pixels *= sampleAdjustmentFactor;
+//        CGContextMoveToPoint(context, intSample, centerLeft-pixels);
+//        CGContextAddLineToPoint(context, intSample, centerLeft+pixels);
+//        CGContextSetStrokeColorWithColor(context, leftcolor);
+//        CGContextStrokePath(context);
+//        
+//        if (channelCount==2) {
+//            SInt16 right = *samples++;
+//            float pixels = (float) right;
+//            pixels *= sampleAdjustmentFactor;
+//            CGContextMoveToPoint(context, intSample, centerRight - pixels);
+//            CGContextAddLineToPoint(context, intSample, centerRight + pixels);
+//            CGContextSetStrokeColorWithColor(context, rightcolor);
+//            CGContextStrokePath(context);
+//        }
+//    }
+//    
+//    // Create new image
+//    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+//    
+//    // Tidy up
+//    UIGraphicsEndImageContext();
+//    
+//    return newImage;
+//}
+
+-(CGImageRef) audioImageGraph:(SInt16 *) samples
                 normalizeMax:(SInt16) normalizeMax
                  sampleCount:(NSInteger) sampleCount
                 channelCount:(NSInteger) channelCount
                  imageHeight:(float) imageHeight {
-    
+
     CGSize imageSize = CGSizeMake(sampleCount, imageHeight);
-    UIGraphicsBeginImageContext(imageSize);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
+//    UIGraphicsBeginImageContext(imageSize);
+    NSInteger width = sampleCount;
+    CGContextRef context = CGBitmapContextCreate(NULL, width, imageHeight, 8, width * 8, NULL, 0);
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+
 //    CGContextSetFillColorWithColor(context, [CIColor blackColor].CGColor);
-    CGContextSetFillColorWithColor(context, CGColorCreateGenericRGB(0, 0, 0, 255));
+    CGContextSetFillColorWithColor(context, CGColorCreateGenericRGB(255, 0, 0, 255));
     CGContextSetAlpha(context,1.0);
     CGRect rect;
     rect.size = imageSize;
     rect.origin.x = 0;
     rect.origin.y = 0;
-    
+
 //    CGColorRef leftcolor = [[UIColor whiteColor] CGColor];
 //    CGColorRef rightcolor = [[UIColor redColor] CGColor];
     CGColorRef leftcolor = CGColorCreateGenericRGB(255, 255, 255, 255);
     CGColorRef rightcolor = CGColorCreateGenericRGB(255, 0, 0, 255);
-    
+
     CGContextFillRect(context, rect);
-    
+
     CGContextSetLineWidth(context, 1.0);
-    
+
     float halfGraphHeight = (imageHeight / 2) / (float) channelCount ;
     float centerLeft = halfGraphHeight;
     float centerRight = (halfGraphHeight*3) ;
     float sampleAdjustmentFactor = (imageHeight/ (float) channelCount) / (float) normalizeMax;
-    
+
     for (NSInteger intSample = 0 ; intSample < sampleCount ; intSample ++ ) {
         SInt16 left = *samples++;
         float pixels = (float) left;
@@ -171,7 +234,7 @@
         CGContextAddLineToPoint(context, intSample, centerLeft+pixels);
         CGContextSetStrokeColorWithColor(context, leftcolor);
         CGContextStrokePath(context);
-        
+
         if (channelCount==2) {
             SInt16 right = *samples++;
             float pixels = (float) right;
@@ -182,15 +245,17 @@
             CGContextStrokePath(context);
         }
     }
-    
+
     // Create new image
 //    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    
+
     // Tidy up
-    UIGraphicsEndImageContext();
-    
-    return nil;
+//    UIGraphicsEndImageContext();
+    CGContextG
+
+    return newImage;
 }
+
 
 - (NSData *) renderPNGAudioPictogramForAsset:(AVURLAsset *)songAsset {
     
@@ -320,6 +385,11 @@
     if (reader.status == AVAssetReaderStatusCompleted){
         
         NSLog(@"rendering output graphics using normalizeMax %d",normalizeMax);
+        
+//        return [NSData dataWithBytes:fullSongData.bytes length:fullSongData.length]
+        return fullSongData;
+        
+//        [[NSImage alloc] initWithCGImage:<#(CGImageRef)#> size:<#(NSSize)#>]
         
 //        UIImage *test = [self audioImageGraph:(SInt16 *)
 //                         fullSongData.bytes 
