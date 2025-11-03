@@ -251,7 +251,7 @@
 
     // Tidy up
 //    UIGraphicsEndImageContext();
-    CGContextG
+//    CGContextG
 
     return newImage;
 }
