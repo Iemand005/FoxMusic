@@ -192,6 +192,11 @@
 //    return newImage;
 //}
 
+struct Sample {
+    SInt16 left;
+    SInt16 right;
+};
+
 -(CGImageRef) audioImageGraph:(SInt16 *) samples
                 normalizeMax:(SInt16) normalizeMax
                  sampleCount:(NSInteger) sampleCount
@@ -205,17 +210,17 @@
 //    CGContextRef context = UIGraphicsGetCurrentContext();
 
 //    CGContextSetFillColorWithColor(context, [CIColor blackColor].CGColor);
-    CGContextSetFillColorWithColor(context, CGColorCreateGenericRGB(255, 0, 0, 255));
+//    CGContextSetFillColorWithColor(context, CGColorCreateGenericRGB(255, 0, 0, 255));
     CGContextSetAlpha(context,1.0);
     CGRect rect;
     rect.size = imageSize;
     rect.origin.x = 0;
     rect.origin.y = 0;
 
-//    CGColorRef leftcolor = [[UIColor whiteColor] CGColor];
-//    CGColorRef rightcolor = [[UIColor redColor] CGColor];
-    CGColorRef leftcolor = CGColorCreateGenericRGB(255, 255, 255, 255);
-    CGColorRef rightcolor = CGColorCreateGenericRGB(255, 0, 0, 255);
+    CGColorRef leftcolor = [[UIColor whiteColor] CGColor];
+    CGColorRef rightcolor = [[UIColor redColor] CGColor];
+//    CGColorRef leftcolor = CGColorCreateGenericRGB(255, 255, 255, 255);
+//    CGColorRef rightcolor = CGColorCreateGenericRGB(255, 0, 0, 255);
 
     CGContextFillRect(context, rect);
 
@@ -253,7 +258,7 @@
 //    UIGraphicsEndImageContext();
 //    CGContextG
 
-    return newImage;
+    return nil;
 }
 
 
