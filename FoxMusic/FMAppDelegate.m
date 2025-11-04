@@ -86,6 +86,13 @@
     }
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    NSLog(@"%@, application: %@", url, sourceApplication);
+    
+    return YES;
+}
+
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event
 {
     @try {
