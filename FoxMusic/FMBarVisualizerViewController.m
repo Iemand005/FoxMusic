@@ -7,6 +7,7 @@
 //
 
 #import "FMBarVisualizerViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface FMBarVisualizerViewController ()
 
@@ -127,6 +128,27 @@
     // Draw triangle
     //
     glDrawArrays(GL_TRIANGLES, 0, 6 * amount);
+}
+
+- (void)play:(id)sender
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Engage" ofType:@"mp3"];
+    
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    
+    NSError *error;
+    
+    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithData:data error:&error];
+    
+    
+    [audioPlayer prepareToPlay];
+    [audioPlayer play];
+    
+    FMWaveForm *waveform = [[FMWaveForm alloc] init];
+
+    AVURLAsset *asset = [AVURLAsset assetWithURL:[NSURL URLWithString:path]];
+    NSData *imageData = [waveform renderPNGAudioPictogramForAsset:asset];
+    
 }
 
 @end

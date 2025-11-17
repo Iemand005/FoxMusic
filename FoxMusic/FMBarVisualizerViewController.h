@@ -9,6 +9,7 @@
 #import <GLKit/GLKit.h>
 
 #import "../FMLib/FMGLUtils.h"
+#import "FMTouch.h"
 
 @interface FMBarVisualizerViewController : GLKViewController
 {
@@ -19,5 +20,7 @@
 @property EAGLContext *context;
 
 @property IBOutlet GLKView *glView;
+
+- (IBAction)play:(id)sender;
 
 @end
