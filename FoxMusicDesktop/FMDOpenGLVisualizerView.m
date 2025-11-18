@@ -128,8 +128,8 @@ CVReturn displayCallback(CVDisplayLinkRef displayLink,
 //    GLuint vertexShader;
 //    GLuint fragmentShader;
     
-    NSString *vertexShaderPath = [[NSBundle mainBundle] pathForResource:@"VertexShader" ofType:@"glsl"];
-    NSString *fragmentShaderPath = [[NSBundle mainBundle] pathForResource:@"FragmentShader" ofType:@"glsl"];
+    NSString *vertexShaderPath = [[NSBundle mainBundle] pathForResource:@"BasicVertexShader" ofType:@"vs"];
+    NSString *fragmentShaderPath = [[NSBundle mainBundle] pathForResource:@"YellowFragmentShader" ofType:@"fs"];
     
     
     GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);

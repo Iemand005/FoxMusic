@@ -120,6 +120,8 @@
 		0A8BD5512EA8BC3E00006616 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8BD5502EA8BC3E00006616 /* CoreMedia.framework */; };
 		0A8BD5522EA8BCDD00006616 /* FMWaveForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8E05B12E996F9500A36852 /* FMWaveForm.m */; };
 		0A8BD5542EC1DB1100006616 /* Engage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A8BD5532EC1DB1100006616 /* Engage.mp3 */; };
+		0A8BD5572ECCB06D00006616 /* BasicVertexShader.vs in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BD5552ECCB06D00006616 /* BasicVertexShader.vs */; };
+		0A8BD5582ECCB06D00006616 /* YellowFragmentShader.fs in Sources */ = {isa = PBXBuildFile; fileRef = 0A8BD5562ECCB06D00006616 /* YellowFragmentShader.fs */; };
 		0A8E05AC2E996B7800A36852 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8E05AB2E996B7800A36852 /* AudioToolbox.framework */; };
 		0A8E05AE2E996D7F00A36852 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8E05AD2E996D7F00A36852 /* AVFoundation.framework */; };
 		0A8E05B22E996F9500A36852 /* FMWaveForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8E05B12E996F9500A36852 /* FMWaveForm.m */; };
@@ -368,6 +370,8 @@
 		0A7FB3232C33345B00F50618 /* FMURLConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMURLConnectionDelegate.m; sourceTree = "<group>"; };
 		0A8BD5502EA8BC3E00006616 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		0A8BD5532EC1DB1100006616 /* Engage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Engage.mp3; path = ../../20200307_20200307_1336/Engage.mp3; sourceTree = "<group>"; };
+		0A8BD5552ECCB06D00006616 /* BasicVertexShader.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = BasicVertexShader.vs; sourceTree = "<group>"; };
+		0A8BD5562ECCB06D00006616 /* YellowFragmentShader.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = YellowFragmentShader.fs; sourceTree = "<group>"; };
 		0A8E05AB2E996B7800A36852 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
 		0A8E05AD2E996D7F00A36852 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		0A8E05B02E996F9500A36852 /* FMWaveForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMWaveForm.h; sourceTree = "<group>"; };
@@ -725,6 +729,8 @@
 		0A2F2C0B2E292E4100755D69 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0A8BD5552ECCB06D00006616 /* BasicVertexShader.vs */,
+				0A8BD5562ECCB06D00006616 /* YellowFragmentShader.fs */,
 				0ADCA4A02E9C0506007DAA07 /* VertexShader.glsl */,
 				0ADCA4A12E9C0506007DAA07 /* FragmentShader.glsl */,
 				0A2F2C0C2E292E4100755D69 /* FoxMusicDesktop-Info.plist */,
@@ -1465,6 +1471,8 @@
 				0A8E05C22E9AB37900A36852 /* FMDTrackTableViewDelegate.m in Sources */,
 				0A8E05C72E9AF45100A36852 /* FMDTrackTableItem.m in Sources */,
 				0A8E05CA2E9AFA6100A36852 /* FMTrackStore.m in Sources */,
+				0A8BD5572ECCB06D00006616 /* BasicVertexShader.vs in Sources */,
+				0A8BD5582ECCB06D00006616 /* YellowFragmentShader.fs in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

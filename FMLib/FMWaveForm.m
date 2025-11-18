@@ -217,10 +217,10 @@ struct Sample {
     rect.origin.x = 0;
     rect.origin.y = 0;
 
-    CGColorRef leftcolor = [[UIColor whiteColor] CGColor];
-    CGColorRef rightcolor = [[UIColor redColor] CGColor];
-//    CGColorRef leftcolor = CGColorCreateGenericRGB(255, 255, 255, 255);
-//    CGColorRef rightcolor = CGColorCreateGenericRGB(255, 0, 0, 255);
+//    CGColorRef leftcolor = [[UIColor whiteColor] CGColor];
+//    CGColorRef rightcolor = [[UIColor redColor] CGColor];
+    CGColorRef leftcolor = CGColorCreateGenericRGB(255, 255, 255, 255);
+    CGColorRef rightcolor = CGColorCreateGenericRGB(255, 0, 0, 255);
 
     CGContextFillRect(context, rect);
 
