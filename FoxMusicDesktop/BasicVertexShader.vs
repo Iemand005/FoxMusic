@@ -1,3 +1,5 @@
+#version 330
+
 void main()
 {
 //	gl_FrontColor = gl_Color;
