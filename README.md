@@ -1,4 +1,7 @@
 # FoxMusic
+
+![image](foxmusic.png)
+
 Music client for Legacy iOS
 
 Now with iPad support!
